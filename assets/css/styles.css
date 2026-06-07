@@ -1,0 +1,381 @@
+/* ==========================================================================
+   LUNTRAE — feuille de styles
+   Direction artistique : observatoire nocturne au bord de l'eau.
+   Sobre, élégant, nocturne, humain. Mouvement doux.
+   Charte v1 : couleurs, typographies et halo de lune respectés strictement.
+   ========================================================================== */
+
+/* --- Polices auto-hébergées (aucune requête vers un tiers) -------------- */
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/cormorant-garamond-400.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:500;font-display:swap;src:url("../fonts/cormorant-garamond-500.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:600;font-display:swap;src:url("../fonts/cormorant-garamond-600.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:400;font-display:swap;src:url("../fonts/cormorant-garamond-400-italic.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:500;font-display:swap;src:url("../fonts/cormorant-garamond-500-italic.woff2") format("woff2")}
+@font-face{font-family:"Spectral";font-style:normal;font-weight:300;font-display:swap;src:url("../fonts/spectral-300.woff2") format("woff2")}
+@font-face{font-family:"Spectral";font-style:normal;font-weight:400;font-display:swap;src:url("../fonts/spectral-400.woff2") format("woff2")}
+@font-face{font-family:"Spectral";font-style:normal;font-weight:500;font-display:swap;src:url("../fonts/spectral-500.woff2") format("woff2")}
+@font-face{font-family:"Spectral";font-style:italic;font-weight:400;font-display:swap;src:url("../fonts/spectral-400-italic.woff2") format("woff2")}
+
+/* --- Variables de la charte -------------------------------------------- */
+:root{
+  --obs:#101820;        /* Obsidienne bleutée — fond */
+  --obs-2:#16212c;      /* panneaux */
+  --obs-3:#1c2935;      /* panneaux survolés */
+  --bronze:#8A6A4A;     /* Bronze humide — traits/accents */
+  --bronze-br:#b6905f;  /* bronze clair — liens/titres lisibles */
+  --lunaire:#E8ECEF;    /* Blanc lunaire — texte fort */
+  --lunaire-dim:#c4ccd1;/* texte courant (lisibilité garantie) */
+  --maree:#6E7C86;      /* Gris marée — texte secondaire */
+  --mousse:#4F5F57;     /* Vert mousse — labels discrets (jamais pour du corps) */
+  --line:rgba(182,144,95,.26);
+  --line-soft:rgba(232,236,239,.09);
+  --glow:rgba(182,144,95,.16);   /* halo doux pour ombrages bronze */
+  --header-h:68px;
+}
+
+/* --- Réinitialisation ------------------------------------------------- */
+*{margin:0;padding:0;box-sizing:border-box}
+html{
+  scroll-behavior:smooth;
+  /* décalage pour que l'ancre ne passe pas sous le header collant */
+  scroll-padding-top:calc(var(--header-h) + 1.4rem);
+}
+body{
+  background:var(--obs);color:var(--lunaire-dim);
+  font-family:"Spectral",Georgia,serif;font-weight:300;font-size:1.06rem;line-height:1.75;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;
+}
+
+/* Halo de lune — radial bronze en haut à droite. Pilotable en parallaxe
+   via les variables --hx/--hy mises à jour par main.js (souris + scroll). */
+body::before{
+  content:"";position:fixed;top:-20vmax;right:-14vmax;width:58vmax;height:58vmax;border-radius:50%;
+  background:radial-gradient(circle,rgba(182,144,95,.18),rgba(182,144,95,.06) 38%,transparent 64%);
+  pointer-events:none;z-index:0;
+  transform:translate3d(var(--hx,0px),var(--hy,0px),0);
+  transition:transform .6s cubic-bezier(.2,.7,.2,1);
+  will-change:transform;
+}
+/* Grain léger pour l'effet « archive du futur » */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+}
+.wrap{max-width:1100px;margin:0 auto;padding:0 7vw;position:relative;z-index:2}
+
+/* Accessibilité — focus clavier visible et homogène partout */
+:focus-visible{
+  outline:2px solid var(--bronze-br);
+  outline-offset:3px;
+  border-radius:3px;
+}
+/* lien d'évitement pour le clavier / lecteurs d'écran */
+.skip-link{
+  position:absolute;left:-999px;top:0;z-index:100;
+  background:var(--obs-2);color:var(--bronze-br);border:1px solid var(--line);
+  padding:.7rem 1.2rem;border-radius:4px;font-family:"Cormorant Garamond",serif;letter-spacing:.06em;
+}
+.skip-link:focus{left:1rem;top:1rem}
+
+/* --- Barre de progression de lecture (fine ligne bronze en haut) ------ */
+.scroll-progress{
+  position:fixed;top:0;left:0;height:2px;width:100%;z-index:60;
+  transform:scaleX(0);transform-origin:left;
+  background:linear-gradient(90deg,var(--bronze),var(--bronze-br));
+  pointer-events:none;
+}
+
+/* --- Header collant --------------------------------------------------- */
+header.bar{
+  position:sticky;top:0;z-index:40;backdrop-filter:blur(10px);
+  background:rgba(16,24,32,.74);border-bottom:1px solid var(--line-soft);
+  transition:background .4s ease,border-color .4s ease;
+}
+/* condensation discrète au défilement */
+header.bar.scrolled{background:rgba(16,24,32,.92);border-bottom-color:var(--line)}
+header.bar.scrolled .wrap{height:56px}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:var(--header-h);transition:height .4s ease}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.brand img{height:34px;width:auto;display:block;transition:transform .5s ease}
+.brand:hover img{transform:rotate(-4deg) scale(1.04)}
+.brand span{
+  font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.2rem;
+  letter-spacing:.34em;color:var(--bronze-br);padding-left:.1em;
+}
+
+/* Navigation ancrée */
+nav.links{display:flex;gap:1.7rem}
+nav.links a{
+  position:relative;color:var(--maree);text-decoration:none;font-family:"Cormorant Garamond",serif;
+  font-size:1.02rem;letter-spacing:.12em;text-transform:uppercase;transition:color .3s;padding:.2rem 0;
+}
+/* soulignement animé + état actif (scrollspy) */
+nav.links a::after{
+  content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;
+  background:var(--bronze-br);transform:scaleX(0);transform-origin:center;transition:transform .35s ease;
+}
+nav.links a:hover{color:var(--bronze-br)}
+nav.links a:hover::after,
+nav.links a.active::after{transform:scaleX(1)}
+nav.links a.active{color:var(--bronze-br)}
+
+/* Bouton burger (mobile) */
+.burger{
+  display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;
+  padding:10px;position:relative;z-index:50;
+}
+.burger span{
+  display:block;height:1.5px;width:100%;background:var(--bronze-br);border-radius:2px;
+  transition:transform .35s ease,opacity .25s ease;
+}
+.burger span+span{margin-top:6px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* --- HERO — horizontal ------------------------------------------------ */
+.hero{
+  display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);
+  align-items:center;padding:9vh 0 8vh;
+}
+.hero .left{text-align:center;opacity:0;animation:fade 1.4s .1s forwards}
+.hero .logo{
+  width:100%;max-width:300px;height:auto;margin:0 auto;display:block;
+  animation:float 9s ease-in-out 1.6s infinite;
+}
+.hero .mantra{
+  font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--bronze-br);
+  font-size:1.15rem;letter-spacing:.04em;margin-top:1.4rem;
+}
+.hero .right{opacity:0;animation:rise 1s .55s forwards}
+.hero h1{
+  font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--lunaire);
+  font-size:clamp(2rem,4.6vw,3.5rem);line-height:1.14;letter-spacing:.005em;max-width:22ch;
+}
+.hero h1 em{font-style:italic;color:var(--bronze-br)}
+.hero .who{
+  margin-top:1.3rem;font-family:"Cormorant Garamond",serif;font-size:1.2rem;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--maree);
+}
+.hero .intro{margin-top:1.6rem;color:var(--lunaire-dim);font-size:1.05rem;max-width:56ch}
+.hero .intro b{color:var(--lunaire);font-weight:500}
+
+/* --- Sections génériques --------------------------------------------- */
+section{padding:8vh 0;position:relative}
+.sec-head{display:flex;align-items:center;gap:1.1rem;margin-bottom:3.2rem}
+.sec-head .crescent{color:var(--bronze);font-size:1.3rem;display:inline-block}
+.sec-head h2{
+  font-family:"Cormorant Garamond",serif;font-weight:500;
+  font-size:clamp(1.7rem,4vw,2.7rem);color:var(--lunaire);letter-spacing:.12em;text-transform:uppercase;
+}
+.sec-head .rule{flex:1;height:1px;background:var(--line);transform:scaleX(0);transform-origin:left;transition:transform 1.1s ease .15s}
+.sec-head.in .rule{transform:scaleX(1)}
+.sec-head.in .crescent{animation:lune 1.2s ease}
+
+/* Approche — 3 piliers */
+.approach{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4rem}
+.pillar{border-top:1px solid var(--line);padding-top:1.2rem;
+  opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.pillar.in{opacity:1;transform:none}
+.pillar h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.5rem;
+  color:var(--bronze-br);margin-bottom:.5rem}
+.pillar p{font-size:1rem;color:var(--lunaire-dim)}
+
+/* Bandeau mantra */
+.band{text-align:center;padding:5vh 0}
+.band p{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.5rem,3.4vw,2.2rem);
+  color:var(--bronze-br);letter-spacing:.03em}
+
+/* --- Projets ---------------------------------------------------------- */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+.grid .fiche.wide{grid-column:1 / -1}
+.fiche{
+  background:linear-gradient(180deg,var(--obs-2),rgba(22,33,44,.5));
+  border:1px solid var(--line-soft);border-radius:4px;
+  padding:clamp(1.6rem,3.4vw,2.4rem);position:relative;overflow:hidden;
+  opacity:0;transform:translateY(26px);
+  transition:opacity .8s ease,transform .8s ease,border-color .4s ease,box-shadow .4s ease;
+}
+.fiche.in{opacity:1;transform:none}
+.fiche:hover{
+  border-color:var(--line);
+  transform:translateY(-5px);
+  box-shadow:0 18px 40px -24px rgba(0,0,0,.7),0 0 0 1px var(--line);
+}
+/* lueur qui suit le curseur sur la fiche (variables posées par main.js) */
+.fiche::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s ease;
+  background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),var(--glow),transparent 60%);
+}
+.fiche:hover::after{opacity:1}
+.fiche::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--bronze);
+  transform:scaleY(0);transform-origin:top;transition:transform .9s .15s ease;
+}
+.fiche.in::before{transform:scaleY(1)}
+.fiche .num{position:absolute;top:1rem;right:1.3rem;font-family:"Cormorant Garamond",serif;
+  font-size:clamp(2.4rem,5vw,3.4rem);color:var(--bronze);opacity:.16;line-height:1}
+.fiche .kicker{font-family:"Cormorant Garamond",serif;font-size:.92rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--bronze-br);margin-bottom:.5rem}
+.fiche h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(1.7rem,3.4vw,2.3rem);
+  color:var(--lunaire);line-height:1.06;margin-bottom:.2rem;max-width:16ch}
+.fiche .def{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.05rem,1.9vw,1.25rem);
+  color:var(--lunaire);line-height:1.5;margin:.9rem 0 1.4rem;font-weight:400}
+.fiche .role{display:inline-block;font-size:.86rem;letter-spacing:.03em;color:var(--maree);
+  border:1px solid var(--line);border-radius:50px;padding:.3rem 1rem;margin-bottom:1.5rem}
+.fiche .role b{color:var(--bronze-br);font-weight:500}
+.lbl{font-family:"Cormorant Garamond",serif;font-size:.88rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--mousse);margin-bottom:.8rem;display:block}
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:.35rem 1.6rem;margin-bottom:1.6rem;list-style:none}
+.skills li{font-size:.95rem;color:var(--lunaire-dim);padding-left:1.1rem;position:relative}
+.skills li::before{content:"";position:absolute;left:0;top:.7em;width:5px;height:5px;
+  background:var(--bronze);border-radius:50%}
+.tags{display:flex;flex-wrap:wrap;gap:.45rem}
+.tag{font-size:.8rem;letter-spacing:.02em;color:var(--bronze-br);
+  border:1px solid var(--line);border-radius:50px;padding:.3rem .8rem;transition:all .3s}
+.tag:hover{background:var(--bronze);color:var(--obs);border-color:var(--bronze)}
+
+/* --- Réflexions ------------------------------------------------------- */
+.reflect{border-left:2px solid var(--bronze);padding-left:clamp(1.4rem,4vw,2.6rem);max-width:64ch;
+  opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+.reflect.in{opacity:1;transform:none}
+.reflect .q{font-family:"Cormorant Garamond",serif;font-style:italic;
+  font-size:clamp(1.4rem,3vw,2rem);color:var(--lunaire);line-height:1.4;margin-bottom:1.4rem}
+.reflect p{color:var(--lunaire-dim)}
+.reflect .sig{margin-top:1.3rem;font-family:"Cormorant Garamond",serif;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--mousse);font-size:.9rem}
+
+/* --- Parcours --------------------------------------------------------- */
+.timeline{column-count:2;column-gap:3rem}
+.tl{break-inside:avoid;padding:1.1rem 0;border-bottom:1px solid var(--line-soft);
+  opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.tl.in{opacity:1;transform:none}
+.tl .yr{font-family:"Cormorant Garamond",serif;color:var(--bronze-br);font-size:1.15rem;
+  letter-spacing:.04em;display:block;margin-bottom:.15rem}
+.tl b{color:var(--lunaire);font-weight:500;font-size:1.1rem;font-family:"Cormorant Garamond",serif}
+.tl .place{color:var(--maree);font-size:.93rem}
+.tl .comp{margin-top:.4rem;color:var(--lunaire-dim);font-size:.9rem}
+.tl .comp span{color:var(--bronze-br)}
+.langs{margin-top:2.2rem;font-size:.96rem;color:var(--maree)}
+.langs b{color:var(--lunaire);font-weight:500}
+
+/* --- Univers personnel ------------------------------------------------ */
+.univers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.u-card{background:var(--obs-2);border:1px solid var(--line-soft);border-radius:4px;padding:1.7rem 1.6rem;
+  opacity:0;transform:translateY(20px);
+  transition:opacity .7s ease,transform .7s ease,border-color .4s ease,background .4s ease}
+.u-card.in{opacity:1;transform:none}
+.u-card:hover{border-color:var(--line);background:var(--obs-3)}
+.u-card h3{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--bronze-br);
+  font-size:1.35rem;margin-bottom:.5rem}
+.u-card p{font-size:.96rem;color:var(--lunaire-dim)}
+
+/* --- Contact — bloc unique centré ------------------------------------ */
+.contact{padding:11vh 0 4vh}
+.contact-inner{max-width:46ch;margin:0 auto;text-align:center}
+.contact-inner .crescent{display:block;color:var(--bronze);font-size:1.4rem;margin-bottom:.6rem}
+.contact-inner h2{font-family:"Cormorant Garamond",serif;font-weight:500;
+  font-size:clamp(1.9rem,4.4vw,2.8rem);color:var(--lunaire);margin-bottom:.8rem}
+.contact-inner p{color:var(--lunaire-dim);margin-bottom:1.6rem}
+.contact-inner .tiny{margin-top:1.4rem;font-size:.85rem;color:var(--mousse)}
+.cta{display:inline-block;text-decoration:none;font-family:"Cormorant Garamond",serif;font-size:1.08rem;
+  letter-spacing:.06em;padding:.85rem 1.8rem;border-radius:50px;transition:all .35s;
+  background:var(--bronze);color:var(--obs);font-weight:500}
+.cta:hover{background:var(--bronze-br);transform:translateY(-2px);box-shadow:0 12px 26px -16px var(--bronze)}
+/* Bouton secondaire « fantôme » — téléchargement / consultation du CV */
+.hero-actions{margin-top:2rem}
+.cta-ghost{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;
+  font-family:"Cormorant Garamond",serif;font-size:1.05rem;letter-spacing:.06em;color:var(--bronze-br);
+  border:1px solid var(--line);border-radius:50px;padding:.7rem 1.6rem;
+  transition:border-color .3s,background .3s,color .3s,transform .2s}
+.cta-ghost:hover{border-color:var(--bronze-br);background:var(--obs-2);color:var(--lunaire);transform:translateY(-2px)}
+.cta-ghost:focus-visible{outline:2px solid var(--bronze-br);outline-offset:3px}
+/* dans le bloc Contact centré : sous le bouton e-mail, centré sur sa propre ligne */
+.contact-inner .cta-ghost{display:flex;width:fit-content;margin-left:auto;margin-right:auto}
+
+/* --- Bouton « haut de page » ----------------------------------------- */
+.to-top{
+  position:fixed;right:clamp(1rem,4vw,2.4rem);bottom:clamp(1rem,4vw,2.4rem);z-index:45;
+  width:48px;height:48px;border-radius:50%;cursor:pointer;
+  background:rgba(22,33,44,.85);border:1px solid var(--line);color:var(--bronze-br);
+  font-size:1.3rem;line-height:1;backdrop-filter:blur(6px);
+  display:grid;place-items:center;
+  opacity:0;visibility:hidden;transform:translateY(12px);
+  transition:opacity .4s ease,transform .4s ease,visibility .4s,background .3s;
+}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{background:var(--obs-3);color:var(--lunaire)}
+
+/* --- Footer ----------------------------------------------------------- */
+footer{border-top:1px solid var(--line-soft);padding:3.4rem 0;text-align:center;margin-top:5vh}
+footer img{height:44px;width:auto;opacity:.9;margin-bottom:1rem}
+footer .fm{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--bronze-br);
+  font-size:1.1rem;margin-bottom:.6rem}
+footer small{color:var(--mousse);font-size:.82rem;letter-spacing:.08em}
+footer .legal{margin-top:.7rem}
+footer .legal a{color:var(--maree);text-decoration:none;font-size:.82rem;letter-spacing:.06em;transition:color .3s}
+footer .legal a:hover{color:var(--bronze-br)}
+/* Compteur de visites — discret, à la charte */
+footer .visits{margin-top:.9rem;font-size:.78rem;letter-spacing:.14em;color:var(--mousse)}
+footer .visits span{color:var(--bronze-br)}
+footer .visits[hidden]{display:none}
+
+/* --- Page intérieure (confidentialité) ------------------------------- */
+.page{padding:7vh 0 4vh;max-width:70ch}
+.page h1{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--lunaire);
+  font-size:clamp(2rem,5vw,3rem);letter-spacing:.04em;margin-bottom:1.4rem}
+.page h2{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--bronze-br);
+  font-size:1.5rem;letter-spacing:.04em;margin:2.2rem 0 .6rem}
+.page p,.page li{color:var(--lunaire-dim)}
+.page ul{margin:.4rem 0 .4rem 1.2rem}
+.page a{color:var(--bronze-br);text-decoration:underline;text-underline-offset:2px}
+.back-home{display:inline-block;margin-top:2.4rem;font-family:"Cormorant Garamond",serif;
+  letter-spacing:.06em;color:var(--maree);text-decoration:none}
+.back-home:hover{color:var(--bronze-br)}
+
+/* --- Animations ------------------------------------------------------- */
+@keyframes rise{to{opacity:1;transform:translateY(0)}}
+@keyframes fade{to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes lune{0%{transform:rotate(-25deg) scale(.7);opacity:0}100%{transform:none;opacity:1}}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+@media(max-width:820px){
+  .hero{grid-template-columns:1fr;text-align:center;gap:2.4rem;padding-top:7vh}
+  .hero h1,.hero .intro{margin-left:auto;margin-right:auto}
+  .hero .who{letter-spacing:.16em}
+
+  /* Menu mobile : la nav devient un panneau déroulant sous le header */
+  .burger{display:block}
+  nav.links{
+    position:fixed;top:var(--header-h);left:0;right:0;
+    flex-direction:column;gap:0;align-items:stretch;
+    background:rgba(16,24,32,.97);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+    padding:.5rem 7vw 1.4rem;
+    transform:translateY(-130%);transition:transform .4s cubic-bezier(.2,.7,.2,1);
+    box-shadow:0 24px 40px -28px rgba(0,0,0,.9);
+  }
+  nav.links.open{transform:translateY(0)}
+  nav.links a{padding:.95rem 0;border-bottom:1px solid var(--line-soft);font-size:1.1rem}
+  nav.links a::after{display:none}
+  .bar .wrap{height:60px}
+}
+@media(max-width:780px){
+  .approach{grid-template-columns:1fr;gap:1.8rem}
+  .timeline{column-count:1}
+  .univers{grid-template-columns:1fr}
+}
+@media(max-width:520px){.skills{grid-template-columns:1fr}}
+
+/* --- Préférence « mouvement réduit » ---------------------------------- */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .fiche,.tl,.hero .left,.hero .right,.pillar,.u-card,.reflect{opacity:1!important;transform:none!important}
+  .sec-head .rule{transform:scaleX(1)!important}
+  body::before{transform:none!important}
+}

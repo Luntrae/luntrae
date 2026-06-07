@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+# Le CV reste accessible par lien direct, mais on évite son indexation isolée
+Disallow: /assets/cv/
+
+Sitemap: https://luntrae.fr/sitemap.xml
