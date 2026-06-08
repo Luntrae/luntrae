@@ -15,23 +15,53 @@
 
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* --- 1. Reveals au scroll ------------------------------------------- */
-  // On observe tous les blocs animés ; une fois visibles, ils restent affichés.
+  /* --- 1. Reveals au scroll (rejoués à la DESCENTE, instantanés à la MONTÉE) --- */
   const revealables = document.querySelectorAll(
     ".fiche, .tl, .pillar, .u-card, .reflect, .sec-head"
   );
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add("in");
-          io.unobserve(e.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-  );
-  revealables.forEach((el) => io.observe(el));
+
+  if (prefersReduced) {
+    // Mouvement réduit : tout en état final, aucune animation.
+    revealables.forEach((el) => el.classList.add("in"));
+  } else {
+    // On suit le sens du scroll pour ne rejouer qu'en descendant.
+    let lastY = window.scrollY;
+    let dir = "down";
+    window.addEventListener(
+      "scroll",
+      () => {
+        const y = window.scrollY;
+        if (y !== lastY) dir = y > lastY ? "down" : "up";
+        lastY = y;
+      },
+      { passive: true }
+    );
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((en) => {
+          const el = en.target;
+          if (en.isIntersecting) {
+            if (dir === "down") {
+              // descente → on rejoue (reflow forcé pour redémarrer la transition)
+              el.classList.remove("in");
+              void el.offsetWidth;
+              el.classList.add("in");
+            } else {
+              // montée → apparition instantanée, sans animation
+              el.classList.add("no-anim", "in");
+              requestAnimationFrame(() => el.classList.remove("no-anim"));
+            }
+          } else {
+            // sorti de l'écran → on réarme pour la prochaine descente
+            el.classList.remove("in", "no-anim");
+          }
+        });
+      },
+      { threshold: 0.14 }
+    );
+    revealables.forEach((el) => io.observe(el));
+  }
 
   /* --- 2. Scrollspy : lien de nav actif ------------------------------- */
   const sections = document.querySelectorAll("section[id]");
@@ -130,13 +160,13 @@
     );
   }
 
-  /* --- 7. Lueur des fiches qui suit le curseur ------------------------ */
+  /* --- 7. Lueur des fiches qui suit le curseur (coordonnées RELATIVES à la carte) --- */
   if (!prefersReduced && window.matchMedia("(pointer:fine)").matches) {
     document.querySelectorAll(".fiche").forEach((fiche) => {
       fiche.addEventListener("mousemove", (e) => {
         const r = fiche.getBoundingClientRect();
-        fiche.style.setProperty("--mx", ((e.clientX - r.left) / r.width) * 100 + "%");
-        fiche.style.setProperty("--my", ((e.clientY - r.top) / r.height) * 100 + "%");
+        fiche.style.setProperty("--mx", e.clientX - r.left + "px");
+        fiche.style.setProperty("--my", e.clientY - r.top + "px");
       });
     });
   }

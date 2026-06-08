@@ -52,13 +52,15 @@ body::before{
   content:"";position:fixed;top:-20vmax;right:-14vmax;width:58vmax;height:58vmax;border-radius:50%;
   background:radial-gradient(circle,rgba(182,144,95,.18),rgba(182,144,95,.06) 38%,transparent 64%);
   pointer-events:none;z-index:0;
+  /* parallaxe : on n'anime QUE cette couche décorative (jamais un conteneur de texte).
+     Pas de will-change permanent (évite une couche GPU qui rend les textes flous sur Chrome/Windows). */
   transform:translate3d(var(--hx,0px),var(--hy,0px),0);
   transition:transform .6s cubic-bezier(.2,.7,.2,1);
-  will-change:transform;
 }
-/* Grain léger pour l'effet « archive du futur » */
+/* Grain léger pour l'effet « archive du futur » — opacité réduite pour ne pas
+   altérer la netteté perçue du texte (cf. correctif lisibilité). */
 body::after{
-  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;mix-blend-mode:overlay;
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.28;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
 }
 .wrap{max-width:1100px;margin:0 auto;padding:0 7vw;position:relative;z-index:2}
@@ -94,8 +96,8 @@ header.bar{
 /* condensation discrète au défilement */
 header.bar.scrolled{background:rgba(16,24,32,.92);border-bottom-color:var(--line)}
 header.bar.scrolled .wrap{height:56px}
-.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:var(--header-h);transition:height .4s ease}
-.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:2.5rem;height:var(--header-h);transition:height .4s ease}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;margin-right:auto}
 .brand img{height:34px;width:auto;display:block;transition:transform .5s ease}
 .brand:hover img{transform:rotate(-4deg) scale(1.04)}
 .brand span{
@@ -104,7 +106,7 @@ header.bar.scrolled .wrap{height:56px}
 }
 
 /* Navigation ancrée */
-nav.links{display:flex;gap:1.7rem}
+nav.links{display:flex;gap:1.8rem}
 nav.links a{
   position:relative;color:var(--maree);text-decoration:none;font-family:"Cormorant Garamond",serif;
   font-size:1.02rem;letter-spacing:.12em;text-transform:uppercase;transition:color .3s;padding:.2rem 0;
@@ -202,17 +204,21 @@ section{padding:8vh 0;position:relative}
   transform:translateY(-5px);
   box-shadow:0 18px 40px -24px rgba(0,0,0,.7),0 0 0 1px var(--line);
 }
-/* lueur qui suit le curseur sur la fiche (variables posées par main.js) */
+/* Lueur qui suit le curseur — couche DERRIÈRE le contenu (z-index:0),
+   sans filtre (n'altère pas la netteté du texte). Coordonnées posées par main.js. */
 .fiche::after{
-  content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s ease;
-  background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),var(--glow),transparent 60%);
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;z-index:0;
+  opacity:0;transition:opacity .35s ease;
+  background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),rgba(182,144,95,.16),transparent 60%);
 }
 .fiche:hover::after{opacity:1}
 .fiche::before{
-  content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--bronze);
+  content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--bronze);z-index:1;
   transform:scaleY(0);transform-origin:top;transition:transform .9s .15s ease;
 }
 .fiche.in::before{transform:scaleY(1)}
+/* le contenu de la carte reste au-dessus du halo (.num garde sa position absolue) */
+.fiche > *{position:relative;z-index:1}
 .fiche .num{position:absolute;top:1rem;right:1.3rem;font-family:"Cormorant Garamond",serif;
   font-size:clamp(2.4rem,5vw,3.4rem);color:var(--bronze);opacity:.16;line-height:1}
 .fiche .kicker{font-family:"Cormorant Garamond",serif;font-size:.92rem;letter-spacing:.2em;
@@ -334,6 +340,8 @@ footer .visits[hidden]{display:none}
 .back-home:hover{color:var(--bronze-br)}
 
 /* --- Animations ------------------------------------------------------- */
+/* Apparition instantanée (utilisée à la remontée : pas de ré-animation) */
+.no-anim, .no-anim *{transition:none !important;animation:none !important}
 @keyframes rise{to{opacity:1;transform:translateY(0)}}
 @keyframes fade{to{opacity:1}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
