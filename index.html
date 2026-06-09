@@ -93,9 +93,17 @@
       <p class="who">Camille Sauton · stratège augmentée par l'IA</p>
       <p class="intro">Master en communication digitale, au service d'une grande association de protection de la nature depuis 2018. Je travaille là où trois métiers se croisent rarement : <b>la stratégie, la conception numérique et le développement</b>. Je ne me contente pas d'avoir des idées — je les structure, je les chiffre, et je sais bâtir les outils qui les portent. LUNTRAE est l'écosystème où je rassemble ces explorations.</p>
       <div class="hero-actions">
+        <!-- Consultation du CV (ouverture dans un onglet) — événement « cv-consultation » -->
         <a class="cta-ghost" href="assets/cv/CV-Camille-Sauton.pdf" target="_blank" rel="noopener"
-           aria-label="Voir mon CV au format PDF (nouvel onglet)">
+           aria-label="Voir mon CV au format PDF (nouvel onglet)"
+           onclick="window.goatcounter&&window.goatcounter.count({path:'cv-consultation',title:'CV consulté',event:true})">
           Voir mon CV <span aria-hidden="true">· PDF ↗</span>
+        </a>
+        <!-- Téléchargement du CV (attribut download) — événement « cv-telechargement » -->
+        <a class="cta-ghost" href="assets/cv/CV-Camille-Sauton.pdf" download
+           aria-label="Télécharger mon CV au format PDF"
+           onclick="window.goatcounter&&window.goatcounter.count({path:'cv-telechargement',title:'CV téléchargé',event:true})">
+          Télécharger <span aria-hidden="true">· PDF ⤓</span>
         </a>
       </div>
     </div>
@@ -257,9 +265,16 @@
       <h2>Écrivons-nous.</h2>
       <p>Une idée à creuser, une curiosité, une envie d'échanger ? La porte est ouverte — écrivez-moi, simplement pour discuter.</p>
       <a class="cta" href="mailto:luntrae@proton.me">luntrae@proton.me</a>
+      <!-- Consultation du CV — événement « cv-consultation » -->
       <a class="cta-ghost" href="assets/cv/CV-Camille-Sauton.pdf" target="_blank" rel="noopener"
          aria-label="Voir mon CV au format PDF (nouvel onglet)"
-         style="margin-top:1rem">Voir mon CV <span aria-hidden="true">· PDF ↗</span></a>
+         style="margin-top:1rem"
+         onclick="window.goatcounter&&window.goatcounter.count({path:'cv-consultation',title:'CV consulté',event:true})">Voir mon CV <span aria-hidden="true">· PDF ↗</span></a>
+      <!-- Téléchargement du CV — événement « cv-telechargement » -->
+      <a class="cta-ghost" href="assets/cv/CV-Camille-Sauton.pdf" download
+         aria-label="Télécharger mon CV au format PDF"
+         style="margin-top:.7rem"
+         onclick="window.goatcounter&&window.goatcounter.count({path:'cv-telechargement',title:'CV téléchargé',event:true})">Télécharger <span aria-hidden="true">· PDF ⤓</span></a>
       <p class="tiny">LUNTRAE n'est pas une entreprise : un projet personnel, un écosystème d'explorations digitales.</p>
     </div>
   </section>
@@ -280,5 +295,9 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE) — cf. Confidentialité.
+     ⚠ Remplacer VOTRE-CODE par le code de site GoatCounter (ex. « luntrae » dans luntrae.goatcounter.com). -->
+<script data-goatcounter="https://luntrae.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
