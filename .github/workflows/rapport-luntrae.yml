@@ -1,0 +1,27 @@
+# Rapport quotidien LUNTRAE
+# Lit les statistiques de la veille via l'API GoatCounter, puis envoie un e-mail de synthèse via Brevo.
+# Aucun secret n'est écrit en clair : tout passe par les secrets chiffrés du dépôt (Settings → Secrets).
+
+name: Rapport quotidien LUNTRAE
+
+on:
+  schedule:
+    - cron: '0 6 * * *'      # ~08h00 à Paris l'été (le planificateur GitHub est en UTC et peut être légèrement décalé)
+  workflow_dispatch:          # autorise aussi un lancement manuel (bouton « Run workflow ») pour tester
+
+jobs:
+  rapport:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Générer et envoyer le rapport quotidien
+        env:
+          GOATCOUNTER_SITE:  ${{ secrets.GOATCOUNTER_SITE }}    # code de site, sans « .goatcounter.com » (ex. « luntrae »)
+          GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}   # jeton API GoatCounter (lecture des statistiques)
+          BREVO_API_KEY:     ${{ secrets.BREVO_API_KEY }}       # clé API Brevo
+          REPORT_TO:         ${{ secrets.REPORT_TO }}           # destinataire (luntrae@proton.me)
+          REPORT_FROM:       ${{ secrets.REPORT_FROM }}         # expéditeur validé dans Brevo
+        run: node .github/scripts/rapport.mjs
