@@ -8,57 +8,72 @@
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#101820">
 <link rel="canonical" href="https://luntrae.fr/confidentialite.html">
-<link rel="icon" type="image/png" href="assets/img/LUNTRAE_icone_bronze_fond-sombre.png">
-<link rel="apple-touch-icon" href="assets/img/icon-192.png">
-<!-- Polices auto-hébergées (aucune requête vers un tiers, via @font-face dans styles.css) -->
-<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/spectral-400.woff2">
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" type="image/png" href="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/spectral-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-500.woff2">
+<link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
 
-<a class="skip-link" href="#contenu">Aller au contenu</a>
+<a class="skip-link" href="#top">Aller au contenu</a>
+<div class="scroll-progress" aria-hidden="true"></div>
 
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="index.html" aria-label="LUNTRAE — accueil">
-      <img src="assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="" width="34" height="33">
+    <a class="brand" href="/" aria-label="LUNTRAE — accueil">
+      <img src="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="" width="34" height="33">
       <span>LUNTRAE</span>
     </a>
-    <nav class="links" aria-label="Navigation principale">
-      <a href="index.html#projets">Projets</a>
-      <a href="index.html#parcours">Parcours</a>
-      <a href="index.html#contact">Contact</a>
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="links" id="nav-links" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/projets/">Projets</a>
+      <a href="/series/">Séries</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="/#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<div class="wrap">
-  <article class="page" id="contenu">
-    <h1>Confidentialité</h1>
-    <p>LUNTRAE est un projet personnel de Camille Sauton, et non une entreprise. Cette page explique ce qu'il advient de vos données sur ce site — c'est-à-dire très peu de choses.</p>
+<main id="top">
+  <div class="wrap">
+    <article class="page">
+      <h1>Confidentialité</h1>
+      <p>LUNTRAE est un projet personnel de Camille Sauton, et non une entreprise. Cette page explique ce qu'il advient de vos données sur ce site, c'est-à-dire très peu de choses.</p>
 
-    <h2>Une mesure d'audience minimale, sans cookie</h2>
-    <p>Ce site utilise une mesure d'audience <b>respectueuse de la vie privée</b>, via l'outil libre <b>GoatCounter</b>. Elle fonctionne <b>sans cookie</b>, <b>sans identifiant publicitaire</b> et <b>sans aucun stockage sur votre navigateur</b> (ni cookie, ni localStorage). Il n'y a <b>ni profilage, ni suivi d'un site à l'autre</b>, et aucune donnée n'est revendue ni partagée à des fins commerciales. Les polices de caractères restent, elles, <b>hébergées sur le site lui-même</b>.</p>
-    <p>Les seules informations recueillies sont <b>agrégées et anonymes</b> : le nombre de visites de la page d'accueil (ainsi que des pages introuvables, pour repérer d'éventuels liens cassés), le <b>pays</b> d'origine (au niveau pays uniquement) et le nombre de <b>consultations et de téléchargements du CV</b>. Votre adresse IP n'est <b>pas conservée</b> : elle sert uniquement, de façon transitoire, à déduire le pays, puis elle est écartée. Les données sont hébergées <b>en Europe</b> (Allemagne et Finlande). Ces statistiques permettent seulement à l'éditrice de suivre, en synthèse, l'activité du site.</p>
+      <h2>Une mesure d'audience minimale, sans cookie</h2>
+      <p>Ce site utilise une mesure d'audience <b>respectueuse de la vie privée</b>, via l'outil libre <b>GoatCounter</b>. Elle fonctionne <b>sans cookie</b>, <b>sans identifiant publicitaire</b> et <b>sans aucun stockage sur votre navigateur</b> (ni cookie, ni localStorage). Il n'y a <b>ni profilage, ni suivi d'un site à l'autre</b>, et aucune donnée n'est revendue ni partagée à des fins commerciales. Les polices de caractères restent, elles, <b>hébergées sur le site lui-même</b>.</p>
+      <p>Les seules informations recueillies sont <b>agrégées et anonymes</b> : le nombre de visites des pages (ainsi que des pages introuvables, pour repérer d'éventuels liens cassés), le <b>pays</b> d'origine (au niveau pays uniquement) et le nombre de <b>consultations et de téléchargements du CV</b>. Votre adresse IP n'est <b>pas conservée</b> : elle sert uniquement, de façon transitoire, à déduire le pays, puis elle est écartée. Les données sont hébergées <b>en Europe</b> (Allemagne et Finlande). Ces statistiques permettent seulement à l'éditrice de suivre, en synthèse, l'activité du site.</p>
 
-    <h2>Si vous m'écrivez</h2>
-    <p>La seule donnée que je peux détenir est celle que vous me transmettez volontairement en écrivant à <a href="mailto:luntrae@proton.me">luntrae@proton.me</a> : votre adresse e-mail et le contenu de votre message. Je les conserve uniquement pour vous répondre, et ne les partage avec personne. La messagerie utilisée est Proton Mail (Suisse), reconnue pour son respect de la vie privée.</p>
+      <h2>Si vous m'écrivez</h2>
+      <p>La seule donnée que je peux détenir est celle que vous me transmettez volontairement en écrivant à <a href="mailto:luntrae@proton.me">luntrae@proton.me</a> : votre adresse e-mail et le contenu de votre message. Je les conserve uniquement pour vous répondre, et ne les partage avec personne. La messagerie utilisée est Proton Mail (Suisse), reconnue pour son respect de la vie privée.</p>
 
-    <h2>Vos droits</h2>
-    <p>Conformément au RGPD, vous pouvez à tout moment demander l'accès, la rectification ou la suppression des informations transmises, ou vous opposer à leur conservation. Écrivez simplement à <a href="mailto:luntrae@proton.me">luntrae@proton.me</a>.</p>
+      <h2>Vos droits</h2>
+      <p>Conformément au RGPD, vous pouvez à tout moment demander l'accès, la rectification ou la suppression des informations transmises, ou vous opposer à leur conservation. Écrivez simplement à <a href="mailto:luntrae@proton.me">luntrae@proton.me</a>.</p>
 
-    <a class="back-home" href="index.html">&larr; Retour à l'accueil</a>
-  </article>
-</div>
+      <a class="back-home" href="/">&larr; Retour à l'accueil</a>
+    </article>
+  </div>
+</main>
+
+<button class="to-top" type="button" aria-label="Revenir en haut de la page">&#9650;</button>
 
 <footer>
   <div class="wrap">
-    <img src="assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="Icône LUNTRAE" width="44" height="42">
+    <img src="/assets/img/LUNTRAE_lockup-horizontal_bronze_fond-sombre.png" alt="LUNTRAE" width="200" height="44">
     <div class="fm">« Des systèmes calmes, un impact durable. »</div>
     <small>LUNTRAE · camsou · 2026</small>
-    <div class="legal"><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></div>
+    <div class="legal"><a href="/mentions-legales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a></div>
   </div>
 </footer>
 
+<script src="/assets/js/main.js"></script>
+<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE) — cf. Confidentialité. -->
+<script data-goatcounter="https://luntrae.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

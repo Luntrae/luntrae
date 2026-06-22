@@ -6,44 +6,61 @@
 <title>Page introuvable — LUNTRAE</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#101820">
-<link rel="icon" type="image/png" href="assets/img/LUNTRAE_icone_bronze_fond-sombre.png">
-<link rel="apple-touch-icon" href="assets/img/icon-192.png">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/spectral-400.woff2">
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" type="image/png" href="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/spectral-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-500.woff2">
+<link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
-<a class="skip-link" href="#contenu">Aller au contenu</a>
+
+<a class="skip-link" href="#top">Aller au contenu</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="index.html" aria-label="LUNTRAE — accueil">
-      <img src="assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="" width="34" height="33">
+    <a class="brand" href="/" aria-label="LUNTRAE — accueil">
+      <img src="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="" width="34" height="33">
       <span>LUNTRAE</span>
     </a>
-    <nav class="links" aria-label="Navigation principale">
-      <a href="index.html#projets">Projets</a>
-      <a href="index.html#parcours">Parcours</a>
-      <a href="index.html#contact">Contact</a>
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="links" id="nav-links" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/projets/">Projets</a>
+      <a href="/series/">Séries</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="/#contact">Contact</a>
     </nav>
   </div>
 </header>
-<div class="wrap">
-  <article class="page" id="contenu" style="text-align:center">
-    <h1>Page introuvable</h1>
-    <p>Cette page n'existe pas (ou plus). Le courant l'a peut-être emportée.</p>
-    <p style="color:var(--bronze-br);font-style:italic;font-family:'Cormorant Garamond',serif">« Tenir le courant. »</p>
-    <a class="back-home" href="index.html">&larr; Retour à l'accueil</a>
-  </article>
-</div>
+
+<main id="top">
+  <div class="wrap">
+    <article class="page" style="text-align:center">
+      <h1>Page introuvable</h1>
+      <p>Cette page n'existe pas (ou plus). Le courant l'a peut-être emportée.</p>
+      <p style="color:var(--bronze-br);font-style:italic;font-family:'Cormorant Garamond',serif">« Tenir le courant. »</p>
+      <a class="back-home" href="/">&larr; Retour à l'accueil</a>
+    </article>
+  </div>
+</main>
+
+<button class="to-top" type="button" aria-label="Revenir en haut de la page">&#9650;</button>
+
 <footer>
   <div class="wrap">
-    <img src="assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="Icône LUNTRAE" width="44" height="42">
+    <img src="/assets/img/LUNTRAE_lockup-horizontal_bronze_fond-sombre.png" alt="LUNTRAE" width="200" height="44">
     <div class="fm">« Des systèmes calmes, un impact durable. »</div>
     <small>LUNTRAE · camsou · 2026</small>
-    <div class="legal"><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></div>
+    <div class="legal"><a href="/mentions-legales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a></div>
   </div>
 </footer>
-<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE) — cf. Confidentialité.
-     ⚠ Remplacer VOTRE-CODE par le code de site GoatCounter (le même que sur index.html). -->
+
+<script src="/assets/js/main.js"></script>
+<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE) — cf. Confidentialité. -->
 <script data-goatcounter="https://luntrae.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>

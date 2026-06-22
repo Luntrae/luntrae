@@ -17,12 +17,17 @@
 
   /* --- 1. Reveals au scroll (rejoués à la DESCENTE, instantanés à la MONTÉE) --- */
   const revealables = document.querySelectorAll(
-    ".fiche, .tl, .pillar, .u-card, .reflect, .sec-head"
+    ".fiche, .tl, .pillar, .u-card, .reflect, .sec-head, .porte, .serie, .temp, .portrait"
   );
 
   if (prefersReduced) {
     // Mouvement réduit : tout en état final, aucune animation.
     revealables.forEach((el) => el.classList.add("in"));
+    // Les animations SMIL (ondulations de l'eau) ne sont pas coupées par le CSS :
+    // on fige la timeline de chaque SVG concerné.
+    document.querySelectorAll("svg").forEach((s) => {
+      if (typeof s.pauseAnimations === "function") s.pauseAnimations();
+    });
   } else {
     // On suit le sens du scroll pour ne rejouer qu'en descendant.
     let lastY = window.scrollY;

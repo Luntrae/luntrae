@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUNTRAE — Camille Sauton · Stratégie, conception numérique & création</title>
-<meta name="description" content="LUNTRAE, l'écosystème d'explorations digitales de Camille Sauton : stratégie, conception numérique, développement et création.">
+<title>LUNTRAE — Camille Sauton · Stratégie, conception numérique & développement</title>
+<meta name="description" content="LUNTRAE, l'écosystème de Camille Sauton : stratégie, conception numérique, développement et création. Une porte vers les projets, une porte vers les séries.">
 <meta name="author" content="Camille Sauton">
 <meta name="theme-color" content="#101820">
 <link rel="canonical" href="https://luntrae.fr/">
@@ -13,8 +13,8 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="LUNTRAE">
-<meta property="og:title" content="LUNTRAE — Camille Sauton · Stratégie, conception numérique & création">
-<meta property="og:description" content="L'écosystème d'explorations digitales de Camille Sauton : stratégie, conception numérique, développement et création.">
+<meta property="og:title" content="LUNTRAE — Camille Sauton">
+<meta property="og:description" content="L'écosystème de Camille Sauton : stratégie, conception numérique, développement et création.">
 <meta property="og:url" content="https://luntrae.fr/">
 <meta property="og:image" content="https://luntrae.fr/assets/img/og-luntrae.png">
 <meta property="og:image:type" content="image/png">
@@ -25,21 +25,20 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="LUNTRAE — Camille Sauton">
-<meta name="twitter:description" content="L'écosystème d'explorations digitales : stratégie, conception numérique, développement et création.">
+<meta name="twitter:description" content="L'écosystème de Camille Sauton : stratégie, conception numérique, développement et création.">
 <meta name="twitter:image" content="https://luntrae.fr/assets/img/og-luntrae.png">
-<meta name="twitter:image:alt" content="Logo LUNTRAE sur fond obsidienne, line-art bronze.">
 
 <!-- Favicon & manifeste -->
-<link rel="icon" type="image/png" href="assets/img/LUNTRAE_icone_bronze_fond-sombre.png">
-<link rel="apple-touch-icon" href="assets/img/icon-192.png">
-<link rel="manifest" href="site.webmanifest">
+<link rel="icon" type="image/png" href="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<link rel="manifest" href="/site.webmanifest">
 
 <!-- Polices auto-hébergées (aucune requête vers un tiers, via @font-face dans styles.css) -->
-<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/spectral-400.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/cormorant-garamond-500.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/spectral-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-500.woff2">
 
 <!-- Styles -->
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="/assets/css/styles.css">
 
 <!-- Données structurées (SEO) -->
 <script type="application/ld+json">
@@ -62,241 +61,139 @@
 
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="LUNTRAE — accueil">
-      <img src="assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="" width="34" height="33">
+    <a class="brand" href="/" aria-label="LUNTRAE — accueil">
+      <img src="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="" width="34" height="33">
       <span>LUNTRAE</span>
     </a>
     <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
       <span></span><span></span><span></span>
     </button>
     <nav class="links" id="nav-links" aria-label="Navigation principale">
-      <a href="#approche">Approche</a>
-      <a href="#projets">Projets</a>
-      <a href="#reflexions">Réflexions</a>
-      <a href="#parcours">Parcours</a>
-      <a href="#univers">Univers</a>
+      <a href="/" class="active" aria-current="page">Accueil</a>
+      <a href="/projets/">Projets</a>
+      <a href="/series/">Séries</a>
+      <a href="/a-propos/">À propos</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<div class="wrap" id="top">
+<main id="top">
 
-  <section class="hero">
-    <div class="left">
-      <img class="logo" src="assets/img/LUNTRAE_logo-principal_bronze_transparent.png"
-           alt="Logo LUNTRAE : une loutre sous la lune, au bord de l'eau, en line-art bronze." width="300" height="200">
-      <p class="mantra">« Des systèmes pour des futurs plus doux. »</p>
-    </div>
-    <div class="right">
-      <h1>Je conçois des stratégies — et je <em>construis</em> les outils qui les rendent réelles.</h1>
-      <p class="who">Camille Sauton · stratège augmentée par l'IA</p>
-      <p class="intro">Master en communication digitale, au service d'une grande association de protection de la nature depuis 2018. Je travaille là où trois métiers se croisent rarement : <b>la stratégie, la conception numérique et le développement</b>. Je ne me contente pas d'avoir des idées — je les structure, je les chiffre, et je sais bâtir les outils qui les portent. LUNTRAE est l'écosystème où je rassemble ces explorations.</p>
-      <div class="hero-actions">
-        <!-- Consultation du CV (ouverture dans un onglet) — événement « cv-consultation » -->
-        <a class="cta-ghost" href="assets/cv/CV-Camille-Sauton.pdf" target="_blank" rel="noopener"
-           aria-label="Voir mon CV au format PDF (nouvel onglet)"
-           onclick="window.goatcounter&&window.goatcounter.count({path:'cv-consultation',title:'CV consulté',event:true})">
-          Voir mon CV <span aria-hidden="true">· PDF ↗</span>
-        </a>
-        <!-- Téléchargement du CV (attribut download) — événement « cv-telechargement » -->
-        <a class="cta-ghost" href="assets/cv/CV-Camille-Sauton.pdf" download
-           aria-label="Télécharger mon CV au format PDF"
-           onclick="window.goatcounter&&window.goatcounter.count({path:'cv-telechargement',title:'CV téléchargé',event:true})">
-          Télécharger <span aria-hidden="true">· PDF ⤓</span>
-        </a>
+  <!-- HERO sur ambiance nocturne (la loutre dans le cercle, sous la lune, EST le logo central).
+       Composition en trois zones : accroche à gauche, logo de l'image au centre, domaines + actions à droite.
+       Le voile obsidienne s'efface vers le centre pour dégager le logo. -->
+  <section class="hero-amb">
+    <div class="bg" aria-hidden="true"
+         style="background-image:url('/assets/img/ambiances/ambiance_loutre-cercle_lune.jpg')"></div>
+    <div class="hero-amb-grid">
+      <div class="ha-left">
+        <h1>Je conçois des stratégies, et je <em>construis</em> les outils qui les rendent réelles.</h1>
+        <p class="mantra">« Des systèmes pour des futurs plus doux. »</p>
+      </div>
+      <div class="ha-mid" aria-hidden="true"></div>
+      <div class="ha-right">
+        <p class="kicker">Stratégie · Conception numérique · Développement</p>
+        <div class="hero-actions">
+          <a class="cta" href="/projets/">Découvrir les projets</a>
+          <!-- Consultation du CV (ouverture dans un onglet) — événement « cv-consultation » -->
+          <a class="cta-ghost" href="/assets/cv/CV-Camille-Sauton.pdf" target="_blank" rel="noopener"
+             aria-label="Voir mon CV au format PDF (nouvel onglet)"
+             onclick="window.goatcounter&&window.goatcounter.count({path:'cv-consultation',title:'CV consulté',event:true})">
+            Voir mon CV <span aria-hidden="true">· PDF ↗</span>
+          </a>
+          <a class="cta-ghost" href="https://www.instagram.com/luntrae/" target="_blank" rel="noopener"
+             aria-label="Mon compte Instagram LUNTRAE (nouvel onglet)">
+            Mon Instagram <span aria-hidden="true">· @luntrae ↗</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="approche">
-    <div class="sec-head"><span class="crescent">&#9790;</span><h2>Approche</h2><span class="rule"></span></div>
-    <div class="approach">
-      <div class="pillar"><h3>Moins, mais de mieux</h3><p>Une exigence avant un volume. Un projet abouti et cohérent plutôt que dix chantiers tièdes.</p></div>
-      <div class="pillar"><h3>Scope expansion vertueux</h3><p>J'élève naturellement le périmètre d'une mission pour traiter le vrai problème — pas seulement celui qui est formulé.</p></div>
-      <div class="pillar"><h3>Augmentée par l'IA</h3><p>J'orchestre l'IA comme un outil de production et de pensée, jamais comme un gadget. C'est mon multiplicateur.</p></div>
-    </div>
-  </section>
+  <div class="wrap">
 
-  <div class="band"><p>« Construire avec douceur. »</p></div>
+    <!-- APPROCHE — 3 piliers (version courte) -->
+    <section class="approche">
+      <div class="sec-head"><span class="crescent">&#9790;</span><h2>Approche</h2><span class="rule"></span></div>
+      <div class="approach">
+        <div class="pillar"><h3>Moins, mais mieux</h3><p>Viser le nécessaire et le suffisant, et m'y tenir avec bonheur. Je concentre mon énergie là où elle compte, plutôt que de l'éparpiller.</p></div>
+        <div class="pillar"><h3>Scope expansion vertueux</h3><p>J'élève naturellement le périmètre d'une mission pour traiter le vrai problème, pas seulement celui qui est formulé.</p></div>
+        <div class="pillar"><h3>Augmentée par l'IA</h3><p>J'orchestre l'IA comme un outil de production et de pensée, jamais comme un gadget. C'est mon multiplicateur.</p></div>
+        <div class="pillar"><h3>Tout est relié</h3><p>Mes projets ne s'additionnent pas, ils se répondent. Chacun nourrit les autres et avance dans le même courant. LUNTRAE est l'écosystème qui les relie.</p></div>
+      </div>
+    </section>
 
-  <section id="projets">
-    <div class="sec-head"><span class="crescent">&#9790;</span><h2>Projets</h2><span class="rule"></span></div>
-    <div class="grid">
+    <div class="band"><p>« Construire avec douceur. »</p></div>
 
-    <article class="fiche">
-      <span class="num">01</span>
-      <div class="kicker">Conception produit &amp; développement</div>
-      <h3>Geneapop</h3>
-      <p class="def">Une application web qui transforme des données familiales en un arbre vivant, explorable et cartographié — pensée et développée intégralement, en autodidacte.</p>
-      <span class="role">Rôle · <b>Conception &amp; développement front-end (solo)</b></span>
-      <span class="lbl">Compétences techniques</span>
-      <ul class="skills">
-        <li>Front-end : HTML, CSS, JavaScript (vanilla)</li>
-        <li>Rendu SVG &amp; algorithme de placement dynamique</li>
-        <li>Persistance de données locale (IndexedDB)</li>
-        <li>Intégration d'une API d'IA générative</li>
-        <li>Cartographie interactive</li>
-        <li>Architecture modulaire &amp; versionnement (Git)</li>
-        <li>Conception UX</li>
-        <li>Résolution de problèmes algorithmiques</li>
-      </ul>
-      <span class="lbl">Mots-clés</span>
-      <div class="tags"><span class="tag">Front-end</span><span class="tag">JavaScript</span><span class="tag">Architecture logicielle</span><span class="tag">Data-viz</span><span class="tag">UX</span><span class="tag">API IA</span><span class="tag">Autodidacte</span><span class="tag">Git</span></div>
-    </article>
+    <!-- RÉFLEXION -->
+    <section class="reflexion">
+      <div class="sec-head"><span class="crescent">&#9790;</span><h2>Réflexion</h2><span class="rule"></span></div>
+      <div class="reflect">
+        <p class="q">« Et si l'on portait un message en respectant l'attention, plutôt qu'en la martelant ? »</p>
+        <p>C'est la question qui revient derrière ce que je construis. Je m'intéresse aux moyens créatifs de faire passer un message par l'émotion et l'expérience, plutôt que par le discours direct. Reconnecter une cause aux personnes qui s'en soucient, sans épuiser leur attention ni trahir leur confiance. L'humain d'abord, et des formats sincères avant les mécaniques faites pour capter. C'est l'un des terrains que LUNTRAE continue d'explorer.</p>
+        <p class="sig">L'humain d'abord · Le vivant · Des formats sincères</p>
+      </div>
+    </section>
 
-    <article class="fiche">
-      <span class="num">02</span>
-      <div class="kicker">Direction stratégique de marque</div>
-      <h3>Kintara Ceramics</h3>
-      <p class="def">Le repositionnement complet d'une marque de céramique d'art : identité, architecture d'offre, communication et refonte du site marchand. Direction stratégique bénévole, de la vision à l'exécution.</p>
-      <span class="role">Rôle · <b>Directrice stratégique (bénévole)</b></span>
-      <span class="lbl">Compétences stratégiques</span>
-      <ul class="skills">
-        <li>Stratégie de marque &amp; positionnement</li>
-        <li>Architecture d'offre produit</li>
-        <li>Direction artistique &amp; charte</li>
-        <li>Stratégie éditoriale multi-canal</li>
-        <li>Refonte e-commerce (cadrage &amp; brief)</li>
-        <li>Conduite d'entretien &amp; insight</li>
-        <li>Copywriting &amp; naming</li>
-        <li>Pilotage de bout en bout</li>
-      </ul>
-      <span class="lbl">Mots-clés</span>
-      <div class="tags"><span class="tag">Stratégie de marque</span><span class="tag">Brand content</span><span class="tag">Direction artistique</span><span class="tag">E-commerce</span><span class="tag">Storytelling</span><span class="tag">Architecture d'offre</span></div>
-    </article>
+    <!-- TROIS PORTES -->
+    <section class="explorer">
+      <div class="sec-head"><span class="crescent">&#9790;</span><h2>Explorer</h2><span class="rule"></span></div>
+      <div class="portes">
+        <a class="porte" href="/projets/">
+          <span class="pk">Le travail</span>
+          <h3>Projets</h3>
+          <p>Ce que je conçois et ce que je construis, de la stratégie au développement.</p>
+          <span class="arrow">Voir les projets &rarr;</span>
+        </a>
+        <a class="porte" href="/series/">
+          <span class="pk">La création</span>
+          <h3>Séries</h3>
+          <p>L'Observatoire et L'Atelier : ma façon de faire passer une idée par l'émotion.</p>
+          <span class="arrow">Découvrir les séries &rarr;</span>
+        </a>
+        <a class="porte" href="/a-propos/">
+          <span class="pk">L'univers</span>
+          <h3>À propos</h3>
+          <p>Un nom, une loutre, une lune. D'où vient LUNTRAE, et qui le fait vivre.</p>
+          <span class="arrow">Entrer dans l'univers &rarr;</span>
+        </a>
+      </div>
+    </section>
 
-    <article class="fiche">
-      <span class="num">03</span>
-      <div class="kicker">Entrepreneuriat &amp; conception de service</div>
-      <h3>Le Gentle</h3>
-      <p class="def">La création d'un tiers-lieu : un espace calme à partager, entre travail et loisirs apaisés, porté par une vocation solidaire. Du concept au dossier d'entreprise complet, chiffré et défendable.</p>
-      <span class="role">Rôle · <b>Fondatrice &amp; conceptrice</b></span>
-      <span class="lbl">Compétences stratégiques</span>
-      <ul class="skills">
-        <li>Conception de service &amp; d'expérience</li>
-        <li>Étude de marché (PESTEL, SWOT, personas)</li>
-        <li>Modélisation financière pluriannuelle</li>
-        <li>Stratégie d'implantation &amp; de financement</li>
-        <li>Montage de projet entrepreneurial</li>
-        <li>Vision long terme &amp; feuille de route</li>
-      </ul>
-      <span class="lbl">Mots-clés</span>
-      <div class="tags"><span class="tag">Entrepreneuriat</span><span class="tag">Business model</span><span class="tag">Étude de marché</span><span class="tag">Conception de service</span><span class="tag">Modélisation financière</span><span class="tag">Tiers-lieu</span></div>
-    </article>
+  </div>
 
-    <article class="fiche">
-      <span class="num">04</span>
-      <div class="kicker">Outil à visée sociale</div>
-      <h3>Méthode de repositionnement</h3>
-      <p class="def">Une méthode d'accompagnement, d'abord conçue pour moi puis transformée en outil partageable, pour aider celles et ceux qui traversent une bascule professionnelle — reconversion, recherche d'emploi, perte de repères ou de confiance — à se repositionner avec clarté.</p>
-      <span class="role">Rôle · <b>Conception de méthode &amp; expérimentation</b></span>
-      <span class="lbl">Compétences</span>
-      <ul class="skills">
-        <li>Ingénierie de parcours d'accompagnement</li>
-        <li>Méthode reproductible &amp; transmissible</li>
-        <li>Conduite d'entretien &amp; insight</li>
-        <li>Design d'expérience guidée</li>
-        <li>Vulgarisation &amp; pédagogie</li>
-        <li>IA appliquée à l'accompagnement humain</li>
-      </ul>
-      <span class="lbl">Mots-clés</span>
-      <div class="tags"><span class="tag">Accompagnement</span><span class="tag">Reconversion</span><span class="tag">Méthode</span><span class="tag">Impact social</span><span class="tag">Conception d'expérience</span><span class="tag">IA appliquée</span></div>
-    </article>
-
-    <article class="fiche wide">
-      <span class="num">05</span>
-      <div class="kicker">Écriture &amp; création</div>
-      <h3>Léax</h3>
-      <p class="def">Un roman de fiction fantastique : la construction patiente d'un univers cohérent, d'une mythologie originale et d'une architecture narrative déployée sur plusieurs actes.</p>
-      <span class="role">Rôle · <b>Autrice</b></span>
-      <span class="lbl">Compétences créatives</span>
-      <ul class="skills">
-        <li>Écriture créative &amp; narration</li>
-        <li>Worldbuilding &amp; cohérence d'univers</li>
-        <li>Architecture narrative (plan structuré, actes)</li>
-        <li>Endurance créative au long cours</li>
-      </ul>
-      <span class="lbl">Mots-clés</span>
-      <div class="tags"><span class="tag">Écriture</span><span class="tag">Narration</span><span class="tag">Worldbuilding</span><span class="tag">Créativité</span><span class="tag">Cohérence éditoriale</span></div>
-    </article>
-
-    </div>
-  </section>
-
-  <section id="reflexions">
-    <div class="sec-head"><span class="crescent">&#9790;</span><h2>Réflexions</h2><span class="rule"></span></div>
-    <div class="reflect">
-      <p class="q">« Et si les outils d'engagement étaient pensés pour respecter l'attention, plutôt que pour la capter ? »</p>
-      <p>Je m'intéresse à la prochaine génération d'outils de communication et d'engagement — ceux qui reconnectent une cause aux personnes qui s'en soucient, sans épuiser leur attention ni trahir leur confiance. Comment réengager des publics plus jeunes autour de l'utile et du vivant, avec des formats sincères plutôt que des mécaniques d'addiction ? C'est l'un des terrains que LUNTRAE explorera ensuite.</p>
-      <p class="sig">Engagement éthique · Le vivant · Nouveaux formats</p>
-    </div>
-  </section>
-
-  <section id="parcours">
-    <div class="sec-head"><span class="crescent">&#9790;</span><h2>Parcours</h2><span class="rule"></span></div>
-    <div class="timeline">
-      <div class="tl"><span class="yr">2018 &rarr;</span><b>Chargée des relations sympathisants</b><div class="place">LPO — association nationale de protection de la nature · CDI</div><div class="comp"><span>Compétences :</span> relation &amp; parcours donateur · fidélisation · CRM associatif · clôture comptable SAGE · Microsoft 365 (SharePoint, Teams) · formation d'équipes · amélioration des process</div></div>
-      <div class="tl"><span class="yr">2017</span><b>Master Communication Digitale (DMB)</b><div class="place">ISEG · mémoire « Chez la Française »</div><div class="comp"><span>Compétences :</span> stratégie digitale · communication de marque · méthodologie de recherche</div></div>
-      <div class="tl"><span class="yr">2017</span><b>Stage — Communication &amp; événementiel</b><div class="place">Le Trèfle, coworking · Paris</div><div class="comp"><span>Compétences :</span> communication de tiers-lieu · réseaux sociaux · site (HubSpot) · événementiel sous contrainte</div></div>
-      <div class="tl"><span class="yr">2016</span><b>Stage — Assistante marketing</b><div class="place">Tridamia, agence · Lima (Pérou)</div><div class="comp"><span>Compétences :</span> stratégie marketing · contenus sociaux · emailing · landing pages · multiculturel</div></div>
-      <div class="tl"><span class="yr">2015</span><b>Licence Marketing &amp; Communication</b><div class="place">ISEG · option espagnol</div><div class="comp"><span>Compétences :</span> fondamentaux marketing · communication · culture digitale</div></div>
-      <div class="tl"><span class="yr">2015</span><b>Stage — Chargée de communication</b><div class="place">ACAL, commerçants · Latresne (33)</div><div class="comp"><span>Compétences :</span> structuration de données · catalogue · lisibilité de l'information</div></div>
-      <div class="tl"><span class="yr">2013</span><b>BTS Négociation &amp; Relation Client</b><div class="place">Lycée Victor Louis · Talence</div><div class="comp"><span>Compétences :</span> relation client · négociation · prospection</div></div>
-      <div class="tl"><span class="yr">2012&ndash;13</span><b>Assistante commerciale — Immobilier</b><div class="place">Aelix &amp; La Bourse de l'Immobilier · Talence (33)</div><div class="comp"><span>Compétences :</span> prospection · besoins clients · gestion documentaire</div></div>
-      <div class="tl"><span class="yr">2011</span><b>Licence LLCE Espagnol</b><div class="place">Université Bordeaux Montaigne</div></div>
-      <div class="tl"><span class="yr">2010</span><b>Baccalauréat Économique &amp; Social</b><div class="place">Lycée Merleau-Ponty</div></div>
-    </div>
-    <p class="langs"><b>Langues</b> — Français (langue maternelle) · Espagnol (intermédiaire avancé) · Anglais (intermédiaire avancé)</p>
-  </section>
-
-  <section id="univers">
-    <div class="sec-head"><span class="crescent">&#9790;</span><h2>Univers personnel</h2><span class="rule"></span></div>
-    <div class="univers">
-      <div class="u-card"><h3>Art animalier &amp; engagé</h3><p>Peinture, dessin, création graphique, photo, musique — une sensibilité pour le vivant qui irrigue tout le reste.</p></div>
-      <div class="u-card"><h3>Jeux de stratégie &amp; gestion</h3><p>Sur PC. La pensée systémique et l'équilibre des ressources, en terrain de jeu.</p></div>
-      <div class="u-card"><h3>Photographie amateur</h3><p>Le regard, le cadrage, l'attention au détail et à la lumière.</p></div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
+  <!-- CONTACT (cible de la nav « Contact », en pied de page) -->
+  <div class="contact" id="contact">
     <div class="contact-inner">
       <span class="crescent" aria-hidden="true">&#9790;</span>
       <h2>Écrivons-nous.</h2>
-      <p>Une idée à creuser, une curiosité, une envie d'échanger ? La porte est ouverte — écrivez-moi, simplement pour discuter.</p>
+      <p>Une idée à creuser, une curiosité, une envie d'échanger ? La porte est ouverte. Écrivez-moi, simplement pour discuter.</p>
       <a class="cta" href="mailto:luntrae@proton.me">luntrae@proton.me</a>
-      <!-- Consultation du CV — événement « cv-consultation » -->
-      <a class="cta-ghost" href="assets/cv/CV-Camille-Sauton.pdf" target="_blank" rel="noopener"
-         aria-label="Voir mon CV au format PDF (nouvel onglet)"
-         style="margin-top:1rem"
-         onclick="window.goatcounter&&window.goatcounter.count({path:'cv-consultation',title:'CV consulté',event:true})">Voir mon CV <span aria-hidden="true">· PDF ↗</span></a>
       <!-- Téléchargement du CV — événement « cv-telechargement » -->
-      <a class="cta-ghost" href="assets/cv/CV-Camille-Sauton.pdf" download
+      <a class="cta-ghost" href="/assets/cv/CV-Camille-Sauton.pdf" download
          aria-label="Télécharger mon CV au format PDF"
-         style="margin-top:.7rem"
-         onclick="window.goatcounter&&window.goatcounter.count({path:'cv-telechargement',title:'CV téléchargé',event:true})">Télécharger <span aria-hidden="true">· PDF ⤓</span></a>
-      <p class="tiny">LUNTRAE n'est pas une entreprise : un projet personnel, un écosystème d'explorations digitales.</p>
+         style="margin-top:1rem"
+         onclick="window.goatcounter&&window.goatcounter.count({path:'cv-telechargement',title:'CV téléchargé',event:true})">Télécharger mon CV <span aria-hidden="true">· PDF ⤓</span></a>
+      <p class="tiny">LUNTRAE est un projet personnel : un écosystème d'explorations digitales.</p>
     </div>
-  </section>
+  </div>
 
-</div>
+</main>
 
 <button class="to-top" type="button" aria-label="Revenir en haut de la page">&#9650;</button>
 
 <footer>
   <div class="wrap">
-    <img src="assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="Icône LUNTRAE" width="44" height="42">
+    <img src="/assets/img/LUNTRAE_lockup-horizontal_bronze_fond-sombre.png" alt="LUNTRAE" width="200" height="44">
     <div class="fm">« Des systèmes calmes, un impact durable. »</div>
     <small>LUNTRAE · camsou · 2026</small>
-    <div class="legal"><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></div>
-    <!-- Compteur de visites — masqué tant que le backend (K11) n'est pas branché (cf. main.js) -->
-    <p class="visits" id="site-visits" hidden>&#9790; <span id="visits-count"></span> visites</p>
+    <div class="legal"><a href="/mentions-legales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a></div>
   </div>
 </footer>
 
-<script src="assets/js/main.js"></script>
-<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE) — cf. Confidentialité.
-     ⚠ Remplacer VOTRE-CODE par le code de site GoatCounter (ex. « luntrae » dans luntrae.goatcounter.com). -->
+<script src="/assets/js/main.js"></script>
+<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE) — cf. Confidentialité. -->
 <script data-goatcounter="https://luntrae.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>

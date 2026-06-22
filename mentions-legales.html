@@ -8,64 +8,79 @@
 <meta name="robots" content="index,follow">
 <meta name="theme-color" content="#101820">
 <link rel="canonical" href="https://luntrae.fr/mentions-legales.html">
-<link rel="icon" type="image/png" href="assets/img/LUNTRAE_icone_bronze_fond-sombre.png">
-<link rel="apple-touch-icon" href="assets/img/icon-192.png">
-<!-- Polices auto-hébergées (aucune requête vers un tiers, via @font-face dans styles.css) -->
-<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/spectral-400.woff2">
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" type="image/png" href="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/spectral-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-500.woff2">
+<link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
 
-<a class="skip-link" href="#contenu">Aller au contenu</a>
+<a class="skip-link" href="#top">Aller au contenu</a>
+<div class="scroll-progress" aria-hidden="true"></div>
 
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="index.html" aria-label="LUNTRAE — accueil">
-      <img src="assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="" width="34" height="33">
+    <a class="brand" href="/" aria-label="LUNTRAE — accueil">
+      <img src="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="" width="34" height="33">
       <span>LUNTRAE</span>
     </a>
-    <nav class="links" aria-label="Navigation principale">
-      <a href="index.html#projets">Projets</a>
-      <a href="index.html#parcours">Parcours</a>
-      <a href="index.html#contact">Contact</a>
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="links" id="nav-links" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/projets/">Projets</a>
+      <a href="/series/">Séries</a>
+      <a href="/a-propos/">À propos</a>
+      <a href="/#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<div class="wrap">
-  <article class="page" id="contenu">
-    <h1>Mentions légales</h1>
+<main id="top">
+  <div class="wrap">
+    <article class="page">
+      <h1>Mentions légales</h1>
 
-    <h2>Éditeur du site</h2>
-    <p>Ce site est édité par un particulier, à titre personnel et non professionnel, dans le cadre du projet LUNTRAE.</p>
-    <p>Conformément à l'article 6-III-2 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN), l'éditeur, personne physique éditant ce site à titre non professionnel, a choisi de ne pas rendre ses coordonnées publiques. Ces informations sont tenues à la disposition de l'hébergeur du site, qui peut les communiquer à l'autorité judiciaire sur requête.</p>
-    <p>Contact : <a href="mailto:luntrae@proton.me">luntrae@proton.me</a></p>
+      <h2>Éditeur du site</h2>
+      <p>Ce site est édité par un particulier, à titre personnel et non professionnel, dans le cadre du projet LUNTRAE.</p>
+      <p>Conformément à l'article 6-III-2 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN), l'éditeur, personne physique éditant ce site à titre non professionnel, a choisi de ne pas rendre ses coordonnées publiques. Ces informations sont tenues à la disposition de l'hébergeur du site, qui peut les communiquer à l'autorité judiciaire sur requête.</p>
+      <p>Contact : <a href="mailto:luntrae@proton.me">luntrae@proton.me</a></p>
 
-    <h2>Hébergement</h2>
-    <p>Le site est hébergé par : <b>GitHub, Inc.</b>, 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis — <a href="https://github.com" target="_blank" rel="noopener">github.com</a>.</p>
+      <h2>Hébergement</h2>
+      <p>Le site est hébergé par : <b>GitHub, Inc.</b>, 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis — <a href="https://github.com" target="_blank" rel="noopener">github.com</a>.</p>
 
-    <h2>Nom de domaine</h2>
-    <p>Le nom de domaine <b>luntrae.fr</b> est enregistré sous l'autorité de l'AFNIC (Association française pour le nommage Internet en coopération), via le bureau d'enregistrement <b>OVHcloud</b> (OVH SAS, 2 rue Kellermann, 59100 Roubaix, France).</p>
+      <h2>Nom de domaine</h2>
+      <p>Le nom de domaine <b>luntrae.fr</b> est enregistré sous l'autorité de l'AFNIC (Association française pour le nommage Internet en coopération), via le bureau d'enregistrement <b>OVHcloud</b> (OVH SAS, 2 rue Kellermann, 59100 Roubaix, France).</p>
 
-    <h2>Propriété intellectuelle</h2>
-    <p>L'ensemble des contenus de ce site (textes, mise en page, identité visuelle, logo et icône représentant une loutre sous la lune) est la propriété de l'éditeur, sauf mention contraire. Toute reproduction, représentation, modification ou exploitation, totale ou partielle, sans autorisation écrite préalable, est interdite.</p>
-    <p>Les polices de caractères <i>Cormorant Garamond</i> et <i>Spectral</i> sont utilisées sous licence libre SIL Open Font License (OFL).</p>
+      <h2>Propriété intellectuelle</h2>
+      <p>L'ensemble des contenus de ce site (textes, mise en page, identité visuelle, logo et icône représentant une loutre sous la lune) est la propriété de l'éditeur, sauf mention contraire. Toute reproduction, représentation, modification ou exploitation, totale ou partielle, sans autorisation écrite préalable, est interdite.</p>
+      <p>Les polices de caractères <i>Cormorant Garamond</i> et <i>Spectral</i> sont utilisées sous licence libre SIL Open Font License (OFL).</p>
 
-    <h2>Données personnelles</h2>
-    <p>Ce site utilise une mesure d'audience <b>sans cookie</b> (l'outil libre <b>GoatCounter</b>), limitée à des statistiques <b>agrégées et anonymes</b> (visites, pays, consultations et téléchargements du CV), <b>sans conservation de l'adresse IP</b> et avec des données hébergées en Europe (Allemagne et Finlande). Il n'y a ni profilage, ni suivi d'un site à l'autre, ni revente de données. Le site ne comporte par ailleurs aucun formulaire : les seules données nominatives éventuellement détenues sont celles que vous transmettez volontairement par e-mail. Détails en page <a href="confidentialite.html">Confidentialité</a>.</p>
+      <h2>Données personnelles</h2>
+      <p>Ce site utilise une mesure d'audience <b>sans cookie</b> (l'outil libre <b>GoatCounter</b>), limitée à des statistiques <b>agrégées et anonymes</b> (visites, pays, consultations et téléchargements du CV), <b>sans conservation de l'adresse IP</b> et avec des données hébergées en Europe (Allemagne et Finlande). Il n'y a ni profilage, ni suivi d'un site à l'autre, ni revente de données. Le site ne comporte par ailleurs aucun formulaire : les seules données nominatives éventuellement détenues sont celles que vous transmettez volontairement par e-mail. Détails en page <a href="/confidentialite.html">Confidentialité</a>.</p>
 
-    <a class="back-home" href="index.html">&larr; Retour à l'accueil</a>
-  </article>
-</div>
+      <a class="back-home" href="/">&larr; Retour à l'accueil</a>
+    </article>
+  </div>
+</main>
+
+<button class="to-top" type="button" aria-label="Revenir en haut de la page">&#9650;</button>
 
 <footer>
   <div class="wrap">
-    <img src="assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="Icône LUNTRAE" width="44" height="42">
+    <img src="/assets/img/LUNTRAE_lockup-horizontal_bronze_fond-sombre.png" alt="LUNTRAE" width="200" height="44">
     <div class="fm">« Des systèmes calmes, un impact durable. »</div>
     <small>LUNTRAE · camsou · 2026</small>
-    <div class="legal"><a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a></div>
+    <div class="legal"><a href="/mentions-legales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a></div>
   </div>
 </footer>
 
+<script src="/assets/js/main.js"></script>
+<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE) — cf. Confidentialité. -->
+<script data-goatcounter="https://luntrae.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
