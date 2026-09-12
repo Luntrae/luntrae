@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Camille Sauton · Cheffe de projet numérique à Rochefort</title>
-<meta name="description" content="LUNTRAE, l'écosystème de Camille Sauton : stratégie, conception numérique, développement et création. Une porte vers les projets, une porte vers les séries.">
+<meta name="description" content="J'analyse, je conçois la stratégie et je développe des projets numériques à impact. Engagement associatif, collecte de fonds, conception et code.">
 <meta name="author" content="Camille Sauton">
 <meta name="theme-color" content="#101820">
 <link rel="canonical" href="https://luntrae.fr/">
@@ -13,23 +13,29 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="LUNTRAE">
-<meta property="og:title" content="LUNTRAE · Camille Sauton">
-<meta property="og:description" content="L'écosystème de Camille Sauton : stratégie, conception numérique, développement et création.">
+<meta property="og:title" content="Plusieurs projets, une seule personne : stratégie, code, marque et fiction.">
+<meta property="og:description" content="J'analyse, je conçois la stratégie et je développe des projets numériques à impact. Engagement associatif, collecte de fonds, conception et code.">
 <meta property="og:url" content="https://luntrae.fr/">
 <meta property="og:image" content="https://luntrae.fr/assets/img/og-luntrae.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Logo LUNTRAE : une loutre sous la lune, au bord de l'eau, en line-art bronze sur obsidienne.">
+<meta property="og:image:alt" content="Une loutre stylisée en trait bronze, inscrite dans un cercle sous la lune, au-dessus de son reflet dans l'eau.">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="LUNTRAE · Camille Sauton">
-<meta name="twitter:description" content="L'écosystème de Camille Sauton : stratégie, conception numérique, développement et création.">
+<meta name="twitter:title" content="Plusieurs projets, une seule personne : stratégie, code, marque et fiction.">
+<meta name="twitter:description" content="J'analyse, je conçois la stratégie et je développe des projets numériques à impact. Engagement associatif, collecte de fonds, conception et code.">
 <meta name="twitter:image" content="https://luntrae.fr/assets/img/og-luntrae.png">
+<meta name="twitter:image:alt" content="Une loutre stylisée en trait bronze, inscrite dans un cercle sous la lune, au-dessus de son reflet dans l'eau.">
+
+<!-- Image du hero, préchargée (plus gros élément au-dessus de la ligne de flottaison) -->
+<link rel="preload" as="image" href="/assets/img/ambiances/hero_loutre-cercle-lune_1586.webp"
+      imagesrcset="/assets/img/ambiances/hero_loutre-cercle-lune_800.webp 800w, /assets/img/ambiances/hero_loutre-cercle-lune_1200.webp 1200w, /assets/img/ambiances/hero_loutre-cercle-lune_1586.webp 1586w"
+      imagesizes="100vw" fetchpriority="high">
 
 <!-- Favicon & manifeste -->
-<link rel="icon" type="image/png" href="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
 <link rel="manifest" href="/site.webmanifest">
 
@@ -40,17 +46,49 @@
 <!-- Styles -->
 <link rel="stylesheet" href="/assets/css/styles.css">
 
+
 <!-- Données structurées (SEO) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Camille Sauton",
-  "jobTitle": "Stratège augmentée par l'IA",
-  "description": "Stratégie, conception numérique, développement et création. Fondatrice de l'écosystème LUNTRAE.",
-  "email": "luntrae@proton.me",
-  "url": "https://luntrae.fr",
-  "knowsLanguage": ["fr", "es", "en"]
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://luntrae.fr/#site",
+      "url": "https://luntrae.fr/",
+      "name": "LUNTRAE",
+      "inLanguage": "fr",
+      "author": {
+        "@id": "https://luntrae.fr/#camille"
+      },
+      "publisher": {
+        "@id": "https://luntrae.fr/#camille"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://luntrae.fr/#camille",
+      "name": "Camille Sauton",
+      "jobTitle": "Cheffe de projet numérique",
+      "url": "https://luntrae.fr/",
+      "email": "luntrae@proton.me",
+      "sameAs": [
+        "https://www.linkedin.com/in/camille-stn",
+        "https://www.instagram.com/luntrae/"
+      ],
+      "knowsLanguage": [
+        "fr",
+        "es",
+        "en"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rochefort",
+        "addressRegion": "Charente-Maritime",
+        "addressCountry": "FR"
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -62,7 +100,7 @@
 <header class="bar">
   <div class="wrap">
     <a class="brand" href="/" aria-label="LUNTRAE, accueil">
-      <img src="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="" width="34" height="33">
+      <img src="/assets/img/LUNTRAE_icone_nav.webp" alt="" width="34" height="33">
       <span>LUNTRAE</span>
     </a>
     <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
@@ -96,10 +134,14 @@
   <!-- HERO sur ambiance nocturne (la loutre dans le cercle, sous la lune, EST le logo central).
        Composition en trois zones : accroche à gauche, logo de l'image au centre, domaines + actions à droite.
        Le voile obsidienne s'efface vers le centre pour dégager le logo.
-       L'image passe en balise image (fetchpriority, srcset, texte alternatif) au lot 5. -->
+       L'image est une balise image (texte alternatif, priorité haute, srcset), jamais un fond CSS. -->
   <section class="hero-amb">
-    <div class="bg" aria-hidden="true"
-         style="background-image:url('/assets/img/ambiances/ambiance_loutre-cercle_lune.jpg')"></div>
+    <div class="bg">
+      <img src="/assets/img/ambiances/hero_loutre-cercle-lune_1586.webp"
+           srcset="/assets/img/ambiances/hero_loutre-cercle-lune_800.webp 800w, /assets/img/ambiances/hero_loutre-cercle-lune_1200.webp 1200w, /assets/img/ambiances/hero_loutre-cercle-lune_1586.webp 1586w"
+           sizes="100vw" width="1586" height="992" fetchpriority="high" decoding="async"
+           alt="Une loutre stylisée en trait bronze, inscrite dans un cercle sous la lune, au-dessus de son reflet dans l'eau.">
+    </div>
     <div class="hero-amb-grid">
       <div class="ha-left">
         <h1>J'analyse le terrain, je conçois la stratégie, je développe des projets à impact.</h1>
@@ -212,7 +254,7 @@
 
 <footer>
   <div class="wrap">
-    <img src="/assets/img/LUNTRAE_lockup-horizontal_bronze_fond-sombre.png" alt="" width="200" height="44">
+    <img src="/assets/img/LUNTRAE_lockup_pied.webp" alt="" width="126" height="44" loading="lazy">
     <div class="fm">Des systèmes pour des futurs plus doux.</div>
     <small>LUNTRAE · Camille Sauton · 2026</small>
     <div class="legal"><a href="/mentions-legales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a></div>
