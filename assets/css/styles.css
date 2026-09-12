@@ -654,6 +654,59 @@ main{display:block;position:relative;z-index:2}
 .credits p{font-size:.95rem}
 .univers-cta .hook{max-width:44ch;margin-inline:auto}
 
+/* --- Page CV (lecture à l'écran, même structure que le PDF) ---
+   Le bronze humide ne porte aucun texte ici : filets et bordures seulement. */
+.cv{max-width:76ch;margin:0 auto;padding:5vh 0 2vh}
+.cv-head{display:grid;grid-template-columns:minmax(180px,240px) 1fr;gap:clamp(1.6rem,4vw,3rem);align-items:center;
+  padding-bottom:2.4rem;margin-bottom:2.4rem;border-bottom:1px solid var(--line)}
+.cv-photo img{display:block;width:100%;height:auto;border-radius:8px;
+  -webkit-mask-image:radial-gradient(ellipse 70% 78% at 50% 48%,#000 55%,transparent 100%);
+  mask-image:radial-gradient(ellipse 70% 78% at 50% 48%,#000 55%,transparent 100%)}
+.cv-identite h1{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--lunaire);
+  font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.15;margin-bottom:.6rem}
+.cv-sous-titre{font-family:"Cormorant Garamond",serif;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--bronze-br);font-size:1rem;margin-bottom:.8rem}
+.cv-coord{color:var(--lunaire-dim);font-size:.98rem;margin-bottom:1.4rem}
+.cv-coord a{color:var(--bronze-br);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line)}
+.cv-coord a:hover{text-decoration-color:var(--bronze-br)}
+.cv-identite .cta .poids{font-size:.9em;opacity:.85}
+.cv-sec{margin-bottom:2.6rem}
+.cv-sec h2{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--bronze-br);letter-spacing:.14em;text-transform:uppercase;
+  font-size:clamp(1.2rem,2.4vw,1.5rem);margin:0 0 1rem;padding-bottom:.5rem;border-bottom:1px solid var(--line)}
+.cv-sec p,.cv-sec li{color:var(--lunaire-dim)}
+.cv-sec h3{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--lunaire);font-size:1.35rem;line-height:1.25;margin-bottom:.3rem}
+.cv-sec h3 a{color:var(--lunaire);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line);transition:color .3s,text-decoration-color .3s}
+.cv-sec h3 a:hover{color:var(--bronze-br);text-decoration-color:var(--bronze-br)}
+.cv-role{font-family:"Spectral",serif;font-size:.9rem;color:var(--lunaire-dim);letter-spacing:.02em}
+.cv-lieu{font-size:.95rem;color:var(--lunaire-dim);margin-bottom:.5rem;opacity:.85}
+.cv-projets{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem 2.4rem}
+.cv-projets article p{font-size:.98rem}
+.cv-comp{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.cv-bloc{background:var(--obs-2);border:1px solid var(--line-soft);border-radius:4px;padding:1.3rem 1.4rem}
+.cv-bloc h3{font-size:1.2rem;margin-bottom:.6rem}
+.cv-bloc ul{list-style:none;margin:0}
+.cv-bloc li{font-size:.94rem;padding-left:1rem;position:relative;margin:.2rem 0}
+.cv-bloc li::before{content:"";position:absolute;left:0;top:.65em;width:5px;height:5px;background:var(--bronze);border-radius:50%}
+.cv-bandeau{grid-column:1 / -1}
+.cv-bandeau ul.trois{column-count:3;column-gap:1.6rem}
+.cv-bandeau li{break-inside:avoid}
+.cv-exp{margin-bottom:1.6rem}
+.cv-exp ul{list-style:none;margin:0}
+.cv-exp li{padding-left:1rem;position:relative;margin:.3rem 0}
+.cv-exp li::before{content:"";position:absolute;left:0;top:.7em;width:5px;height:5px;background:var(--bronze);border-radius:50%}
+.cv-formation{list-style:none;margin:0}
+.cv-formation li{display:grid;grid-template-columns:9.5rem 1fr;gap:1rem;padding:.6rem 0;border-bottom:1px solid var(--line-soft)}
+.cv-formation b{color:var(--lunaire);font-weight:500}
+.cv-dates{font-family:"Cormorant Garamond",serif;color:var(--bronze-br);letter-spacing:.04em;font-size:1.05rem}
+.cv-duo{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem}
+@media(max-width:760px){
+  .cv-head{grid-template-columns:1fr;text-align:center}
+  .cv-photo{max-width:220px;margin:0 auto}
+  .cv-projets,.cv-comp,.cv-duo{grid-template-columns:1fr}
+  .cv-bandeau ul.trois{column-count:1}
+  .cv-formation li{grid-template-columns:1fr;gap:.2rem}
+}
+
 /* Je suis Camille, portrait (décor visible, cadre sobre) + bio */
 .portrait{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(1.8rem,4vw,3.4rem);
   align-items:center;max-width:980px;margin:5vh auto 0;

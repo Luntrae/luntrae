@@ -1,0 +1,89 @@
+/* CV imprimable, LUNTRAE. Fond blanc, couleurs de la charte en touches.
+   Contrastes sur fond clair (brief CV imprimable, section 2) :
+   obsidienne 17,89:1, vert mousse 6,76:1, bronze humide 4,95:1 (texte courant OK),
+   bronze clair 2,94:1 : jamais de texte. Sur beige, bronze humide en grand texte seulement. */
+
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:500;src:url("../assets/fonts/cormorant-garamond-500.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:normal;font-weight:600;src:url("../assets/fonts/cormorant-garamond-600.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-style:italic;font-weight:500;src:url("../assets/fonts/cormorant-garamond-500-italic.woff2") format("woff2")}
+@font-face{font-family:"Spectral";font-style:normal;font-weight:400;src:url("../assets/fonts/spectral-400.woff2") format("woff2")}
+@font-face{font-family:"Spectral";font-style:normal;font-weight:500;src:url("../assets/fonts/spectral-500.woff2") format("woff2")}
+@font-face{font-family:"Spectral";font-style:italic;font-weight:400;src:url("../assets/fonts/spectral-400-italic.woff2") format("woff2")}
+
+:root{
+  --obs:#101820; --bronze:#8A6A4A; --mousse:#4F5F57; --beige:#F5EEDD; --filet:#8A6A4A;
+}
+
+/* WeasyPrint ne peint aucun fond de page par défaut : on le déclare partout. */
+@page{
+  size:A4; margin:13mm 15mm 14mm 15mm; background:#FFFFFF;
+  @bottom-left{content:"LUNTRAE · Camille Sauton · 2026";font-family:"Spectral";font-size:7.6pt;color:#4F5F57;letter-spacing:.04em}
+  @bottom-right{content:counter(page) " / " counter(pages);font-family:"Spectral";font-size:7.6pt;color:#8A6A4A}
+}
+html,body{background:#FFFFFF;margin:0;padding:0}
+body{font-family:"Spectral",serif;font-weight:400;font-size:8.7pt;line-height:1.32;color:var(--obs)}
+p{margin:0 0 .4em}
+a{color:var(--obs);text-decoration:none}
+b{font-weight:500}
+
+/* En-tête */
+.entete{display:flex;gap:6mm;align-items:center;margin-bottom:3mm;padding-bottom:2.8mm;border-bottom:.5pt solid var(--filet)}
+.entete .photo{flex:0 0 24mm}
+.entete .photo img{width:24mm;height:auto;display:block;border-radius:1.5mm}
+.entete h1{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:21pt;letter-spacing:.16em;text-transform:uppercase;color:var(--obs);margin:0 0 .8mm;line-height:1.1}
+.entete .titre{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:13.5pt;color:var(--obs);margin:0 0 .8mm}
+.entete .sous-titre{font-size:9.3pt;color:var(--mousse);margin:0 0 1.5mm;letter-spacing:.02em}
+.entete .coord{font-size:8.6pt;color:var(--obs);margin:0}
+.entete .coord a{border-bottom:.4pt solid var(--bronze)}
+
+/* Titres de section : Cormorant 600, bronze humide, croissant vectoriel, filet fin */
+section{margin-bottom:2.5mm}
+h2{
+  font-family:"Cormorant Garamond",serif;font-weight:600;font-size:11pt;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--bronze);margin:0 0 1.3mm;padding-bottom:.6mm;border-bottom:.5pt solid var(--filet);
+  display:flex;align-items:center;gap:2mm;break-after:avoid;
+}
+/* Le croissant U+263E n'existe pas dans les polices embarquées : tracé vectoriel. */
+.lune{display:inline-block;width:3mm;height:3mm;flex:none;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><mask id='m'><rect width='100' height='100' fill='white'/><circle cx='66' cy='40' r='36' fill='black'/></mask></defs><circle cx='48' cy='52' r='38' fill='%238A6A4A' mask='url(%23m)'/></svg>") no-repeat center/contain}
+h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:10.8pt;color:var(--obs);margin:0 0 .4mm;line-height:1.2;break-after:avoid}
+.role,.dates{font-family:"Spectral",serif;font-weight:400;font-size:8pt;color:var(--mousse);letter-spacing:.01em}
+.lieu{font-size:8.3pt;color:var(--mousse);margin:0 0 .6mm}
+.url{font-size:7.9pt;color:var(--mousse);margin:0}
+.url a{color:var(--mousse);border-bottom:.4pt solid var(--bronze)}
+
+/* Deux colonnes pour les projets et les stages */
+.colonnes{column-count:2;column-gap:6mm}
+.colonnes article{break-inside:avoid;margin-bottom:1.6mm}
+
+/* Puces : petit carré bronze, jamais un point noir standard */
+ul{list-style:none;margin:0;padding:0}
+li{position:relative;padding-left:3.2mm;margin-bottom:.25mm}
+li::before{content:"";position:absolute;left:0;top:.62em;width:1.3mm;height:1.3mm;background:var(--bronze);border-radius:.2mm}
+
+/* Compétences : quatre blocs sur deux rangées (chaque rangée peut passer à la page suivante),
+   puis le bloc technique en bandeau sur trois colonnes.
+   Sur fond beige, mentions et titres en obsidienne (petit corps). */
+.rangee{display:flex;gap:2.2mm;margin-bottom:2.2mm;break-inside:avoid}
+.rangee .bloc{flex:1 1 0}
+.bloc{background:var(--beige);padding:2mm 3mm 1.7mm;border-radius:1.2mm;break-inside:avoid}
+.bloc h3{font-size:10pt;margin-bottom:.9mm}
+.bloc li{font-size:8pt;line-height:1.26;margin-bottom:.1mm}
+.bloc li::before{background:var(--mousse)}
+.bandeau ul.trois{column-count:3;column-gap:4mm}
+.bandeau li{break-inside:avoid}
+
+/* Expérience */
+.experience>article{margin-bottom:1.6mm;break-inside:avoid}
+.experience li{font-size:8.5pt}
+
+/* Formation : une ligne par diplôme, date en colonne */
+.liste-formation li{display:flex;gap:2mm;padding-left:0;margin-bottom:.5mm;font-size:8.4pt;line-height:1.28}
+.liste-formation li::before{display:none}
+.liste-formation .dates{flex:0 0 27mm;color:var(--mousse)}
+.liste-formation b{color:var(--obs)}
+
+/* Sections courtes côte à côte */
+.duo{display:flex;gap:6mm}
+.duo section{flex:1 1 0;break-inside:avoid}
+.duo p{font-size:8.5pt}
