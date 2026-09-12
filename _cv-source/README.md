@@ -1,12 +1,10 @@
 # Source du CV imprimable
 
-Le PDF téléchargeable `assets/cv/CV_Camille_Sauton_cheffe_de_projet_numerique.pdf` est produit à partir de ce dossier avec WeasyPrint, polices embarquées depuis `assets/fonts/`.
+Le PDF téléchargeable `assets/cv/CV_Camille_Sauton_cheffe_de_projet_numerique.pdf` est, depuis le 12 septembre 2026, la version retravaillée dans Claude Design par Camille Sauton. Sa source (HTML et portrait) est rangée dans `design/`, hors dépôt git en raison de son poids.
 
-- `cv.html` : contenu, identique à la page `/cv/` du site.
-- `cv.css` : mise en page A4 sur fond blanc, couleurs de la charte en touches, croissant en tracé vectoriel.
-- `camille_croquis-bronze.jpg` : portrait au traitement croquis, déclinaison pour l'impression.
+Ce dossier conserve aussi la chaîne WeasyPrint de secours, qui produit un PDF de même contenu à partir de `cv.html` et `cv.css`, polices embarquées depuis `assets/fonts/`.
 
-## Fabrication
+## Fabrication de la version WeasyPrint
 
 Depuis ce dossier, sous Windows avec WeasyPrint installé dans MSYS2 :
 
@@ -14,11 +12,11 @@ Depuis ce dossier, sous Windows avec WeasyPrint installé dans MSYS2 :
 C:\msys64\mingw64\bin\weasyprint.exe cv.html ..\assets\cv\CV_Camille_Sauton_cheffe_de_projet_numerique.pdf
 ```
 
-## Contrôles avant livraison
+## Contrôles avant livraison, quelle que soit la chaîne
 
 1. `pdffonts` : toutes les polices marquées `emb yes`.
 2. Texte extrait sans tiret cadratin ni caractère U+263E.
-3. Deux pages, fond blanc peint (vérifier avec `pdftocairo -png -transp`).
+3. Deux pages, fond blanc peint.
 4. Le pied de page porte `LUNTRAE · Camille Sauton · 2026` et la pagination.
 5. Mettre à jour le poids indiqué sur le bouton de `cv/index.html`.
 

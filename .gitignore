@@ -7,3 +7,6 @@ Thumbs.db
 assets/img/loutres/*.png
 assets/img/series/obs1_carte_*.png
 assets/img/Camille croquis.png
+
+# Source Claude Design du CV (HTML de 10 Mo et PNG), conservée hors dépôt
+_cv-source/design/
