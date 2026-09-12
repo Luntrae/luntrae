@@ -15,8 +15,15 @@
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* --- 1. Reveals au scroll (rejoués à la DESCENTE, instantanés à la MONTÉE) --- */
+  // Éléments révélés génériquement : on leur pose la classe .rv (opacité 0 puis .in)
+  document
+    .querySelectorAll(
+      ".presente-inner, .univers-cta, .about-body h2, .about-body p, .about-body ul, .projet h2, .projet p, .projet .meta, " +
+        ".cv-sec, .cv-head, .essai, .univers-prose h2, .univers-prose p, .credits, .loutres-intro, .encart, .about-head, .extrait-intro"
+    )
+    .forEach((el) => el.classList.add("rv"));
   const revealables = document.querySelectorAll(
-    ".fiche, .tl, .pillar, .u-card, .reflect, .sec-head, .porte, .serie, .temp, .portrait"
+    ".fiche, .tl, .pillar, .u-card, .reflect, .sec-head, .porte, .serie, .temp, .portrait, .loutre, .extrait, .nom-bloc, .rv"
   );
 
   if (prefersReduced) {
@@ -65,6 +72,75 @@
       { threshold: 0.14 }
     );
     revealables.forEach((el) => io.observe(el));
+  }
+
+  /* --- 1b. Ciel étoilé : semis discret de points bronze, scintillement lent --- */
+  // Uniquement sur le fond obsidienne, derrière tout le contenu. Coupé sous prefers-reduced-motion.
+  if (!prefersReduced && window.matchMedia("(min-width: 600px)").matches) {
+    const ciel = document.createElement("canvas");
+    ciel.className = "ciel";
+    ciel.setAttribute("aria-hidden", "true");
+    document.body.prepend(ciel);
+    const ctx = ciel.getContext("2d");
+    let stars = [];
+    const seed = () => {
+      ciel.width = window.innerWidth;
+      ciel.height = window.innerHeight;
+      const n = Math.min(70, Math.round((ciel.width * ciel.height) / 26000));
+      stars = Array.from({ length: n }, () => ({
+        x: Math.random() * ciel.width,
+        y: Math.random() * ciel.height,
+        r: 0.6 + Math.random() * 1.2,
+        a: 0.08 + Math.random() * 0.14,
+        p: Math.random() * Math.PI * 2,
+        v: 0.0004 + Math.random() * 0.0006,
+      }));
+    };
+    let last = 0;
+    const draw = (t) => {
+      if (t - last > 90) {
+        last = t;
+        ctx.clearRect(0, 0, ciel.width, ciel.height);
+        for (const s of stars) {
+          const k = 0.55 + 0.45 * Math.sin(s.p + t * s.v);
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(182,144,95," + (s.a * k).toFixed(3) + ")";
+          ctx.fill();
+        }
+      }
+      requestAnimationFrame(draw);
+    };
+    seed();
+    window.addEventListener("resize", seed, { passive: true });
+    requestAnimationFrame(draw);
+  }
+
+  /* --- 1c. Mots du H1 du hero, montée en cascade ----------------------- */
+  const heroTitle = document.querySelector(".ha-left h1");
+  if (heroTitle && !prefersReduced && heroTitle.children.length === 0) {
+    const words = heroTitle.textContent.trim().split(/\s+/);
+    heroTitle.textContent = "";
+    words.forEach((w, i) => {
+      const span = document.createElement("span");
+      span.className = "w";
+      span.style.setProperty("--i", i);
+      span.textContent = w;
+      heroTitle.append(span, document.createTextNode(" "));
+    });
+  }
+
+  /* --- 1d. Fil d'eau : trait qui descend avec la lecture -------------- */
+  const fil = document.querySelector(".fil-eau");
+  if (fil && !prefersReduced) {
+    const suivre = () => {
+      const r = fil.getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, (window.innerHeight * 0.75 - r.top) / r.height));
+      fil.style.setProperty("--fil", p.toFixed(3));
+    };
+    window.addEventListener("scroll", suivre, { passive: true });
+    window.addEventListener("resize", suivre, { passive: true });
+    suivre();
   }
 
   /* --- 2. Scrollspy : lien de nav actif ------------------------------- */

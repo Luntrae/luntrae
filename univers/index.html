@@ -93,7 +93,14 @@
         </ul>
       </div>
       <a href="/series/">Séries</a>
-      <a href="/a-propos/">À propos</a>
+      <div class="has-sub">
+        <a href="/a-propos/">À propos</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-apropos" aria-label="Afficher les pages À propos"></button>
+        <ul class="sub" id="sub-apropos">
+          <li><a href="/a-propos/">La Créatrice</a></li>
+          <li><a href="/cv/">Curriculum Vitae</a></li>
+        </ul>
+      </div>
       <a href="/univers/" class="active" aria-current="page">L'Univers LUNTRAE</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -109,18 +116,29 @@
         <p><b>Il y a un nom, une loutre, une lune.</b> <em>Une loutre en totem sur un logo, vraiment ?</em></p>
       </div>
 
-      <div class="temps">
-
-        <div class="temp">
-          <div class="sym sym-logo">
-            <img src="/assets/img/LUNTRAE_logo_univers.webp" alt="" aria-hidden="true" width="216" height="144">
-          </div>
-          <div class="temp-txt">
-            <h2>Le nom</h2>
-            <p>LUNTRAE vient de <i>lutra</i>, la loutre en latin, et de <i>luna</i>, la lune. J'ai gardé le LU et le TRA, glissé le N de la lune entre les deux, et terminé par un AE qui dit les langues anciennes, les sciences et l'envie d'apprendre.</p>
-            <p>Il y a une coïncidence que j'ai découverte après coup : <i>lutra</i> descend d'une racine indo-européenne qui signifie « animal aquatique », la même qui a donné hydra en grec. L'eau était déjà dans le nom.</p>
-          </div>
+      <!-- Le nom : figure typographique (décorative) et texte validé. lutra + luna : LU, N, TRA, E -->
+      <div class="nom-bloc">
+        <div class="nom-logo">
+          <img src="/assets/img/LUNTRAE_logo_nom.webp" alt="" width="560" height="374">
         </div>
+        <div class="nom-txt">
+          <div class="nom-figure" aria-hidden="true">
+            <div class="nom-source">
+              <span class="mot"><span class="on">l</span><span class="on">u</span><span class="on">t</span><span class="on">r</span><span class="on">a</span></span>
+              <span class="plus">et</span>
+              <span class="mot"><span class="off">l</span><span class="off">u</span><span class="on">n</span><span class="off">a</span></span>
+            </div>
+            <div class="nom-mot">
+              <span class="de-lutra" style="--i:0">L</span><span class="de-lutra" style="--i:1">U</span><span class="de-luna" style="--i:2">N</span><span class="de-lutra" style="--i:3">T</span><span class="de-lutra" style="--i:4">R</span><span class="de-lutra" style="--i:5">A</span><span class="de-ae" style="--i:6">E</span>
+            </div>
+          </div>
+          <h2>Le nom</h2>
+          <p>LUNTRAE vient de <i>lutra</i>, la loutre en latin, et de <i>luna</i>, la lune. J'ai gardé le LU et le TRA, glissé le N de la lune entre les deux, et terminé par un AE qui dit les langues anciennes, les sciences et l'envie d'apprendre.</p>
+          <p>Il y a une coïncidence que j'ai découverte après coup : <i>lutra</i> descend d'une racine indo-européenne qui signifie « animal aquatique », la même qui a donné hydra en grec. L'eau était déjà dans le nom.</p>
+        </div>
+      </div>
+
+      <div class="temps">
 
         <div class="temp">
           <div class="sym sym-loutre">
@@ -195,7 +213,7 @@
 
       <!-- Quatre loutres : illustration et texte en alternance, toutes en balise image avec texte alternatif -->
       <div class="loutres">
-        <h2>Quatre loutres</h2>
+        <h2>Quatre espèces de loutre qui m'inspirent</h2>
         <p class="loutres-intro">Une douzaine d'espèces de loutres vivent aujourd'hui sur la planète, et elles ne se ressemblent pas. En voici quatre, et ce que chacune me dit.</p>
 
         <div class="loutre">

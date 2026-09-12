@@ -116,7 +116,14 @@
         </ul>
       </div>
       <a href="/series/">Séries</a>
-      <a href="/a-propos/">À propos</a>
+      <div class="has-sub">
+        <a href="/a-propos/" class="active">À propos</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-apropos" aria-label="Afficher les pages À propos"></button>
+        <ul class="sub" id="sub-apropos">
+          <li><a href="/a-propos/">La Créatrice</a></li>
+          <li><a href="/cv/" aria-current="page">Curriculum Vitae</a></li>
+        </ul>
+      </div>
       <a href="/univers/">L'Univers LUNTRAE</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -126,61 +133,76 @@
 <main id="top">
   <div class="wrap">
 
-    <article class="cv">
+    <article class="cv fil-eau">
 
-      <!-- En-tête : nom en H1, titre, sous-titre, coordonnées, photo, téléchargement du PDF -->
+      <!-- En-tête : bandeau sombre, logo, nom en capitales espacées, titre italique, photo découpée -->
       <header class="cv-head">
-        <div class="cv-photo">
-          <img src="/assets/img/camille_croquis-bronze.webp" width="640" height="827"
-               alt="Camille Sauton, portrait au traitement croquis, trait bronze sur fond sombre.">
-        </div>
         <div class="cv-identite">
-          <h1>Camille Sauton, cheffe de projet numérique</h1>
+          <img class="cv-logo" src="/assets/img/LUNTRAE_icone_cv.webp" alt="" width="60" height="58">
+          <h1><span class="cv-nom">Camille Sauton</span><span class="cv-virgule">,</span> <span class="cv-titre">cheffe de projet numérique</span></h1>
           <p class="cv-sous-titre">Produit &amp; UX · Gestion de projet · Conception et code</p>
           <p class="cv-coord">Rochefort (17) · <a href="mailto:luntrae@proton.me">luntrae@proton.me</a> · <a href="https://www.linkedin.com/in/camille-stn" target="_blank" rel="noopener noreferrer">linkedin.com/in/camille-stn</a> · <a href="/">luntrae.fr</a></p>
           <!-- Téléchargement du CV, événement « cv-telechargement » -->
           <a class="cta" href="/assets/cv/CV_Camille_Sauton_cheffe_de_projet_numerique.pdf" download
              onclick="window.goatcounter&&window.goatcounter.count({path:'cv-telechargement',title:'CV téléchargé',event:true})">Télécharger le CV en PDF <span class="poids" aria-hidden="true">· PDF, 2,4 Mo</span></a>
         </div>
+        <div class="cv-photo">
+          <img src="/assets/img/camille_croquis-bronze.webp" width="640" height="827"
+               alt="Camille Sauton, portrait au traitement croquis, trait bronze sur fond sombre.">
+        </div>
       </header>
 
       <section class="cv-sec">
         <h2>Profil</h2>
-        <p>Depuis 2018, je suis au téléphone avec les gens qui utilisent nos outils numériques. J'entends ce qui bloque, ce qu'ils ne trouvent pas, ce qu'ils abandonnent. C'est de là que vient ma façon de concevoir. Je viens de la stratégie et du marketing, je pilote des projets numériques de A à Z, et je lis et j'écris du code depuis que j'ai compris que c'était le seul moyen de vraiment comprendre. Je suis celle qui parle aux équipes métier comme aux développeurs, et qui fait tenir les deux ensemble. Ce qui m'intéresse, c'est que ça serve à quelqu'un.</p>
+        <div class="cv-profil">
+          <p>Depuis 2018, je suis au téléphone avec les gens qui utilisent nos outils numériques. J'entends ce qui bloque, ce qu'ils ne trouvent pas, ce qu'ils abandonnent. C'est de là que vient ma façon de concevoir. Je viens de la stratégie et du marketing, je pilote des projets numériques de A à Z, et je lis et j'écris du code depuis que j'ai compris que c'était le seul moyen de vraiment comprendre. Je suis celle qui parle aux équipes métier comme aux développeurs, et qui fait tenir les deux ensemble. Ce qui m'intéresse, c'est que ça serve à quelqu'un.</p>
+        </div>
       </section>
 
-      <!-- Projets, avant l'expérience : les liens sont portés par les titres -->
+      <!-- Projets, avant l'expérience : les liens sont portés par les titres, statut repris de l'index -->
       <section class="cv-sec">
         <h2>Projets</h2>
         <div class="cv-projets">
-          <article>
-            <h3><a href="/projets/geneapop/">Geneapop</a> <span class="cv-role">· Conception produit et développement, en solo</span></h3>
+          <article class="cv-projet">
+            <h3><a href="/projets/geneapop/">Geneapop</a></h3>
+            <p class="cv-role">Conception produit et développement, en solo</p>
             <p>Application web qui transforme des données familiales dispersées en un arbre vivant, interactif et cartographié. Née d'un besoin réel : cent onglets ouverts et rien de lisible. Conçue, spécifiée et développée seule, du modèle de données à l'interface. Orchestrateur de 4 600 lignes refondu en neuf modules.</p>
+            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> En développement avancé</p>
           </article>
-          <article>
-            <h3><a href="/projets/luntrae/">Écosystème LUNTRAE</a> <span class="cv-role">· Conception, déploiement et éditorial</span></h3>
+          <article class="cv-projet">
+            <h3><a href="/projets/luntrae/">Écosystème LUNTRAE</a></h3>
+            <p class="cv-role">Conception, déploiement et éditorial</p>
             <p>Un site créé de A à Z, pas assemblé : code écrit à la main plutôt qu'un outil de création en ligne, nom de domaine et DNS, HTTPS, polices auto-hébergées, mesure d'audience sans cookie ni donnée personnelle. Identité de marque, charte et contenus compris.</p>
+            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> En ligne depuis juin 2026</p>
           </article>
-          <article>
-            <h3><a href="/projets/projet-confidentiel/">Projet confidentiel</a> <span class="cv-role">· Conception produit et pilotage</span></h3>
+          <article class="cv-projet">
+            <h3><a href="/projets/projet-confidentiel/">Projet confidentiel</a></h3>
+            <p class="cv-role">Conception produit et pilotage</p>
             <p>Projet numérique d'engagement éthique, en conception. Analyse d'environnement, étude de marché, cahier des charges fonctionnel, feuille de route et journal de décisions. Mené seule, en projet personnel avec la rigueur d'un projet professionnel. Écrivez-moi, je vous en dirai plus.</p>
+            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> En conception</p>
           </article>
-          <article>
-            <h3><a href="/projets/kintara-ceramics/">Kintara Ceramics</a> <span class="cv-role">· Direction stratégique de marque, bénévolat</span></h3>
+          <article class="cv-projet">
+            <h3><a href="/projets/kintara-ceramics/">Kintara Ceramics</a></h3>
+            <p class="cv-role">Direction stratégique de marque, bénévolat</p>
             <p>Une créatrice sait ce qu'elle fabrique, pas toujours comment le dire. Travail sur la lisibilité de l'offre : positionnement, architecture de gamme, nommage des collections, stratégie éditoriale et cahier des charges d'une refonte e-commerce. Dossier de dix-huit pages.</p>
+            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> Concept abouti, pas encore déployé</p>
           </article>
-          <article>
-            <h3><a href="/projets/le-gentle/">Le Gentle</a> <span class="cv-role">· Montage de projet entrepreneurial, non lancé</span></h3>
+          <article class="cv-projet">
+            <h3><a href="/projets/le-gentle/">Le Gentle</a></h3>
+            <p class="cv-role">Montage de projet entrepreneurial, non lancé</p>
             <p>Conception d'un tiers-lieu calme à vocation solidaire, du concept au dossier chiffré. Arbitrage central : diversifier les sources de revenus, parce qu'un lieu qui ne vit que d'une chose est à la merci d'une mauvaise saison. Étude de marché, modèle économique, forme juridique comparée, modélisation financière sur trois ans.</p>
+            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> Dossier complet</p>
           </article>
-          <article>
-            <h3><a href="/projets/methode-repositionnement/">Méthode de repositionnement professionnel</a> <span class="cv-role">· Outil à visée sociale</span></h3>
+          <article class="cv-projet">
+            <h3><a href="/projets/methode-repositionnement/">Méthode de repositionnement professionnel</a></h3>
+            <p class="cv-role">Outil à visée sociale</p>
             <p>Un travail que j'ai d'abord fait pour moi, puis transformé en parcours guidé de onze étapes, dans un ordre qui compte. Testé en conditions réelles sur trois accompagnements, et repris là où les gens bloquaient.</p>
+            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> 3 parcours accompagnés en conditions réelles</p>
           </article>
         </div>
       </section>
 
-      <!-- Compétences : quatre blocs en grille, puis le bloc technique en bandeau sur trois colonnes -->
+      <!-- Compétences : quatre blocs à en-tête sombre, puis le bloc technique en bandeau sur trois colonnes -->
       <section class="cv-sec">
         <h2>Compétences</h2>
         <div class="cv-comp">
@@ -219,8 +241,8 @@
 
       <section class="cv-sec">
         <h2>Expérience</h2>
-        <article class="cv-exp">
-          <h3>Chargée des relations sympathisants <span class="cv-role">· depuis 2018</span></h3>
+        <article class="cv-exp cv-exp-principale">
+          <h3>Chargée des relations sympathisants <span class="cv-dates-inline">· depuis 2018</span></h3>
           <p class="cv-lieu">Ligue pour la Protection des Oiseaux, Rochefort · CDI</p>
           <ul>
             <li>Contact direct des donateurs, adhérents et abonnés, sur l'ensemble des canaux : téléphone, e-mail, courrier.</li>
@@ -231,66 +253,91 @@
             <li>Formation des équipes et propositions d'amélioration des process.</li>
           </ul>
         </article>
-        <article class="cv-exp">
-          <h3>Communication et événementiel <span class="cv-role">· janvier à juin 2017 · stage</span></h3>
-          <p class="cv-lieu">Le Trèfle, tiers-lieu, Boulogne-Billancourt</p>
-          <p>Communication interne et externe d'un tiers-lieu : réseaux sociaux, site web, supports visuels. Organisation d'événements sous fortes contraintes budgétaires, dont la soirée d'inauguration, en coordination avec les élus locaux.</p>
-        </article>
-        <article class="cv-exp">
-          <h3>Assistante marketing et communication <span class="cv-role">· juin à septembre 2016 · stage international</span></h3>
-          <p class="cv-lieu">Tridamia, Lima, Pérou</p>
-          <p>Stratégie marketing et communication d'événements pour entrepreneurs, en environnement multiculturel. Forte dimension créative : photographie, retouches, montage vidéo, design, création web, réseaux sociaux, packaging. Contenus réseaux sociaux, campagnes e-mailing et pages d'atterrissage.</p>
-        </article>
-        <article class="cv-exp">
-          <h3>Communication et catalogue local <span class="cv-role">· juin à août 2015 · stage</span></h3>
-          <p class="cv-lieu">ACAL, Latresne</p>
-          <p>Structuration et lisibilité des données d'un catalogue de commerçants et de services.</p>
-        </article>
-        <article class="cv-exp">
-          <h3>Assistante commerciale <span class="cv-role">· 2012 à 2013</span></h3>
-          <p class="cv-lieu">Aelix Immobilier et La Bourse de l'Immobilier, Talence</p>
-          <p>Prospection, analyse des besoins clients, relation client et gestion documentaire.</p>
-        </article>
+        <div class="cv-stages">
+          <article class="cv-exp">
+            <h3>Communication et événementiel <span class="cv-dates-inline">· janvier à juin 2017 · stage</span></h3>
+            <p class="cv-lieu">Le Trèfle, tiers-lieu, Boulogne-Billancourt</p>
+            <p>Communication interne et externe d'un tiers-lieu : réseaux sociaux, site web, supports visuels. Organisation d'événements sous fortes contraintes budgétaires, dont la soirée d'inauguration, en coordination avec les élus locaux.</p>
+          </article>
+          <article class="cv-exp">
+            <h3>Assistante marketing et communication <span class="cv-dates-inline">· juin à septembre 2016 · stage international</span></h3>
+            <p class="cv-lieu">Tridamia, Lima, Pérou</p>
+            <p>Stratégie marketing et communication d'événements pour entrepreneurs, en environnement multiculturel. Forte dimension créative : photographie, retouches, montage vidéo, design, création web, réseaux sociaux, packaging. Contenus réseaux sociaux, campagnes e-mailing et pages d'atterrissage.</p>
+          </article>
+          <article class="cv-exp">
+            <h3>Communication et catalogue local <span class="cv-dates-inline">· juin à août 2015 · stage</span></h3>
+            <p class="cv-lieu">ACAL, Latresne</p>
+            <p>Structuration et lisibilité des données d'un catalogue de commerçants et de services.</p>
+          </article>
+          <article class="cv-exp">
+            <h3>Assistante commerciale <span class="cv-dates-inline">· 2012 à 2013</span></h3>
+            <p class="cv-lieu">Aelix Immobilier et La Bourse de l'Immobilier, Talence</p>
+            <p>Prospection, analyse des besoins clients, relation client et gestion documentaire.</p>
+          </article>
+        </div>
       </section>
 
-      <section class="cv-sec">
+      <!-- Formation : vague, puis frise chronologique sur une ligne bronze -->
+      <div class="cv-vague" aria-hidden="true">
+        <svg viewBox="0 0 1200 90" preserveAspectRatio="none" focusable="false"><path d="M0,90 C260,10 620,110 900,40 C1040,6 1140,20 1200,34 L1200,90 Z" fill="#16212c"/></svg>
+        <img src="/assets/img/LUNTRAE_icone_cv.webp" alt="" width="60" height="58" class="cv-vague-lune">
+      </div>
+      <section class="cv-sec cv-formation-bande">
         <h2>Formation</h2>
-        <ul class="cv-formation">
-          <li><span class="cv-dates">2015-2017</span><span><b>Manager du développement marketing et commercial, spécialisation Digital Manager</b><br>Institut Supérieur Européen de Gestion (ISEG), Bordeaux et Paris · Bac+5, titre certifié niveau I, promotion 2017</span></li>
-          <li><span class="cv-dates">2014-2015</span><span><b>Licence Marketing Communication</b><br>Institut Supérieur Européen de Gestion (ISEG), option espagnol</span></li>
-          <li><span class="cv-dates">2011-2013</span><span><b>BTS Négociation et Relation Client</b><br>Lycée Victor Louis, Talence</span></li>
-          <li><span class="cv-dates">2010-2011</span><span><b>Licence LLCE Espagnol</b><br>Université Bordeaux Montaigne</span></li>
-          <li><span class="cv-dates">2010</span><span><b>Baccalauréat Économique et Social</b><br>Lycée Merleau-Ponty</span></li>
-          <li><span class="cv-dates">Formation continue</span><span><b>Gestion des impayés</b> (Ligue pour la Protection des Oiseaux)</span></li>
-        </ul>
+        <ol class="cv-frise">
+          <li><span class="cv-dates">2010</span><b>Baccalauréat Économique et Social</b><span class="cv-lieu">Lycée Merleau-Ponty</span></li>
+          <li><span class="cv-dates">2010-2011</span><b>Licence LLCE Espagnol</b><span class="cv-lieu">Université Bordeaux Montaigne</span></li>
+          <li><span class="cv-dates">2011-2013</span><b>BTS Négociation et Relation Client</b><span class="cv-lieu">Lycée Victor Louis, Talence</span></li>
+          <li><span class="cv-dates">2014-2015</span><b>Licence Marketing Communication</b><span class="cv-lieu">Institut Supérieur Européen de Gestion (ISEG), option espagnol</span></li>
+          <li><span class="cv-dates">2015-2017</span><b>Manager du développement marketing et commercial, spécialisation Digital Manager</b><span class="cv-lieu">Institut Supérieur Européen de Gestion (ISEG), Bordeaux et Paris · Bac+5, titre certifié niveau I, promotion 2017</span></li>
+          <li><span class="cv-dates">Formation continue</span><b>Gestion des impayés</b><span class="cv-lieu">Ligue pour la Protection des Oiseaux</span></li>
+        </ol>
       </section>
 
       <div class="cv-duo">
         <section class="cv-sec">
           <h2>Outils</h2>
-          <p>SAGE · CRM associatif · Microsoft 365 et Excel · Brevo · HubSpot · Git et GitHub · GoatCounter · CapCut · WeasyPrint · Claude · ChatGPT</p>
+          <ul class="cv-pastilles">
+            <li>SAGE</li><li>CRM associatif</li><li>Microsoft 365 et Excel</li><li>Brevo</li><li>HubSpot</li><li>Git et GitHub</li><li>GoatCounter</li><li>CapCut</li><li>WeasyPrint</li><li>Claude</li><li>ChatGPT</li>
+          </ul>
         </section>
         <section class="cv-sec">
           <h2>Langues</h2>
-          <p>Français, langue maternelle · Espagnol, intermédiaire avancé · Anglais, intermédiaire avancé</p>
+          <ul class="cv-langues">
+            <li><b>Français</b>, langue maternelle</li>
+            <li><b>Espagnol</b>, intermédiaire avancé</li>
+            <li><b>Anglais</b>, intermédiaire avancé</li>
+          </ul>
         </section>
       </div>
 
-      <div class="cv-duo">
-        <section class="cv-sec">
-          <h2>Veille</h2>
-          <p>Usages de l'IA dans la conception de services numériques · Tendances UX · Membre d'un groupe d'échanges pluridisciplinaire sur les usages numériques et l'IA</p>
-        </section>
+      <div class="cv-duo cv-duo-fin">
+        <div>
+          <section class="cv-sec">
+            <h2>Veille</h2>
+            <ul class="cv-liste">
+              <li>Usages de l'IA dans la conception de services numériques</li>
+              <li>Tendances UX</li>
+              <li>Membre d'un groupe d'échanges pluridisciplinaire sur les usages numériques et l'IA</li>
+            </ul>
+          </section>
+          <section class="cv-sec">
+            <h2>Centres d'intérêt</h2>
+            <ul class="cv-liste">
+              <li>Curiosité transversale : sciences humaines, du vivant et exactes. Comprendre un environnement large m'aide à concevoir juste.</li>
+              <li>Art contemporain engagé</li>
+              <li>Jeux PC de gestion et de stratégie</li>
+              <li>Écriture longue : roman en cours, construction d'univers</li>
+            </ul>
+          </section>
+        </div>
         <section class="cv-sec">
           <h2>Approche créative</h2>
-          <p>Je m'intéresse aux moyens créatifs de faire passer un message par l'émotion et l'expérience, plutôt que par le discours direct.</p>
+          <div class="cv-bulle">
+            <p>Je m'intéresse aux moyens créatifs de faire passer un message par l'émotion et l'expérience, plutôt que par le discours direct.</p>
+          </div>
         </section>
       </div>
-
-      <section class="cv-sec">
-        <h2>Centres d'intérêt</h2>
-        <p>Curiosité transversale : sciences humaines, du vivant et exactes. Comprendre un environnement large m'aide à concevoir juste. · Art contemporain engagé · Jeux PC de gestion et de stratégie · Écriture longue : roman en cours, construction d'univers</p>
-      </section>
 
     </article>
 

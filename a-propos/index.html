@@ -116,7 +116,14 @@
         </ul>
       </div>
       <a href="/series/">Séries</a>
-      <a href="/a-propos/" class="active" aria-current="page">À propos</a>
+      <div class="has-sub">
+        <a href="/a-propos/" class="active" aria-current="page">À propos</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-apropos" aria-label="Afficher les pages À propos"></button>
+        <ul class="sub" id="sub-apropos">
+          <li><a href="/a-propos/" aria-current="page">La Créatrice</a></li>
+          <li><a href="/cv/">Curriculum Vitae</a></li>
+        </ul>
+      </div>
       <a href="/univers/">L'Univers LUNTRAE</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -137,6 +144,7 @@
         <div class="about-title">
           <p class="surtitre">La créatrice derrière LUNTRAE</p>
           <h1>Camille Sauton, cheffe de projet numérique</h1>
+          <a class="cta-ghost about-cv" href="/cv/">Voir mon CV</a>
         </div>
       </div>
 
