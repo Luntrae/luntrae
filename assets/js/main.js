@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LUNTRAE — interactions
+   LUNTRAE, interactions
    Vanilla JS, sans dépendance. Mouvement doux, respect de prefers-reduced-motion.
    - reveals au scroll (IntersectionObserver)
    - scrollspy (lien de nav actif selon la section visible)
@@ -110,6 +110,29 @@
       if (e.key === "Escape") closeMenu();
     });
   }
+
+  /* --- 3b. Menu déroulant Projets ------------------------------------ */
+  // Les liens existent déjà dans le HTML : le script ne fait qu'ouvrir ou
+  // replier la liste (bouton, clic à l'extérieur, échap). Sans JS, le survol
+  // et le focus clavier suffisent sur bureau.
+  document.querySelectorAll("nav.links .has-sub").forEach((item) => {
+    const toggle = item.querySelector(".sub-toggle");
+    if (!toggle) return;
+    const setOpen = (open) => {
+      item.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+    };
+    toggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setOpen(!item.classList.contains("open"));
+    });
+    document.addEventListener("click", (e) => {
+      if (!item.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setOpen(false);
+    });
+  });
 
   /* --- 4. Barre de progression + header condensé ---------------------- */
   const progress = document.querySelector(".scroll-progress");

@@ -1,4 +1,8 @@
-﻿node_modules/
+node_modules/
 .DS_Store
 Thumbs.db
 *.log
+
+# Sources PNG des visuels : seuls les WebP entrent dans le dépôt
+assets/img/loutres/*.png
+assets/img/series/obs1_carte_*.png
