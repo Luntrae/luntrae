@@ -8,7 +8,6 @@
    - bouton « haut de page »
    - halo de lune en légère parallaxe (souris + scroll)
    - lueur des fiches qui suit le curseur
-   - formulaire d'inscription branché sur Formspree (honeypot + double opt-in)
    ========================================================================== */
 (function () {
   "use strict";
@@ -197,35 +196,5 @@
         fiche.style.setProperty("--my", e.clientY - r.top + "px");
       });
     });
-  }
-
-  /* Note : le formulaire d'inscription a été retiré (décision du 7 juin 2026).
-     Le contact se fait désormais par e-mail uniquement. La logique sera reprise
-     plus tard, branchée sur le mini-serveur K11. Voir backend/ (en pause). */
-
-  /* --- 9. Compteur de visites (anonyme) ------------------------------- */
-  // Activé une fois le backend en ligne (K11). Tant que l'URL n'est pas
-  // configurée : aucun appel réseau, rien d'affiché → la promesse « zéro
-  // mesure d'audience » reste vraie. Le jour J : coller l'URL ci-dessous
-  // ET mettre à jour la page Confidentialité (cf. backend/README.md).
-  const COUNTER_ENDPOINT = "REMPLACER_PAR_URL_COMPTEUR"; // ex. https://luntrae.fr/api/hit
-  const visitsEl = document.getElementById("site-visits");
-  const visitsCount = document.getElementById("visits-count");
-  if (
-    visitsEl &&
-    visitsCount &&
-    COUNTER_ENDPOINT !== "REMPLACER_PAR_URL_COMPTEUR"
-  ) {
-    fetch(COUNTER_ENDPOINT, { method: "POST" })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((data) => {
-        if (data && typeof data.count === "number") {
-          visitsCount.textContent = data.count.toLocaleString("fr-FR");
-          visitsEl.hidden = false;
-        }
-      })
-      .catch(() => {
-        /* échec silencieux : on n'affiche rien plutôt qu'un compteur cassé */
-      });
   }
 })();
