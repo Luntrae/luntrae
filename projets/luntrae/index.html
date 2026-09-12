@@ -52,18 +52,63 @@
       <a href="/series/">Séries</a>
       <a href="/a-propos/">À propos</a>
       <a href="/univers/">L'Univers LUNTRAE</a>
-      <a href="/#contact">Contact</a>
+      <a href="#contact">Contact</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
   <div class="wrap">
-    <article class="page">
+    <article class="projet">
+      <nav class="fil" aria-label="Fil d'Ariane"><a href="/">Accueil</a> · <a href="/projets/">Projets</a> · <span>Écosystème LUNTRAE</span></nav>
       <h1>LUNTRAE, conception et déploiement d'un écosystème numérique personnel</h1>
-      <!-- Contenu à venir (lot 3). -->
+      <p class="resume">Une marque personnelle et son site, conçus, développés et mis en ligne de bout en bout. Le terrain où je teste ce que je veux apprendre.</p>
+      <div class="meta">
+        <p><span class="lbl-meta">Statut</span> En ligne depuis juin 2026, et en évolution continue.</p>
+      </div>
+
+      <h2>Le point de départ</h2>
+      <p>Je voulais créer un site de A à Z, pas en assembler un. Choisir le nom de domaine, écrire le code, décider de l'hébergement, gérer la mise en ligne, et pouvoir revenir sur chaque décision parce que je l'ai prise moi-même. C'est l'essence de LUNTRAE : créer, tester, apprendre, progresser.</p>
+
+      <h2>Ce que j'ai fait</h2>
+      <p>L'identité de marque et sa charte, le nom de domaine et sa configuration, le développement des pages, la mise en ligne sécurisée, et l'écriture de tous les contenus.</p>
+
+      <h2>Les décisions qui comptent</h2>
+      <p><b>Aucun cookie, aucune contrainte à l'entrée.</b> Je ne veux imposer aucun obstacle à la curiosité de qui passe ici. Pas de bandeau, pas de consentement à donner, pas de traceur. La mesure d'audience que j'utilise fonctionne sans cookie et sans donnée personnelle.</p>
+      <p><b>Un site que je maîtrise entièrement.</b> J'ai écrit le code plutôt que d'utiliser un outil de création en ligne. C'est plus long au départ, mais je sais ce que contient chaque page, je peux tout modifier, et rien ne dépend d'un service que je ne contrôle pas.</p>
+      <p><b>Des polices hébergées chez moi.</b> Elles sont servies depuis mon propre site et non depuis un service extérieur : aucune requête vers un tiers, donc aucune donnée de mes visiteurs qui parte ailleurs, et un affichage plus rapide.</p>
+      <p><b>Un contenu pensé pour être trouvé.</b> Structure des titres, textes alternatifs, données structurées, plan du site : le référencement naturel se prépare à l'écriture, pas après coup.</p>
+
+      <h2>Le versant éditorial</h2>
+      <p>LUNTRAE porte aussi des <a href="/series/">séries publiées sur les réseaux</a>, qui racontent autrement ce que je construis. C'est là que je travaille le passage d'une idée à un format court, et que je teste ce qui accroche.</p>
+
+      <h2>La suite</h2>
+      <p>L'objectif à terme est d'auto-héberger le site sur ma propre machine et d'y construire un back-end de mes mains. Aujourd'hui, mon site ne fait que livrer des pages : il ne peut rien enregistrer ni rien retenir. Un back-end me permettra d'héberger des créations qui, elles, auront besoin de gérer des données. C'est la prochaine étape d'apprentissage.</p>
+
+      <h2>Compétences mobilisées</h2>
+      <p>Identité de marque et charte graphique, HTML, CSS et JavaScript, configuration de nom de domaine et DNS, déploiement et mise en ligne, HTTPS, automatisation par tâche programmée, mesure d'audience sans cookie, référencement naturel, accessibilité, écriture éditoriale, Git et GitHub.</p>
+
+
+      <a class="back-home" href="/projets/">&larr; Retour aux projets</a>
     </article>
   </div>
+
+  <!-- CONTACT (cible de la nav « Contact ») -->
+  <div class="contact" id="contact">
+    <div class="contact-inner">
+      <span class="crescent" aria-hidden="true">&#9790;</span>
+      <h2>Écrivons-nous.</h2>
+      <p>Une idée à creuser, une proposition, une envie d'échanger ? Écrivez-moi, même simplement pour discuter.</p>
+      <a class="cta" href="mailto:luntrae@proton.me">luntrae@proton.me</a>
+      <!-- Téléchargement du CV, événement « cv-telechargement » -->
+      <a class="cta-ghost" href="/assets/cv/CV-Camille-Sauton.pdf" download
+         aria-label="Télécharger mon CV au format PDF"
+         style="margin-top:1rem"
+         onclick="window.goatcounter&&window.goatcounter.count({path:'cv-telechargement',title:'CV téléchargé',event:true})">Télécharger mon CV <span aria-hidden="true">· PDF ⤓</span></a>
+      <p class="tiny">LUNTRAE est un projet personnel : un écosystème d'explorations digitales.</p>
+    </div>
+  </div>
+
 </main>
 
 <button class="to-top" type="button" aria-label="Revenir en haut de la page">&#9650;</button>
