@@ -651,6 +651,11 @@ main{display:block;position:relative;z-index:2}
 .projet p{color:var(--lunaire-dim);margin-bottom:1rem}
 .projet p b{color:var(--lunaire);font-weight:500}
 .projet a{color:var(--bronze-br);text-decoration:underline;text-underline-offset:3px}
+/* Exergue : une phrase du texte mise en valeur, à sa place, sans duplication.
+   Cormorant italique, bronze clair (6,09:1 sur obsidienne), corps supérieur au courant, filet bronze humide. */
+.exergue{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:400;
+  color:var(--bronze-br);font-size:clamp(1.45rem,2.6vw,1.85rem);line-height:1.35;
+  margin:1.4rem 0 1.4rem;padding:.2rem 0 .2rem 1.3rem;border-left:2px solid var(--bronze)}
 .projet .appel{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--lunaire);font-size:1.2rem;margin-top:1.6rem}
 .projet .back-home{text-decoration:none}
 /* Page Contact : même gabarit de prose que les pages projet, listes à puces bronze */
