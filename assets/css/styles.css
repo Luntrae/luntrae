@@ -214,7 +214,7 @@ nav.links .sub a[aria-current="page"]{color:var(--bronze-br);background:var(--ob
 
 /* --- Sections génériques --------------------------------------------- */
 section{padding:8vh 0;position:relative}
-.sec-head{display:flex;align-items:center;gap:1.1rem;margin-bottom:3.2rem}
+.sec-head{display:flex;align-items:center;gap:1.1rem;margin-bottom:1.8rem}
 .sec-head .crescent{color:var(--bronze);font-size:1.3rem;display:inline-block}
 .sec-head h1,.sec-head h2{
   font-family:"Cormorant Garamond",serif;font-weight:500;
@@ -744,7 +744,7 @@ main{display:block;position:relative;z-index:2}
 .cv-photo{position:relative;z-index:1;justify-self:end;width:min(100%,300px)}
 .cv-photo img{display:block;width:100%;height:auto;filter:drop-shadow(0 0 32px rgba(182,144,95,.16))}
 /* Sections : titre en capitales espacées suivi d'un filet, comme sur le PDF */
-.cv-sec{margin-bottom:2.8rem}
+.cv-sec{margin-bottom:1.8rem}
 .cv-sec h2{font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--lunaire);letter-spacing:.22em;text-transform:uppercase;
   font-size:clamp(1.05rem,2vw,1.25rem);margin:0 0 1.2rem;display:flex;align-items:center;gap:1rem}
 .cv-sec h2::after{content:"";flex:1;height:1px;background:var(--line)}
@@ -755,7 +755,7 @@ main{display:block;position:relative;z-index:2}
 /* Profil : panneau à rayures verticales très discrètes, texte sur deux colonnes */
 .cv-profil{background:var(--obs-2) repeating-linear-gradient(90deg,transparent 0 64px,rgba(232,236,239,.03) 64px 128px);
   border-left:2px solid var(--bronze);padding:1.6rem 1.8rem;border-radius:0 4px 4px 0}
-.cv-profil p{font-size:1.06rem;margin:0;column-count:2;column-gap:2.4rem}
+.cv-profil p{font-size:1.06rem;margin:0}
 /* Projets : cartes à filet bronze, statut animé */
 .cv-projets{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
 .cv-projet{background:var(--obs-2);border:1px solid var(--line-soft);border-radius:4px;padding:1.3rem 1.4rem 1.1rem;display:flex;flex-direction:column;
@@ -825,6 +825,7 @@ main{display:block;position:relative;z-index:2}
   .cv-photo{justify-self:center;width:min(100%,240px);order:-1}
   .cv-profil p{column-count:1}
   .cv-projets,.cv-comp,.cv-duo,.cv-stages{grid-template-columns:1fr}
+  .cv-duo{gap:0}
   .cv-bandeau ul.trois{column-count:1}
   .cv-frise{grid-template-columns:1fr;gap:1rem;padding-left:1.6rem}
   .cv-frise::before{left:6px;right:auto;top:0;bottom:0;width:1px;height:auto}
