@@ -708,6 +708,12 @@ main{display:block;position:relative;z-index:2}
 .credits{max-width:70ch;margin:1rem auto 0;padding-top:1.4rem;border-top:1px solid var(--line)}
 .credits p{font-size:.95rem}
 .univers-cta .hook{max-width:44ch;margin-inline:auto}
+.essai a,.univers-prose a{color:var(--bronze-br);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line);transition:text-decoration-color .3s}
+.essai a:hover,.univers-prose a:hover{text-decoration-color:var(--bronze-br)}
+/* Appel secondaire sous le bouton principal (Univers vers À propos) */
+.lien-secondaire{display:block;margin-top:1.1rem;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.15rem;
+  color:var(--lunaire-dim);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line);transition:color .3s,text-decoration-color .3s}
+.lien-secondaire:hover{color:var(--bronze-br);text-decoration-color:var(--bronze-br)}
 
 /* --- Page CV : même grammaire que le PDF (bandeau, blocs à en-tête, bulle, vague, frise),
    sur le fond obsidienne du site. Le bronze humide ne porte aucun texte ici. --- */
