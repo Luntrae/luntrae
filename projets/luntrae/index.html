@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUNTRAE · Conception et déploiement d'un site de A à Z</title>
+<meta name="description" content="Identité de marque, code, nom de domaine, mise en ligne et séries publiées : une présence numérique conçue et déployée seule, sans cookie.">
+<meta name="author" content="Camille Sauton">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#101820">
+<link rel="canonical" href="https://luntrae.fr/projets/luntrae/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="LUNTRAE">
+<meta property="og:title" content="Nom de domaine, code, mise en ligne : tout, de mes mains.">
+<meta property="og:description" content="Identité de marque, code, nom de domaine, mise en ligne et séries publiées : une présence numérique conçue et déployée seule, sans cookie.">
+<meta property="og:url" content="https://luntrae.fr/projets/luntrae/">
+<meta property="og:image" content="https://luntrae.fr/assets/img/og-luntrae.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Une loutre stylisée en trait bronze, inscrite dans un cercle sous la lune, au-dessus de son reflet dans l'eau.">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nom de domaine, code, mise en ligne : tout, de mes mains.">
+<meta name="twitter:description" content="Identité de marque, code, nom de domaine, mise en ligne et séries publiées : une présence numérique conçue et déployée seule, sans cookie.">
+<meta name="twitter:image" content="https://luntrae.fr/assets/img/og-luntrae.png">
+<meta name="twitter:image:alt" content="Une loutre stylisée en trait bronze, inscrite dans un cercle sous la lune, au-dessus de son reflet dans l'eau.">
+
+<!-- Favicon & manifeste -->
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/favicon-64.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Polices auto-hébergées (aucune requête vers un tiers, via @font-face dans styles.css) -->
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/spectral-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-500.woff2">
+
+<!-- Styles -->
+<link rel="stylesheet" href="/assets/css/styles.css">
+
+<!-- Données structurées (SEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "@id": "https://luntrae.fr/projets/luntrae/#work",
+      "name": "Écosystème LUNTRAE",
+      "headline": "LUNTRAE, conception et déploiement d'un écosystème numérique personnel",
+      "description": "Identité de marque, code, nom de domaine, mise en ligne et séries publiées : une présence numérique conçue et déployée seule, sans cookie.",
+      "url": "https://luntrae.fr/projets/luntrae/",
+      "inLanguage": "fr",
+      "author": {
+        "@id": "https://luntrae.fr/#camille"
+      },
+      "isPartOf": {
+        "@id": "https://luntrae.fr/#site"
+      },
+      "keywords": [
+        "identité de marque",
+        "HTML, CSS et JavaScript",
+        "nom de domaine et DNS",
+        "HTTPS",
+        "mesure d'audience sans cookie",
+        "référencement naturel"
+      ],
+      "datePublished": "2026-06"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://luntrae.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projets",
+          "item": "https://luntrae.fr/projets/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Écosystème LUNTRAE",
+          "item": "https://luntrae.fr/projets/luntrae/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#top">Aller au contenu</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="LUNTRAE, accueil">
+      <img src="/assets/img/LUNTRAE_icone_nav.webp" alt="" width="34" height="33">
+      <span>LUNTRAE</span>
+    </a>
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="links" id="nav-links" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <div class="has-sub">
+        <a href="/projets/" class="active">Projets</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-projets" aria-label="Afficher les pages projet"></button>
+        <ul class="sub" id="sub-projets">
+          <li><a href="/projets/projet-confidentiel/">Le Projet Confidentiel</a></li>
+          <li><a href="/projets/geneapop/">Geneapop</a></li>
+          <li><a href="/projets/luntrae/" aria-current="page">Écosystème LUNTRAE</a></li>
+          <li><a href="/projets/kintara-ceramics/">Kintara Ceramics</a></li>
+          <li><a href="/projets/le-gentle/">Le Gentle</a></li>
+          <li><a href="/projets/methode-repositionnement/">Méthode de repositionnement</a></li>
+          <li><a href="/projets/leax/">Léax</a></li>
+        </ul>
+      </div>
+      <a href="/series/">Séries</a>
+      <div class="has-sub">
+        <a href="/a-propos/">À propos</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-apropos" aria-label="Afficher les pages À propos"></button>
+        <ul class="sub" id="sub-apropos">
+          <li><a href="/cv/">Curriculum Vitae</a></li>
+        </ul>
+      </div>
+      <a href="/univers/">L'Univers LUNTRAE</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <article class="projet fil-eau">
+      <nav class="fil" aria-label="Fil d'Ariane"><a href="/">Accueil</a> · <a href="/projets/">Projets</a> · <span>Écosystème LUNTRAE</span></nav>
+      <h1>LUNTRAE, conception et déploiement d'un écosystème numérique personnel</h1>
+      <p class="resume">Une marque personnelle et son site, conçus, développés et mis en ligne de bout en bout. Le terrain où je teste ce que je veux apprendre.</p>
+      <div class="meta">
+        <p><span class="lbl-meta">Statut</span> En ligne depuis juin 2026, et en évolution continue.</p>
+      </div>
+
+      <h2>Le point de départ</h2>
+      <p><span class="exergue">Je voulais créer un site de A à Z, pas en assembler un.</span> Choisir le nom de domaine, écrire le code, décider de l'hébergement, gérer la mise en ligne, et pouvoir revenir sur chaque décision parce que je l'ai prise moi-même. C'est l'essence de LUNTRAE : créer, tester, apprendre, progresser.</p>
+
+      <h2>Ce que j'ai fait</h2>
+      <p>L'identité de marque et sa charte, le nom de domaine et sa configuration, le développement des pages, la mise en ligne sécurisée, et l'écriture de tous les contenus.</p>
+
+      <h2>Les décisions qui comptent</h2>
+      <p><b>Aucun cookie, aucune contrainte à l'entrée.</b> Je ne veux imposer aucun obstacle à la curiosité de qui passe ici. Pas de bandeau, pas de consentement à donner, pas de traceur. La mesure d'audience que j'utilise fonctionne sans cookie et sans donnée personnelle.</p>
+      <p><b>Un site que je maîtrise entièrement.</b> J'ai écrit le code plutôt que d'utiliser un outil de création en ligne. C'est plus long au départ, mais je sais ce que contient chaque page, je peux tout modifier, et rien ne dépend d'un service que je ne contrôle pas.</p>
+      <p><b>Des polices hébergées chez moi.</b> Elles sont servies depuis mon propre site et non depuis un service extérieur : aucune requête vers un tiers, donc aucune donnée de mes visiteurs qui parte ailleurs, et un affichage plus rapide.</p>
+      <p><b>Un contenu pensé pour être trouvé.</b> Structure des titres, textes alternatifs, données structurées, plan du site : le référencement naturel se prépare à l'écriture, pas après coup.</p>
+
+      <h2>Le versant éditorial</h2>
+      <p>LUNTRAE porte aussi des <a href="/series/">séries publiées sur les réseaux</a>, qui racontent autrement ce que je construis. C'est là que je travaille le passage d'une idée à un format court, et que je teste ce qui accroche.</p>
+
+      <h2>La suite</h2>
+      <p>L'objectif à terme est d'auto-héberger le site sur ma propre machine et d'y construire un back-end de mes mains. Aujourd'hui, mon site ne fait que livrer des pages : il ne peut rien enregistrer ni rien retenir. Un back-end me permettra d'héberger des créations qui, elles, auront besoin de gérer des données. C'est la prochaine étape d'apprentissage.</p>
+
+      <h2>Compétences mobilisées</h2>
+      <p>Identité de marque et charte graphique, HTML, CSS et JavaScript, configuration de nom de domaine et DNS, déploiement et mise en ligne, HTTPS, automatisation par tâche programmée, mesure d'audience sans cookie, référencement naturel, accessibilité, écriture éditoriale, Git et GitHub.</p>
+
+
+      <!-- Projet suivant : bouclage dans l'ordre de l'index -->
+      <aside class="suivant">
+        <p class="suivant-lbl">Projet suivant</p>
+        <h2 class="suivant-nom"><a href="/projets/kintara-ceramics/">Kintara Ceramics</a></h2>
+        <p class="suivant-def">Repositionnement complet d'une marque de céramique d'art : identité, architecture d'offre, stratégie éditoriale et cadrage de la refonte e-commerce.</p>
+        <a class="voir" href="/projets/kintara-ceramics/">Voir le projet &rarr;</a>
+      </aside>
+
+      <a class="back-home" href="/projets/">&larr; Retour aux projets</a>
+    </article>
+  </div>
+
+  <!-- CONTACT (cible de la nav « Contact ») -->
+  <div class="contact" id="contact">
+    <div class="contact-inner">
+      <span class="crescent" aria-hidden="true">&#9790;</span>
+      <h2>Écrivons-nous.</h2>
+      <p>Une idée à creuser, une proposition, une envie d'échanger ? Écrivez-moi, même simplement pour discuter.</p>
+      <a class="cta" href="mailto:luntrae@proton.me">luntrae@proton.me</a>
+      <!-- Téléchargement du CV, suivi par main.js (événement cv-telechargement, ventilé par page) -->
+      <a class="cta-ghost" href="/assets/cv/CV_Camille_Sauton_cheffe_de_projet_numerique.pdf" download
+         aria-label="Télécharger mon CV au format PDF"
+         style="margin-top:1rem">Télécharger mon CV <span aria-hidden="true">· PDF ⤓</span></a>
+      <p class="tiny">LUNTRAE est un projet personnel : un écosystème d'explorations digitales.</p>
+    </div>
+  </div>
+
+</main>
+
+<button class="to-top" type="button" aria-label="Revenir en haut de la page">&#9650;</button>
+
+<footer>
+  <div class="wrap">
+    <img src="/assets/img/LUNTRAE_lockup_pied.webp" alt="" width="126" height="44" loading="lazy">
+    <div class="fm">Des systèmes pour des futurs plus doux.</div>
+    <small>LUNTRAE · Camille Sauton · Mis à jour en septembre 2026</small>
+    <div class="legal"><a href="/mentions-legales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a></div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE), cf. Confidentialité. -->
+<script data-goatcounter="https://luntrae.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

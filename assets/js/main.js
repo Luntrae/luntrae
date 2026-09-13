@@ -1,23 +1,28 @@
 /* ==========================================================================
-   LUNTRAE — interactions
+   LUNTRAE, interactions
    Vanilla JS, sans dépendance. Mouvement doux, respect de prefers-reduced-motion.
    - reveals au scroll (IntersectionObserver)
-   - scrollspy (lien de nav actif selon la section visible)
    - menu mobile (burger)
    - barre de progression de lecture + header condensé
    - bouton « haut de page »
    - halo de lune en légère parallaxe (souris + scroll)
    - lueur des fiches qui suit le curseur
-   - formulaire d'inscription branché sur Formspree (honeypot + double opt-in)
    ========================================================================== */
 (function () {
   "use strict";
 
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* --- 1. Reveals au scroll (rejoués à la DESCENTE, instantanés à la MONTÉE) --- */
+  /* --- 1. Reveals au scroll (une seule fois par lecture de la page) --- */
+  // Éléments révélés génériquement : on leur pose la classe .rv (opacité 0 puis .in)
+  document
+    .querySelectorAll(
+      ".presente-inner, .univers-cta, .about-body h2, .about-body p, .about-body ul, .projet h2, .projet p, .projet .meta, " +
+        ".cv-sec, .cv-head, .essai, .univers-prose h2, .univers-prose p, .credits, .loutres-intro, .encart, .about-head, .extrait-intro"
+    )
+    .forEach((el) => el.classList.add("rv"));
   const revealables = document.querySelectorAll(
-    ".fiche, .tl, .pillar, .u-card, .reflect, .sec-head, .porte, .serie, .temp, .portrait"
+    ".fiche, .tl, .pillar, .u-card, .reflect, .sec-head, .porte, .serie, .temp, .portrait, .loutre, .extrait, .nom-bloc, .rv"
   );
 
   if (prefersReduced) {
@@ -29,38 +34,14 @@
       if (typeof s.pauseAnimations === "function") s.pauseAnimations();
     });
   } else {
-    // On suit le sens du scroll pour ne rejouer qu'en descendant.
-    let lastY = window.scrollY;
-    let dir = "down";
-    window.addEventListener(
-      "scroll",
-      () => {
-        const y = window.scrollY;
-        if (y !== lastY) dir = y > lastY ? "down" : "up";
-        lastY = y;
-      },
-      { passive: true }
-    );
-
+    // Chaque élément n'est révélé qu'une fois par lecture de la page : une fois apparu, il reste
+    // visible et n'est plus observé. Remonter puis redescendre ne rejoue rien (lot E3).
     const io = new IntersectionObserver(
-      (entries) => {
+      (entries, obs) => {
         entries.forEach((en) => {
-          const el = en.target;
-          if (en.isIntersecting) {
-            if (dir === "down") {
-              // descente → on rejoue (reflow forcé pour redémarrer la transition)
-              el.classList.remove("in");
-              void el.offsetWidth;
-              el.classList.add("in");
-            } else {
-              // montée → apparition instantanée, sans animation
-              el.classList.add("no-anim", "in");
-              requestAnimationFrame(() => el.classList.remove("no-anim"));
-            }
-          } else {
-            // sorti de l'écran → on réarme pour la prochaine descente
-            el.classList.remove("in", "no-anim");
-          }
+          if (!en.isIntersecting) return;
+          en.target.classList.add("in");
+          obs.unobserve(en.target);
         });
       },
       { threshold: 0.14 }
@@ -68,28 +49,128 @@
     revealables.forEach((el) => io.observe(el));
   }
 
-  /* --- 2. Scrollspy : lien de nav actif ------------------------------- */
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = Array.from(document.querySelectorAll("nav.links a"));
-  const linkFor = (id) =>
-    navLinks.find((a) => a.getAttribute("href") === "#" + id);
-
-  if (sections.length && navLinks.length) {
-    const spy = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            navLinks.forEach((a) => a.classList.remove("active"));
-            const link = linkFor(e.target.id);
-            if (link) link.classList.add("active");
-          }
-        });
-      },
-      // la section est « active » quand elle occupe la bande centrale haute
-      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
-    );
-    sections.forEach((s) => spy.observe(s));
+  /* --- 1b. Ciel étoilé : semis discret de points bronze, scintillement lent --- */
+  // Uniquement sur le fond obsidienne, derrière tout le contenu. Coupé sous prefers-reduced-motion.
+  if (!prefersReduced && window.matchMedia("(min-width: 600px)").matches) {
+    const ciel = document.createElement("canvas");
+    ciel.className = "ciel";
+    ciel.setAttribute("aria-hidden", "true");
+    document.body.prepend(ciel);
+    const ctx = ciel.getContext("2d");
+    let stars = [];
+    const seed = () => {
+      ciel.width = window.innerWidth;
+      ciel.height = window.innerHeight;
+      const n = Math.min(70, Math.round((ciel.width * ciel.height) / 26000));
+      stars = Array.from({ length: n }, () => ({
+        x: Math.random() * ciel.width,
+        y: Math.random() * ciel.height,
+        r: 0.6 + Math.random() * 1.2,
+        a: 0.08 + Math.random() * 0.14,
+        p: Math.random() * Math.PI * 2,
+        v: 0.0004 + Math.random() * 0.0006,
+      }));
+    };
+    let last = 0;
+    let actif = true;
+    const draw = (t) => {
+      if (!actif) return; // onglet caché : la boucle s'arrête, visibilitychange la relance
+      if (t - last > 90) {
+        last = t;
+        ctx.clearRect(0, 0, ciel.width, ciel.height);
+        for (const s of stars) {
+          const k = 0.55 + 0.45 * Math.sin(s.p + t * s.v);
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(182,144,95," + (s.a * k).toFixed(3) + ")";
+          ctx.fill();
+        }
+      }
+      requestAnimationFrame(draw);
+    };
+    seed();
+    window.addEventListener("resize", seed, { passive: true });
+    document.addEventListener("visibilitychange", () => {
+      const visible = !document.hidden;
+      if (visible && !actif) {
+        actif = true;
+        requestAnimationFrame(draw);
+      } else if (!visible) {
+        actif = false;
+      }
+    });
+    if (!document.hidden) requestAnimationFrame(draw);
+    else actif = false;
   }
+
+  /* --- 1c. Mots du H1 du hero, montée en cascade ----------------------- */
+  const heroTitle = document.querySelector(".ha-left h1");
+  if (heroTitle && !prefersReduced && heroTitle.children.length === 0) {
+    const words = heroTitle.textContent.trim().split(/\s+/);
+    heroTitle.textContent = "";
+    words.forEach((w, i) => {
+      const span = document.createElement("span");
+      span.className = "w";
+      span.style.setProperty("--i", i);
+      span.textContent = w;
+      heroTitle.append(span, document.createTextNode(" "));
+    });
+  }
+
+  /* --- 1d. Fil d'eau : trait qui descend avec la lecture -------------- */
+  const fil = document.querySelector(".fil-eau");
+  if (fil && !prefersReduced) {
+    const suivre = () => {
+      const r = fil.getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, (window.innerHeight * 0.75 - r.top) / r.height));
+      fil.style.setProperty("--fil", p.toFixed(3));
+    };
+    window.addEventListener("scroll", suivre, { passive: true });
+    window.addEventListener("resize", suivre, { passive: true });
+    suivre();
+  }
+
+  /* --- 1e. Sommaire ancré : replié sous 760 px, section en cours mise en évidence --- */
+  const sommaire = document.querySelector(".sommaire");
+  if (sommaire) {
+    // replié seulement sur petit écran, où il repousserait le contenu sous la ligne de flottaison
+    if (!window.matchMedia("(min-width: 760px)").matches) sommaire.open = false;
+    const liens = Array.from(sommaire.querySelectorAll("a[href^='#']"));
+    const cibles = liens.map((a) => document.getElementById(a.getAttribute("href").slice(1))).filter(Boolean);
+    if (cibles.length && "IntersectionObserver" in window) {
+      const marquer = (id) => liens.forEach((a) => a.classList.toggle("actif", a.getAttribute("href") === "#" + id));
+      const obs = new IntersectionObserver(
+        (entries) => { entries.forEach((en) => { if (en.isIntersecting) marquer(en.target.id); }); },
+        { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
+      );
+      cibles.forEach((c) => obs.observe(c));
+    }
+  }
+
+  /* --- 1f. Mesure d'audience : clics qui comptent, ventilés par page --------------------- */
+  // Par délégation sur le document, sans attribut onclick. Chaque événement GoatCounter porte
+  // le chemin de la page d'origine dans son propre chemin, ce qui donne une ligne par page dans
+  // le tableau de bord : contact-email/…, cv-telechargement/…, clic-instagram/…, clic-linkedin/….
+  // Sans GoatCounter (bloqueur, hors ligne), les liens fonctionnent normalement.
+  document.addEventListener("click", (e) => {
+    const lien = e.target.closest && e.target.closest("a[href]");
+    if (!lien || !window.goatcounter || typeof window.goatcounter.count !== "function") return;
+    const href = lien.getAttribute("href") || "";
+    let nom = null;
+    if (href.startsWith("mailto:")) nom = "contact-email";
+    else if (/\/assets\/cv\/.*\.pdf$/.test(href)) nom = "cv-telechargement";
+    else if (/instagram\.com/.test(href)) nom = "clic-instagram";
+    else if (/linkedin\.com/.test(href)) nom = "clic-linkedin";
+    if (!nom) return;
+    window.goatcounter.count({
+      path: nom + window.location.pathname,
+      title: nom + " depuis " + window.location.pathname,
+      event: true,
+    });
+  });
+
+  /* --- 2. Liens de navigation (le scrollspy a été retiré : aucun onglet ne pointe vers une ancre) --- */
+  const navLinks = Array.from(document.querySelectorAll("nav.links a"));
 
   /* --- 3. Menu mobile (burger) ---------------------------------------- */
   const burger = document.querySelector(".burger");
@@ -110,6 +191,29 @@
       if (e.key === "Escape") closeMenu();
     });
   }
+
+  /* --- 3b. Menu déroulant Projets ------------------------------------ */
+  // Les liens existent déjà dans le HTML : le script ne fait qu'ouvrir ou
+  // replier la liste (bouton, clic à l'extérieur, échap). Sans JS, le survol
+  // et le focus clavier suffisent sur bureau.
+  document.querySelectorAll("nav.links .has-sub").forEach((item) => {
+    const toggle = item.querySelector(".sub-toggle");
+    if (!toggle) return;
+    const setOpen = (open) => {
+      item.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+    };
+    toggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setOpen(!item.classList.contains("open"));
+    });
+    document.addEventListener("click", (e) => {
+      if (!item.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setOpen(false);
+    });
+  });
 
   /* --- 4. Barre de progression + header condensé ---------------------- */
   const progress = document.querySelector(".scroll-progress");
@@ -174,35 +278,5 @@
         fiche.style.setProperty("--my", e.clientY - r.top + "px");
       });
     });
-  }
-
-  /* Note : le formulaire d'inscription a été retiré (décision du 7 juin 2026).
-     Le contact se fait désormais par e-mail uniquement. La logique sera reprise
-     plus tard, branchée sur le mini-serveur K11. Voir backend/ (en pause). */
-
-  /* --- 9. Compteur de visites (anonyme) ------------------------------- */
-  // Activé une fois le backend en ligne (K11). Tant que l'URL n'est pas
-  // configurée : aucun appel réseau, rien d'affiché → la promesse « zéro
-  // mesure d'audience » reste vraie. Le jour J : coller l'URL ci-dessous
-  // ET mettre à jour la page Confidentialité (cf. backend/README.md).
-  const COUNTER_ENDPOINT = "REMPLACER_PAR_URL_COMPTEUR"; // ex. https://luntrae.fr/api/hit
-  const visitsEl = document.getElementById("site-visits");
-  const visitsCount = document.getElementById("visits-count");
-  if (
-    visitsEl &&
-    visitsCount &&
-    COUNTER_ENDPOINT !== "REMPLACER_PAR_URL_COMPTEUR"
-  ) {
-    fetch(COUNTER_ENDPOINT, { method: "POST" })
-      .then((r) => (r.ok ? r.json() : null))
-      .then((data) => {
-        if (data && typeof data.count === "number") {
-          visitsCount.textContent = data.count.toLocaleString("fr-FR");
-          visitsEl.hidden = false;
-        }
-      })
-      .catch(() => {
-        /* échec silencieux : on n'affiche rien plutôt qu'un compteur cassé */
-      });
   }
 })();

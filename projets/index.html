@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projets — LUNTRAE · Camille Sauton</title>
-<meta name="description" content="Les projets de Camille Sauton : Geneapop, l'écosystème LUNTRAE, Kintara Ceramics, Le Gentle, la méthode de repositionnement et le roman Léax.">
+<title>Projets numériques et entrepreneuriaux · LUNTRAE</title>
+<meta name="description" content="Sept projets menés de l'analyse à la réalisation : application web, tiers-lieu, stratégie de marque, méthode d'accompagnement, roman.">
 <meta name="author" content="Camille Sauton">
+<meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#101820">
 <link rel="canonical" href="https://luntrae.fr/projets/">
 
@@ -13,23 +14,24 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="LUNTRAE">
-<meta property="og:title" content="Projets — LUNTRAE">
-<meta property="og:description" content="Concevoir une stratégie, puis construire l'outil qui la rend réelle. Six projets, de la technique à la création.">
+<meta property="og:title" content="Des projets variés, du code au business en passant par un roman.">
+<meta property="og:description" content="Sept projets menés de l'analyse à la réalisation : application web, tiers-lieu, stratégie de marque, méthode d'accompagnement, roman.">
 <meta property="og:url" content="https://luntrae.fr/projets/">
 <meta property="og:image" content="https://luntrae.fr/assets/img/og-luntrae.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Logo LUNTRAE — une loutre sous la lune, au bord de l'eau, en line-art bronze sur obsidienne.">
+<meta property="og:image:alt" content="Une loutre stylisée en trait bronze, inscrite dans un cercle sous la lune, au-dessus de son reflet dans l'eau.">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Projets — LUNTRAE">
-<meta name="twitter:description" content="Six projets, de la stratégie et la technique jusqu'à la création.">
+<meta name="twitter:title" content="Des projets variés, du code au business en passant par un roman.">
+<meta name="twitter:description" content="Sept projets menés de l'analyse à la réalisation : application web, tiers-lieu, stratégie de marque, méthode d'accompagnement, roman.">
 <meta name="twitter:image" content="https://luntrae.fr/assets/img/og-luntrae.png">
+<meta name="twitter:image:alt" content="Une loutre stylisée en trait bronze, inscrite dans un cercle sous la lune, au-dessus de son reflet dans l'eau.">
 
 <!-- Favicon & manifeste -->
-<link rel="icon" type="image/png" href="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
 <link rel="manifest" href="/site.webmanifest">
 
@@ -39,6 +41,28 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="/assets/css/styles.css">
+
+<!-- Données structurées (SEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://luntrae.fr/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Projets",
+      "item": "https://luntrae.fr/projets/"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -47,8 +71,8 @@
 
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="LUNTRAE — accueil">
-      <img src="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="" width="34" height="33">
+    <a class="brand" href="/" aria-label="LUNTRAE, accueil">
+      <img src="/assets/img/LUNTRAE_icone_nav.webp" alt="" width="34" height="33">
       <span>LUNTRAE</span>
     </a>
     <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
@@ -56,10 +80,29 @@
     </button>
     <nav class="links" id="nav-links" aria-label="Navigation principale">
       <a href="/">Accueil</a>
-      <a href="/projets/" class="active" aria-current="page">Projets</a>
+      <div class="has-sub">
+        <a href="/projets/" class="active" aria-current="page">Projets</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-projets" aria-label="Afficher les pages projet"></button>
+        <ul class="sub" id="sub-projets">
+          <li><a href="/projets/projet-confidentiel/">Le Projet Confidentiel</a></li>
+          <li><a href="/projets/geneapop/">Geneapop</a></li>
+          <li><a href="/projets/luntrae/">Écosystème LUNTRAE</a></li>
+          <li><a href="/projets/kintara-ceramics/">Kintara Ceramics</a></li>
+          <li><a href="/projets/le-gentle/">Le Gentle</a></li>
+          <li><a href="/projets/methode-repositionnement/">Méthode de repositionnement</a></li>
+          <li><a href="/projets/leax/">Léax</a></li>
+        </ul>
+      </div>
       <a href="/series/">Séries</a>
-      <a href="/a-propos/">À propos</a>
-      <a href="#contact">Contact</a>
+      <div class="has-sub">
+        <a href="/a-propos/">À propos</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-apropos" aria-label="Afficher les pages À propos"></button>
+        <ul class="sub" id="sub-apropos">
+          <li><a href="/cv/">Curriculum Vitae</a></li>
+        </ul>
+      </div>
+      <a href="/univers/">L'Univers LUNTRAE</a>
+      <a href="/contact/">Contact</a>
     </nav>
   </div>
 </header>
@@ -68,114 +111,75 @@
   <div class="wrap">
 
     <section class="projets">
-      <div class="sec-head"><span class="crescent">&#9790;</span><h2>Projets</h2><span class="rule"></span></div>
-      <p class="lead"><b>Un même fil traverse ces projets</b> : penser une stratégie, puis construire l'outil qui la rend réelle. Les cinq premiers relèvent de la stratégie et de la technique. Le dernier est un terrain de création.</p>
+      <div class="sec-head"><span class="crescent">&#9790;</span><h1>Projets</h1><span class="rule"></span></div>
+      <p class="lead"><b>Un même fil traverse ces projets</b> : analyser, concevoir la stratégie, puis construire l'outil qui la rend réelle.</p>
 
       <div class="grid">
 
+        <!-- Ligne 1, pleine largeur : Le Projet Confidentiel (creux plus profond que le fond, bordure bronze) -->
+        <article class="fiche wide confidentiel">
+          <div class="kicker">Conception produit, stratégie et pilotage</div>
+          <h2>Le Projet Confidentiel</h2>
+          <p class="def">Projet numérique d'engagement éthique ludique, en conception. Étude, cadrage fonctionnel et pilotage menés de bout en bout.</p>
+          <span class="statut"><span class="dot" aria-hidden="true"></span> En conception</span>
+          <a class="voir" href="/projets/projet-confidentiel/">Voir le projet &rarr;</a>
+        </article>
+
+        <!-- Ligne 2 : encart sur fond bronze (texte blanc lunaire, grand corps), puis Geneapop -->
+        <aside class="encart">
+          <h2>Lire et écrire du code</h2>
+          <p>En formation autodidacte. Glossaire personnel de plus de 200 entrées, premières corrections écrites et intégrées à mes propres projets. De quoi construire mes outils, dialoguer avec des développeurs et arbitrer en connaissance de cause.</p>
+          <p>Le terrain de cette montée en compétence, c'est le projet suivant.</p>
+        </aside>
+
         <article class="fiche">
-          <span class="num">01</span>
-          <div class="kicker">Projet phare · Conception &amp; développement (solo)</div>
-          <h3>Geneapop</h3>
-          <p class="def">Développement front-end en solo d'une application web transformant des données familiales en un arbre vivant, interactif et cartographié.</p>
+          <div class="kicker">Conception et développement, en solo</div>
+          <h2>Geneapop</h2>
+          <p class="def">Application web qui transforme des données familiales en un arbre vivant, interactif et cartographié. Développée seule, du modèle de données à l'interface.</p>
           <span class="statut"><span class="dot" aria-hidden="true"></span> En développement avancé</span>
-          <span class="lbl">Compétences</span>
-          <ul class="skills">
-            <li>Front-end : HTML, CSS, JavaScript (vanilla)</li>
-            <li>Rendu SVG &amp; placement dynamique</li>
-            <li>Persistance locale (IndexedDB)</li>
-            <li>Intégration d'une API d'IA générative</li>
-            <li>Cartographie interactive</li>
-            <li>Architecture modulaire &amp; Git</li>
-          </ul>
-          <span class="lbl">Mots-clés</span>
-          <div class="tags"><span class="tag">Front-end</span><span class="tag">IA</span><span class="tag">UX</span><span class="tag">Solo</span></div>
+          <a class="voir" href="/projets/geneapop/">Voir le projet &rarr;</a>
         </article>
 
         <article class="fiche">
-          <span class="num">02</span>
-          <div class="kicker">Marque déployée · Conception, déploiement &amp; social media</div>
-          <h3>Écosystème digital LUNTRAE</h3>
-          <p class="def">Marque personnelle déployée de bout en bout : mise en ligne en autonomie, social media, formats éditoriaux récurrents, pilotage par l'analytics.</p>
-          <span class="statut"><span class="dot" aria-hidden="true"></span> En ligne · luntrae.fr</span>
-          <span class="lbl">Compétences</span>
-          <ul class="skills">
-            <li>Déploiement web : domaine, DNS, HTTPS</li>
-            <li>Automatisation (GitHub Actions)</li>
-            <li>Production de contenu social media</li>
-            <li>Formats éditoriaux récurrents</li>
-            <li>Pilotage par l'analytics</li>
-            <li>Direction artistique de marque</li>
-          </ul>
-          <span class="lbl">Mots-clés</span>
-          <div class="tags"><span class="tag">Web</span><span class="tag">Social</span><span class="tag">Data</span><a class="tag" href="https://www.instagram.com/luntrae/" target="_blank" rel="noopener">@luntrae</a></div>
+          <div class="kicker">Conception, déploiement et éditorial</div>
+          <h2>Écosystème LUNTRAE</h2>
+          <p class="def">Marque personnelle déployée de bout en bout : mise en ligne en autonomie, séries éditoriales, pilotage par la mesure d'audience.</p>
+          <span class="statut"><span class="dot" aria-hidden="true"></span> En ligne depuis juin 2026</span>
+          <a class="voir" href="/projets/luntrae/">Voir le projet &rarr;</a>
         </article>
 
         <article class="fiche">
-          <span class="num">03</span>
-          <div class="kicker">Direction stratégique de marque (bénévole)</div>
-          <h3>Kintara Ceramics</h3>
-          <p class="def">Repositionnement complet d'une marque de céramique d'art : identité, architecture d'offre, stratégie éditoriale et refonte e-commerce, de la vision à l'exécution.</p>
+          <div class="kicker">Direction stratégique de marque, bénévolat</div>
+          <h2>Kintara Ceramics</h2>
+          <p class="def">Repositionnement complet d'une marque de céramique d'art : identité, architecture d'offre, stratégie éditoriale et cadrage de la refonte e-commerce.</p>
           <span class="statut"><span class="dot" aria-hidden="true"></span> Concept abouti, pas encore déployé</span>
-          <span class="lbl">Compétences</span>
-          <ul class="skills">
-            <li>Stratégie de marque &amp; positionnement</li>
-            <li>Architecture d'offre produit</li>
-            <li>Direction artistique &amp; charte</li>
-            <li>Stratégie éditoriale multi-canal</li>
-            <li>Refonte e-commerce (cadrage &amp; brief)</li>
-            <li>Copywriting &amp; naming</li>
-          </ul>
-          <span class="lbl">Mots-clés</span>
-          <div class="tags"><span class="tag">Marque</span><span class="tag">Brand content</span><span class="tag">Direction artistique</span><span class="tag">E-commerce</span></div>
+          <a class="voir" href="/projets/kintara-ceramics/">Voir le projet &rarr;</a>
         </article>
 
         <article class="fiche">
-          <span class="num">04</span>
-          <div class="kicker">Projet entrepreneurial</div>
-          <h3>Le Gentle</h3>
-          <p class="def">Création d'un tiers-lieu : espace calme, loisirs apaisés et vocation solidaire. Du concept au dossier d'entreprise complet, chiffré et défendable.</p>
+          <div class="kicker">Projet entrepreneurial, non lancé</div>
+          <h2>Le Gentle</h2>
+          <p class="def">Création d'un tiers-lieu : espace calme, loisirs apaisés et vocation solidaire. Du concept au dossier d'entreprise complet et chiffré.</p>
           <span class="statut"><span class="dot" aria-hidden="true"></span> Dossier complet</span>
-          <span class="lbl">Compétences</span>
-          <ul class="skills">
-            <li>Conception de service &amp; d'expérience</li>
-            <li>Étude de marché (PESTEL, SWOT, personas)</li>
-            <li>Modélisation financière pluriannuelle</li>
-            <li>Stratégie d'implantation &amp; de financement</li>
-            <li>Montage de projet entrepreneurial</li>
-            <li>Vision long terme &amp; feuille de route</li>
-          </ul>
-          <span class="lbl">Mots-clés</span>
-          <div class="tags"><span class="tag">Entrepreneuriat</span><span class="tag">Business model</span><span class="tag">Tiers-lieu</span></div>
+          <a class="voir" href="/projets/le-gentle/">Voir le projet &rarr;</a>
         </article>
 
-        <article class="fiche wide">
-          <span class="num">05</span>
+        <article class="fiche">
           <div class="kicker">Outil à visée sociale</div>
-          <h3>Méthode de repositionnement</h3>
-          <p class="def">Méthode d'accompagnement pour les personnes en bascule professionnelle, transformée en outil partageable : l'IA appliquée à l'accompagnement humain.</p>
-          <span class="statut"><span class="dot" aria-hidden="true"></span> En expérimentation</span>
-          <span class="lbl">Compétences</span>
-          <ul class="skills">
-            <li>Ingénierie de parcours d'accompagnement</li>
-            <li>Méthode reproductible &amp; transmissible</li>
-            <li>Conduite d'entretien &amp; insight</li>
-            <li>Design d'expérience guidée</li>
-            <li>Vulgarisation &amp; pédagogie</li>
-            <li>IA appliquée à l'accompagnement humain</li>
-          </ul>
-          <span class="lbl">Mots-clés</span>
-          <div class="tags"><span class="tag">Accompagnement</span><span class="tag">Méthode</span><span class="tag">Impact social</span><span class="tag">IA appliquée</span></div>
+          <h2>Méthode de repositionnement</h2>
+          <p class="def">Méthode d'accompagnement en 11 étapes pour les personnes en bascule professionnelle, transformée en outil partageable.</p>
+          <span class="statut"><span class="dot" aria-hidden="true"></span> 3 parcours accompagnés en conditions réelles</span>
+          <a class="voir" href="/projets/methode-repositionnement/">Voir le projet &rarr;</a>
         </article>
 
-        <!-- Léax : cadre de création distinct et sobre (cf. brief) -->
+        <!-- Fin de page : Léax, cadre de création distinct -->
         <article class="fiche wide creation">
           <span class="crescent" aria-hidden="true">&#9790;</span>
           <div class="kicker">Projet de création</div>
-          <h3>Léax</h3>
+          <h2>Léax</h2>
           <p class="def">Roman en cours d'écriture : une mythologie personnelle, entre science-fiction et fantastique.</p>
           <span class="statut"><span class="dot" aria-hidden="true"></span> En cours d'écriture</span>
-          <div class="tags"><span class="tag">Création</span><span class="tag">Écriture</span><span class="tag">Worldbuilding</span><span class="tag">Santé mentale</span></div>
+          <a class="voir" href="/projets/leax/">Voir le projet &rarr;</a>
         </article>
 
       </div>
@@ -188,13 +192,12 @@
     <div class="contact-inner">
       <span class="crescent" aria-hidden="true">&#9790;</span>
       <h2>Écrivons-nous.</h2>
-      <p>Une idée à creuser, une curiosité, une envie d'échanger ? La porte est ouverte. Écrivez-moi, simplement pour discuter.</p>
+      <p>Une idée à creuser, une proposition, une envie d'échanger ? Écrivez-moi, même simplement pour discuter.</p>
       <a class="cta" href="mailto:luntrae@proton.me">luntrae@proton.me</a>
-      <!-- Téléchargement du CV — événement « cv-telechargement » -->
-      <a class="cta-ghost" href="/assets/cv/CV-Camille-Sauton.pdf" download
+      <!-- Téléchargement du CV, suivi par main.js (événement cv-telechargement, ventilé par page) -->
+      <a class="cta-ghost" href="/assets/cv/CV_Camille_Sauton_cheffe_de_projet_numerique.pdf" download
          aria-label="Télécharger mon CV au format PDF"
-         style="margin-top:1rem"
-         onclick="window.goatcounter&&window.goatcounter.count({path:'cv-telechargement',title:'CV téléchargé',event:true})">Télécharger mon CV <span aria-hidden="true">· PDF ⤓</span></a>
+         style="margin-top:1rem">Télécharger mon CV <span aria-hidden="true">· PDF ⤓</span></a>
       <p class="tiny">LUNTRAE est un projet personnel : un écosystème d'explorations digitales.</p>
     </div>
   </div>
@@ -205,15 +208,15 @@
 
 <footer>
   <div class="wrap">
-    <img src="/assets/img/LUNTRAE_lockup-horizontal_bronze_fond-sombre.png" alt="LUNTRAE" width="200" height="44">
-    <div class="fm">« Des systèmes calmes, un impact durable. »</div>
-    <small>LUNTRAE · camsou · 2026</small>
+    <img src="/assets/img/LUNTRAE_lockup_pied.webp" alt="" width="126" height="44" loading="lazy">
+    <div class="fm">Des systèmes pour des futurs plus doux.</div>
+    <small>LUNTRAE · Camille Sauton · Mis à jour en septembre 2026</small>
     <div class="legal"><a href="/mentions-legales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a></div>
   </div>
 </footer>
 
 <script src="/assets/js/main.js"></script>
-<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE) — cf. Confidentialité. -->
+<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE), cf. Confidentialité. -->
 <script data-goatcounter="https://luntrae.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>

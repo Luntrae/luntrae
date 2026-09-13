@@ -97,9 +97,9 @@ const html = `
 
   ${titre2('Fréquentation')}
   <table style="width:100%;border-collapse:collapse;margin:0 0 18px">
-    ${ligne('Vues totales', totalVues === null ? '—' : totalVues)}
-    ${ligne('CV — consultations', cvConsult)}
-    ${ligne('CV — téléchargements', cvDl)}
+    ${ligne('Vues totales', totalVues === null ? 'n/d' : totalVues)}
+    ${ligne('CV, consultations', cvConsult)}
+    ${ligne('CV, téléchargements', cvDl)}
   </table>
 
   ${titre2('Pages')}
@@ -108,7 +108,7 @@ const html = `
   ${titre2('Pays')}
   <div style="margin:0 0 22px">${tableau(paysTries.map((p) => ligne(escapeHtml(p.nom), p.count)).join(''), 'Aucun pays remonté hier.')}</div>
 
-  <p style="color:${C.bronze};font-style:italic;font-size:14px;margin:0">« Des systèmes calmes, un impact durable. »</p>
+  <p style="color:${C.bronze};font-style:italic;font-size:14px;margin:0">Des systèmes pour des futurs plus doux.</p>
 </div>`;
 
 // --- Envoi via Brevo (API transactionnelle) --------------------------------
@@ -118,13 +118,13 @@ const envoi = await fetch('https://api.brevo.com/v3/smtp/email', {
   body: JSON.stringify({
     sender: { name: 'LUNTRAE', email: FROM },
     to: [{ email: TO }],
-    subject: `Rapport LUNTRAE — ${hier}`,
+    subject: `Rapport LUNTRAE, ${hier}`,
     htmlContent: html,
   }),
 });
 
 if (!envoi.ok) {
-  console.error('Échec de l’envoi Brevo :', envoi.status, await envoi.text());
+  console.error("Échec de l'envoi Brevo :", envoi.status, await envoi.text());
   process.exit(1);
 }
 console.log('Rapport envoyé pour', hier);

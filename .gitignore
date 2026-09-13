@@ -1,4 +1,23 @@
-﻿node_modules/
+node_modules/
 .DS_Store
 Thumbs.db
 *.log
+
+# Sources PNG des visuels : seuls les WebP entrent dans le dépôt
+assets/img/loutres/*.png
+assets/img/series/obs1_carte_*.png
+assets/img/Camille croquis.png
+
+# Source Claude Design du CV (HTML de 10 Mo et PNG), conservée hors dépôt
+_cv-source/design/
+
+# Sortie de la chaîne WeasyPrint
+sortie/
+
+# Fichiers sources non référencés par le site (logos et ambiance d'origine), conservés sur le disque
+assets/img/LUNTRAE_logo-principal_bronze_fond-clair.png
+assets/img/LUNTRAE_lockup-horizontal_bronze_fond-clair.png
+assets/img/LUNTRAE_logo-principal_bronze_fond-sombre.png
+assets/img/LUNTRAE_lockup-horizontal_bronze_fond-sombre.png
+assets/img/LUNTRAE_logo-principal_bronze_sur-obsidienne.png
+assets/img/ambiances/ambiance_loutre-cercle_lune.jpg

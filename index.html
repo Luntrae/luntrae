@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUNTRAE — Camille Sauton · Stratégie, conception numérique & développement</title>
-<meta name="description" content="LUNTRAE, l'écosystème de Camille Sauton : stratégie, conception numérique, développement et création. Une porte vers les projets, une porte vers les séries.">
+<title>Camille Sauton · Cheffe de projet numérique à Rochefort</title>
+<meta name="description" content="J'analyse, je conçois la stratégie et je développe des projets numériques à impact. Engagement associatif, collecte de fonds, conception et code.">
 <meta name="author" content="Camille Sauton">
+<meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#101820">
 <link rel="canonical" href="https://luntrae.fr/">
 
@@ -13,23 +14,29 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="LUNTRAE">
-<meta property="og:title" content="LUNTRAE — Camille Sauton">
-<meta property="og:description" content="L'écosystème de Camille Sauton : stratégie, conception numérique, développement et création.">
+<meta property="og:title" content="Plusieurs projets, une seule personne : stratégie, code, marque et fiction.">
+<meta property="og:description" content="J'analyse, je conçois la stratégie et je développe des projets numériques à impact. Engagement associatif, collecte de fonds, conception et code.">
 <meta property="og:url" content="https://luntrae.fr/">
 <meta property="og:image" content="https://luntrae.fr/assets/img/og-luntrae.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Logo LUNTRAE — une loutre sous la lune, au bord de l'eau, en line-art bronze sur obsidienne.">
+<meta property="og:image:alt" content="Une loutre stylisée en trait bronze, inscrite dans un cercle sous la lune, au-dessus de son reflet dans l'eau.">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="LUNTRAE — Camille Sauton">
-<meta name="twitter:description" content="L'écosystème de Camille Sauton : stratégie, conception numérique, développement et création.">
+<meta name="twitter:title" content="Plusieurs projets, une seule personne : stratégie, code, marque et fiction.">
+<meta name="twitter:description" content="J'analyse, je conçois la stratégie et je développe des projets numériques à impact. Engagement associatif, collecte de fonds, conception et code.">
 <meta name="twitter:image" content="https://luntrae.fr/assets/img/og-luntrae.png">
+<meta name="twitter:image:alt" content="Une loutre stylisée en trait bronze, inscrite dans un cercle sous la lune, au-dessus de son reflet dans l'eau.">
+
+<!-- Image du hero, préchargée (plus gros élément au-dessus de la ligne de flottaison) -->
+<link rel="preload" as="image" href="/assets/img/ambiances/hero_loutre-cercle-lune_1586.webp"
+      imagesrcset="/assets/img/ambiances/hero_loutre-cercle-lune_800.webp 800w, /assets/img/ambiances/hero_loutre-cercle-lune_1200.webp 1200w, /assets/img/ambiances/hero_loutre-cercle-lune_1586.webp 1586w"
+      imagesizes="100vw" fetchpriority="high">
 
 <!-- Favicon & manifeste -->
-<link rel="icon" type="image/png" href="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
 <link rel="manifest" href="/site.webmanifest">
 
@@ -40,17 +47,64 @@
 <!-- Styles -->
 <link rel="stylesheet" href="/assets/css/styles.css">
 
+
 <!-- Données structurées (SEO) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Camille Sauton",
-  "jobTitle": "Stratège augmentée par l'IA",
-  "description": "Stratégie, conception numérique, développement et création. Fondatrice de l'écosystème LUNTRAE.",
-  "email": "luntrae@proton.me",
-  "url": "https://luntrae.fr",
-  "knowsLanguage": ["fr", "es", "en"]
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://luntrae.fr/#site",
+      "url": "https://luntrae.fr/",
+      "name": "LUNTRAE",
+      "inLanguage": "fr",
+      "author": {
+        "@id": "https://luntrae.fr/#camille"
+      },
+      "publisher": {
+        "@id": "https://luntrae.fr/#camille"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://luntrae.fr/#camille",
+      "name": "Camille Sauton",
+      "jobTitle": "Cheffe de projet numérique",
+      "url": "https://luntrae.fr/",
+      "email": "luntrae@proton.me",
+      "sameAs": [
+        "https://www.linkedin.com/in/camille-stn",
+        "https://www.instagram.com/luntrae/"
+      ],
+      "knowsLanguage": [
+        "fr",
+        "es",
+        "en"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Rochefort",
+        "addressRegion": "Charente-Maritime",
+        "addressCountry": "FR"
+      },
+      "image": "https://luntrae.fr/assets/img/camille_portrait.webp",
+      "knowsAbout": [
+        "gestion de projet numérique",
+        "conception produit",
+        "expérience utilisateur",
+        "stratégie de marque",
+        "collecte de fonds",
+        "engagement associatif",
+        "référencement naturel",
+        "développement front-end"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Institut Supérieur Européen de Gestion (ISEG)"
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -61,8 +115,8 @@
 
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="LUNTRAE — accueil">
-      <img src="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="" width="34" height="33">
+    <a class="brand" href="/" aria-label="LUNTRAE, accueil">
+      <img src="/assets/img/LUNTRAE_icone_nav.webp" alt="" width="34" height="33">
       <span>LUNTRAE</span>
     </a>
     <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
@@ -70,10 +124,29 @@
     </button>
     <nav class="links" id="nav-links" aria-label="Navigation principale">
       <a href="/" class="active" aria-current="page">Accueil</a>
-      <a href="/projets/">Projets</a>
+      <div class="has-sub">
+        <a href="/projets/">Projets</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-projets" aria-label="Afficher les pages projet"></button>
+        <ul class="sub" id="sub-projets">
+          <li><a href="/projets/projet-confidentiel/">Le Projet Confidentiel</a></li>
+          <li><a href="/projets/geneapop/">Geneapop</a></li>
+          <li><a href="/projets/luntrae/">Écosystème LUNTRAE</a></li>
+          <li><a href="/projets/kintara-ceramics/">Kintara Ceramics</a></li>
+          <li><a href="/projets/le-gentle/">Le Gentle</a></li>
+          <li><a href="/projets/methode-repositionnement/">Méthode de repositionnement</a></li>
+          <li><a href="/projets/leax/">Léax</a></li>
+        </ul>
+      </div>
       <a href="/series/">Séries</a>
-      <a href="/a-propos/">À propos</a>
-      <a href="#contact">Contact</a>
+      <div class="has-sub">
+        <a href="/a-propos/">À propos</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-apropos" aria-label="Afficher les pages À propos"></button>
+        <ul class="sub" id="sub-apropos">
+          <li><a href="/cv/">Curriculum Vitae</a></li>
+        </ul>
+      </div>
+      <a href="/univers/">L'Univers LUNTRAE</a>
+      <a href="/contact/">Contact</a>
     </nav>
   </div>
 </header>
@@ -82,27 +155,27 @@
 
   <!-- HERO sur ambiance nocturne (la loutre dans le cercle, sous la lune, EST le logo central).
        Composition en trois zones : accroche à gauche, logo de l'image au centre, domaines + actions à droite.
-       Le voile obsidienne s'efface vers le centre pour dégager le logo. -->
+       Le voile obsidienne s'efface vers le centre pour dégager le logo.
+       L'image est une balise image (texte alternatif, priorité haute, srcset), jamais un fond CSS. -->
   <section class="hero-amb">
-    <div class="bg" aria-hidden="true"
-         style="background-image:url('/assets/img/ambiances/ambiance_loutre-cercle_lune.jpg')"></div>
+    <div class="bg">
+      <img src="/assets/img/ambiances/hero_loutre-cercle-lune_1586.webp"
+           srcset="/assets/img/ambiances/hero_loutre-cercle-lune_800.webp 800w, /assets/img/ambiances/hero_loutre-cercle-lune_1200.webp 1200w, /assets/img/ambiances/hero_loutre-cercle-lune_1586.webp 1586w"
+           sizes="100vw" width="1586" height="992" fetchpriority="high" decoding="async"
+           alt="Une loutre stylisée en trait bronze, inscrite dans un cercle sous la lune, au-dessus de son reflet dans l'eau.">
+    </div>
     <div class="hero-amb-grid">
       <div class="ha-left">
-        <h1>Je conçois des stratégies, et je <em>construis</em> les outils qui les rendent réelles.</h1>
-        <p class="mantra">« Des systèmes pour des futurs plus doux. »</p>
+        <h1>J'analyse le terrain, je conçois la stratégie, je développe des projets à impact.</h1>
+        <p class="mantra">Des systèmes pour des futurs plus doux.</p>
       </div>
       <div class="ha-mid" aria-hidden="true"></div>
       <div class="ha-right">
-        <p class="kicker">Stratégie · Conception numérique · Développement</p>
+        <p class="kicker">Stratégie &amp; projet · Engagement &amp; collecte · Conception &amp; code</p>
         <div class="hero-actions">
           <a class="cta" href="/projets/">Découvrir les projets</a>
-          <!-- Consultation du CV (ouverture dans un onglet) — événement « cv-consultation » -->
-          <a class="cta-ghost" href="/assets/cv/CV-Camille-Sauton.pdf" target="_blank" rel="noopener"
-             aria-label="Voir mon CV au format PDF (nouvel onglet)"
-             onclick="window.goatcounter&&window.goatcounter.count({path:'cv-consultation',title:'CV consulté',event:true})">
-            Voir mon CV <span aria-hidden="true">· PDF ↗</span>
-          </a>
-          <a class="cta-ghost" href="https://www.instagram.com/luntrae/" target="_blank" rel="noopener"
+          <a class="cta-ghost" href="/cv/">Voir mon CV</a>
+          <a class="cta-ghost" href="https://www.instagram.com/luntrae/" target="_blank" rel="noopener noreferrer"
              aria-label="Mon compte Instagram LUNTRAE (nouvel onglet)">
             Mon Instagram <span aria-hidden="true">· @luntrae ↗</span>
           </a>
@@ -113,30 +186,42 @@
 
   <div class="wrap">
 
-    <!-- APPROCHE — 3 piliers (version courte) -->
-    <section class="approche">
-      <div class="sec-head"><span class="crescent">&#9790;</span><h2>Approche</h2><span class="rule"></span></div>
-      <div class="approach">
-        <div class="pillar"><h3>Moins, mais mieux</h3><p>Viser le nécessaire et le suffisant, et m'y tenir avec bonheur. Je concentre mon énergie là où elle compte, plutôt que de l'éparpiller.</p></div>
-        <div class="pillar"><h3>Scope expansion vertueux</h3><p>J'élève naturellement le périmètre d'une mission pour traiter le vrai problème, pas seulement celui qui est formulé.</p></div>
-        <div class="pillar"><h3>Augmentée par l'IA</h3><p>J'orchestre l'IA comme un outil de production et de pensée, jamais comme un gadget. C'est mon multiplicateur.</p></div>
-        <div class="pillar"><h3>Tout est relié</h3><p>Mes projets ne s'additionnent pas, ils se répondent. Chacun nourrit les autres et avance dans le même courant. LUNTRAE est l'écosystème qui les relie.</p></div>
+    <!-- JE ME PRÉSENTE -->
+    <section class="presente">
+      <div class="sec-head"><span class="crescent">&#9790;</span><h2>Je me présente</h2><span class="rule"></span></div>
+      <div class="presente-inner">
+        <p>Je suis Camille Sauton, je travaille dans l'engagement et la collecte de fonds depuis 2018 pour une association nationale de protection de la nature. Je conçois en parallèle mes propres projets numériques sous LUNTRAE. Un profil hybride : stratégie et gestion de projet, marketing et communication, conception d'interfaces, et du code que j'apprends à lire et à écrire.</p>
+        <p class="signature">Camille Sauton, cheffe de projet numérique. Rochefort, Charente-Maritime.</p>
+        <div class="univers-cta">
+          <p class="hook">Une loutre en totem sur un logo, vraiment ?</p>
+          <a class="cta-ghost" href="/univers/">Entrer dans l'univers</a>
+        </div>
       </div>
     </section>
 
-    <div class="band"><p>« Construire avec douceur. »</p></div>
+    <!-- APPROCHE, quatre piliers -->
+    <section class="approche">
+      <div class="sec-head"><span class="crescent">&#9790;</span><h2>Approche</h2><span class="rule"></span></div>
+      <div class="approach">
+        <div class="pillar"><h3>Le vrai problème d'abord</h3><p>Je remonte à la cause avant de proposer une solution. Le problème formulé n'est pas toujours le problème réel, et le repérer tôt évite de construire la mauvaise chose.</p></div>
+        <div class="pillar"><h3>Lire et écrire du code</h3><p>En formation autodidacte : je lis, je corrige et j'écris du code. En progression continue pour construire mes propres outils, dialoguer avec des développeurs et arbitrer en connaissance de cause.</p></div>
+        <div class="pillar"><h3>Des outils, une méthode</h3><p>Je me sers des outils les plus efficaces du moment, pour approfondir une analyse, tenir ma documentation ou avancer sur un cahier des charges. La méthode, les arbitrages et les décisions restent les miens.</p></div>
+        <div class="pillar"><h3>Tout est relié</h3><p>Mes projets ne s'additionnent pas, ils se répondent. Chacun nourrit les autres et avance dans le même courant. LUNTRAE est l'écosystème qui les relie.</p></div>
+      </div>
+    </section>
 
     <!-- RÉFLEXION -->
     <section class="reflexion">
       <div class="sec-head"><span class="crescent">&#9790;</span><h2>Réflexion</h2><span class="rule"></span></div>
       <div class="reflect">
         <p class="q">« Et si l'on portait un message en respectant l'attention, plutôt qu'en la martelant ? »</p>
-        <p>C'est la question qui revient derrière ce que je construis. Je m'intéresse aux moyens créatifs de faire passer un message par l'émotion et l'expérience, plutôt que par le discours direct. Reconnecter une cause aux personnes qui s'en soucient, sans épuiser leur attention ni trahir leur confiance. L'humain d'abord, et des formats sincères avant les mécaniques faites pour capter. C'est l'un des terrains que LUNTRAE continue d'explorer.</p>
+        <p>C'est la question qui revient derrière ce que je construis. Depuis 2018, je travaille dans l'engagement associatif et la collecte de fonds : je vois ce qui donne envie de soutenir une cause, et ce qui use les gens. Je m'intéresse aux façons de faire passer un message par l'émotion et l'expérience plutôt que par le discours direct, et de reconnecter une cause aux personnes qui s'en soucient sans épuiser leur attention ni trahir leur confiance. L'humain d'abord, et des formats sincères avant les mécaniques faites pour capter.</p>
         <p class="sig">L'humain d'abord · Le vivant · Des formats sincères</p>
       </div>
     </section>
 
-    <!-- TROIS PORTES -->
+    <!-- EXPLORER, trois cartes. Les deux premières sont cliquables sur toute leur surface,
+         la troisième est une liste de liens (seuls les intitulés sont cliquables). -->
     <section class="explorer">
       <div class="sec-head"><span class="crescent">&#9790;</span><h2>Explorer</h2><span class="rule"></span></div>
       <div class="portes">
@@ -152,12 +237,18 @@
           <p>L'Observatoire et L'Atelier : ma façon de faire passer une idée par l'émotion.</p>
           <span class="arrow">Découvrir les séries &rarr;</span>
         </a>
-        <a class="porte" href="/a-propos/">
-          <span class="pk">L'univers</span>
-          <h3>À propos</h3>
-          <p>Un nom, une loutre, une lune. D'où vient LUNTRAE, et qui le fait vivre.</p>
-          <span class="arrow">Entrer dans l'univers &rarr;</span>
-        </a>
+        <div class="porte porte-liste">
+          <h3>Les projets, un par un</h3>
+          <ul class="porte-list">
+            <li><a href="/projets/projet-confidentiel/">Le Projet Confidentiel</a></li>
+            <li><a href="/projets/geneapop/">Geneapop</a></li>
+            <li><a href="/projets/luntrae/">Écosystème LUNTRAE</a></li>
+            <li><a href="/projets/kintara-ceramics/">Kintara Ceramics</a></li>
+            <li><a href="/projets/le-gentle/">Le Gentle</a></li>
+            <li><a href="/projets/methode-repositionnement/">Méthode de repositionnement</a></li>
+            <li><a href="/projets/leax/">Léax</a></li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -168,13 +259,12 @@
     <div class="contact-inner">
       <span class="crescent" aria-hidden="true">&#9790;</span>
       <h2>Écrivons-nous.</h2>
-      <p>Une idée à creuser, une curiosité, une envie d'échanger ? La porte est ouverte. Écrivez-moi, simplement pour discuter.</p>
+      <p>Une idée à creuser, une proposition, une envie d'échanger ? Écrivez-moi, même simplement pour discuter.</p>
       <a class="cta" href="mailto:luntrae@proton.me">luntrae@proton.me</a>
-      <!-- Téléchargement du CV — événement « cv-telechargement » -->
-      <a class="cta-ghost" href="/assets/cv/CV-Camille-Sauton.pdf" download
+      <!-- Téléchargement du CV, suivi par main.js (événement cv-telechargement, ventilé par page) -->
+      <a class="cta-ghost" href="/assets/cv/CV_Camille_Sauton_cheffe_de_projet_numerique.pdf" download
          aria-label="Télécharger mon CV au format PDF"
-         style="margin-top:1rem"
-         onclick="window.goatcounter&&window.goatcounter.count({path:'cv-telechargement',title:'CV téléchargé',event:true})">Télécharger mon CV <span aria-hidden="true">· PDF ⤓</span></a>
+         style="margin-top:1rem">Télécharger mon CV <span aria-hidden="true">· PDF ⤓</span></a>
       <p class="tiny">LUNTRAE est un projet personnel : un écosystème d'explorations digitales.</p>
     </div>
   </div>
@@ -185,15 +275,15 @@
 
 <footer>
   <div class="wrap">
-    <img src="/assets/img/LUNTRAE_lockup-horizontal_bronze_fond-sombre.png" alt="LUNTRAE" width="200" height="44">
-    <div class="fm">« Des systèmes calmes, un impact durable. »</div>
-    <small>LUNTRAE · camsou · 2026</small>
+    <img src="/assets/img/LUNTRAE_lockup_pied.webp" alt="" width="126" height="44" loading="lazy">
+    <div class="fm">Des systèmes pour des futurs plus doux.</div>
+    <small>LUNTRAE · Camille Sauton · Mis à jour en septembre 2026</small>
     <div class="legal"><a href="/mentions-legales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a></div>
   </div>
 </footer>
 
 <script src="/assets/js/main.js"></script>
-<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE) — cf. Confidentialité. -->
+<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE), cf. Confidentialité. -->
 <script data-goatcounter="https://luntrae.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>

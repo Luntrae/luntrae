@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Séries — LUNTRAE · L'Observatoire & L'Atelier</title>
-<meta name="description" content="Les deux séries de contenu de LUNTRAE : L'Observatoire (regarder le travail des autres) et L'Atelier (montrer le mien). Créer des choses qui ont du sens, et mériter votre attention.">
+<title>Séries éditoriales LUNTRAE · Formats courts et visuels</title>
+<meta name="description" content="Des séries publiées sur les réseaux, où je travaille le passage d'une idée à un format court, entre observation et fabrication.">
 <meta name="author" content="Camille Sauton">
+<meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#101820">
 <link rel="canonical" href="https://luntrae.fr/series/">
 
@@ -13,23 +14,24 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="LUNTRAE">
-<meta property="og:title" content="Séries — LUNTRAE">
-<meta property="og:description" content="L'Observatoire et L'Atelier : faire passer un message par l'émotion et l'expérience.">
+<meta property="og:title" content="Faire tenir une idée dans un format court.">
+<meta property="og:description" content="Des séries publiées sur les réseaux, où je travaille le passage d'une idée à un format court, entre observation et fabrication.">
 <meta property="og:url" content="https://luntrae.fr/series/">
 <meta property="og:image" content="https://luntrae.fr/assets/img/og-luntrae.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Logo LUNTRAE — une loutre sous la lune, au bord de l'eau, en line-art bronze sur obsidienne.">
+<meta property="og:image:alt" content="Une loutre stylisée en trait bronze, inscrite dans un cercle sous la lune, au-dessus de son reflet dans l'eau.">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Séries — LUNTRAE">
-<meta name="twitter:description" content="L'Observatoire et L'Atelier : faire passer un message par l'émotion et l'expérience.">
+<meta name="twitter:title" content="Faire tenir une idée dans un format court.">
+<meta name="twitter:description" content="Des séries publiées sur les réseaux, où je travaille le passage d'une idée à un format court, entre observation et fabrication.">
 <meta name="twitter:image" content="https://luntrae.fr/assets/img/og-luntrae.png">
+<meta name="twitter:image:alt" content="Une loutre stylisée en trait bronze, inscrite dans un cercle sous la lune, au-dessus de son reflet dans l'eau.">
 
 <!-- Favicon & manifeste -->
-<link rel="icon" type="image/png" href="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
 <link rel="manifest" href="/site.webmanifest">
 
@@ -39,6 +41,28 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="/assets/css/styles.css">
+
+<!-- Données structurées (SEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Accueil",
+      "item": "https://luntrae.fr/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Séries",
+      "item": "https://luntrae.fr/series/"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -47,8 +71,8 @@
 
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="LUNTRAE — accueil">
-      <img src="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="" width="34" height="33">
+    <a class="brand" href="/" aria-label="LUNTRAE, accueil">
+      <img src="/assets/img/LUNTRAE_icone_nav.webp" alt="" width="34" height="33">
       <span>LUNTRAE</span>
     </a>
     <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
@@ -56,10 +80,29 @@
     </button>
     <nav class="links" id="nav-links" aria-label="Navigation principale">
       <a href="/">Accueil</a>
-      <a href="/projets/">Projets</a>
+      <div class="has-sub">
+        <a href="/projets/">Projets</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-projets" aria-label="Afficher les pages projet"></button>
+        <ul class="sub" id="sub-projets">
+          <li><a href="/projets/projet-confidentiel/">Le Projet Confidentiel</a></li>
+          <li><a href="/projets/geneapop/">Geneapop</a></li>
+          <li><a href="/projets/luntrae/">Écosystème LUNTRAE</a></li>
+          <li><a href="/projets/kintara-ceramics/">Kintara Ceramics</a></li>
+          <li><a href="/projets/le-gentle/">Le Gentle</a></li>
+          <li><a href="/projets/methode-repositionnement/">Méthode de repositionnement</a></li>
+          <li><a href="/projets/leax/">Léax</a></li>
+        </ul>
+      </div>
       <a href="/series/" class="active" aria-current="page">Séries</a>
-      <a href="/a-propos/">À propos</a>
-      <a href="#contact">Contact</a>
+      <div class="has-sub">
+        <a href="/a-propos/">À propos</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-apropos" aria-label="Afficher les pages À propos"></button>
+        <ul class="sub" id="sub-apropos">
+          <li><a href="/cv/">Curriculum Vitae</a></li>
+        </ul>
+      </div>
+      <a href="/univers/">L'Univers LUNTRAE</a>
+      <a href="/contact/">Contact</a>
     </nav>
   </div>
 </header>
@@ -68,36 +111,60 @@
   <div class="wrap">
 
     <section class="series">
-      <div class="sec-head"><span class="crescent">&#9790;</span><h2>Séries</h2><span class="rule"></span></div>
+      <div class="sec-head"><span class="crescent">&#9790;</span><h1>Séries éditoriales</h1><span class="rule"></span></div>
 
+      <!-- Accroche existante, conservée -->
       <div class="series-intro">
         <p class="head"><b>LUNTRAE a deux visages.</b><br><em>On entre dans le concret.</em></p>
         <p class="frame">Deux loutres. L'une observe sous la surface, l'autre façonne sa lumière. La même intention derrière les deux : créer des choses qui ont du sens, et mériter votre attention.</p>
-        <a class="cta" href="https://www.instagram.com/luntrae/" target="_blank" rel="noopener" style="margin-top:1.8rem">Voir sur Instagram <span aria-hidden="true">· @luntrae ↗</span></a>
       </div>
 
-      <!-- L'Observatoire : la série où je regarde le travail des autres.
-           La bannière porte déjà le nom et la signature (texte alternatif détaillé). -->
+      <!-- Pourquoi je regarde du côté de l'art : placé avant la présentation des séries -->
+      <div class="essai">
+        <h2>Pourquoi je regarde du côté de l'art</h2>
+        <p>L'histoire de l'art est pleine d'œuvres nées d'une contrainte. Quand un message ne pouvait pas être dit, il passait par l'image, le détour, la forme. La créativité a souvent été la réponse à la censure.</p>
+        <p>Aujourd'hui, personne ne nous empêche de parler. Mais tout le monde est sollicité en permanence : par mail, sur les réseaux, à la télévision, jusque dans la rue. Alors je me demande si la censure de notre époque ne viendrait pas de nous-mêmes. À force d'avoir le choix, nous finissons par censurer notre propre attention.</p>
+        <p>Ça pose un vrai problème à ceux qui portent des causes. Pour les projets à impact, on emploie beaucoup le discours direct pour mobiliser et rassembler. Face à un public jeune, déjà conscient et souvent inquiet, la multiplication de ces messages ne produit pas toujours de l'engagement : elle peut produire de la culpabilité, un sentiment d'impuissance, et le réflexe de fermer la porte. Les chiffres le disent à leur manière. Si on zoome sur la cause environnementale, une enquête internationale menée auprès de 10 000 jeunes de 16 à 25 ans montre que près de six sur dix se déclarent très ou extrêmement inquiets du changement climatique, et que 45 % en ressentent l'effet dans leur quotidien. En France, 19 % des 18-24 ans estiment faire leur maximum, contre 31 % de la population.</p>
+        <p>L'écart n'est pas un manque de conviction. Serait-ce un manque de format ?</p>
+        <p>C'est pour ça que je regarde ce que fait l'art contemporain. Pas pour l'imiter, mais parce qu'il travaille exactement cette question : comment faire arriver quelque chose chez quelqu'un sans le forcer. L'émotion et l'expérience font ce que le discours ne fait plus. Et il y a <a href="/projets/projet-confidentiel/">des projets à penser et des outils numériques à inventer</a> là-dedans.</p>
+        <p class="sources">Hickman et al., The Lancet Planetary Health, 2021.<br>ADEME, baromètre des représentations sociales du changement climatique, 26<sup>e</sup> vague, novembre 2025.</p>
+      </div>
+
+      <!-- L'Observatoire : série lancée, un épisode publié -->
       <article class="serie">
         <div class="serie-visual">
-          <img src="/assets/img/series/observatoire_4-5.webp" loading="lazy"
-               alt="Illustration de la série L'Observatoire LUNTRAE : une loutre dorée plonge sous la surface d'une eau nocturne, sous un croissant et une pleine lune. Signature : Émotion et expérience, sources d'une attention qui se mérite.">
+          <img src="/assets/img/series/observatoire_4-5.webp" width="900" height="1126" loading="lazy"
+               alt="Visuel de la série L'Observatoire LUNTRAE : titre en capitales bronze espacées sur une photographie nocturne, sous le logo à la loutre.">
         </div>
-        <p class="serie-text"><b>La série où je regarde le travail des autres.</b> Ces façons de faire passer un message en respectant l'attention plutôt qu'en la captant. Par l'émotion. Par l'expérience.</p>
+        <div class="serie-text">
+          <p class="serie-etat">Série lancée, un épisode publié</p>
+          <p><b>La série où je regarde le travail des autres.</b> Ces façons de faire passer un message en respectant l'attention plutôt qu'en la captant. Par l'émotion. Par l'expérience.</p>
+        </div>
       </article>
 
-      <!-- L'Atelier : la série où je montre mon propre travail. -->
+      <!-- L'Atelier : série à venir, aucun épisode publié -->
       <article class="serie reverse">
         <div class="serie-visual">
-          <img src="/assets/img/series/atelier_4-5.webp" loading="lazy"
-               alt="Illustration de la série L'Atelier LUNTRAE : une loutre dorée façonne une source de lumière au bord d'une eau nocturne, sous un croissant et une pleine lune. Signature : Émotion et intention, à la source de chaque création.">
+          <img src="/assets/img/series/atelier_4-5.webp" width="900" height="1126" loading="lazy"
+               alt="Visuel de la série L'Atelier LUNTRAE : titre en capitales bronze espacées sur une photographie nocturne, sous le logo à la loutre.">
         </div>
-        <p class="serie-text"><b>La série qui arrive.</b> Là, je ne regarde plus, je montre. Mes propres projets, ce qui les fait naître, et comment je les fabrique.</p>
+        <div class="serie-text">
+          <p class="serie-etat">Série à venir</p>
+          <p><b>La série qui arrive.</b> Là, je ne regarde plus, je montre. Mes propres projets, ce qui les fait naître, et comment je les fabrique.</p>
+        </div>
       </article>
 
-      <div class="ig-cta">
-        <p>Les deux séries vivent sur Instagram, en épisodes.</p>
-        <a class="cta" href="https://www.instagram.com/luntrae/" target="_blank" rel="noopener">Voir sur Instagram <span aria-hidden="true">· @luntrae ↗</span></a>
+      <!-- Extrait du premier épisode : les cartes 1 et 2 seulement -->
+      <div class="extrait">
+        <p class="extrait-intro">Le début du premier épisode ci-dessous. La suite est sur Instagram, et elle y reste : ces séries sont publiées là-bas, en épisodes. Abonnez-vous pour ne pas les manquer.</p>
+        <p class="extrait-intro extrait-relais">Les deux artistes de l'exposition ont relayé l'épisode et m'ont remerciée.</p>
+        <div class="cartes">
+          <img src="/assets/img/series/observatoire_episode-01_carte-01.webp" width="1080" height="1350" loading="lazy"
+               alt="Façade en pierre de la Porte Maubec à La Rochelle, de nuit. Titre L'Observatoire LUNTRAE en bronze, et l'annonce de l'exposition Les corps effacés de Patrice Delory et Didier Louineau.">
+          <img src="/assets/img/series/observatoire_episode-01_carte-02.webp" width="1080" height="1350" loading="lazy"
+               alt="Des visiteurs devant l'entrée voûtée de la Porte Maubec, visages floutés. Texte en italique sur les moyens créatifs de faire passer un message en respectant l'attention.">
+        </div>
+        <a class="cta" href="https://www.instagram.com/luntrae/" target="_blank" rel="noopener noreferrer">Voir sur Instagram <span aria-hidden="true">· @luntrae ↗</span></a>
       </div>
 
     </section>
@@ -109,13 +176,12 @@
     <div class="contact-inner">
       <span class="crescent" aria-hidden="true">&#9790;</span>
       <h2>Écrivons-nous.</h2>
-      <p>Une idée à creuser, une curiosité, une envie d'échanger ? La porte est ouverte. Écrivez-moi, simplement pour discuter.</p>
+      <p>Une idée à creuser, une proposition, une envie d'échanger ? Écrivez-moi, même simplement pour discuter.</p>
       <a class="cta" href="mailto:luntrae@proton.me">luntrae@proton.me</a>
-      <!-- Téléchargement du CV — événement « cv-telechargement » -->
-      <a class="cta-ghost" href="/assets/cv/CV-Camille-Sauton.pdf" download
+      <!-- Téléchargement du CV, suivi par main.js (événement cv-telechargement, ventilé par page) -->
+      <a class="cta-ghost" href="/assets/cv/CV_Camille_Sauton_cheffe_de_projet_numerique.pdf" download
          aria-label="Télécharger mon CV au format PDF"
-         style="margin-top:1rem"
-         onclick="window.goatcounter&&window.goatcounter.count({path:'cv-telechargement',title:'CV téléchargé',event:true})">Télécharger mon CV <span aria-hidden="true">· PDF ⤓</span></a>
+         style="margin-top:1rem">Télécharger mon CV <span aria-hidden="true">· PDF ⤓</span></a>
       <p class="tiny">LUNTRAE est un projet personnel : un écosystème d'explorations digitales.</p>
     </div>
   </div>
@@ -126,15 +192,15 @@
 
 <footer>
   <div class="wrap">
-    <img src="/assets/img/LUNTRAE_lockup-horizontal_bronze_fond-sombre.png" alt="LUNTRAE" width="200" height="44">
-    <div class="fm">« Des systèmes calmes, un impact durable. »</div>
-    <small>LUNTRAE · camsou · 2026</small>
+    <img src="/assets/img/LUNTRAE_lockup_pied.webp" alt="" width="126" height="44" loading="lazy">
+    <div class="fm">Des systèmes pour des futurs plus doux.</div>
+    <small>LUNTRAE · Camille Sauton · Mis à jour en septembre 2026</small>
     <div class="legal"><a href="/mentions-legales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a></div>
   </div>
 </footer>
 
 <script src="/assets/js/main.js"></script>
-<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE) — cf. Confidentialité. -->
+<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE), cf. Confidentialité. -->
 <script data-goatcounter="https://luntrae.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>

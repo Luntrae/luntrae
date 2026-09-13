@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LUNTRAE — feuille de styles
+   LUNTRAE, feuille de styles
    Direction artistique : observatoire nocturne au bord de l'eau.
    Sobre, élégant, nocturne, humain. Mouvement doux.
    Charte v1 : couleurs, typographies et halo de lune respectés strictement.
@@ -18,15 +18,15 @@
 
 /* --- Variables de la charte -------------------------------------------- */
 :root{
-  --obs:#101820;        /* Obsidienne bleutée — fond */
+  --obs:#101820;        /* Obsidienne bleutée, fond */
   --obs-2:#16212c;      /* panneaux */
   --obs-3:#1c2935;      /* panneaux survolés */
-  --bronze:#8A6A4A;     /* Bronze humide — traits/accents */
-  --bronze-br:#b6905f;  /* bronze clair — liens/titres lisibles */
-  --lunaire:#E8ECEF;    /* Blanc lunaire — texte fort */
+  --bronze:#8A6A4A;     /* Bronze humide, traits/accents */
+  --bronze-br:#b6905f;  /* bronze clair, liens/titres lisibles */
+  --lunaire:#E8ECEF;    /* Blanc lunaire, texte fort */
   --lunaire-dim:#c4ccd1;/* texte courant (lisibilité garantie) */
-  --maree:#6E7C86;      /* Gris marée — texte secondaire */
-  --mousse:#4F5F57;     /* Vert mousse — labels discrets (jamais pour du corps) */
+  --maree:#89959E;      /* Gris marée, texte secondaire (ajusté en septembre 2026, 5,84:1 sur obsidienne) */
+  --mousse:#72897D;     /* Vert mousse, mentions discrètes (ajusté en septembre 2026, 4,76:1 sur obsidienne) */
   --line:rgba(182,144,95,.26);
   --line-soft:rgba(232,236,239,.09);
   --glow:rgba(182,144,95,.16);   /* halo doux pour ombrages bronze */
@@ -46,7 +46,7 @@ body{
   -webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative;
 }
 
-/* Halo de lune — radial bronze en haut à droite. Pilotable en parallaxe
+/* Halo de lune, radial bronze en haut à droite. Pilotable en parallaxe
    via les variables --hx/--hy mises à jour par main.js (souris + scroll). */
 body::before{
   content:"";position:fixed;top:-20vmax;right:-14vmax;width:58vmax;height:58vmax;border-radius:50%;
@@ -57,7 +57,7 @@ body::before{
   transform:translate3d(var(--hx,0px),var(--hy,0px),0);
   transition:transform .6s cubic-bezier(.2,.7,.2,1);
 }
-/* Grain léger pour l'effet « archive du futur » — opacité réduite pour ne pas
+/* Grain léger pour l'effet « archive du futur », opacité réduite pour ne pas
    altérer la netteté perçue du texte (cf. correctif lisibilité). */
 body::after{
   content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.28;mix-blend-mode:overlay;
@@ -65,7 +65,7 @@ body::after{
 }
 .wrap{max-width:1100px;margin:0 auto;padding:0 7vw;position:relative;z-index:2}
 
-/* Accessibilité — focus clavier visible et homogène partout */
+/* Accessibilité, focus clavier visible et homogène partout */
 :focus-visible{
   outline:2px solid var(--bronze-br);
   outline-offset:3px;
@@ -87,6 +87,26 @@ body::after{
   pointer-events:none;
 }
 
+/* --- Touches d'atmosphère (lentes et douces, coupées sous prefers-reduced-motion) --- */
+::selection{background:var(--bronze);color:var(--lunaire)}
+.ciel{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.9}
+body{animation:pageIn 1s ease both}
+@keyframes pageIn{from{opacity:0}to{opacity:1}}
+/* révélation générique au défilement (classe posée par main.js) */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+/* fil d'eau : trait bronze qui descend le long de la lecture (pages projet et CV) */
+.fil-eau{position:relative}
+.fil-eau::before{content:"";position:absolute;left:-1.6rem;top:0;bottom:0;width:1px;
+  background:linear-gradient(180deg,var(--bronze-br),var(--bronze) 70%,transparent);
+  transform:scaleY(var(--fil,0));transform-origin:top;transition:transform .25s linear}
+@media(min-width:1100px){.fil-eau::before{left:-2.6rem}}
+/* mots du H1 du hero, montée en cascade (spans posés par main.js) */
+.ha-left h1 .w{display:inline-block;opacity:0;transform:translateY(.5em);
+  animation:wordUp 1s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(.45s + var(--i) * .075s)}
+@keyframes wordUp{to{opacity:1;transform:none}}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 0 3px var(--glow)}50%{box-shadow:0 0 0 7px rgba(182,144,95,0)}}
+
 /* --- Header collant --------------------------------------------------- */
 header.bar{
   position:sticky;top:0;z-index:40;backdrop-filter:blur(10px);
@@ -96,7 +116,7 @@ header.bar{
 /* condensation discrète au défilement */
 header.bar.scrolled{background:rgba(16,24,32,.92);border-bottom-color:var(--line)}
 header.bar.scrolled .wrap{height:56px}
-.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:2.5rem;height:var(--header-h);transition:height .4s ease}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:2.5rem;height:var(--header-h);transition:height .4s ease;padding:0 4vw}
 .brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;margin-right:auto}
 .brand img{height:34px;width:auto;display:block;transition:transform .5s ease}
 .brand:hover img{transform:rotate(-4deg) scale(1.04)}
@@ -106,10 +126,10 @@ header.bar.scrolled .wrap{height:56px}
 }
 
 /* Navigation ancrée */
-nav.links{display:flex;gap:1.8rem}
+nav.links{display:flex;gap:1.4rem;flex-shrink:0}
 nav.links a{
   position:relative;color:var(--maree);text-decoration:none;font-family:"Cormorant Garamond",serif;
-  font-size:1.02rem;letter-spacing:.12em;text-transform:uppercase;transition:color .3s;padding:.2rem 0;
+  font-size:.95rem;letter-spacing:.08em;text-transform:uppercase;transition:color .3s;padding:.2rem 0;white-space:nowrap;
 }
 /* soulignement animé + état actif (scrollspy) */
 nav.links a::after{
@@ -120,6 +140,36 @@ nav.links a:hover{color:var(--bronze-br)}
 nav.links a:hover::after,
 nav.links a.active::after{transform:scaleX(1)}
 nav.links a.active{color:var(--bronze-br)}
+
+/* Menu déroulant sous Projets. Les liens sont écrits en dur dans le HTML de chaque page ;
+   le CSS ne fait qu'afficher ou masquer la liste (survol, focus clavier, ou bouton). */
+nav.links .has-sub{position:relative;display:flex;align-items:center;gap:.3rem}
+nav.links .sub-toggle{
+  background:none;border:0;cursor:pointer;width:22px;height:22px;padding:0;
+  display:grid;place-items:center;color:var(--maree);transition:color .3s,transform .35s ease;
+}
+nav.links .sub-toggle::before{
+  content:"";width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;
+  transform:translateY(-2px) rotate(45deg);
+}
+nav.links .has-sub:hover .sub-toggle,
+nav.links .sub-toggle[aria-expanded="true"]{color:var(--bronze-br)}
+nav.links .sub-toggle[aria-expanded="true"]{transform:rotate(180deg)}
+nav.links .sub{
+  list-style:none;margin:0;padding:.6rem 0;position:absolute;top:calc(100% + .8rem);left:-1rem;min-width:17rem;
+  background:rgba(22,33,44,.97);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:6px;
+  box-shadow:0 24px 40px -24px rgba(0,0,0,.9);
+  opacity:0;visibility:hidden;transform:translateY(-6px);
+  transition:opacity .3s ease,transform .3s ease,visibility 0s linear .3s;
+}
+nav.links .sub::before{content:"";position:absolute;left:0;right:0;top:-.9rem;height:.9rem} /* pont de survol */
+nav.links .has-sub:hover .sub,
+nav.links .has-sub:focus-within .sub,
+nav.links .has-sub.open .sub{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+nav.links .sub a{display:block;padding:.5rem 1.2rem;text-transform:none;letter-spacing:.03em;font-size:1.08rem;color:var(--lunaire-dim)}
+nav.links .sub a::after{display:none}
+nav.links .sub a:hover,
+nav.links .sub a[aria-current="page"]{color:var(--bronze-br);background:var(--obs-3)}
 
 /* Bouton burger (mobile) */
 .burger{
@@ -135,38 +185,17 @@ nav.links a.active{color:var(--bronze-br)}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 
-/* --- HERO — horizontal ------------------------------------------------ */
+/* --- HERO, horizontal ------------------------------------------------ */
 .hero{
   display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);
   align-items:center;padding:9vh 0 8vh;
 }
-.hero .left{text-align:center;opacity:0;animation:fade 1.4s .1s forwards}
-.hero .logo{
-  width:100%;max-width:300px;height:auto;margin:0 auto;display:block;
-  animation:float 9s ease-in-out 1.6s infinite;
-}
-.hero .mantra{
-  font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--bronze-br);
-  font-size:1.15rem;letter-spacing:.04em;margin-top:1.4rem;
-}
-.hero .right{opacity:0;animation:rise 1s .55s forwards}
-.hero h1{
-  font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--lunaire);
-  font-size:clamp(2rem,4.6vw,3.5rem);line-height:1.14;letter-spacing:.005em;max-width:22ch;
-}
-.hero h1 em{font-style:italic;color:var(--bronze-br)}
-.hero .who{
-  margin-top:1.3rem;font-family:"Cormorant Garamond",serif;font-size:1.2rem;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--maree);
-}
-.hero .intro{margin-top:1.6rem;color:var(--lunaire-dim);font-size:1.05rem;max-width:56ch}
-.hero .intro b{color:var(--lunaire);font-weight:500}
 
 /* --- Sections génériques --------------------------------------------- */
 section{padding:8vh 0;position:relative}
-.sec-head{display:flex;align-items:center;gap:1.1rem;margin-bottom:3.2rem}
+.sec-head{display:flex;align-items:center;gap:1.1rem;margin-bottom:1.8rem}
 .sec-head .crescent{color:var(--bronze);font-size:1.3rem;display:inline-block}
-.sec-head h2{
+.sec-head h1,.sec-head h2{
   font-family:"Cormorant Garamond",serif;font-weight:500;
   font-size:clamp(1.7rem,4vw,2.7rem);color:var(--lunaire);letter-spacing:.12em;text-transform:uppercase;
 }
@@ -174,7 +203,7 @@ section{padding:8vh 0;position:relative}
 .sec-head.in .rule{transform:scaleX(1)}
 .sec-head.in .crescent{animation:lune 1.2s ease}
 
-/* Approche — 3 piliers */
+/* Approche, quatre piliers */
 .approach{display:grid;grid-template-columns:repeat(2,1fr);gap:2.8rem 3.2rem;max-width:860px;margin-inline:auto}
 .pillar{border-top:1px solid var(--line);padding-top:1.2rem;text-align:center;
   opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
@@ -183,10 +212,15 @@ section{padding:8vh 0;position:relative}
   color:var(--bronze-br);margin-bottom:.5rem}
 .pillar p{font-size:1rem;color:var(--lunaire-dim)}
 
-/* Bandeau mantra */
-.band{text-align:center;padding:5vh 0}
-.band p{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.5rem,3.4vw,2.2rem);
-  color:var(--bronze-br);letter-spacing:.03em}
+/* Je me présente (accueil) */
+.presente-inner{max-width:64ch;margin:0 auto}
+.presente-inner>p{color:var(--lunaire-dim);font-size:1.1rem}
+.presente-inner .signature{text-align:right;font-family:"Cormorant Garamond",serif;font-style:italic;
+  color:var(--bronze-br);font-size:1rem;margin-top:1.1rem}
+/* Appel vers l'univers : accroche italique et bouton, centrés */
+.univers-cta{text-align:center;margin-top:3rem}
+.univers-cta .hook{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.25rem,2.4vw,1.55rem);
+  color:var(--lunaire);margin-bottom:1.1rem}
 
 /* --- Projets ---------------------------------------------------------- */
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
@@ -204,7 +238,7 @@ section{padding:8vh 0;position:relative}
   transform:translateY(-5px);
   box-shadow:0 18px 40px -24px rgba(0,0,0,.7),0 0 0 1px var(--line);
 }
-/* Lueur qui suit le curseur — couche DERRIÈRE le contenu (z-index:0),
+/* Lueur qui suit le curseur, couche DERRIÈRE le contenu (z-index:0),
    sans filtre (n'altère pas la netteté du texte). Coordonnées posées par main.js. */
 .fiche::after{
   content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;z-index:0;
@@ -219,27 +253,12 @@ section{padding:8vh 0;position:relative}
 .fiche.in::before{transform:scaleY(1)}
 /* le contenu de la carte reste au-dessus du halo (.num garde sa position absolue) */
 .fiche > *{position:relative;z-index:1}
-.fiche .num{position:absolute;top:1rem;right:1.3rem;font-family:"Cormorant Garamond",serif;
-  font-size:clamp(2.4rem,5vw,3.4rem);color:var(--bronze);opacity:.16;line-height:1}
 .fiche .kicker{font-family:"Cormorant Garamond",serif;font-size:.92rem;letter-spacing:.2em;
   text-transform:uppercase;color:var(--bronze-br);margin-bottom:.5rem}
-.fiche h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(1.7rem,3.4vw,2.3rem);
+.fiche h2,.fiche h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(1.7rem,3.4vw,2.3rem);
   color:var(--lunaire);line-height:1.06;margin-bottom:.2rem;max-width:16ch}
 .fiche .def{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.05rem,1.9vw,1.25rem);
   color:var(--lunaire);line-height:1.5;margin:.9rem 0 1.4rem;font-weight:400}
-.fiche .role{display:inline-block;font-size:.86rem;letter-spacing:.03em;color:var(--maree);
-  border:1px solid var(--line);border-radius:50px;padding:.3rem 1rem;margin-bottom:1.5rem}
-.fiche .role b{color:var(--bronze-br);font-weight:500}
-.lbl{font-family:"Cormorant Garamond",serif;font-size:.88rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--mousse);margin-bottom:.8rem;display:block}
-.skills{display:grid;grid-template-columns:1fr 1fr;gap:.35rem 1.6rem;margin-bottom:1.6rem;list-style:none}
-.skills li{font-size:.95rem;color:var(--lunaire-dim);padding-left:1.1rem;position:relative}
-.skills li::before{content:"";position:absolute;left:0;top:.7em;width:5px;height:5px;
-  background:var(--bronze);border-radius:50%}
-.tags{display:flex;flex-wrap:wrap;gap:.45rem}
-.tag{font-size:.8rem;letter-spacing:.02em;color:var(--bronze-br);
-  border:1px solid var(--line);border-radius:50px;padding:.3rem .8rem;transition:all .3s}
-.tag:hover{background:var(--bronze);color:var(--obs);border-color:var(--bronze)}
 
 /* --- Réflexions ------------------------------------------------------- */
 .reflect{border-left:2px solid var(--bronze);padding-left:clamp(1.4rem,4vw,2.6rem);max-width:64ch;
@@ -250,33 +269,10 @@ section{padding:8vh 0;position:relative}
 .reflect p{color:var(--lunaire-dim)}
 .reflect .sig{margin-top:1.3rem;font-family:"Cormorant Garamond",serif;
   letter-spacing:.18em;text-transform:uppercase;color:var(--mousse);font-size:.9rem}
-
-/* --- Parcours --------------------------------------------------------- */
-.timeline{column-count:2;column-gap:3rem}
-.tl{break-inside:avoid;padding:1.1rem 0;border-bottom:1px solid var(--line-soft);
-  opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .tl.in{opacity:1;transform:none}
-.tl .yr{font-family:"Cormorant Garamond",serif;color:var(--bronze-br);font-size:1.15rem;
-  letter-spacing:.04em;display:block;margin-bottom:.15rem}
-.tl b{color:var(--lunaire);font-weight:500;font-size:1.1rem;font-family:"Cormorant Garamond",serif}
-.tl .place{color:var(--maree);font-size:.93rem}
-.tl .comp{margin-top:.4rem;color:var(--lunaire-dim);font-size:.9rem}
-.tl .comp span{color:var(--bronze-br)}
-.langs{margin-top:2.2rem;font-size:.96rem;color:var(--maree)}
-.langs b{color:var(--lunaire);font-weight:500}
-
-/* --- Univers personnel ------------------------------------------------ */
-.univers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
-.u-card{background:var(--obs-2);border:1px solid var(--line-soft);border-radius:4px;padding:1.7rem 1.6rem;
-  opacity:0;transform:translateY(20px);
-  transition:opacity .7s ease,transform .7s ease,border-color .4s ease,background .4s ease}
 .u-card.in{opacity:1;transform:none}
-.u-card:hover{border-color:var(--line);background:var(--obs-3)}
-.u-card h3{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--bronze-br);
-  font-size:1.35rem;margin-bottom:.5rem}
-.u-card p{font-size:.96rem;color:var(--lunaire-dim)}
 
-/* --- Contact — bloc unique centré ------------------------------------ */
+/* --- Contact, bloc unique centré ------------------------------------ */
 .contact{padding:11vh 0 4vh}
 .contact-inner{max-width:46ch;margin:0 auto;text-align:center}
 .contact-inner .crescent{display:block;color:var(--bronze);font-size:1.4rem;margin-bottom:.6rem}
@@ -288,7 +284,7 @@ section{padding:8vh 0;position:relative}
   letter-spacing:.06em;padding:.85rem 1.8rem;border-radius:50px;transition:all .35s;
   background:var(--bronze);color:var(--obs);font-weight:500}
 .cta:hover{background:var(--bronze-br);transform:translateY(-2px);box-shadow:0 12px 26px -16px var(--bronze)}
-/* Bouton secondaire « fantôme » — téléchargement / consultation du CV */
+/* Bouton secondaire « fantôme », téléchargement / consultation du CV */
 .hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
 .cta-ghost{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;
   font-family:"Cormorant Garamond",serif;font-size:1.05rem;letter-spacing:.06em;color:var(--bronze-br);
@@ -321,10 +317,6 @@ footer small{color:var(--mousse);font-size:.82rem;letter-spacing:.08em}
 footer .legal{margin-top:.7rem}
 footer .legal a{color:var(--maree);text-decoration:none;font-size:.82rem;letter-spacing:.06em;transition:color .3s}
 footer .legal a:hover{color:var(--bronze-br)}
-/* Compteur de visites — discret, à la charte */
-footer .visits{margin-top:.9rem;font-size:.78rem;letter-spacing:.14em;color:var(--mousse)}
-footer .visits span{color:var(--bronze-br)}
-footer .visits[hidden]{display:none}
 
 /* --- Page intérieure (confidentialité) ------------------------------- */
 .page{padding:7vh 0 4vh;max-width:70ch}
@@ -338,17 +330,19 @@ footer .visits[hidden]{display:none}
 .back-home{display:inline-block;margin-top:2.4rem;font-family:"Cormorant Garamond",serif;
   letter-spacing:.06em;color:var(--maree);text-decoration:none}
 .back-home:hover{color:var(--bronze-br)}
+.sorties{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1.6rem;margin-top:1.6rem}
+.sorties a{color:var(--bronze-br);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line);font-family:"Cormorant Garamond",serif;font-size:1.1rem;letter-spacing:.06em}
+.sorties a:hover{text-decoration-color:var(--bronze-br)}
 
 /* --- Animations ------------------------------------------------------- */
 /* Apparition instantanée (utilisée à la remontée : pas de ré-animation) */
-.no-anim, .no-anim *{transition:none !important;animation:none !important}
 @keyframes rise{to{opacity:1;transform:translateY(0)}}
 @keyframes fade{to{opacity:1}}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @keyframes lune{0%{transform:rotate(-25deg) scale(.7);opacity:0}100%{transform:none;opacity:1}}
 
 /* ==========================================================================
-   V2 — Conteneur de page, hero sur ambiance, portes de navigation
+   V2, Conteneur de page, hero sur ambiance, portes de navigation
    ========================================================================== */
 main{display:block;position:relative;z-index:2}
 
@@ -363,7 +357,8 @@ main{display:block;position:relative;z-index:2}
   display:grid;place-items:center;
   padding:calc(var(--header-h) + 4vh) 6vw 6vh;
 }
-.hero-amb .bg{position:absolute;inset:0;z-index:0;background:#0b1117 center/cover no-repeat}
+.hero-amb .bg{position:absolute;inset:0;z-index:0;background:#0b1117}
+.hero-amb .bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .hero-amb .bg::after{
   content:"";position:absolute;inset:0;
   background:
@@ -381,7 +376,7 @@ main{display:block;position:relative;z-index:2}
 }
 .ha-left{text-align:right}
 .ha-left h1{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--lunaire);
-  font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.16;letter-spacing:.005em;margin:0 0 0 auto;max-width:18ch}
+  font-size:clamp(1.7rem,3.3vw,2.8rem);line-height:1.16;letter-spacing:.005em;margin:0 0 0 auto;max-width:22ch}
 .ha-left h1 em{font-style:italic;color:var(--bronze-br)}
 .ha-left .mantra{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--bronze-br);
   font-size:1.05rem;letter-spacing:.04em;margin:1rem 0 0 auto;max-width:20ch}
@@ -411,7 +406,7 @@ main{display:block;position:relative;z-index:2}
   }
 }
 
-/* Trois portes — Projets / Séries / À propos */
+/* Trois portes, Projets / Séries / À propos */
 .portes{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
 .porte{
   display:flex;flex-direction:column;gap:1rem;
@@ -431,6 +426,14 @@ main{display:block;position:relative;z-index:2}
 .porte .arrow{font-family:"Cormorant Garamond",serif;color:var(--bronze-br);letter-spacing:.1em;
   transition:transform .3s}
 .porte:hover .arrow{transform:translateX(5px)}
+/* Troisième carte : une liste de liens, pas une carte cliquable. Fond plein et bordure bronze
+   pour la distinguer ; au survol, seuls les intitulés réagissent (pas de levée de carte). */
+.porte-liste{background:var(--obs-2);border-color:var(--line);cursor:default}
+.porte-liste:hover{background:var(--obs-2);box-shadow:none}
+.porte-list{list-style:none;display:flex;flex-direction:column;gap:.45rem;flex:1}
+.porte-list a{color:var(--lunaire-dim);text-decoration:underline;text-underline-offset:4px;
+  text-decoration-color:var(--line);transition:color .3s,text-decoration-color .3s}
+.porte-list a:hover{color:var(--bronze-br);text-decoration-color:var(--bronze-br)}
 
 /* --- Page Projets : chapeau, statut de fiche, cadre de création (Léax) --- */
 .lead{max-width:62ch;color:var(--lunaire-dim);font-size:1.08rem;margin-bottom:2.8rem}
@@ -442,10 +445,26 @@ main{display:block;position:relative;z-index:2}
 .fiche.creation{text-align:center;background:linear-gradient(180deg,rgba(22,33,44,.7),rgba(16,24,32,.4))}
 .fiche.creation::before{display:none}
 .fiche.creation .crescent{display:block;color:var(--bronze);font-size:1.3rem;margin-bottom:.6rem}
-.fiche.creation h3{max-width:none;margin-inline:auto}
+.fiche.creation h2,.fiche.creation h3{max-width:none;margin-inline:auto}
 .fiche.creation .def{max-width:48ch;margin-left:auto;margin-right:auto}
-.fiche.creation .tags,.fiche.creation .statut{justify-content:center}
+.fiche.creation .statut{justify-content:center}
 .fiche.creation .statut{display:flex}
+.fiche .statut{display:flex}
+.fiche .voir{display:inline-block;width:fit-content;font-family:"Cormorant Garamond",serif;color:var(--bronze-br);
+  letter-spacing:.1em;text-decoration:none;font-size:1.05rem;transition:transform .3s,color .3s}
+.fiche .voir:hover{transform:translateX(5px);color:var(--lunaire)}
+.fiche.creation .voir{margin-inline:auto}
+/* Le Projet Confidentiel : creux plus profond que le fond de page, bordure bronze pleine */
+.fiche.confidentiel{background:#0b1117;border:1px solid var(--bronze)}
+.fiche.confidentiel::before{display:none}
+.fiche.confidentiel:hover{border-color:var(--bronze-br)}
+/* Encart « Lire et écrire du code » : fond bronze humide, texte blanc lunaire en grand corps
+   (au moins 24 px : aucune couleur de la charte n'atteint 4,5:1 sur ce fond) */
+.encart{background:var(--bronze);color:var(--lunaire);border-radius:4px;
+  padding:clamp(1.6rem,3.4vw,2.4rem);display:flex;flex-direction:column;justify-content:center;gap:1rem}
+.encart h2,.encart h3{font-family:"Cormorant Garamond",serif;font-weight:600;font-size:clamp(1.8rem,3.4vw,2.3rem);
+  color:var(--lunaire);line-height:1.1}
+.encart p{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.55rem;line-height:1.35;color:var(--lunaire)}
 
 /* --- Page Séries --- */
 .series-intro{max-width:62ch;margin:0 auto 3.6rem;text-align:center}
@@ -475,8 +494,24 @@ main{display:block;position:relative;z-index:2}
 }
 .serie .serie-text{color:var(--lunaire-dim);font-size:1.08rem}
 .serie .serie-text b{color:var(--lunaire);font-weight:500}
-.ig-cta{text-align:center;max-width:48ch;margin:1rem auto 0}
-.ig-cta p{color:var(--lunaire-dim);margin-bottom:1.4rem}
+.serie .serie-text .serie-etat{font-family:"Cormorant Garamond",serif;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--bronze-br);font-size:.86rem;margin-bottom:.7rem}
+.serie .serie-text p+p{margin-top:0}
+/* Pourquoi je regarde du côté de l'art */
+.essai{max-width:66ch;margin:0 auto 5.5rem;border-left:2px solid var(--bronze);padding-left:clamp(1.4rem,4vw,2.6rem)}
+.essai h2{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--lunaire);
+  font-size:clamp(1.5rem,3.2vw,2.1rem);line-height:1.25;margin-bottom:1.2rem}
+.essai p{color:var(--lunaire-dim);margin-bottom:1rem}
+.essai .sources{font-size:.9rem;color:var(--lunaire-dim);opacity:.85;margin-top:1.4rem}
+/* Extrait du premier épisode : deux cartes 4:5 */
+.extrait{max-width:1000px;margin:0 auto;text-align:center}
+.extrait-intro{max-width:58ch;margin:0 auto 2rem;color:var(--lunaire-dim);font-size:1.05rem}
+.extrait-relais{margin-top:-1.3rem}
+.cartes{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;max-width:760px;margin:0 auto 2.4rem}
+.cartes img{display:block;width:100%;height:auto;border-radius:4px;border:1px solid var(--line-soft);
+  clip-path:inset(0 0 100% 0);transition:clip-path 1.1s cubic-bezier(.2,.7,.2,1)}
+.extrait.in .cartes img{clip-path:inset(0)}
+.extrait.in .cartes img+img{transition-delay:.25s}
 
 /* --- Page À propos --- */
 .univers-intro{max-width:58ch;margin:0 auto 3.4rem;text-align:center}
@@ -490,7 +525,7 @@ main{display:block;position:relative;z-index:2}
   opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
 .temp.in{opacity:1;transform:none}
 .temp .sym{display:flex;align-items:center;justify-content:center;width:108px;height:108px}
-.temp .sym img{max-width:100%;max-height:100%;height:auto;display:block}
+.temp .sym img{max-width:100%;max-height:100%;width:auto;height:auto;display:block}
 .temp .sym-svg{width:88px;height:88px;overflow:visible}
 .temp h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.5rem;
   color:var(--lunaire);letter-spacing:.02em}
@@ -509,42 +544,303 @@ main{display:block;position:relative;z-index:2}
 .sym-eau .wave-a{opacity:.9}
 .sym-eau .wave-b{opacity:.6}
 .sym-eau .wave-c{opacity:.42}
-.sym-logo img{animation:symFloat 7s ease-in-out infinite}
 .sym-loutre img{transform-origin:center;animation:symSwim 6s ease-in-out infinite}
 @keyframes symFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 @keyframes symSwim{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-6px) rotate(3deg)}}
 @keyframes lunePulse{0%,100%{opacity:.8}50%{opacity:1}}
 @keyframes twinkle{0%,100%{opacity:.18}50%{opacity:1}}
 
-/* Je suis Camille — portrait (décor visible, cadre sobre) + bio */
+/* En-tête À propos : photo (sur cette page uniquement), surtitre et H1 */
+.about-head{display:grid;grid-template-columns:minmax(200px,280px) 1fr;gap:clamp(1.8rem,4vw,3.4rem);
+  align-items:center;max-width:900px;margin:0 auto 4rem}
+.about-head .photo{border-radius:8px;overflow:hidden;border:1px solid var(--line);
+  box-shadow:0 26px 54px -32px rgba(0,0,0,.85)}
+.about-head .photo img{display:block;width:100%;height:auto}
+.surtitre{font-family:"Cormorant Garamond",serif;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--bronze-br);font-size:.92rem;margin-bottom:.8rem}
+.about-head h1{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--lunaire);
+  font-size:clamp(1.9rem,4vw,3rem);line-height:1.15}
+.about-cv{margin-top:1.2rem}
+.about-body{max-width:70ch;margin:0 auto}
+.about-body h2{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--bronze-br);
+  font-size:clamp(1.5rem,3vw,2rem);margin:2.6rem 0 .8rem}
+.about-body p{color:var(--lunaire-dim);margin-bottom:1rem}
+.projets-liens{list-style:none;margin:.4rem 0 1.2rem;padding-left:1.2rem;border-left:2px solid var(--bronze)}
+.projets-liens li{color:var(--lunaire-dim);margin:.4rem 0}
+.projets-liens a{color:var(--bronze-br);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line);
+  transition:text-decoration-color .3s}
+.projets-liens a:hover{text-decoration-color:var(--bronze-br)}
+
+/* --- Sommaire ancré (pages CV et Univers) : repliable en tête de page, collant en marge sur grand écran --- */
+.sommaire{margin:0 0 2rem;border:1px solid var(--line-soft);border-radius:4px;background:var(--obs-2);padding:.6rem 1.1rem}
+.sommaire summary{cursor:pointer;font-family:"Cormorant Garamond",serif;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--bronze-br);font-size:.9rem;padding:.3rem 0;list-style:none;display:flex;align-items:center;gap:.6rem}
+.sommaire summary::-webkit-details-marker{display:none}
+.sommaire summary::before{content:"";width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(-45deg);transition:transform .3s}
+.sommaire[open] summary::before{transform:rotate(45deg)}
+.sommaire ol{list-style:none;margin:.6rem 0 .3rem;padding:0;display:flex;flex-wrap:wrap;gap:.35rem 1.2rem}
+.sommaire li{margin:0}
+.sommaire a{color:var(--lunaire-dim);text-decoration:none;font-size:.98rem;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.sommaire a:hover,.sommaire a.actif{color:var(--bronze-br);border-bottom-color:var(--line)}
+.page-corps{min-width:0}
+@media(min-width:1400px){
+  /* le sommaire empiète sur la marge de gauche pour ne pas rétrécir le contenu */
+  .avec-sommaire{display:grid;grid-template-columns:13rem minmax(0,1fr);column-gap:3rem;align-items:start;margin-left:-10rem}
+  .avec-sommaire>*:not(.sommaire):not(.page-corps){grid-column:2}
+  .avec-sommaire .sommaire{grid-column:1;grid-row:1 / span 20;position:sticky;top:calc(var(--header-h) + 1.4rem);margin:0;padding:.8rem 1rem}
+  .avec-sommaire .page-corps{grid-column:2}
+  .avec-sommaire .sommaire ol{flex-direction:column;gap:.35rem}
+  .avec-sommaire .sommaire a{display:block;padding:.15rem 0 .15rem .8rem;border:0;border-left:2px solid transparent;font-size:.95rem}
+  .avec-sommaire .sommaire a.actif{border-left-color:var(--bronze-br)}
+  .cv.avec-sommaire{max-width:calc(80ch + 16rem);margin-left:-10rem;margin-right:auto}
+  .univers-page.avec-sommaire .sec-head,.univers-page.avec-sommaire .univers-intro{grid-column:2}
+}
+/* --- Pages projet (gabarit commun) --- */
+.projet{max-width:70ch;margin:0 auto;padding:5vh 0 2vh}
+.fil{font-family:"Cormorant Garamond",serif;letter-spacing:.08em;font-size:.95rem;color:var(--lunaire-dim);margin-bottom:1.6rem}
+.fil a{color:var(--bronze-br);text-decoration:none}
+.fil a:hover{text-decoration:underline;text-underline-offset:3px}
+.projet h1{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--lunaire);
+  font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.15;margin-bottom:1.2rem}
+.projet .resume{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--lunaire);
+  font-size:clamp(1.2rem,2.4vw,1.5rem);line-height:1.45;margin-bottom:1.4rem}
+.projet .meta{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:.9rem 0;margin-bottom:2.4rem}
+.projet .meta p{color:var(--lunaire-dim);margin:.25rem 0}
+.projet .lbl-meta{font-family:"Cormorant Garamond",serif;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--bronze-br);font-size:.86rem;margin-right:.6rem}
+.projet h2{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--bronze-br);
+  font-size:clamp(1.5rem,3vw,2rem);margin:2.4rem 0 .8rem}
+.projet p{color:var(--lunaire-dim);margin-bottom:1rem}
+.projet p b{color:var(--lunaire);font-weight:500}
+.projet a{color:var(--bronze-br);text-decoration:underline;text-underline-offset:3px}
+/* Exergue : une phrase du texte mise en valeur, à sa place, sans duplication.
+   Cormorant italique, bronze clair (6,09:1 sur obsidienne), corps supérieur au courant, filet bronze humide. */
+.exergue{display:block;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:400;
+  color:var(--bronze-br);font-size:clamp(1.45rem,2.6vw,1.85rem);line-height:1.35;
+  margin:1.4rem 0 1.4rem;padding:.2rem 0 .2rem 1.3rem;border-left:2px solid var(--bronze)}
+/* Preuve : témoignage encadré, guillemet bronze, Cormorant italique blanc lunaire en grand corps */
+.preuve{position:relative;margin:1.8rem 0 1.6rem;padding:1.7rem 1.9rem 1.6rem 3rem;background:var(--obs-2);
+  border:1px solid var(--line);border-left:3px solid var(--bronze-br);border-radius:0 6px 6px 0;
+  box-shadow:0 22px 44px -30px rgba(0,0,0,.85)}
+.preuve::before{content:"\263E";position:absolute;left:.85rem;top:1.35rem;font-size:1.5rem;line-height:1;color:var(--bronze)}
+.preuve p{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:clamp(1.3rem,2.3vw,1.6rem);line-height:1.45;color:var(--lunaire);margin:0}
+.projet .appel{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--lunaire);font-size:1.2rem;margin-top:1.6rem}
+.projet .back-home{text-decoration:none}
+/* Projet suivant : bloc de fin de page, panneau sobre sous le contenu, avant le retour à l'index */
+.suivant{margin:3rem 0 1.4rem;padding:1.5rem 1.7rem 1.4rem;background:var(--obs-2);border:1px solid var(--line-soft);
+  border-left:2px solid var(--bronze);border-radius:0 4px 4px 0;display:flex;flex-direction:column;gap:.35rem;
+  transition:border-color .4s ease,box-shadow .4s ease}
+.suivant:hover{border-color:var(--line);box-shadow:0 18px 40px -26px rgba(0,0,0,.8)}
+.suivant-lbl{font-family:"Cormorant Garamond",serif;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze-br);font-size:.86rem;margin:0}
+.projet .suivant-nom{font-size:clamp(1.5rem,3vw,2rem);margin:0;color:var(--lunaire)}
+.projet .suivant-nom a{color:var(--lunaire);text-decoration:none;transition:color .3s}
+.projet .suivant-nom a:hover{color:var(--bronze-br)}
+.projet .suivant-def{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.12rem;color:var(--lunaire-dim);margin:0 0 .4rem}
+.suivant .voir{display:inline-block;width:fit-content;font-family:"Cormorant Garamond",serif;color:var(--bronze-br);letter-spacing:.1em;text-decoration:none;font-size:1.05rem;transition:transform .3s}
+.suivant .voir:hover{transform:translateX(5px)}
+/* Page Contact : même gabarit de prose que les pages projet, listes à puces bronze */
+.contact-page .liste-bronze{list-style:none;margin:.2rem 0 1.2rem;padding-left:1.2rem;border-left:2px solid var(--bronze)}
+.contact-page .liste-bronze li{color:var(--lunaire-dim);margin:.45rem 0}
+.contact-page .resume{margin-bottom:1rem}
+
+/* --- Page L'Univers LUNTRAE --- */
+/* Le nom : grand logo flottant et figure typographique lutra + luna, puis le texte validé */
+.nom-bloc{display:grid;grid-template-columns:minmax(220px,.9fr) 1.1fr;gap:clamp(1.6rem,5vw,4rem);align-items:center;
+  max-width:1000px;margin:0 auto 4rem;padding:2.4rem 0 3rem;border-bottom:1px solid var(--line)}
+.nom-logo img{display:block;width:min(100%,420px);height:auto;margin:0 auto;animation:symFloat 7s ease-in-out infinite;
+  filter:drop-shadow(0 0 28px rgba(182,144,95,.18))}
+.nom-txt h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.5rem;color:var(--lunaire);letter-spacing:.02em;margin:1.2rem 0 .6rem}
+.nom-txt p{color:var(--lunaire-dim);margin-bottom:.9rem}
+.nom-figure{font-family:"Cormorant Garamond",serif;margin-bottom:.4rem}
+.nom-source{font-style:italic;font-size:clamp(1.3rem,2.6vw,1.8rem);letter-spacing:.06em;display:flex;align-items:baseline;gap:1rem;color:var(--lunaire-dim)}
+.nom-source .plus{font-size:.7em;color:var(--lunaire-dim);opacity:.7}
+.nom-source .on{color:var(--bronze-br)}
+.nom-source .off{opacity:.38}
+.nom-mot{font-weight:600;font-size:clamp(2.6rem,7vw,4.6rem);letter-spacing:.22em;line-height:1;margin-top:.5rem;display:flex}
+.nom-mot span{display:inline-block;opacity:0;transform:translateY(.45em);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);
+  transition-delay:calc(.2s + var(--i) * .13s)}
+.nom-bloc.in .nom-mot span{opacity:1;transform:none}
+.nom-mot .de-lutra{color:var(--bronze-br)}
+.nom-mot .de-luna{color:var(--lunaire)}
+.nom-mot .de-ae{color:var(--bronze)}
+@media(max-width:820px){.nom-bloc{grid-template-columns:1fr;text-align:left}.nom-logo img{width:min(70%,300px)}}
+
+.univers-page .temp h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.5rem;
+  color:var(--lunaire);letter-spacing:.02em;text-transform:none}
+.univers-prose{max-width:70ch;margin:4rem auto 0}
+.univers-prose.pourquoi{margin:0 auto 3.6rem;padding-bottom:2.4rem;border-bottom:1px solid var(--line)}
+.univers-prose.pourquoi h2{margin-top:0}
+.univers-prose h2,.loutres h2,.credits h2{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--bronze-br);
+  font-size:clamp(1.5rem,3vw,2rem);margin:2.4rem 0 .8rem}
+.univers-prose p,.credits p{color:var(--lunaire-dim);margin-bottom:1rem}
+.loutres{margin-top:4rem}
+.loutres-intro{color:var(--lunaire);max-width:none;font-size:1.12rem;margin-bottom:2.6rem}
+/* Quatre loutres : image et texte en alternance */
+.loutre{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center;
+  margin-bottom:4.5rem;padding-top:2.4rem;border-top:1px solid var(--line)}
+.loutre.reverse .loutre-visual{order:2}
+.loutre-visual img{display:block;width:100%;height:auto;border-radius:4px;border:1px solid var(--line-soft);
+  clip-path:inset(0 0 100% 0);transition:clip-path 1.2s cubic-bezier(.2,.7,.2,1) .1s,transform .8s ease,box-shadow .8s ease}
+.loutre.in .loutre-visual img{clip-path:inset(0)}
+.loutre-visual:hover img{transform:translateY(-4px);box-shadow:0 26px 50px -30px rgba(0,0,0,.9)}
+.loutre-txt h3{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--lunaire);
+  font-size:clamp(1.4rem,2.8vw,1.9rem);line-height:1.2;margin-bottom:.9rem}
+.loutre-txt h3 i{color:var(--bronze-br);font-weight:400}
+.espece{list-style:none;margin:0 0 1.2rem;padding-left:1rem;border-left:2px solid var(--bronze)}
+.espece li{color:var(--lunaire-dim);font-size:.95rem;margin:.3rem 0}
+.espece b{color:var(--lunaire);font-weight:500}
+.loutre-txt p{color:var(--lunaire-dim);margin-bottom:.9rem}
+.credits{max-width:70ch;margin:1rem auto 0;padding-top:1.4rem;border-top:1px solid var(--line)}
+.credits p{font-size:.95rem}
+.univers-cta .hook{max-width:44ch;margin-inline:auto}
+.essai a,.univers-prose a{color:var(--bronze-br);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line);transition:text-decoration-color .3s}
+.essai a:hover,.univers-prose a:hover{text-decoration-color:var(--bronze-br)}
+/* Appel secondaire sous le bouton principal (Univers vers À propos) */
+.lien-secondaire{display:block;margin-top:1.1rem;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.15rem;
+  color:var(--lunaire-dim);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line);transition:color .3s,text-decoration-color .3s}
+.lien-secondaire:hover{color:var(--bronze-br);text-decoration-color:var(--bronze-br)}
+
+/* --- Page CV : même grammaire que le PDF (bandeau, blocs à en-tête, bulle, vague, frise),
+   sur le fond obsidienne du site. Le bronze humide ne porte aucun texte ici. --- */
+.cv{max-width:80ch;margin:0 auto;padding:4vh 0 2vh}
+.cv-head{display:grid;grid-template-columns:1.25fr .9fr;gap:clamp(1.4rem,4vw,3rem);align-items:center;
+  background:linear-gradient(135deg,var(--obs-2),rgba(22,33,44,.55));border:1px solid var(--line-soft);border-radius:6px;
+  padding:clamp(1.6rem,4vw,2.8rem);margin-bottom:3rem;position:relative;overflow:hidden}
+.cv-head::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(60% 80% at 100% 0%,rgba(182,144,95,.12),transparent 60%)}
+.cv-identite{position:relative;z-index:1}
+.cv-logo{display:block;width:60px;height:auto;margin-bottom:1rem;animation:symFloat 7s ease-in-out infinite}
+.cv-identite h1{font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--lunaire);line-height:1.1;margin-bottom:.9rem}
+.cv-nom{display:block;font-size:clamp(1.9rem,4.4vw,3rem);letter-spacing:.2em;text-transform:uppercase}
+.cv-virgule{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cv-titre{display:block;font-style:italic;font-weight:500;font-size:clamp(1.25rem,2.4vw,1.6rem);color:var(--bronze-br);margin-top:.5rem;
+  padding-left:2.6rem;position:relative}
+.cv-titre::before{content:"";position:absolute;left:0;top:.72em;width:1.8rem;height:1px;background:var(--bronze)}
+.cv-sous-titre{font-family:"Cormorant Garamond",serif;letter-spacing:.12em;text-transform:uppercase;color:var(--lunaire-dim);font-size:.98rem;margin-bottom:.7rem}
+.cv-coord{color:var(--lunaire-dim);font-size:.96rem;margin-bottom:1.4rem}
+.cv-coord a{color:var(--bronze-br);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line)}
+.cv-coord a:hover{text-decoration-color:var(--bronze-br)}
+.cv-identite .cta .poids{font-size:.9em;opacity:.85}
+.cv-photo{position:relative;z-index:1;justify-self:end;width:min(100%,300px)}
+.cv-photo img{display:block;width:100%;height:auto;filter:drop-shadow(0 0 32px rgba(182,144,95,.16))}
+/* Sections : titre en capitales espacées suivi d'un filet, comme sur le PDF */
+.cv-sec{margin-bottom:1.8rem}
+.cv-sec h2{font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--lunaire);letter-spacing:.22em;text-transform:uppercase;
+  font-size:clamp(1.05rem,2vw,1.25rem);margin:0 0 1.2rem;display:flex;align-items:center;gap:1rem}
+.cv-sec h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.cv-sec p,.cv-sec li{color:var(--lunaire-dim)}
+.cv-sec h3{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--lunaire);font-size:1.35rem;line-height:1.25;margin-bottom:.3rem}
+.cv-sec h3 a{color:var(--lunaire);text-decoration:none;background:linear-gradient(var(--bronze-br),var(--bronze-br)) no-repeat 0 100%/0 1px;transition:background-size .4s ease,color .3s}
+.cv-sec h3 a:hover{color:var(--bronze-br);background-size:100% 1px}
+/* Profil : panneau à rayures verticales très discrètes, texte sur deux colonnes */
+.cv-profil{background:var(--obs-2) repeating-linear-gradient(90deg,transparent 0 64px,rgba(232,236,239,.03) 64px 128px);
+  border-left:2px solid var(--bronze);padding:1.6rem 1.8rem;border-radius:0 4px 4px 0}
+.cv-profil p{font-size:1.06rem;margin:0}
+/* Projets : cartes à filet bronze, statut animé */
+.cv-projets{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.cv-projet{background:var(--obs-2);border:1px solid var(--line-soft);border-radius:4px;padding:1.3rem 1.4rem 1.1rem;display:flex;flex-direction:column;
+  transition:border-color .4s ease,transform .5s ease,box-shadow .5s ease}
+.cv-projet:hover{border-color:var(--line);transform:translateY(-4px);box-shadow:0 18px 40px -26px rgba(0,0,0,.8)}
+.cv-projet h3{font-size:1.3rem}
+.cv-projet h3 a{color:var(--bronze-br)}
+.cv-projet h3 a:hover{color:var(--lunaire)}
+.cv-role{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.05rem;color:var(--bronze-br);margin-bottom:.7rem}
+.cv-projet p{font-size:.95rem}
+.cv-projet p+p{margin-top:.4rem}
+.cv-statut{margin-top:auto!important;padding-top:.9rem;font-size:.84rem;letter-spacing:.04em;display:flex;align-items:center;gap:.55rem;border-top:1px solid var(--line-soft)}
+.cv-statut .dot,.fiche .statut .dot{animation:dotPulse 3.4s ease-in-out infinite}
+.cv-frise li:last-child::before{animation:dotPulse 3.4s ease-in-out infinite}
+.cv-statut .dot{width:7px;height:7px;border-radius:50%;background:var(--bronze-br);box-shadow:0 0 0 3px var(--glow);flex:none}
+/* Compétences : blocs à en-tête sombre, bandeau technique sur trois colonnes */
+.cv-comp{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.cv-bloc{background:var(--obs-2);border:1px solid var(--line-soft);border-radius:4px;overflow:hidden}
+.cv-bloc h3{font-size:1.2rem;margin:0;padding:.75rem 1.3rem;background:var(--obs-3);color:var(--bronze-br);border-bottom:1px solid var(--line)}
+.cv-bloc ul{list-style:none;margin:0;padding:1rem 1.3rem 1.1rem}
+.cv-bloc li{font-size:.94rem;padding-left:1rem;position:relative;margin:.25rem 0}
+.cv-bloc li::before{content:"";position:absolute;left:0;top:.65em;width:5px;height:5px;background:var(--bronze);border-radius:50%}
+.cv-bandeau{grid-column:1 / -1}
+.cv-bandeau ul.trois{column-count:3;column-gap:1.6rem}
+.cv-bandeau li{break-inside:avoid}
+/* Expérience : poste actuel en panneau mis en avant, stages en deux colonnes */
+.cv-exp{margin-bottom:1.4rem}
+.cv-exp-principale{background:var(--obs-2);border:1px solid var(--line-soft);border-left:2px solid var(--bronze);border-radius:0 4px 4px 0;padding:1.4rem 1.6rem;margin-bottom:1.8rem}
+.cv-dates-inline{font-family:"Spectral",serif;font-size:.9rem;color:var(--lunaire-dim);letter-spacing:.02em}
+.cv-lieu{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.05rem;color:var(--bronze-br);margin-bottom:.5rem}
+.cv-exp ul{list-style:none;margin:0}
+.cv-exp li{padding-left:1rem;position:relative;margin:.3rem 0}
+.cv-exp li::before{content:"";position:absolute;left:0;top:.7em;width:5px;height:5px;background:var(--bronze);border-radius:50%}
+.cv-stages{display:grid;grid-template-columns:1fr 1fr;gap:1rem 2.4rem}
+.cv-stages p{font-size:.96rem}
+/* Frise de formation : sept jalons sur une ligne bronze */
+.cv-frise{list-style:none;margin:1.6rem 0 0;padding:0;display:grid;grid-template-columns:repeat(7,1fr);gap:1rem;position:relative}
+.cv-frise::before{content:"";position:absolute;left:0;right:0;top:6px;height:1px;background:var(--bronze)}
+.cv-frise li{position:relative;padding-top:1.4rem;font-size:.86rem}
+.cv-frise li::before{content:"";position:absolute;left:0;top:0;width:13px;height:13px;border-radius:50%;background:var(--obs);border:2px solid var(--bronze-br);box-shadow:0 0 0 4px var(--obs)}
+.cv-frise li:last-child::before{background:var(--bronze-br)}
+.cv-frise .cv-dates{display:block;font-family:"Cormorant Garamond",serif;color:var(--bronze-br);letter-spacing:.06em;font-size:1.05rem;margin-bottom:.35rem}
+.cv-frise b{display:block;color:var(--lunaire);font-weight:500;margin-bottom:.3rem;line-height:1.3}
+.cv-frise .cv-lieu{display:block;font-family:"Spectral",serif;font-style:normal;color:var(--lunaire-dim);font-size:.84rem;margin:0}
+/* Outils, langues, veille, centres d'intérêt, bulle */
+.cv-duo{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem}
+.cv-pastilles{list-style:none;margin:0;display:flex;flex-wrap:wrap;gap:.45rem}
+.cv-pastilles li{font-size:.86rem;letter-spacing:.02em;color:var(--bronze-br);border:1px solid var(--line);border-radius:50px;padding:.3rem .85rem;transition:background .3s,color .3s}
+.cv-pastilles li:hover{background:var(--bronze);color:var(--lunaire)}
+.cv-langues,.cv-liste{list-style:none;margin:0}
+.cv-langues li,.cv-liste li{padding-left:1rem;position:relative;margin:.35rem 0}
+.cv-langues li::before,.cv-liste li::before{content:"";position:absolute;left:0;top:.7em;width:5px;height:5px;background:var(--bronze);border-radius:50%}
+.cv-langues b{color:var(--lunaire);font-weight:500}
+/* Flaque de peinture : fond bronze humide, donc texte blanc lunaire en grand corps (au moins 24 px) */
+.cv-flaque{position:relative;padding:3rem 2.8rem 3.2rem;margin:1.2rem 0 0 .4rem;min-height:200px;display:flex;align-items:center}
+.cv-flaque-fond{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 18px 30px rgba(0,0,0,.45))}
+.cv-flaque p{position:relative;font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:1.55rem;line-height:1.35;color:var(--lunaire);margin:0}
+.cv-flaque-goutte{position:absolute;pointer-events:none}
+.cv-flaque-goutte.g1{width:22px;height:33px;right:8%;top:-38px;animation:goutte 6s ease-in-out infinite}
+.cv-flaque-goutte.g2{width:26px;height:26px;left:-16px;bottom:22px}
+.cv-flaque-goutte.g3{width:16px;height:16px;left:-34px;bottom:2px}
+@keyframes goutte{0%,70%,100%{transform:translateY(0)}84%{transform:translateY(10px)}}
+@media(max-width:900px){.cv-frise{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:900px){.cv-projets{grid-template-columns:1fr 1fr}.cv-frise{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){
+  .cv-head{grid-template-columns:1fr}
+  .cv-photo{justify-self:center;width:min(100%,240px);order:-1}
+  .cv-profil p{column-count:1}
+  .cv-projets,.cv-comp,.cv-duo,.cv-stages{grid-template-columns:1fr}
+  .cv-duo{gap:0}
+  .cv-bandeau ul.trois{column-count:1}
+  .cv-frise{grid-template-columns:1fr;gap:1rem;padding-left:1.6rem}
+  .cv-frise::before{left:6px;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .cv-frise li{padding-top:0;padding-left:.4rem}
+  .cv-frise li::before{left:-1.6rem;top:.2rem}
+  .cv-flaque{padding:2.6rem 2rem 2.8rem}
+}
+
 .portrait{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(1.8rem,4vw,3.4rem);
   align-items:center;max-width:980px;margin:5vh auto 0;
   opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
 .portrait.in{opacity:1;transform:none}
-.portrait .photo{border-radius:8px;overflow:hidden;border:1px solid var(--line);
-  box-shadow:0 26px 54px -32px rgba(0,0,0,.85)}
-.portrait .photo img{display:block;width:100%;height:auto}
-.portrait .bio h3{font-family:"Cormorant Garamond",serif;font-weight:500;
-  font-size:clamp(1.7rem,3.6vw,2.4rem);color:var(--lunaire);margin-bottom:1.1rem}
-.portrait .bio p{color:var(--lunaire-dim);margin-bottom:.9rem}
-.portrait .bio .phrase{font-family:"Cormorant Garamond",serif;font-style:italic;
-  color:var(--bronze-br);font-size:1.2rem;line-height:1.4}
-.portrait .bio .hero-actions{margin-top:1.3rem}
 
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
 @media(max-width:860px){.grid{grid-template-columns:1fr}}
+@media(max-width:820px){.loutre{grid-template-columns:1fr}.loutre.reverse .loutre-visual{order:0}}
+@media(max-width:700px){
+  .about-head{grid-template-columns:1fr;text-align:center}
+  .about-head .photo{max-width:260px;margin:0 auto}
+  .cartes{grid-template-columns:1fr;max-width:380px}
+}
 @media(max-width:820px){
-  .hero{grid-template-columns:1fr;text-align:center;gap:2.4rem;padding-top:7vh}
-  .hero h1,.hero .intro{margin-left:auto;margin-right:auto}
-  .hero .who{letter-spacing:.16em}
+  .bar .wrap{height:60px}
+}
 
-  /* Menu mobile : la nav devient un panneau déroulant sous le header */
+/* Menu mobile : la nav devient un panneau déroulant sous le header.
+   Seuil à 1000px : six entrées et le menu Projets ne tiennent plus en ligne en dessous. */
+@media(max-width:1000px){
   .burger{display:block}
   nav.links{
     position:fixed;top:var(--header-h);left:0;right:0;
     flex-direction:column;gap:0;align-items:stretch;
+    max-height:calc(100vh - var(--header-h));overflow-y:auto;
     background:rgba(16,24,32,.97);backdrop-filter:blur(12px);
     border-bottom:1px solid var(--line);
     padding:.5rem 7vw 1.4rem;
@@ -552,29 +848,43 @@ main{display:block;position:relative;z-index:2}
     box-shadow:0 24px 40px -28px rgba(0,0,0,.9);
   }
   nav.links.open{transform:translateY(0)}
-  nav.links a{padding:.95rem 0;border-bottom:1px solid var(--line-soft);font-size:1.1rem}
+  nav.links a{padding:.95rem 0;border-bottom:1px solid var(--line-soft);font-size:1.1rem;white-space:normal}
   nav.links a::after{display:none}
-  .bar .wrap{height:60px}
+  /* sous-menu Projets : replié par défaut, ouvert par le bouton, en ligne sous l'entrée */
+  nav.links .has-sub{flex-wrap:wrap;gap:0;border-bottom:1px solid var(--line-soft)}
+  nav.links .has-sub>a{flex:1;border-bottom:0}
+  nav.links .sub-toggle{width:44px;height:44px}
+  nav.links .sub{
+    position:static;flex-basis:100%;min-width:0;padding:0 0 .6rem 1.2rem;
+    background:none;backdrop-filter:none;border:0;border-radius:0;box-shadow:none;
+    display:none;opacity:1;visibility:visible;transform:none;transition:none;
+  }
+  nav.links .sub::before{display:none}
+  nav.links .has-sub.open .sub{display:block}
+  nav.links .sub a{padding:.7rem 0;border-bottom:1px solid var(--line-soft);font-size:1.05rem}
+  nav.links .sub a:hover,
+  nav.links .sub a[aria-current="page"]{background:none}
 }
 @media(max-width:780px){
   .approach{grid-template-columns:1fr;gap:1.8rem}
-  .timeline{column-count:1}
-  .univers{grid-template-columns:1fr}
   .portes{grid-template-columns:1fr}
   .serie{grid-template-columns:1fr;gap:1.6rem}
   .serie.reverse .serie-visual{order:0}
-  .portrait{grid-template-columns:1fr;gap:1.8rem}
   .temp{grid-template-columns:76px 1fr;gap:1.1rem;padding:1.5rem 0}
   .temp .sym{width:76px;height:76px}
   .temp .sym-svg{width:66px;height:66px}
 }
-@media(max-width:520px){.skills{grid-template-columns:1fr}}
+@media(max-width:520px){}
 
 /* --- Préférence « mouvement réduit » ---------------------------------- */
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *{animation:none!important;transition:none!important}
-  .fiche,.tl,.hero .left,.hero .right,.pillar,.u-card,.reflect,.porte,.hero-amb-grid,.serie,.temp,.portrait{opacity:1!important;transform:none!important}
+  .fiche,.pillar,.reflect,.porte,.hero-amb-grid,.serie,.temp{opacity:1!important;transform:none!important}
   .sec-head .rule{transform:scaleX(1)!important}
   body::before{transform:none!important}
+  .rv,.nom-mot span,.ha-left h1 .w{opacity:1!important;transform:none!important}
+  .loutre-visual img,.cartes img{clip-path:none!important}
+  .fil-eau::before{transform:scaleY(1)!important}
+  .ciel{display:none}
 }

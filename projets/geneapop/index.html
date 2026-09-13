@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geneapop · Application web de généalogie interactive</title>
+<meta name="description" content="Une application qui transforme des données familiales dispersées en un arbre vivant et cartographié. Conçue et développée seule, en JavaScript.">
+<meta name="author" content="Camille Sauton">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#101820">
+<link rel="canonical" href="https://luntrae.fr/projets/geneapop/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="LUNTRAE">
+<meta property="og:title" content="Cent onglets ouverts, un arbre généalogique nulle part. J'ai fini par le coder.">
+<meta property="og:description" content="Une application qui transforme des données familiales dispersées en un arbre vivant et cartographié. Conçue et développée seule, en JavaScript.">
+<meta property="og:url" content="https://luntrae.fr/projets/geneapop/">
+<meta property="og:image" content="https://luntrae.fr/assets/img/og-luntrae.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Une loutre stylisée en trait bronze, inscrite dans un cercle sous la lune, au-dessus de son reflet dans l'eau.">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cent onglets ouverts, un arbre généalogique nulle part. J'ai fini par le coder.">
+<meta name="twitter:description" content="Une application qui transforme des données familiales dispersées en un arbre vivant et cartographié. Conçue et développée seule, en JavaScript.">
+<meta name="twitter:image" content="https://luntrae.fr/assets/img/og-luntrae.png">
+<meta name="twitter:image:alt" content="Une loutre stylisée en trait bronze, inscrite dans un cercle sous la lune, au-dessus de son reflet dans l'eau.">
+
+<!-- Favicon & manifeste -->
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/favicon-64.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Polices auto-hébergées (aucune requête vers un tiers, via @font-face dans styles.css) -->
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/spectral-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-500.woff2">
+
+<!-- Styles -->
+<link rel="stylesheet" href="/assets/css/styles.css">
+
+<!-- Données structurées (SEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CreativeWork",
+      "@id": "https://luntrae.fr/projets/geneapop/#work",
+      "name": "Geneapop",
+      "headline": "Geneapop, une application web de généalogie interactive",
+      "description": "Une application qui transforme des données familiales dispersées en un arbre vivant et cartographié. Conçue et développée seule, en JavaScript.",
+      "url": "https://luntrae.fr/projets/geneapop/",
+      "inLanguage": "fr",
+      "author": {
+        "@id": "https://luntrae.fr/#camille"
+      },
+      "isPartOf": {
+        "@id": "https://luntrae.fr/#site"
+      },
+      "keywords": [
+        "conception de produit",
+        "cahier des charges fonctionnel",
+        "JavaScript",
+        "rendu SVG",
+        "IndexedDB",
+        "cartographie interactive"
+      ],
+      "dateCreated": "2026"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://luntrae.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Projets",
+          "item": "https://luntrae.fr/projets/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Geneapop",
+          "item": "https://luntrae.fr/projets/geneapop/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#top">Aller au contenu</a>
+<div class="scroll-progress" aria-hidden="true"></div>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="LUNTRAE, accueil">
+      <img src="/assets/img/LUNTRAE_icone_nav.webp" alt="" width="34" height="33">
+      <span>LUNTRAE</span>
+    </a>
+    <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="links" id="nav-links" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <div class="has-sub">
+        <a href="/projets/" class="active">Projets</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-projets" aria-label="Afficher les pages projet"></button>
+        <ul class="sub" id="sub-projets">
+          <li><a href="/projets/projet-confidentiel/">Le Projet Confidentiel</a></li>
+          <li><a href="/projets/geneapop/" aria-current="page">Geneapop</a></li>
+          <li><a href="/projets/luntrae/">Écosystème LUNTRAE</a></li>
+          <li><a href="/projets/kintara-ceramics/">Kintara Ceramics</a></li>
+          <li><a href="/projets/le-gentle/">Le Gentle</a></li>
+          <li><a href="/projets/methode-repositionnement/">Méthode de repositionnement</a></li>
+          <li><a href="/projets/leax/">Léax</a></li>
+        </ul>
+      </div>
+      <a href="/series/">Séries</a>
+      <div class="has-sub">
+        <a href="/a-propos/">À propos</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-apropos" aria-label="Afficher les pages À propos"></button>
+        <ul class="sub" id="sub-apropos">
+          <li><a href="/cv/">Curriculum Vitae</a></li>
+        </ul>
+      </div>
+      <a href="/univers/">L'Univers LUNTRAE</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <article class="projet fil-eau">
+      <nav class="fil" aria-label="Fil d'Ariane"><a href="/">Accueil</a> · <a href="/projets/">Projets</a> · <span>Geneapop</span></nav>
+      <h1>Geneapop, une application web de généalogie interactive</h1>
+      <p class="resume">Une application qui transforme des données familiales dispersées en un arbre vivant, interactif et cartographié. Conçue et développée seule, du modèle de données à l'interface.</p>
+      <div class="meta">
+        <p><span class="lbl-meta">Statut</span> En développement depuis 2026, à usage personnel aujourd'hui. Projet complexe : des ajustements et de nouvelles fonctions restent à intégrer.</p>
+      </div>
+
+      <h2>Le point de départ</h2>
+      <p>Je ne savais presque rien de mes aïeux. En cherchant, j'ai trouvé une multitude d'informations dispersées sur des dizaines de sites : <span class="exergue">on ouvre cent onglets et on finit par se perdre.</span> Il me fallait un outil dédié pour réunir mes trouvailles, les organiser, et obtenir une vraie lisibilité de ce que j'avais rassemblé. L'objectif est aussi de rendre ces informations accessibles à ma sœur.</p>
+
+      <h2>Ce que fait l'application</h2>
+      <p>Elle affiche un arbre dynamique où chaque membre a sa fiche, calcule automatiquement le lien de parenté entre deux personnes, situe les individus sur une carte, et propose plusieurs modes de vue selon ce qu'on cherche à lire. Un import assisté par API d'IA permet de partir d'une capture d'écran ou d'un lien plutôt que de tout saisir à la main, avec un système de rapprochement à quatre niveaux pour rattacher un individu importé au bon endroit de l'arbre.</p>
+
+      <h2>Comment je m'y suis prise</h2>
+      <p>Je suis partie de ma propre situation à résoudre. J'ai pensé les fonctions en tant qu'utilisatrice principale, en tenant compte des difficultés rencontrées par les personnes peu à l'aise avec les outils numériques : c'est une bonne position pour imaginer un parcours intuitif. J'ai rédigé un cahier des charges fonctionnel et je tiens un backlog qui évolue au fil des découvertes. Chaque fonction est développée avec l'appui d'outils d'IA, que je pilote et dont je valide le résultat. Je commite et je tague à chaque étape, après recette, ce qui me donne un code stable à étudier et un point de retour si une piste ne mène nulle part.</p>
+
+      <h2>Deux moments qui disent le projet</h2>
+      <p>Un bouton ne répondait plus, sans le moindre message d'erreur. En remontant, j'ai trouvé une variable déclarée très bas dans le fichier mais utilisée bien plus haut : au moment du clic, elle existait sans être utilisable, ce qui interrompait le traitement en silence. Le symptôme ne disait rien de la cause, il a fallu relier les deux.</p>
+      <p>En utilisant l'outil, je me suis heurtée à un problème classique en généalogie : les homonymes. Plusieurs personnes portent le même prénom et le même nom sur plusieurs générations, et l'arbre devient illisible. J'ai décidé d'attribuer à chaque individu un totem nature, repérable d'un coup d'œil. On ne cherche plus un nom dans une liste, on repère une forme.</p>
+
+      <h2>Où en est le projet</h2>
+      <p>Application fonctionnelle en local, utilisée pour ma propre généalogie. L'architecture a été refondue : un fichier unique de 4 600 lignes découpé en neuf modules. Usage personnel aujourd'hui, usage familial ensuite, et ouverture au public si la demande existe et que le projet est abouti.</p>
+      <p><a href="mailto:luntrae@proton.me">Écrivez-moi</a> pour recevoir les avancées.</p>
+
+      <h2>Compétences mobilisées</h2>
+      <p>Conception de produit et parcours utilisateur, cahier des charges fonctionnel, backlog, front-end en JavaScript, HTML et CSS, rendu SVG, persistance locale en IndexedDB, cartographie interactive, intégration d'API d'IA, architecture modulaire, Git et GitHub, recette et débogage.</p>
+
+
+      <!-- Projet suivant : bouclage dans l'ordre de l'index -->
+      <aside class="suivant">
+        <p class="suivant-lbl">Projet suivant</p>
+        <h2 class="suivant-nom"><a href="/projets/luntrae/">Écosystème LUNTRAE</a></h2>
+        <p class="suivant-def">Marque personnelle déployée de bout en bout : mise en ligne en autonomie, séries éditoriales, pilotage par la mesure d'audience.</p>
+        <a class="voir" href="/projets/luntrae/">Voir le projet &rarr;</a>
+      </aside>
+
+      <a class="back-home" href="/projets/">&larr; Retour aux projets</a>
+    </article>
+  </div>
+
+  <!-- CONTACT (cible de la nav « Contact ») -->
+  <div class="contact" id="contact">
+    <div class="contact-inner">
+      <span class="crescent" aria-hidden="true">&#9790;</span>
+      <h2>Écrivons-nous.</h2>
+      <p>Une idée à creuser, une proposition, une envie d'échanger ? Écrivez-moi, même simplement pour discuter.</p>
+      <a class="cta" href="mailto:luntrae@proton.me">luntrae@proton.me</a>
+      <!-- Téléchargement du CV, suivi par main.js (événement cv-telechargement, ventilé par page) -->
+      <a class="cta-ghost" href="/assets/cv/CV_Camille_Sauton_cheffe_de_projet_numerique.pdf" download
+         aria-label="Télécharger mon CV au format PDF"
+         style="margin-top:1rem">Télécharger mon CV <span aria-hidden="true">· PDF ⤓</span></a>
+      <p class="tiny">LUNTRAE est un projet personnel : un écosystème d'explorations digitales.</p>
+    </div>
+  </div>
+
+</main>
+
+<button class="to-top" type="button" aria-label="Revenir en haut de la page">&#9650;</button>
+
+<footer>
+  <div class="wrap">
+    <img src="/assets/img/LUNTRAE_lockup_pied.webp" alt="" width="126" height="44" loading="lazy">
+    <div class="fm">Des systèmes pour des futurs plus doux.</div>
+    <small>LUNTRAE · Camille Sauton · Mis à jour en septembre 2026</small>
+    <div class="legal"><a href="/mentions-legales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a></div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js"></script>
+<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE), cf. Confidentialité. -->
+<script data-goatcounter="https://luntrae.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

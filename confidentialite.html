@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Confidentialité — LUNTRAE</title>
+<title>Confidentialité · LUNTRAE</title>
 <meta name="description" content="Confidentialité de LUNTRAE : mesure d'audience sans cookie ni traceur publicitaire, sans conservation d'adresse IP, données hébergées en Europe.">
 <meta name="robots" content="index,follow">
+<meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#101820">
 <link rel="canonical" href="https://luntrae.fr/confidentialite.html">
-<link rel="icon" type="image/png" href="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/favicon-64.png">
 <link rel="apple-touch-icon" href="/assets/img/icon-192.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/spectral-400.woff2">
@@ -22,8 +23,8 @@
 
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="LUNTRAE — accueil">
-      <img src="/assets/img/LUNTRAE_icone_bronze_fond-sombre.png" alt="" width="34" height="33">
+    <a class="brand" href="/" aria-label="LUNTRAE, accueil">
+      <img src="/assets/img/LUNTRAE_icone_nav.webp" alt="" width="34" height="33">
       <span>LUNTRAE</span>
     </a>
     <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
@@ -31,10 +32,29 @@
     </button>
     <nav class="links" id="nav-links" aria-label="Navigation principale">
       <a href="/">Accueil</a>
-      <a href="/projets/">Projets</a>
+      <div class="has-sub">
+        <a href="/projets/">Projets</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-projets" aria-label="Afficher les pages projet"></button>
+        <ul class="sub" id="sub-projets">
+          <li><a href="/projets/projet-confidentiel/">Le Projet Confidentiel</a></li>
+          <li><a href="/projets/geneapop/">Geneapop</a></li>
+          <li><a href="/projets/luntrae/">Écosystème LUNTRAE</a></li>
+          <li><a href="/projets/kintara-ceramics/">Kintara Ceramics</a></li>
+          <li><a href="/projets/le-gentle/">Le Gentle</a></li>
+          <li><a href="/projets/methode-repositionnement/">Méthode de repositionnement</a></li>
+          <li><a href="/projets/leax/">Léax</a></li>
+        </ul>
+      </div>
       <a href="/series/">Séries</a>
-      <a href="/a-propos/">À propos</a>
-      <a href="/#contact">Contact</a>
+      <div class="has-sub">
+        <a href="/a-propos/">À propos</a>
+        <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-apropos" aria-label="Afficher les pages À propos"></button>
+        <ul class="sub" id="sub-apropos">
+          <li><a href="/cv/">Curriculum Vitae</a></li>
+        </ul>
+      </div>
+      <a href="/univers/">L'Univers LUNTRAE</a>
+      <a href="/contact/">Contact</a>
     </nav>
   </div>
 </header>
@@ -64,15 +84,15 @@
 
 <footer>
   <div class="wrap">
-    <img src="/assets/img/LUNTRAE_lockup-horizontal_bronze_fond-sombre.png" alt="LUNTRAE" width="200" height="44">
-    <div class="fm">« Des systèmes calmes, un impact durable. »</div>
-    <small>LUNTRAE · camsou · 2026</small>
+    <img src="/assets/img/LUNTRAE_lockup_pied.webp" alt="" width="126" height="44" loading="lazy">
+    <div class="fm">Des systèmes pour des futurs plus doux.</div>
+    <small>LUNTRAE · Camille Sauton · Mis à jour en septembre 2026</small>
     <div class="legal"><a href="/mentions-legales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a></div>
   </div>
 </footer>
 
 <script src="/assets/js/main.js"></script>
-<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE) — cf. Confidentialité. -->
+<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE), cf. Confidentialité. -->
 <script data-goatcounter="https://luntrae.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>

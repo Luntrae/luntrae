@@ -1,6 +1,6 @@
 # Rapport quotidien LUNTRAE
 # Lit les statistiques de la veille via l'API GoatCounter, puis envoie un e-mail de synthèse via Brevo.
-# Aucun secret n'est écrit en clair : tout passe par les secrets chiffrés du dépôt (Settings → Secrets).
+# Aucun secret n'est écrit en clair : tout passe par les secrets chiffrés du dépôt (Settings, puis Secrets).
 
 name: Rapport quotidien LUNTRAE
 
