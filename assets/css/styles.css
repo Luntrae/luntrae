@@ -653,6 +653,10 @@ main{display:block;position:relative;z-index:2}
 .projet a{color:var(--bronze-br);text-decoration:underline;text-underline-offset:3px}
 .projet .appel{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--lunaire);font-size:1.2rem;margin-top:1.6rem}
 .projet .back-home{text-decoration:none}
+/* Page Contact : même gabarit de prose que les pages projet, listes à puces bronze */
+.contact-page .liste-bronze{list-style:none;margin:.2rem 0 1.2rem;padding-left:1.2rem;border-left:2px solid var(--bronze)}
+.contact-page .liste-bronze li{color:var(--lunaire-dim);margin:.45rem 0}
+.contact-page .resume{margin-bottom:1rem}
 
 /* --- Page L'Univers LUNTRAE --- */
 /* Le nom : grand logo flottant et figure typographique lutra + luna, puis le texte validé */
