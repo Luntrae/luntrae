@@ -190,27 +190,6 @@ nav.links .sub a[aria-current="page"]{color:var(--bronze-br);background:var(--ob
   display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);
   align-items:center;padding:9vh 0 8vh;
 }
-.hero .left{text-align:center;opacity:0;animation:fade 1.4s .1s forwards}
-.hero .logo{
-  width:100%;max-width:300px;height:auto;margin:0 auto;display:block;
-  animation:float 9s ease-in-out 1.6s infinite;
-}
-.hero .mantra{
-  font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--bronze-br);
-  font-size:1.15rem;letter-spacing:.04em;margin-top:1.4rem;
-}
-.hero .right{opacity:0;animation:rise 1s .55s forwards}
-.hero h1{
-  font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--lunaire);
-  font-size:clamp(2rem,4.6vw,3.5rem);line-height:1.14;letter-spacing:.005em;max-width:22ch;
-}
-.hero h1 em{font-style:italic;color:var(--bronze-br)}
-.hero .who{
-  margin-top:1.3rem;font-family:"Cormorant Garamond",serif;font-size:1.2rem;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--maree);
-}
-.hero .intro{margin-top:1.6rem;color:var(--lunaire-dim);font-size:1.05rem;max-width:56ch}
-.hero .intro b{color:var(--lunaire);font-weight:500}
 
 /* --- Sections génériques --------------------------------------------- */
 section{padding:8vh 0;position:relative}
@@ -224,7 +203,7 @@ section{padding:8vh 0;position:relative}
 .sec-head.in .rule{transform:scaleX(1)}
 .sec-head.in .crescent{animation:lune 1.2s ease}
 
-/* Approche, 3 piliers */
+/* Approche, quatre piliers */
 .approach{display:grid;grid-template-columns:repeat(2,1fr);gap:2.8rem 3.2rem;max-width:860px;margin-inline:auto}
 .pillar{border-top:1px solid var(--line);padding-top:1.2rem;text-align:center;
   opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
@@ -242,11 +221,6 @@ section{padding:8vh 0;position:relative}
 .univers-cta{text-align:center;margin-top:3rem}
 .univers-cta .hook{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.25rem,2.4vw,1.55rem);
   color:var(--lunaire);margin-bottom:1.1rem}
-
-/* Bandeau mantra */
-.band{text-align:center;padding:5vh 0}
-.band p{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.5rem,3.4vw,2.2rem);
-  color:var(--bronze-br);letter-spacing:.03em}
 
 /* --- Projets ---------------------------------------------------------- */
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
@@ -279,27 +253,12 @@ section{padding:8vh 0;position:relative}
 .fiche.in::before{transform:scaleY(1)}
 /* le contenu de la carte reste au-dessus du halo (.num garde sa position absolue) */
 .fiche > *{position:relative;z-index:1}
-.fiche .num{position:absolute;top:1rem;right:1.3rem;font-family:"Cormorant Garamond",serif;
-  font-size:clamp(2.4rem,5vw,3.4rem);color:var(--bronze);opacity:.16;line-height:1}
 .fiche .kicker{font-family:"Cormorant Garamond",serif;font-size:.92rem;letter-spacing:.2em;
   text-transform:uppercase;color:var(--bronze-br);margin-bottom:.5rem}
 .fiche h2,.fiche h3{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(1.7rem,3.4vw,2.3rem);
   color:var(--lunaire);line-height:1.06;margin-bottom:.2rem;max-width:16ch}
 .fiche .def{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.05rem,1.9vw,1.25rem);
   color:var(--lunaire);line-height:1.5;margin:.9rem 0 1.4rem;font-weight:400}
-.fiche .role{display:inline-block;font-size:.86rem;letter-spacing:.03em;color:var(--maree);
-  border:1px solid var(--line);border-radius:50px;padding:.3rem 1rem;margin-bottom:1.5rem}
-.fiche .role b{color:var(--bronze-br);font-weight:500}
-.lbl{font-family:"Cormorant Garamond",serif;font-size:.88rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--mousse);margin-bottom:.8rem;display:block}
-.skills{display:grid;grid-template-columns:1fr 1fr;gap:.35rem 1.6rem;margin-bottom:1.6rem;list-style:none}
-.skills li{font-size:.95rem;color:var(--lunaire-dim);padding-left:1.1rem;position:relative}
-.skills li::before{content:"";position:absolute;left:0;top:.7em;width:5px;height:5px;
-  background:var(--bronze);border-radius:50%}
-.tags{display:flex;flex-wrap:wrap;gap:.45rem}
-.tag{font-size:.8rem;letter-spacing:.02em;color:var(--bronze-br);
-  border:1px solid var(--line);border-radius:50px;padding:.3rem .8rem;transition:all .3s}
-.tag:hover{background:var(--bronze);color:var(--obs);border-color:var(--bronze)}
 
 /* --- Réflexions ------------------------------------------------------- */
 .reflect{border-left:2px solid var(--bronze);padding-left:clamp(1.4rem,4vw,2.6rem);max-width:64ch;
@@ -310,31 +269,8 @@ section{padding:8vh 0;position:relative}
 .reflect p{color:var(--lunaire-dim)}
 .reflect .sig{margin-top:1.3rem;font-family:"Cormorant Garamond",serif;
   letter-spacing:.18em;text-transform:uppercase;color:var(--mousse);font-size:.9rem}
-
-/* --- Parcours --------------------------------------------------------- */
-.timeline{column-count:2;column-gap:3rem}
-.tl{break-inside:avoid;padding:1.1rem 0;border-bottom:1px solid var(--line-soft);
-  opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
 .tl.in{opacity:1;transform:none}
-.tl .yr{font-family:"Cormorant Garamond",serif;color:var(--bronze-br);font-size:1.15rem;
-  letter-spacing:.04em;display:block;margin-bottom:.15rem}
-.tl b{color:var(--lunaire);font-weight:500;font-size:1.1rem;font-family:"Cormorant Garamond",serif}
-.tl .place{color:var(--maree);font-size:.93rem}
-.tl .comp{margin-top:.4rem;color:var(--lunaire-dim);font-size:.9rem}
-.tl .comp span{color:var(--bronze-br)}
-.langs{margin-top:2.2rem;font-size:.96rem;color:var(--maree)}
-.langs b{color:var(--lunaire);font-weight:500}
-
-/* --- Univers personnel ------------------------------------------------ */
-.univers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
-.u-card{background:var(--obs-2);border:1px solid var(--line-soft);border-radius:4px;padding:1.7rem 1.6rem;
-  opacity:0;transform:translateY(20px);
-  transition:opacity .7s ease,transform .7s ease,border-color .4s ease,background .4s ease}
 .u-card.in{opacity:1;transform:none}
-.u-card:hover{border-color:var(--line);background:var(--obs-3)}
-.u-card h3{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--bronze-br);
-  font-size:1.35rem;margin-bottom:.5rem}
-.u-card p{font-size:.96rem;color:var(--lunaire-dim)}
 
 /* --- Contact, bloc unique centré ------------------------------------ */
 .contact{padding:11vh 0 4vh}
@@ -511,7 +447,7 @@ main{display:block;position:relative;z-index:2}
 .fiche.creation .crescent{display:block;color:var(--bronze);font-size:1.3rem;margin-bottom:.6rem}
 .fiche.creation h2,.fiche.creation h3{max-width:none;margin-inline:auto}
 .fiche.creation .def{max-width:48ch;margin-left:auto;margin-right:auto}
-.fiche.creation .tags,.fiche.creation .statut{justify-content:center}
+.fiche.creation .statut{justify-content:center}
 .fiche.creation .statut{display:flex}
 .fiche .statut{display:flex}
 .fiche .voir{display:inline-block;width:fit-content;font-family:"Cormorant Garamond",serif;color:var(--bronze-br);
@@ -608,7 +544,6 @@ main{display:block;position:relative;z-index:2}
 .sym-eau .wave-a{opacity:.9}
 .sym-eau .wave-b{opacity:.6}
 .sym-eau .wave-c{opacity:.42}
-.sym-logo img{animation:symFloat 7s ease-in-out infinite}
 .sym-loutre img{transform-origin:center;animation:symSwim 6s ease-in-out infinite}
 @keyframes symFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 @keyframes symSwim{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-6px) rotate(3deg)}}
@@ -879,20 +814,10 @@ main{display:block;position:relative;z-index:2}
   .cv-flaque{padding:2.6rem 2rem 2.8rem}
 }
 
-/* Je suis Camille, portrait (décor visible, cadre sobre) + bio */
 .portrait{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(1.8rem,4vw,3.4rem);
   align-items:center;max-width:980px;margin:5vh auto 0;
   opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
 .portrait.in{opacity:1;transform:none}
-.portrait .photo{border-radius:8px;overflow:hidden;border:1px solid var(--line);
-  box-shadow:0 26px 54px -32px rgba(0,0,0,.85)}
-.portrait .photo img{display:block;width:100%;height:auto}
-.portrait .bio h3{font-family:"Cormorant Garamond",serif;font-weight:500;
-  font-size:clamp(1.7rem,3.6vw,2.4rem);color:var(--lunaire);margin-bottom:1.1rem}
-.portrait .bio p{color:var(--lunaire-dim);margin-bottom:.9rem}
-.portrait .bio .phrase{font-family:"Cormorant Garamond",serif;font-style:italic;
-  color:var(--bronze-br);font-size:1.2rem;line-height:1.4}
-.portrait .bio .hero-actions{margin-top:1.3rem}
 
 /* ==========================================================================
    RESPONSIVE
@@ -905,10 +830,6 @@ main{display:block;position:relative;z-index:2}
   .cartes{grid-template-columns:1fr;max-width:380px}
 }
 @media(max-width:820px){
-  .hero{grid-template-columns:1fr;text-align:center;gap:2.4rem;padding-top:7vh}
-  .hero h1,.hero .intro{margin-left:auto;margin-right:auto}
-  .hero .who{letter-spacing:.16em}
-
   .bar .wrap{height:60px}
 }
 
@@ -946,23 +867,20 @@ main{display:block;position:relative;z-index:2}
 }
 @media(max-width:780px){
   .approach{grid-template-columns:1fr;gap:1.8rem}
-  .timeline{column-count:1}
-  .univers{grid-template-columns:1fr}
   .portes{grid-template-columns:1fr}
   .serie{grid-template-columns:1fr;gap:1.6rem}
   .serie.reverse .serie-visual{order:0}
-  .portrait{grid-template-columns:1fr;gap:1.8rem}
   .temp{grid-template-columns:76px 1fr;gap:1.1rem;padding:1.5rem 0}
   .temp .sym{width:76px;height:76px}
   .temp .sym-svg{width:66px;height:66px}
 }
-@media(max-width:520px){.skills{grid-template-columns:1fr}}
+@media(max-width:520px){}
 
 /* --- Préférence « mouvement réduit » ---------------------------------- */
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *{animation:none!important;transition:none!important}
-  .fiche,.tl,.hero .left,.hero .right,.pillar,.u-card,.reflect,.porte,.hero-amb-grid,.serie,.temp,.portrait{opacity:1!important;transform:none!important}
+  .fiche,.pillar,.reflect,.porte,.hero-amb-grid,.serie,.temp{opacity:1!important;transform:none!important}
   .sec-head .rule{transform:scaleX(1)!important}
   body::before{transform:none!important}
   .rv,.nom-mot span,.ha-left h1 .w{opacity:1!important;transform:none!important}
