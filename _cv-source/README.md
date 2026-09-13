@@ -14,7 +14,7 @@ C:msys64mingw64inweasyprint.exe cv.html sortieCV_weasyprint_9pt.pdf
 
 Pour en faire le PDF téléchargeable, le copier sous `assets/cv/CV_Camille_Sauton_cheffe_de_projet_numerique.pdf` et mettre à jour le poids sur le bouton de `cv/index.html`.
 
-Depuis ce dossier, sous Windows avec WeasyPrint installé dans MSYS2 :
+Pour produire directement le fichier téléchargeable, depuis ce dossier, sous Windows avec WeasyPrint installé dans MSYS2 :
 
 ```
 C:\msys64\mingw64\bin\weasyprint.exe cv.html ..\assets\cv\CV_Camille_Sauton_cheffe_de_projet_numerique.pdf
