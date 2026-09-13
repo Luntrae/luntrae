@@ -147,6 +147,20 @@
     }
   }
 
+  /* --- 1f. Mesure d'audience : clic sur une adresse e-mail (acte de conversion) ---------- */
+  // Par délégation sur le document, sans attribut onclick : tout lien mailto:, présent ou futur,
+  // envoie l'événement « contact-email » à GoatCounter, avec la page d'origine en titre.
+  // Sans GoatCounter (bloqueur, hors ligne), le lien fonctionne normalement.
+  document.addEventListener("click", (e) => {
+    const lien = e.target.closest && e.target.closest('a[href^="mailto:"]');
+    if (!lien || !window.goatcounter || typeof window.goatcounter.count !== "function") return;
+    window.goatcounter.count({
+      path: "contact-email",
+      title: "E-mail depuis " + window.location.pathname,
+      event: true,
+    });
+  });
+
   /* --- 2. Liens de navigation (le scrollspy a été retiré : aucun onglet ne pointe vers une ancre) --- */
   const navLinks = Array.from(document.querySelectorAll("nav.links a"));
 
