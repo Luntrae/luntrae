@@ -10,3 +10,6 @@ assets/img/Camille croquis.png
 
 # Source Claude Design du CV (HTML de 10 Mo et PNG), conservée hors dépôt
 _cv-source/design/
+
+# Sortie de la chaîne WeasyPrint
+sortie/
