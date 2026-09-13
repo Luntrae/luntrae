@@ -667,6 +667,18 @@ main{display:block;position:relative;z-index:2}
 .preuve p{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:clamp(1.3rem,2.3vw,1.6rem);line-height:1.45;color:var(--lunaire);margin:0}
 .projet .appel{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--lunaire);font-size:1.2rem;margin-top:1.6rem}
 .projet .back-home{text-decoration:none}
+/* Projet suivant : bloc de fin de page, panneau sobre sous le contenu, avant le retour à l'index */
+.suivant{margin:3rem 0 1.4rem;padding:1.5rem 1.7rem 1.4rem;background:var(--obs-2);border:1px solid var(--line-soft);
+  border-left:2px solid var(--bronze);border-radius:0 4px 4px 0;display:flex;flex-direction:column;gap:.35rem;
+  transition:border-color .4s ease,box-shadow .4s ease}
+.suivant:hover{border-color:var(--line);box-shadow:0 18px 40px -26px rgba(0,0,0,.8)}
+.suivant-lbl{font-family:"Cormorant Garamond",serif;letter-spacing:.2em;text-transform:uppercase;color:var(--bronze-br);font-size:.86rem;margin:0}
+.projet .suivant-nom{font-size:clamp(1.5rem,3vw,2rem);margin:0;color:var(--lunaire)}
+.projet .suivant-nom a{color:var(--lunaire);text-decoration:none;transition:color .3s}
+.projet .suivant-nom a:hover{color:var(--bronze-br)}
+.projet .suivant-def{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.12rem;color:var(--lunaire-dim);margin:0 0 .4rem}
+.suivant .voir{display:inline-block;width:fit-content;font-family:"Cormorant Garamond",serif;color:var(--bronze-br);letter-spacing:.1em;text-decoration:none;font-size:1.05rem;transition:transform .3s}
+.suivant .voir:hover{transform:translateX(5px)}
 /* Page Contact : même gabarit de prose que les pages projet, listes à puces bronze */
 .contact-page .liste-bronze{list-style:none;margin:.2rem 0 1.2rem;padding-left:1.2rem;border-left:2px solid var(--bronze)}
 .contact-page .liste-bronze li{color:var(--lunaire-dim);margin:.45rem 0}
