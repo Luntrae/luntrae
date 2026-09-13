@@ -49,12 +49,15 @@ assets/img/                images du site en WebP, favicon, image Open Graph
 assets/img/loutres/        quatre planches naturalistes en 1400 et 700 px
 assets/img/series/         visuels des séries et cartes du premier épisode
 assets/cv/                 PDF du CV téléchargeable
-_cv-source/                source de la chaîne WeasyPrint de secours et notice (non publié)
+_cv-source/                planche Claude Design du CV, script de préparation pour WeasyPrint,
+                           chaîne de secours HTML et CSS, notice (non publié)
 .github/                   rapport d'audience quotidien (Action GitHub, GoatCounter vers Brevo)
 sitemap.xml, robots.txt, site.webmanifest, CNAME
 ```
 
-Les dossiers commençant par un tiret bas ne sont pas publiés par GitHub Pages. Les fichiers sources lourds (PNG d'origine, HTML de Claude Design) restent sur le disque et sont ignorés par git.
+Les dossiers commençant par un tiret bas ne sont pas publiés par GitHub Pages. Les fichiers sources lourds (PNG d'origine, export complet de Claude Design) restent sur le disque et sont ignorés par git.
+
+Le PDF du CV est produit par WeasyPrint depuis la planche Claude Design de `_cv-source/planche/`, avec les polices du site embarquées, afin de s'afficher sur mobile ; la notice est dans `_cv-source/README.md`.
 
 ## Mesure d'audience
 
