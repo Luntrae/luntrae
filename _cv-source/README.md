@@ -9,7 +9,7 @@ Ce dossier conserve aussi la chaîne WeasyPrint de secours, qui produit un PDF d
 Depuis la passe 2 (lot D), le corps de cette version est à 9 points minimum, listes comprises, et le document tient en deux pages sans coupe. La sortie de test va dans `sortie/` (hors dépôt) :
 
 ```
-C:msys64mingw64inweasyprint.exe cv.html sortieCV_weasyprint_9pt.pdf
+C:\msys64\mingw64\bin\weasyprint.exe cv.html sortie\CV_weasyprint_9pt.pdf
 ```
 
 Pour en faire le PDF téléchargeable, le copier sous `assets/cv/CV_Camille_Sauton_cheffe_de_projet_numerique.pdf` et mettre à jour le poids sur le bouton de `cv/index.html`.
