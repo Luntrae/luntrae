@@ -135,9 +135,8 @@
           <h1><span class="cv-nom">Camille Sauton</span><span class="cv-virgule">,</span> <span class="cv-titre">cheffe de projet numérique</span></h1>
           <p class="cv-sous-titre">Produit &amp; UX · Gestion de projet · Conception et code</p>
           <p class="cv-coord">Rochefort (17) · <a href="mailto:luntrae@proton.me">luntrae@proton.me</a> · <a href="https://www.linkedin.com/in/camille-stn" target="_blank" rel="noopener noreferrer">linkedin.com/in/camille-stn</a> · <a href="/">luntrae.fr</a></p>
-          <!-- Téléchargement du CV, événement « cv-telechargement » -->
-          <a class="cta" href="/assets/cv/CV_Camille_Sauton_cheffe_de_projet_numerique.pdf" download
-             onclick="window.goatcounter&&window.goatcounter.count({path:'cv-telechargement',title:'CV téléchargé',event:true})">Télécharger le CV en PDF <span class="poids" aria-hidden="true">· PDF, 452 Ko</span></a>
+          <!-- Téléchargement du CV, suivi par main.js (événement cv-telechargement, ventilé par page) -->
+          <a class="cta" href="/assets/cv/CV_Camille_Sauton_cheffe_de_projet_numerique.pdf" download>Télécharger le CV en PDF <span class="poids" aria-hidden="true">· PDF, 452 Ko</span></a>
         </div>
         <div class="cv-photo">
           <img src="/assets/img/camille_croquis-bronze.webp" width="640" height="827"
@@ -358,11 +357,10 @@
       <h2>Écrivons-nous.</h2>
       <p>Une idée à creuser, une proposition, une envie d'échanger ? Écrivez-moi, même simplement pour discuter.</p>
       <a class="cta" href="mailto:luntrae@proton.me">luntrae@proton.me</a>
-      <!-- Téléchargement du CV, événement « cv-telechargement » -->
+      <!-- Téléchargement du CV, suivi par main.js (événement cv-telechargement, ventilé par page) -->
       <a class="cta-ghost" href="/assets/cv/CV_Camille_Sauton_cheffe_de_projet_numerique.pdf" download
          aria-label="Télécharger mon CV au format PDF"
-         style="margin-top:1rem"
-         onclick="window.goatcounter&&window.goatcounter.count({path:'cv-telechargement',title:'CV téléchargé',event:true})">Télécharger mon CV <span aria-hidden="true">· PDF ⤓</span></a>
+         style="margin-top:1rem">Télécharger mon CV <span aria-hidden="true">· PDF ⤓</span></a>
       <p class="tiny">LUNTRAE est un projet personnel : un écosystème d'explorations digitales.</p>
     </div>
   </div>

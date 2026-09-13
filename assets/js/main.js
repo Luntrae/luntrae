@@ -147,16 +147,24 @@
     }
   }
 
-  /* --- 1f. Mesure d'audience : clic sur une adresse e-mail (acte de conversion) ---------- */
-  // Par délégation sur le document, sans attribut onclick : tout lien mailto:, présent ou futur,
-  // envoie l'événement « contact-email » à GoatCounter, avec la page d'origine en titre.
-  // Sans GoatCounter (bloqueur, hors ligne), le lien fonctionne normalement.
+  /* --- 1f. Mesure d'audience : clics qui comptent, ventilés par page --------------------- */
+  // Par délégation sur le document, sans attribut onclick. Chaque événement GoatCounter porte
+  // le chemin de la page d'origine dans son propre chemin, ce qui donne une ligne par page dans
+  // le tableau de bord : contact-email/…, cv-telechargement/…, clic-instagram/…, clic-linkedin/….
+  // Sans GoatCounter (bloqueur, hors ligne), les liens fonctionnent normalement.
   document.addEventListener("click", (e) => {
-    const lien = e.target.closest && e.target.closest('a[href^="mailto:"]');
+    const lien = e.target.closest && e.target.closest("a[href]");
     if (!lien || !window.goatcounter || typeof window.goatcounter.count !== "function") return;
+    const href = lien.getAttribute("href") || "";
+    let nom = null;
+    if (href.startsWith("mailto:")) nom = "contact-email";
+    else if (/\/assets\/cv\/.*\.pdf$/.test(href)) nom = "cv-telechargement";
+    else if (/instagram\.com/.test(href)) nom = "clic-instagram";
+    else if (/linkedin\.com/.test(href)) nom = "clic-linkedin";
+    if (!nom) return;
     window.goatcounter.count({
-      path: "contact-email",
-      title: "E-mail depuis " + window.location.pathname,
+      path: nom + window.location.pathname,
+      title: nom + " depuis " + window.location.pathname,
       event: true,
     });
   });
