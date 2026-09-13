@@ -679,6 +679,8 @@ main{display:block;position:relative;z-index:2}
 .univers-page .temp h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.5rem;
   color:var(--lunaire);letter-spacing:.02em;text-transform:none}
 .univers-prose{max-width:70ch;margin:4rem auto 0}
+.univers-prose.pourquoi{margin:0 auto 3.6rem;padding-bottom:2.4rem;border-bottom:1px solid var(--line)}
+.univers-prose.pourquoi h2{margin-top:0}
 .univers-prose h2,.loutres h2,.credits h2{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--bronze-br);
   font-size:clamp(1.5rem,3vw,2rem);margin:2.4rem 0 .8rem}
 .univers-prose p,.credits p{color:var(--lunaire-dim);margin-bottom:1rem}
