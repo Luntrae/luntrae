@@ -663,7 +663,7 @@ main{display:block;position:relative;z-index:2}
 .preuve{position:relative;margin:1.8rem 0 1.6rem;padding:1.7rem 1.9rem 1.6rem 3rem;background:var(--obs-2);
   border:1px solid var(--line);border-left:3px solid var(--bronze-br);border-radius:0 6px 6px 0;
   box-shadow:0 22px 44px -30px rgba(0,0,0,.85)}
-.preuve::before{content:"«";position:absolute;left:.75rem;top:-.1rem;font-family:"Cormorant Garamond",serif;font-size:4rem;line-height:1;color:var(--bronze-br);opacity:.9}
+.preuve::before{content:"\263E";position:absolute;left:.85rem;top:1.35rem;font-size:1.5rem;line-height:1;color:var(--bronze)}
 .preuve p{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:clamp(1.3rem,2.3vw,1.6rem);line-height:1.45;color:var(--lunaire);margin:0}
 .projet .appel{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--lunaire);font-size:1.2rem;margin-top:1.6rem}
 .projet .back-home{text-decoration:none}
