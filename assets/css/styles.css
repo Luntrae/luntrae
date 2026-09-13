@@ -25,8 +25,8 @@
   --bronze-br:#b6905f;  /* bronze clair, liens/titres lisibles */
   --lunaire:#E8ECEF;    /* Blanc lunaire, texte fort */
   --lunaire-dim:#c4ccd1;/* texte courant (lisibilité garantie) */
-  --maree:#6E7C86;      /* Gris marée, texte secondaire */
-  --mousse:#4F5F57;     /* Vert mousse, labels discrets (jamais pour du corps) */
+  --maree:#89959E;      /* Gris marée, texte secondaire (ajusté en septembre 2026, 5,84:1 sur obsidienne) */
+  --mousse:#72897D;     /* Vert mousse, mentions discrètes (ajusté en septembre 2026, 4,76:1 sur obsidienne) */
   --line:rgba(182,144,95,.26);
   --line-soft:rgba(232,236,239,.09);
   --glow:rgba(182,144,95,.16);   /* halo doux pour ombrages bronze */
