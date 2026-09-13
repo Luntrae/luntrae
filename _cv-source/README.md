@@ -1,8 +1,8 @@
 # Source du CV imprimable
 
-Le PDF téléchargeable `assets/cv/CV_Camille_Sauton_cheffe_de_projet_numerique.pdf` est, depuis le 12 septembre 2026, la version retravaillée dans Claude Design par Camille Sauton. Sa source (HTML et portrait) est rangée dans `design/`, hors dépôt git en raison de son poids.
+Le PDF téléchargeable `assets/cv/CV_Camille_Sauton_cheffe_de_projet_numerique.pdf` est produit par WeasyPrint depuis `cv.html` et `cv.css` de ce dossier, polices embarquées en CID TrueType (les fontes Type 3 des exports navigateur ne s'affichent pas sur mobile). La version Claude Design, gardée dans `design/` hors dépôt, n'est plus publiée depuis le 13 septembre 2026.
 
-Ce dossier conserve aussi la chaîne WeasyPrint de secours, qui produit un PDF de même contenu à partir de `cv.html` et `cv.css`, polices embarquées depuis `assets/fonts/`.
+Le titre du document PDF est celui de la balise title de `cv.html`.
 
 ## Fabrication de la version WeasyPrint
 
