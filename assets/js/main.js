@@ -2,7 +2,6 @@
    LUNTRAE, interactions
    Vanilla JS, sans dépendance. Mouvement doux, respect de prefers-reduced-motion.
    - reveals au scroll (IntersectionObserver)
-   - scrollspy (lien de nav actif selon la section visible)
    - menu mobile (burger)
    - barre de progression de lecture + header condensé
    - bouton « haut de page »
@@ -14,7 +13,7 @@
 
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* --- 1. Reveals au scroll (rejoués à la DESCENTE, instantanés à la MONTÉE) --- */
+  /* --- 1. Reveals au scroll (une seule fois par lecture de la page) --- */
   // Éléments révélés génériquement : on leur pose la classe .rv (opacité 0 puis .in)
   document
     .querySelectorAll(
@@ -35,38 +34,14 @@
       if (typeof s.pauseAnimations === "function") s.pauseAnimations();
     });
   } else {
-    // On suit le sens du scroll pour ne rejouer qu'en descendant.
-    let lastY = window.scrollY;
-    let dir = "down";
-    window.addEventListener(
-      "scroll",
-      () => {
-        const y = window.scrollY;
-        if (y !== lastY) dir = y > lastY ? "down" : "up";
-        lastY = y;
-      },
-      { passive: true }
-    );
-
+    // Chaque élément n'est révélé qu'une fois par lecture de la page : une fois apparu, il reste
+    // visible et n'est plus observé. Remonter puis redescendre ne rejoue rien (lot E3).
     const io = new IntersectionObserver(
-      (entries) => {
+      (entries, obs) => {
         entries.forEach((en) => {
-          const el = en.target;
-          if (en.isIntersecting) {
-            if (dir === "down") {
-              // descente → on rejoue (reflow forcé pour redémarrer la transition)
-              el.classList.remove("in");
-              void el.offsetWidth;
-              el.classList.add("in");
-            } else {
-              // montée → apparition instantanée, sans animation
-              el.classList.add("no-anim", "in");
-              requestAnimationFrame(() => el.classList.remove("no-anim"));
-            }
-          } else {
-            // sorti de l'écran → on réarme pour la prochaine descente
-            el.classList.remove("in", "no-anim");
-          }
+          if (!en.isIntersecting) return;
+          en.target.classList.add("in");
+          obs.unobserve(en.target);
         });
       },
       { threshold: 0.14 }
@@ -97,7 +72,9 @@
       }));
     };
     let last = 0;
+    let actif = true;
     const draw = (t) => {
+      if (!actif) return; // onglet caché : la boucle s'arrête, visibilitychange la relance
       if (t - last > 90) {
         last = t;
         ctx.clearRect(0, 0, ciel.width, ciel.height);
@@ -113,7 +90,17 @@
     };
     seed();
     window.addEventListener("resize", seed, { passive: true });
-    requestAnimationFrame(draw);
+    document.addEventListener("visibilitychange", () => {
+      const visible = !document.hidden;
+      if (visible && !actif) {
+        actif = true;
+        requestAnimationFrame(draw);
+      } else if (!visible) {
+        actif = false;
+      }
+    });
+    if (!document.hidden) requestAnimationFrame(draw);
+    else actif = false;
   }
 
   /* --- 1c. Mots du H1 du hero, montée en cascade ----------------------- */
@@ -143,28 +130,8 @@
     suivre();
   }
 
-  /* --- 2. Scrollspy : lien de nav actif ------------------------------- */
-  const sections = document.querySelectorAll("section[id]");
+  /* --- 2. Liens de navigation (le scrollspy a été retiré : aucun onglet ne pointe vers une ancre) --- */
   const navLinks = Array.from(document.querySelectorAll("nav.links a"));
-  const linkFor = (id) =>
-    navLinks.find((a) => a.getAttribute("href") === "#" + id);
-
-  if (sections.length && navLinks.length) {
-    const spy = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            navLinks.forEach((a) => a.classList.remove("active"));
-            const link = linkFor(e.target.id);
-            if (link) link.classList.add("active");
-          }
-        });
-      },
-      // la section est « active » quand elle occupe la bande centrale haute
-      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
-    );
-    sections.forEach((s) => spy.observe(s));
-  }
 
   /* --- 3. Menu mobile (burger) ---------------------------------------- */
   const burger = document.querySelector(".burger");
