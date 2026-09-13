@@ -108,15 +108,31 @@
 
 <main id="top">
   <div class="wrap">
-    <section class="univers-page">
+    <section class="univers-page avec-sommaire">
       <div class="sec-head"><span class="crescent">&#9790;</span><h1>L'Univers LUNTRAE</h1><span class="rule"></span></div>
 
       <div class="univers-intro">
         <p><b>Il y a un nom, une loutre, une lune.</b> <em>Une loutre en totem sur un logo, vraiment ?</em></p>
       </div>
 
+      <details class="sommaire" open>
+        <summary>Sommaire</summary>
+        <ol>
+          <li><a href="#pourquoi-cet-univers-existe">Pourquoi cet univers existe</a></li>
+          <li><a href="#le-nom">Le nom</a></li>
+          <li><a href="#la-loutre">La Loutre</a></li>
+          <li><a href="#la-lune">La Lune</a></li>
+          <li><a href="#l-eau">L'Eau</a></li>
+          <li><a href="#les-couleurs">Les couleurs</a></li>
+          <li><a href="#pourquoi-utiliser-les-outils-ia">Pourquoi utiliser les outils IA ?</a></li>
+          <li><a href="#quatre-especes-de-loutre-qui-m-inspirent">Quatre espèces de loutre qui m'inspirent</a></li>
+          <li><a href="#credits">Crédits et sources</a></li>
+        </ol>
+      </details>
+
+      <div class="page-corps">
       <!-- Pourquoi cet univers existe : premier contenu après l'accroche, avant le bloc du nom -->
-      <div class="univers-prose pourquoi">
+      <div class="univers-prose pourquoi" id="pourquoi-cet-univers-existe">
         <h2>Pourquoi cet univers existe</h2>
         <p>J'ai fait un constat simple : ma créativité ne servait presque plus dans mon quotidien professionnel. Les idées, elles, continuaient d'arriver. Des projets, des outils, des histoires, des choses à construire.</p>
         <p>LUNTRAE est né en mai 2026 de ce décalage. Il me fallait un endroit pour donner une forme à tout ça, plutôt que de laisser les idées s'accumuler sans exister : un univers où les projets se répondent au lieu de se disperser.</p>
@@ -124,7 +140,7 @@
       </div>
 
       <!-- Le nom : figure typographique (décorative) et texte validé. lutra + luna : LU, N, TRA, E -->
-      <div class="nom-bloc">
+      <div class="nom-bloc" id="le-nom">
         <div class="nom-logo">
           <img src="/assets/img/LUNTRAE_logo_nom.webp" alt="" width="560" height="374">
         </div>
@@ -147,7 +163,7 @@
 
       <div class="temps">
 
-        <div class="temp">
+        <div class="temp" id="la-loutre">
           <div class="sym sym-loutre">
             <img src="/assets/img/LUNTRAE_icone_nav.webp" alt="" aria-hidden="true" width="68" height="65">
           </div>
@@ -158,7 +174,7 @@
           </div>
         </div>
 
-        <div class="temp">
+        <div class="temp" id="la-lune">
           <div class="sym">
             <svg class="sym-svg sym-lune" viewBox="0 0 100 100" aria-hidden="true">
               <defs>
@@ -180,7 +196,7 @@
           </div>
         </div>
 
-        <div class="temp">
+        <div class="temp" id="l-eau">
           <div class="sym">
             <svg class="sym-svg sym-eau" viewBox="0 0 100 100" aria-hidden="true">
               <g class="wave wave-a">
@@ -207,10 +223,10 @@
       </div>
 
       <div class="univers-prose">
-        <h2>Les couleurs</h2>
+        <h2 id="les-couleurs">Les couleurs</h2>
         <p>La charte est venue d'instinct, en cherchant à rester cohérente avec les symboles. Le sombre pour l'ambiance nocturne, qui me définit bien. Le bronze pour la lumière dans la nuit, donc pour la lune.</p>
 
-        <h2>Pourquoi utiliser les outils IA ?</h2>
+        <h2 id="pourquoi-utiliser-les-outils-ia">Pourquoi utiliser les outils IA ?</h2>
         <p>Je m'en sers, et je préfère le dire.</p>
         <p>Je suis bien sûr consciente des enjeux environnementaux, mais également réaliste sur l'impact que l'IA aura sur notre société et notre besoin de le maîtriser.</p>
         <p>Pour les visuels de cet univers, je n'ai pas de budget d'illustration. Plutôt que de renoncer face à un droit d'auteur ou de piocher des images passe-partout, je dirige un outil génératif pour obtenir quelque chose qui tienne ma charte : mon bronze, mon trait, ma nuit. Ça demande du travail, une idée précise de ce que je veux, pour ajuster le prompt. Le résultat n'est pas une illustration commandée à un artiste, et je ne le fais pas passer pour tel.</p>
@@ -219,7 +235,7 @@
       </div>
 
       <!-- Quatre loutres : illustration et texte en alternance, toutes en balise image avec texte alternatif -->
-      <div class="loutres">
+      <div class="loutres" id="quatre-especes-de-loutre-qui-m-inspirent">
         <h2>Quatre espèces de loutre qui m'inspirent</h2>
         <p class="loutres-intro">Une douzaine d'espèces de loutres vivent aujourd'hui sur la planète, et elles ne se ressemblent pas. En voici quatre, et ce que chacune me dit.</p>
 
@@ -304,6 +320,7 @@
         <p class="hook">Cet univers n'est pas décoratif : il tient ensemble des projets qui vont du code au business, en passant par un roman.</p>
         <a class="cta" href="/projets/">Voir les projets</a>
         <a class="lien-secondaire" href="/a-propos/">Et la personne derrière tout ça.</a>
+      </div>
       </div>
 
     </section>

@@ -636,6 +636,30 @@ main{display:block;position:relative;z-index:2}
   transition:text-decoration-color .3s}
 .projets-liens a:hover{text-decoration-color:var(--bronze-br)}
 
+/* --- Sommaire ancré (pages CV et Univers) : repliable en tête de page, collant en marge sur grand écran --- */
+.sommaire{margin:0 0 2rem;border:1px solid var(--line-soft);border-radius:4px;background:var(--obs-2);padding:.6rem 1.1rem}
+.sommaire summary{cursor:pointer;font-family:"Cormorant Garamond",serif;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--bronze-br);font-size:.9rem;padding:.3rem 0;list-style:none;display:flex;align-items:center;gap:.6rem}
+.sommaire summary::-webkit-details-marker{display:none}
+.sommaire summary::before{content:"";width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(-45deg);transition:transform .3s}
+.sommaire[open] summary::before{transform:rotate(45deg)}
+.sommaire ol{list-style:none;margin:.6rem 0 .3rem;padding:0;display:flex;flex-wrap:wrap;gap:.35rem 1.2rem}
+.sommaire li{margin:0}
+.sommaire a{color:var(--lunaire-dim);text-decoration:none;font-size:.98rem;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.sommaire a:hover,.sommaire a.actif{color:var(--bronze-br);border-bottom-color:var(--line)}
+.page-corps{min-width:0}
+@media(min-width:1400px){
+  /* le sommaire empiète sur la marge de gauche pour ne pas rétrécir le contenu */
+  .avec-sommaire{display:grid;grid-template-columns:13rem minmax(0,1fr);column-gap:3rem;align-items:start;margin-left:-10rem}
+  .avec-sommaire>*:not(.sommaire):not(.page-corps){grid-column:2}
+  .avec-sommaire .sommaire{grid-column:1;grid-row:1 / span 20;position:sticky;top:calc(var(--header-h) + 1.4rem);margin:0;padding:.8rem 1rem}
+  .avec-sommaire .page-corps{grid-column:2}
+  .avec-sommaire .sommaire ol{flex-direction:column;gap:.35rem}
+  .avec-sommaire .sommaire a{display:block;padding:.15rem 0 .15rem .8rem;border:0;border-left:2px solid transparent;font-size:.95rem}
+  .avec-sommaire .sommaire a.actif{border-left-color:var(--bronze-br)}
+  .cv.avec-sommaire{max-width:calc(80ch + 16rem);margin-left:-10rem;margin-right:auto}
+  .univers-page.avec-sommaire .sec-head,.univers-page.avec-sommaire .univers-intro{grid-column:2}
+}
 /* --- Pages projet (gabarit commun) --- */
 .projet{max-width:70ch;margin:0 auto;padding:5vh 0 2vh}
 .fil{font-family:"Cormorant Garamond",serif;letter-spacing:.08em;font-size:.95rem;color:var(--lunaire-dim);margin-bottom:1.6rem}

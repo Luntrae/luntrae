@@ -130,6 +130,23 @@
     suivre();
   }
 
+  /* --- 1e. Sommaire ancré : replié sous 760 px, section en cours mise en évidence --- */
+  const sommaire = document.querySelector(".sommaire");
+  if (sommaire) {
+    // replié seulement sur petit écran, où il repousserait le contenu sous la ligne de flottaison
+    if (!window.matchMedia("(min-width: 760px)").matches) sommaire.open = false;
+    const liens = Array.from(sommaire.querySelectorAll("a[href^='#']"));
+    const cibles = liens.map((a) => document.getElementById(a.getAttribute("href").slice(1))).filter(Boolean);
+    if (cibles.length && "IntersectionObserver" in window) {
+      const marquer = (id) => liens.forEach((a) => a.classList.toggle("actif", a.getAttribute("href") === "#" + id));
+      const obs = new IntersectionObserver(
+        (entries) => { entries.forEach((en) => { if (en.isIntersecting) marquer(en.target.id); }); },
+        { rootMargin: "-30% 0px -60% 0px", threshold: 0 }
+      );
+      cibles.forEach((c) => obs.observe(c));
+    }
+  }
+
   /* --- 2. Liens de navigation (le scrollspy a été retiré : aucun onglet ne pointe vers une ancre) --- */
   const navLinks = Array.from(document.querySelectorAll("nav.links a"));
 

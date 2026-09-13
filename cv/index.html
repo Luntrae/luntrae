@@ -126,7 +126,7 @@
 <main id="top">
   <div class="wrap">
 
-    <article class="cv fil-eau">
+    <article class="cv fil-eau avec-sommaire">
 
       <!-- En-tête : bandeau sombre, logo, nom en capitales espacées, titre italique, photo découpée -->
       <header class="cv-head">
@@ -145,7 +145,23 @@
         </div>
       </header>
 
-      <section class="cv-sec">
+      <details class="sommaire" open>
+        <summary>Sommaire</summary>
+        <ol>
+          <li><a href="#profil">Profil</a></li>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="#competences">Compétences</a></li>
+          <li><a href="#experience">Expérience</a></li>
+          <li><a href="#formation">Formation</a></li>
+          <li><a href="#outils">Outils</a></li>
+          <li><a href="#langues">Langues</a></li>
+          <li><a href="#veille-et-centres-d-interet">Veille et centres d'intérêt</a></li>
+          <li><a href="#approche-creative">Approche créative</a></li>
+        </ol>
+      </details>
+
+      <div class="page-corps">
+      <section class="cv-sec" id="profil">
         <h2>Profil</h2>
         <div class="cv-profil">
           <p>Depuis 2018, je suis au téléphone avec les gens qui utilisent nos outils numériques. J'entends ce qui bloque, ce qu'ils ne trouvent pas, ce qu'ils abandonnent. C'est de là que vient ma façon de concevoir. Je viens de la stratégie et du marketing, je pilote des projets numériques de A à Z, et je lis et j'écris du code depuis que j'ai compris que c'était le seul moyen de vraiment comprendre. Je suis celle qui parle aux équipes métier comme aux développeurs, et qui fait tenir les deux ensemble. Ce qui m'intéresse, c'est que ça serve à quelqu'un.</p>
@@ -153,7 +169,7 @@
       </section>
 
       <!-- Projets, avant l'expérience : les liens sont portés par les titres, statut repris de l'index -->
-      <section class="cv-sec">
+      <section class="cv-sec" id="projets">
         <h2>Projets</h2>
         <div class="cv-projets">
           <article class="cv-projet">
@@ -196,7 +212,7 @@
       </section>
 
       <!-- Compétences : quatre blocs à en-tête sombre, puis le bloc technique en bandeau sur trois colonnes -->
-      <section class="cv-sec">
+      <section class="cv-sec" id="competences">
         <h2>Compétences</h2>
         <div class="cv-comp">
           <div class="cv-bloc">
@@ -232,7 +248,7 @@
         </div>
       </section>
 
-      <section class="cv-sec">
+      <section class="cv-sec" id="experience">
         <h2>Expérience</h2>
         <article class="cv-exp cv-exp-principale">
           <h3>Chargée des relations sympathisants <span class="cv-dates-inline">· depuis 2018</span></h3>
@@ -271,7 +287,7 @@
       </section>
 
       <!-- Formation : frise chronologique sur une ligne bronze -->
-      <section class="cv-sec">
+      <section class="cv-sec" id="formation">
         <h2>Formation</h2>
         <ol class="cv-frise">
           <li><span class="cv-dates">2010</span><b>Baccalauréat Économique et Social</b><span class="cv-lieu">Lycée Merleau-Ponty</span></li>
@@ -285,13 +301,13 @@
       </section>
 
       <div class="cv-duo">
-        <section class="cv-sec">
+        <section class="cv-sec" id="outils">
           <h2>Outils</h2>
           <ul class="cv-pastilles">
             <li>SAGE</li><li>CRM associatif</li><li>Microsoft 365 et Excel</li><li>Brevo</li><li>HubSpot</li><li>Git et GitHub</li><li>GoatCounter</li><li>CapCut</li><li>WeasyPrint</li><li>Claude</li><li>ChatGPT</li>
           </ul>
         </section>
-        <section class="cv-sec">
+        <section class="cv-sec" id="langues">
           <h2>Langues</h2>
           <ul class="cv-langues">
             <li><b>Français</b>, langue maternelle</li>
@@ -302,7 +318,7 @@
       </div>
 
       <div class="cv-duo cv-duo-fin">
-        <section class="cv-sec">
+        <section class="cv-sec" id="veille-et-centres-d-interet">
           <h2>Veille et centres d'intérêt</h2>
           <ul class="cv-liste">
             <li>Usages de l'IA dans la conception de services numériques</li>
@@ -314,7 +330,7 @@
             <li>Écriture longue : roman en cours, construction d'univers</li>
           </ul>
         </section>
-        <section class="cv-sec cv-sec-flaque">
+        <section class="cv-sec cv-sec-flaque" id="approche-creative">
           <h2>Approche créative</h2>
           <!-- Flaque de peinture bronze renversée du pot, avec la goutte tombée du pinceau (décor SVG) -->
           <div class="cv-flaque">
@@ -328,6 +344,7 @@
             <p>Je m'intéresse aux moyens créatifs de faire passer un message par l'émotion et l'expérience, plutôt que par le discours direct.</p>
           </div>
         </section>
+      </div>
       </div>
 
     </article>
