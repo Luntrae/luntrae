@@ -13,3 +13,11 @@ _cv-source/design/
 
 # Sortie de la chaîne WeasyPrint
 sortie/
+
+# Fichiers sources non référencés par le site (logos et ambiance d'origine), conservés sur le disque
+assets/img/LUNTRAE_logo-principal_bronze_fond-clair.png
+assets/img/LUNTRAE_lockup-horizontal_bronze_fond-clair.png
+assets/img/LUNTRAE_logo-principal_bronze_fond-sombre.png
+assets/img/LUNTRAE_lockup-horizontal_bronze_fond-sombre.png
+assets/img/LUNTRAE_logo-principal_bronze_sur-obsidienne.png
+assets/img/ambiances/ambiance_loutre-cercle_lune.jpg

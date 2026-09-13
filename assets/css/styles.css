@@ -394,6 +394,9 @@ footer .legal a:hover{color:var(--bronze-br)}
 .back-home{display:inline-block;margin-top:2.4rem;font-family:"Cormorant Garamond",serif;
   letter-spacing:.06em;color:var(--maree);text-decoration:none}
 .back-home:hover{color:var(--bronze-br)}
+.sorties{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem 1.6rem;margin-top:1.6rem}
+.sorties a{color:var(--bronze-br);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line);font-family:"Cormorant Garamond",serif;font-size:1.1rem;letter-spacing:.06em}
+.sorties a:hover{text-decoration-color:var(--bronze-br)}
 
 /* --- Animations ------------------------------------------------------- */
 /* Apparition instantanée (utilisée à la remontée : pas de ré-animation) */
