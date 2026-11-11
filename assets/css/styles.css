@@ -751,16 +751,31 @@ main{display:block;position:relative;z-index:2}
 .cv-statut .dot,.fiche .statut .dot{animation:dotPulse 3.4s ease-in-out infinite}
 .cv-frise li:last-child::before{animation:dotPulse 3.4s ease-in-out infinite}
 .cv-statut .dot{width:7px;height:7px;border-radius:50%;background:var(--bronze-br);box-shadow:0 0 0 3px var(--glow);flex:none}
+/* liens sous une fiche projet (site et Instagram) et renvoi vers la page Projets */
+.cv-liens{margin:.6rem 0 .9rem!important;font-size:.9rem}
+.cv-liens a,.cv-plus a{color:var(--bronze-br);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line)}
+.cv-liens a:hover,.cv-plus a:hover{text-decoration-color:var(--bronze-br)}
+.cv-ig{width:1em;height:1em;vertical-align:-.14em;margin-right:.3em;fill:var(--bronze)}
+.cv-plus{margin-top:1.1rem;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.1rem}
 /* Compétences : blocs à en-tête sombre, bandeau technique sur trois colonnes */
 .cv-comp{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
 .cv-bloc{background:var(--obs-2);border:1px solid var(--line-soft);border-radius:4px;overflow:hidden}
-.cv-bloc h3{font-size:1.2rem;margin:0;padding:.75rem 1.3rem;background:var(--obs-3);color:var(--bronze-br);border-bottom:1px solid var(--line)}
-.cv-bloc ul{list-style:none;margin:0;padding:1rem 1.3rem 1.1rem}
+/* Titre de bloc comme dans le PDF du CV : goutte vert mousse, puis titre posé sur une tache organique.
+   La tache est une image de fond (décor seul), six tracés différents. Blanc lunaire sur la tache : 9,0:1. */
+.cv-bloc h3{font-size:1.2rem;margin:0;padding:1.05rem 1.3rem .15rem;color:var(--lunaire);display:flex;align-items:flex-start;gap:.6rem}
+.cv-bloc h3::before{content:"";flex:none;width:.8rem;height:.68rem;margin-top:.48rem;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='238 372 52 44'%3E%3Cpath d='M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z' fill='%2372897D'/%3E%3C/svg%3E") no-repeat center/100% 100%}
+.cv-tache{display:block;padding:.18rem .85rem .22rem .5rem;margin:-.18rem 0 -.22rem -.5rem;background-repeat:no-repeat;background-size:100% 100%}
+.cv-bloc:nth-child(1) .cv-tache{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M7,13 C5,6 16,2 34,5 C58,9 84,1 112,4 C140,7 166,2 186,6 C197,9 199,17 196,24 C198,31 190,38 176,36 C150,33 128,40 100,37 C72,34 44,39 22,37 C9,36 2,31 3,24 C4,19 9,18 7,13 Z' fill='%2372897D' fill-opacity='.3'/%3E%3C/svg%3E")}
+.cv-bloc:nth-child(2) .cv-tache{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M3,18 C2,9 14,4 30,6 C60,10 92,3 120,2 C150,1 172,7 190,5 C198,7 198,15 195,21 C200,28 193,36 180,37 C156,39 136,33 108,36 C80,39 52,35 28,38 C12,40 4,35 5,28 C6,24 4,22 3,18 Z' fill='%2372897D' fill-opacity='.3'/%3E%3C/svg%3E")}
+.cv-bloc:nth-child(3) .cv-tache{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M10,5 C28,1 50,8 78,5 C104,2 132,6 158,3 C176,1 194,4 197,13 C199,20 194,23 196,29 C197,36 184,39 168,36 C140,32 112,38 86,36 C58,34 36,40 16,36 C5,33 2,26 5,19 C2,12 4,7 10,5 Z' fill='%2372897D' fill-opacity='.3'/%3E%3C/svg%3E")}
+.cv-bloc:nth-child(4) .cv-tache{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M5,10 C12,3 30,7 54,4 C82,0 110,6 140,5 C164,4 184,1 194,8 C200,14 195,20 198,27 C197,35 186,38 170,37 C146,36 122,32 96,36 C70,40 42,34 20,37 C8,39 1,32 4,24 C1,17 2,13 5,10 Z' fill='%2372897D' fill-opacity='.3'/%3E%3C/svg%3E")}
+.cv-bloc:nth-child(5) .cv-tache{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M8,7 C22,3 46,2 70,6 C98,10 126,2 152,4 C172,6 190,3 196,11 C199,17 196,22 198,28 C196,37 182,37 166,35 C138,32 114,39 88,38 C60,37 38,33 18,36 C7,38 2,33 3,26 C4,20 1,16 3,12 C4,9 5,8 8,7 Z' fill='%2372897D' fill-opacity='.3'/%3E%3C/svg%3E")}
+.cv-bloc:nth-child(6) .cv-tache{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M4,15 C3,7 18,5 36,3 C64,0 90,7 118,6 C146,5 170,3 188,7 C198,10 199,18 197,25 C196,34 186,39 172,38 C148,36 124,35 98,37 C72,39 46,36 24,38 C10,39 3,34 4,27 C5,22 5,19 4,15 Z' fill='%2372897D' fill-opacity='.3'/%3E%3C/svg%3E")}
+.cv-bloc ul{list-style:none;margin:0;padding:.75rem 1.3rem 1.1rem}
 .cv-bloc li{font-size:.94rem;padding-left:1rem;position:relative;margin:.25rem 0}
 .cv-bloc li::before{content:"";position:absolute;left:0;top:.65em;width:5px;height:5px;background:var(--bronze);border-radius:50%}
-.cv-bandeau{grid-column:1 / -1}
-.cv-bandeau ul.trois{column-count:3;column-gap:1.6rem}
-.cv-bandeau li{break-inside:avoid}
+/* un outil reste solidaire du point médian qui le suit */
+.cv-insec{white-space:nowrap}
 /* Expérience : poste actuel en panneau mis en avant, stages en deux colonnes */
 .cv-exp{margin-bottom:1.4rem}
 .cv-exp-principale{background:var(--obs-2);border:1px solid var(--line-soft);border-left:2px solid var(--bronze);border-radius:0 4px 4px 0;padding:1.4rem 1.6rem;margin-bottom:1.8rem}
@@ -782,13 +797,9 @@ main{display:block;position:relative;z-index:2}
 .cv-frise .cv-lieu{display:block;font-family:"Spectral",serif;font-style:normal;color:var(--lunaire-dim);font-size:.84rem;margin:0}
 /* Outils, langues, veille, centres d'intérêt, bulle */
 .cv-duo{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem}
-.cv-pastilles{list-style:none;margin:0;display:flex;flex-wrap:wrap;gap:.45rem}
-.cv-pastilles li{font-size:.86rem;letter-spacing:.02em;color:var(--bronze-br);border:1px solid var(--line);border-radius:50px;padding:.3rem .85rem;transition:background .3s,color .3s}
-.cv-pastilles li:hover{background:var(--bronze);color:var(--lunaire)}
-.cv-langues,.cv-liste{list-style:none;margin:0}
-.cv-langues li,.cv-liste li{padding-left:1rem;position:relative;margin:.35rem 0}
-.cv-langues li::before,.cv-liste li::before{content:"";position:absolute;left:0;top:.7em;width:5px;height:5px;background:var(--bronze);border-radius:50%}
-.cv-langues b{color:var(--lunaire);font-weight:500}
+.cv-liste{list-style:none;margin:0}
+.cv-liste li{padding-left:1rem;position:relative;margin:.35rem 0}
+.cv-liste li::before{content:"";position:absolute;left:0;top:.7em;width:5px;height:5px;background:var(--bronze);border-radius:50%}
 /* Flaque de peinture : fond bronze humide, donc texte blanc lunaire en grand corps (au moins 24 px) */
 .cv-flaque{position:relative;padding:3rem 2.8rem 3.2rem;margin:1.2rem 0 0 .4rem;min-height:200px;display:flex;align-items:center}
 .cv-flaque-fond{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 18px 30px rgba(0,0,0,.45))}
@@ -806,7 +817,6 @@ main{display:block;position:relative;z-index:2}
   .cv-profil p{column-count:1}
   .cv-projets,.cv-comp,.cv-duo,.cv-stages{grid-template-columns:1fr}
   .cv-duo{gap:0}
-  .cv-bandeau ul.trois{column-count:1}
   .cv-frise{grid-template-columns:1fr;gap:1rem;padding-left:1.6rem}
   .cv-frise::before{left:6px;right:auto;top:0;bottom:0;width:1px;height:auto}
   .cv-frise li{padding-top:0;padding-left:.4rem}
