@@ -43,17 +43,24 @@ ul.sk li{background:radial-gradient(circle at 0.9mm 0.72em,#8A6A4A 0,#8A6A4A 0.5
 .xp{display:grid;grid-template-columns:1fr 1fr;column-gap:9mm;row-gap:2.6mm;align-items:start}
 .xp p{line-height:12.2pt}
 /* cartes projet : une carte = un bloc de texte (interlignes réguliers, aucun écart supérieur à 1.5 pt) */
-.cartes{display:grid;grid-template-columns:repeat(3,1fr);column-gap:4mm;row-gap:3mm}
+.cartes{display:grid;grid-template-columns:repeat(2,1fr);column-gap:4mm;row-gap:3mm}
 .card{background:#F5EEDD;padding:2.6mm 3.4mm 2.6mm}
 .card p{line-height:11.7pt}
 .card p.d{margin-top:0.4mm}
 .card p.l{margin-top:0.5mm;font-size:8.6pt}
+.ig{width:2.6mm;height:2.6mm;vertical-align:-0.45mm;margin-right:0.7mm}
 /* compétences */
-.comp{display:grid;grid-template-columns:repeat(2,1fr);column-gap:5mm;row-gap:3.6mm;align-items:start}
+.comp{display:grid;grid-template-columns:repeat(3,1fr);column-gap:5mm;row-gap:3.6mm;align-items:start}
 h3.ck{font-size:9.4pt;line-height:12.6pt;display:flex;align-items:flex-start;margin-bottom:0.3mm}
-h3.ck svg{width:2.8mm;height:2.4mm;flex:none;margin-right:1.8mm;margin-top:1.1mm}
+h3.ck svg.gt{width:2.8mm;height:2.4mm;flex:none;margin-right:1.8mm;margin-top:1.1mm}
+/* tache derrière le titre : décor seul, le texte reste dans le flux du bloc */
+.tt{position:relative;display:block}
+.tt svg.tache{position:absolute;left:-1.4mm;top:-1mm;width:calc(100% + 4mm);height:calc(100% + 1.8mm);display:block}
+.tx{position:relative}
 /* formation */
-.fe{position:relative;padding-left:6.5mm;margin-bottom:3.2mm;line-height:11.4pt}
+.fcol{position:relative;box-sizing:border-box;height:100%;padding:16.5mm 8mm 0 11mm;display:flex;flex-direction:column}
+.frise{position:relative;flex:1;display:flex;flex-direction:column;justify-content:space-between;margin-bottom:2mm}
+.fe{position:relative;padding-left:6.5mm;line-height:11.4pt}
 .fd{font-family:'Cormorant Titre','Cormorant Garamond',serif;font-weight:600;font-size:9pt;line-height:12pt;color:#b6905f;display:block}
 .dot{width:2.4mm;height:2.4mm;border-radius:50%;background:#8A6A4A;position:absolute;left:0;top:1mm;display:block}
 .ft{position:absolute;right:8mm;bottom:5mm;display:flex;justify-content:flex-end;font-size:8pt;letter-spacing:0.01em}
@@ -163,136 +170,143 @@ h3.ck svg{width:2.8mm;height:2.4mm;flex:none;margin-right:1.8mm;margin-top:1.1mm
 </section>
 
 <section class="page">
-  <div class="pad" style="background:#16212c;padding-top:2.4mm;padding-bottom:2.4mm;display:flex;justify-content:space-between;align-items:baseline">
+  <div class="pad" style="background:#16212c;padding-top:2.4mm;padding-bottom:2.4mm;display:flex;justify-content:space-between;align-items:center">
     <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:11.5pt;letter-spacing:0.08em;color:#E8ECEF;white-space:nowrap">CAMILLE SAUTON</span>
-    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:10.5pt;color:#b6905f;white-space:nowrap">Cheffe de projets à impact · luntrae.fr</span>
+    <span style="display:flex;align-items:center">
+      <img src="ressources/embleme-web.png" alt="Emblème LUNTRAE" style="width:7.4mm;height:7.4mm;flex:none;margin:-1.2mm 1.4mm -1.2mm 0">
+      <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:10.5pt;color:#b6905f;white-space:nowrap">Cheffe de projets à impact · luntrae.fr</span>
+    </span>
   </div>
 
   <div class="pad" style="padding-top:4mm">
-    <div class="sec"><h2 class="st">PROJETS</h2><div class="filet"></div></div>
-    <div class="cartes" style="margin-top:3mm">
-      <div class="card">
-        <h3>Projet confidentiel</h3>
-        <p class="it">Conception produit et pilotage, en cours</p>
-        <p class="d">Projet numérique d'engagement éthique, en conception. Analyse d'environnement, étude de marché, cahier des charges et feuille de route.</p>
-        <p class="it l"><a href="https://luntrae.fr/projets/projet-confidentiel">luntrae.fr/projets/projet-confidentiel</a></p>
+    <div class="sec"><h2 class="st">COMPÉTENCES</h2><div class="filet"></div></div>
+    <div class="comp" style="margin-top:3.4mm">
+      <div>
+        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt"><svg class="tache" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M7,13 C5,6 16,2 34,5 C58,9 84,1 112,4 C140,7 166,2 186,6 C197,9 199,17 196,24 C198,31 190,38 176,36 C150,33 128,40 100,37 C72,34 44,39 22,37 C9,36 2,31 3,24 C4,19 9,18 7,13 Z" fill="#DCE2DF"></path></svg><span class="tx">Mobilisation et engagement <br>des publics</span></span></h3>
+        <ul class="sk">
+          <li>Relation multicanale avec les donateurs, adhérents et abonnés</li>
+          <li>Accompagnement des publics éloignés du numérique</li>
+          <li>Collecte de fonds et engagement associatif</li>
+          <li>E-mailing et campagnes</li>
+          <li>Animation d'événements et de communautés</li>
+          <li>Suivi de la collecte et des dons</li>
+        </ul>
       </div>
-      <div class="card">
-        <h3>Le Gentle</h3>
-        <p class="it">Montage de projet entrepreneurial, non lancé</p>
-        <p class="d">Conception d'un tiers-lieu calme à vocation solidaire, du concept au dossier chiffré. Étude de marché, modèle économique, modélisation financière sur trois ans.</p>
-        <p class="it l"><a href="https://luntrae.fr/projets/le-gentle">luntrae.fr/projets/le-gentle</a></p>
+      <div>
+        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt"><svg class="tache" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M3,18 C2,9 14,4 30,6 C60,10 92,3 120,2 C150,1 172,7 190,5 C198,7 198,15 195,21 C200,28 193,36 180,37 C156,39 136,33 108,36 C80,39 52,35 28,38 C12,40 4,35 5,28 C6,24 4,22 3,18 Z" fill="#DCE2DF"></path></svg><span class="tx">Gestion de projet et pilotage</span></span></h3>
+        <ul class="sk">
+          <li>Pilotage de projet de A à Z</li>
+          <li>Feuille de route et rétroplanning</li>
+          <li>Indicateurs de suivi et tableaux de bord</li>
+          <li>Documentation et journal de décisions</li>
+          <li>Coordination de prestataires, de partenaires et de parties prenantes</li>
+          <li>Arbitrage périmètre, délai, qualité</li>
+          <li>Conduite du changement et formation</li>
+          <li>Vulgarisation et pédagogie</li>
+        </ul>
       </div>
-      <div class="card">
-        <h3>Méthode de repositionnement professionnel</h3>
-        <p class="it">Outil à visée sociale</p>
-        <p class="d">Un travail fait d'abord pour moi, puis transformé en parcours guidé de onze étapes. Testé sur trois accompagnements.</p>
-        <p class="it l"><a href="https://luntrae.fr/projets/methode-repositionnement">luntrae.fr/projets/<br>methode-repositionnement</a></p>
+      <div>
+        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt"><svg class="tache" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M10,5 C28,1 50,8 78,5 C104,2 132,6 158,3 C176,1 194,4 197,13 C199,20 194,23 196,29 C197,36 184,39 168,36 C140,32 112,38 86,36 C58,34 36,40 16,36 C5,33 2,26 5,19 C2,12 4,7 10,5 Z" fill="#DCE2DF"></path></svg><span class="tx">Stratégie, études et récits</span></span></h3>
+        <ul class="sk">
+          <li>Étude de marché et analyse d'environnement</li>
+          <li>Conception de questionnaires et analyse d'audience</li>
+          <li>Positionnement et architecture d'offre</li>
+          <li>Business plan, budgets et projections financières</li>
+          <li>Nommage et identité de marque</li>
+          <li>Stratégie éditoriale multicanale</li>
+          <li>Mise en œuvre opérationnelle des plans d'action</li>
+          <li>Production de contenus et supports</li>
+          <li>Direction artistique</li>
+        </ul>
       </div>
-      <div class="card">
-        <h3>Kintara Ceramics</h3>
-        <p class="it">Direction stratégique de marque, bénévolat</p>
-        <p class="d">Travail sur la lisibilité de l'offre : positionnement, architecture de gamme, nommage des collections, stratégie éditoriale et cahier des charges d'une refonte e-commerce.</p>
-        <p class="it l"><a href="https://luntrae.fr/projets/kintara-ceramics">luntrae.fr/projets/kintara-ceramics</a></p>
+      <div>
+        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt"><svg class="tache" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M5,10 C12,3 30,7 54,4 C82,0 110,6 140,5 C164,4 184,1 194,8 C200,14 195,20 198,27 C197,35 186,38 170,37 C146,36 122,32 96,36 C70,40 42,34 20,37 C8,39 1,32 4,24 C1,17 2,13 5,10 Z" fill="#DCE2DF"></path></svg><span class="tx">Conception et usages</span></span></h3>
+        <ul class="sk">
+          <li>Vision usager</li>
+          <li>Audit de l'existant</li>
+          <li>Cadrage fonctionnel</li>
+          <li>Personas et parcours utilisateur</li>
+          <li>Cahier des charges fonctionnel</li>
+          <li>Backlog et priorisation</li>
+          <li>Recette et itérations</li>
+        </ul>
       </div>
-      <div class="card">
-        <h3>Geneapop</h3>
-        <p class="it">Conception produit et développement, en solo</p>
-        <p class="d">Application web qui transforme des données familiales dispersées en un arbre vivant, interactif et cartographié. Conçue, spécifiée et développée seule.</p>
-        <p class="it l"><a href="https://luntrae.fr/projets/geneapop">luntrae.fr/projets/geneapop</a></p>
+      <div>
+        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt"><svg class="tache" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M8,7 C22,3 46,2 70,6 C98,10 126,2 152,4 C172,6 190,3 196,11 C199,17 196,22 198,28 C196,37 182,37 166,35 C138,32 114,39 88,38 C60,37 38,33 18,36 C7,38 2,33 3,26 C4,20 1,16 3,12 C4,9 5,8 8,7 Z" fill="#DCE2DF"></path></svg><span class="tx">Numérique</span></span></h3>
+        <ul class="sk">
+          <li>HTML, CSS, JavaScript</li>
+          <li>Git et GitHub</li>
+          <li>Déploiement web (DNS, HTTPS)</li>
+          <li>Automatisation et intégration d'API</li>
+          <li>Référencement naturel et accessibilité</li>
+          <li>IA générative : conception, structuration, orchestration</li>
+        </ul>
       </div>
-      <div class="card">
-        <h3>Écosystème LUNTRAE</h3>
-        <p class="it">Conception, déploiement et éditorial</p>
-        <p class="d">Un site créé de A à Z, pas assemblé : code écrit à la main, domaine et DNS, HTTPS, polices auto-hébergées, mesure d'audience sans cookie. Identité et contenus compris.</p>
-        <p class="it l"><a href="https://luntrae.fr">luntrae.fr</a></p>
+      <div>
+        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt"><svg class="tache" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4,15 C3,7 18,5 36,3 C64,0 90,7 118,6 C146,5 170,3 188,7 C198,10 199,18 197,25 C196,34 186,39 172,38 C148,36 124,35 98,37 C72,39 46,36 24,38 C10,39 3,34 4,27 C5,22 5,19 4,15 Z" fill="#DCE2DF"></path></svg><span class="tx">Outils et langues</span></span></h3>
+        <ul class="sk">
+          <li><strong style="font-weight:500">Outils :</strong> <span class="nb">SAGE ·</span> <span class="nb">CRM associatif ·</span> <span class="nb">Microsoft 365 et Excel ·</span> <span class="nb">Brevo ·</span> <span class="nb">HubSpot ·</span> <span class="nb">Git et GitHub ·</span> <span class="nb">GoatCounter ·</span> <span class="nb">CapCut ·</span> <span class="nb">WeasyPrint ·</span> <span class="nb">Claude ·</span> <span class="nb">ChatGPT</span></li>
+          <li>Français, langue maternelle</li>
+          <li>Espagnol, intermédiaire avancé</li>
+          <li>Anglais, intermédiaire avancé</li>
+        </ul>
       </div>
     </div>
-    <p class="it" style="margin-top:2mm">Plus de projets et d'idées à découvrir sur <a href="https://luntrae.fr/projets">luntrae.fr/projets</a></p>
   </div>
 
   <div style="display:grid;grid-template-columns:122mm 1fr;column-gap:6mm;padding:3.6mm 0 0 16mm">
     <div>
-      <div class="sec"><h2 class="st">COMPÉTENCES</h2><div class="filet"></div></div>
-      <div class="comp" style="margin-top:3mm">
-        <div>
-          <h3 class="ck"><svg viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg>Mobilisation et engagement des publics</h3>
-          <ul class="sk">
-            <li>Relation multicanale avec les donateurs, adhérents et abonnés</li>
-            <li>Accompagnement des publics éloignés du numérique</li>
-            <li>Collecte de fonds et engagement associatif</li>
-            <li>E-mailing et campagnes</li>
-            <li>Animation d'événements et de communautés</li>
-            <li>Suivi de la collecte et des dons</li>
-          </ul>
+      <div class="sec"><h2 class="st">PROJETS</h2><div class="filet"></div></div>
+      <div class="cartes" style="margin-top:3mm">
+        <div class="card">
+          <h3>Projet confidentiel</h3>
+          <p class="it">Conception produit et pilotage, en cours</p>
+          <p class="d">Projet numérique d'engagement éthique, en conception. Stratégie globale, étude de marché, questionnaire utilisateurs, cahier des charges fonctionnel, rétroplanning, pilotage documentaire (référentiel de 21 ressources, journal de décisions).</p>
+          <p class="it l"><a href="https://luntrae.fr/projets/projet-confidentiel">luntrae.fr/projets/projet-confidentiel</a></p>
         </div>
-        <div>
-          <h3 class="ck"><svg viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg>Gestion de projet et pilotage</h3>
-          <ul class="sk">
-            <li>Pilotage de projet de A à Z</li>
-            <li>Feuille de route et rétroplanning</li>
-            <li>Indicateurs de suivi et tableaux de bord</li>
-            <li>Documentation et journal de décisions</li>
-            <li>Coordination de prestataires, de partenaires et de parties prenantes</li>
-            <li>Arbitrage périmètre, délai, qualité</li>
-            <li>Conduite du changement et formation</li>
-            <li>Vulgarisation et pédagogie</li>
-          </ul>
+        <div class="card">
+          <h3>Le Gentle</h3>
+          <p class="it">Montage de projet entrepreneurial, non lancé</p>
+          <p class="d">Conception d'un tiers-lieu calme à vocation solidaire, du concept au dossier chiffré. Étude de marché, stratégie, modèle économique, modélisation financière sur trois ans.</p>
+          <p class="it l"><a href="https://luntrae.fr/projets/le-gentle">luntrae.fr/projets/le-gentle</a></p>
         </div>
-        <div>
-          <h3 class="ck"><svg viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg>Stratégie, études et récits</h3>
-          <ul class="sk">
-            <li>Étude de marché et analyse d'environnement</li>
-            <li>Conception de questionnaires et analyse d'audience</li>
-            <li>Positionnement et architecture d'offre</li>
-            <li>Business plan, budgets et projections financières</li>
-            <li>Nommage et identité de marque</li>
-            <li>Stratégie éditoriale multicanale</li>
-            <li>Mise en œuvre opérationnelle des plans d'action</li>
-            <li>Production de contenus et supports</li>
-            <li>Direction artistique</li>
-          </ul>
+        <div class="card">
+          <h3>Méthode de repositionnement professionnel</h3>
+          <p class="it">Outil à visée sociale</p>
+          <p class="d">Un travail fait d'abord pour moi, puis transformé en parcours guidé de onze étapes. Testé sur trois accompagnements.</p>
+          <p class="it l"><a href="https://luntrae.fr/projets/methode-repositionnement">luntrae.fr/projets/<br>methode-repositionnement</a></p>
         </div>
-        <div>
-          <h3 class="ck"><svg viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg>Conception et usages</h3>
-          <ul class="sk">
-            <li>Vision usager</li>
-            <li>Audit de l'existant</li>
-            <li>Cadrage fonctionnel</li>
-            <li>Personas et parcours utilisateur</li>
-            <li>Cahier des charges fonctionnel</li>
-            <li>Backlog et priorisation</li>
-            <li>Recette et itérations</li>
-          </ul>
+        <div class="card">
+          <h3>Kintara Ceramics</h3>
+          <p class="it">Direction stratégique de marque, pro bono</p>
+          <p class="d">Travail sur la lisibilité de l'offre : positionnement, architecture de gamme, nommage des collections, stratégie éditoriale et cahier des charges d'une refonte e-commerce.</p>
+          <p class="it l"><a href="https://luntrae.fr/projets/kintara-ceramics">luntrae.fr/projets/kintara-ceramics</a></p>
         </div>
-        <div>
-          <h3 class="ck"><svg viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg>Numérique</h3>
-          <ul class="sk">
-            <li>HTML, CSS, JavaScript</li>
-            <li>Git et GitHub</li>
-            <li>Déploiement web (DNS, HTTPS)</li>
-            <li>Automatisation et intégration d'API</li>
-            <li>Référencement naturel et accessibilité</li>
-            <li>IA générative : conception, structuration, orchestration</li>
-          </ul>
+        <div class="card">
+          <h3>Geneapop</h3>
+          <p class="it">Conception produit et développement, en solo</p>
+          <p class="d">Application web qui transforme des données familiales dispersées en un arbre vivant, interactif et cartographié. Conçue, spécifiée et développée seule.</p>
+          <p class="it l"><a href="https://luntrae.fr/projets/geneapop">luntrae.fr/projets/geneapop</a></p>
         </div>
-        <div>
-          <h3 class="ck"><svg viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg>Outils et langues</h3>
-          <p style="line-height:11.4pt;padding-left:3.2mm"><strong style="font-weight:500">Outils :</strong> <span class="nb">SAGE ·</span> <span class="nb">CRM associatif ·</span> <span class="nb">Microsoft 365 et Excel ·</span> <span class="nb">Brevo ·</span> <span class="nb">HubSpot ·</span> <span class="nb">Git et GitHub ·</span> <span class="nb">GoatCounter ·</span> <span class="nb">CapCut ·</span> <span class="nb">WeasyPrint ·</span> <span class="nb">Claude ·</span> <span class="nb">ChatGPT</span></p>
-          <p style="line-height:11.4pt;margin-top:0.5mm;padding-left:3.2mm"><strong style="font-weight:500">Langues :</strong> <span class="nb">Français, langue maternelle ·</span> <span class="nb">Espagnol, intermédiaire avancé ·</span> <span class="nb">Anglais, intermédiaire avancé</span></p>
+        <div class="card">
+          <h3>Écosystème LUNTRAE</h3>
+          <p class="it">Conception, déploiement et éditorial</p>
+          <p class="d">Un site créé de A à Z : domaine et DNS, HTTPS, polices <span class="nb">auto-hébergées,</span> mesure d'audience sans cookie. Identité et contenus compris. Prolongation de l'univers sur Instagram.</p>
+          <p class="it l"><a href="https://luntrae.fr">luntrae.fr</a> · <a href="https://www.instagram.com/luntrae" class="nb"><svg class="ig" viewBox="0 0 24 24" aria-hidden="true"><path fill="#8A6A4A" fill-rule="evenodd" d="M7,2 h10 a5,5 0 0 1 5,5 v10 a5,5 0 0 1 -5,5 h-10 a5,5 0 0 1 -5,-5 v-10 a5,5 0 0 1 5,-5 z M7,4 a3,3 0 0 0 -3,3 v10 a3,3 0 0 0 3,3 h10 a3,3 0 0 0 3,-3 v-10 a3,3 0 0 0 -3,-3 z M12,7 a5,5 0 1 0 0,10 a5,5 0 1 0 0,-10 z M12,9 a3,3 0 1 1 0,6 a3,3 0 1 1 0,-6 z M17.5,5.3 a1.2,1.2 0 1 0 0,2.4 a1.2,1.2 0 1 0 0,-2.4 z"></path></svg>@luntrae</a></p>
         </div>
       </div>
+      <p class="it" style="margin-top:2mm">Plus de projets et d'idées à découvrir sur <a href="https://luntrae.fr/projets">luntrae.fr/projets</a></p>
     </div>
     <div style="position:relative;color:#c4ccd1;font-size:9pt">
       <svg viewBox="0 0 690 2060" preserveAspectRatio="none" style="position:absolute;left:-3mm;top:-9mm;width:69mm;height:206mm;display:block" aria-hidden="true">
         <path d="M690,0 C630,16 590,48 530,90 C460,140 360,128 280,176 C210,220 134,246 106,330 C84,400 126,500 100,610 C80,700 114,810 88,920 C68,1010 96,1120 74,1230 C58,1320 78,1420 56,1520 C40,1600 46,1700 26,1790 C12,1860 14,1960 4,2060 L690,2060 Z" fill="#16212c"></path>
-        <path d="M428,44 C442,42 456,50 458,62 C460,74 450,84 436,84 C422,84 410,76 410,64 C410,54 417,46 428,44 Z" fill="#72897D"></path>
-        <path d="M376,98 C384,96 392,101 393,108 C394,115 388,121 380,121 C372,121 366,116 366,109 C366,103 370,99 376,98 Z" fill="#72897D"></path>
+        <path d="M394,80 C408,78 422,86 424,98 C426,110 416,120 402,120 C388,120 376,112 376,100 C376,90 383,82 394,80 Z" fill="#72897D"></path>
+        <path d="M341,117 C349,115 357,120 358,127 C359,134 353,140 345,140 C337,140 331,135 331,128 C331,122 335,118 341,117 Z" fill="#72897D"></path>
       </svg>
-      <div style="position:relative;padding:16.5mm 8mm 0 11mm">
+      <div class="fcol">
         <h2 class="st" style="color:#E8ECEF;margin:0 0 4.5mm 6.5mm">FORMATION</h2>
-        <div style="position:relative">
-          <div style="position:absolute;left:1mm;top:2mm;bottom:12mm;width:0.4mm;background:#8A6A4A"></div>
+        <div class="frise">
+          <div style="position:absolute;left:1mm;top:2mm;bottom:10mm;width:0.4mm;background:#8A6A4A"></div>
           <p class="fe"><span class="dot"></span><span class="fd">2010-2011</span> Licence LLCE Espagnol · Université Bordeaux Montaigne</p>
           <p class="fe"><span class="dot"></span><span class="fd">2011-2013</span> BTS Négociation et Relation Client · Lycée Victor Louis, Talence</p>
           <p class="fe"><span class="dot"></span><span class="fd">2014-2015</span> Licence Marketing Communication · ISEG (Institut Supérieur Européen de Gestion), option espagnol</p>
@@ -303,7 +317,6 @@ h3.ck svg{width:2.8mm;height:2.4mm;flex:none;margin-right:1.8mm;margin-top:1.1mm
       </div>
     </div>
   </div>
-  <img src="ressources/embleme-web.png" alt="Emblème LUNTRAE" style="position:absolute;right:9mm;bottom:11mm;width:11mm;height:11mm">
 
   <div class="ft" style="color:#c4ccd1"><span>LUNTRAE · Camille Sauton · 2026</span><span>2 / 2</span></div>
 </section>
