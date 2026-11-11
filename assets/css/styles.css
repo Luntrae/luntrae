@@ -26,6 +26,7 @@
   --lunaire:#E8ECEF;    /* Blanc lunaire, texte fort */
   --lunaire-dim:#c4ccd1;/* texte courant (lisibilité garantie) */
   --maree:#89959E;      /* Gris marée, texte secondaire (ajusté en septembre 2026, 5,84:1 sur obsidienne) */
+  --creme:#F5EEDD;      /* Crème document : panneau clair des compétences du CV (texte en obsidienne dessus) */
   --mousse:#72897D;     /* Vert mousse, mentions discrètes (ajusté en septembre 2026, 4,76:1 sur obsidienne) */
   --line:rgba(182,144,95,.26);
   --line-soft:rgba(232,236,239,.09);
@@ -192,7 +193,7 @@ nav.links .sub a[aria-current="page"]{color:var(--bronze-br);background:var(--ob
 }
 
 /* --- Sections génériques --------------------------------------------- */
-section{padding:8vh 0;position:relative}
+section{padding:clamp(1.3rem,3vh,2.2rem) 0;position:relative}
 .sec-head{display:flex;align-items:center;gap:1.1rem;margin-bottom:1.8rem}
 .sec-head .crescent{color:var(--bronze);font-size:1.3rem;display:inline-block}
 .sec-head h1,.sec-head h2{
@@ -218,7 +219,7 @@ section{padding:8vh 0;position:relative}
 .presente-inner .signature{text-align:right;font-family:"Cormorant Garamond",serif;font-style:italic;
   color:var(--bronze-br);font-size:1rem;margin-top:1.1rem}
 /* Appel vers l'univers : accroche italique et bouton, centrés */
-.univers-cta{text-align:center;margin-top:3rem}
+.univers-cta{text-align:center;margin-top:2rem}
 .univers-cta .hook{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:clamp(1.25rem,2.4vw,1.55rem);
   color:var(--lunaire);margin-bottom:1.1rem}
 
@@ -273,7 +274,7 @@ section{padding:8vh 0;position:relative}
 .u-card.in{opacity:1;transform:none}
 
 /* --- Contact, bloc unique centré ------------------------------------ */
-.contact{padding:11vh 0 4vh}
+.contact{padding:clamp(2.2rem,5vh,3.4rem) 0 clamp(1rem,2vh,1.6rem)}
 .contact-inner{max-width:46ch;margin:0 auto;text-align:center}
 .contact-inner .crescent{display:block;color:var(--bronze);font-size:1.4rem;margin-bottom:.6rem}
 .contact-inner h2{font-family:"Cormorant Garamond",serif;font-weight:500;
@@ -309,7 +310,7 @@ section{padding:8vh 0;position:relative}
 .to-top:hover{background:var(--obs-3);color:var(--lunaire)}
 
 /* --- Footer ----------------------------------------------------------- */
-footer{border-top:1px solid var(--line-soft);padding:3.4rem 0;text-align:center;margin-top:5vh}
+footer{border-top:1px solid var(--line-soft);padding:2.4rem 0;text-align:center;margin-top:2.5vh}
 footer img{height:44px;width:auto;opacity:.9;margin-bottom:1rem}
 footer .fm{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--bronze-br);
   font-size:1.1rem;margin-bottom:.6rem}
@@ -319,11 +320,11 @@ footer .legal a{color:var(--maree);text-decoration:none;font-size:.82rem;letter-
 footer .legal a:hover{color:var(--bronze-br)}
 
 /* --- Page intérieure (confidentialité) ------------------------------- */
-.page{padding:7vh 0 4vh;max-width:70ch}
+.page{padding:4vh 0 2.5vh;max-width:70ch}
 .page h1{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--lunaire);
   font-size:clamp(2rem,5vw,3rem);letter-spacing:.04em;margin-bottom:1.4rem}
 .page h2{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--bronze-br);
-  font-size:1.5rem;letter-spacing:.04em;margin:2.2rem 0 .6rem}
+  font-size:1.5rem;letter-spacing:.04em;margin:1.7rem 0 .5rem}
 .page p,.page li{color:var(--lunaire-dim)}
 .page ul{margin:.4rem 0 .4rem 1.2rem}
 .page a{color:var(--bronze-br);text-decoration:underline;text-underline-offset:2px}
@@ -436,7 +437,7 @@ main{display:block;position:relative;z-index:2}
 .porte-list a:hover{color:var(--bronze-br);text-decoration-color:var(--bronze-br)}
 
 /* --- Page Projets : chapeau, statut de fiche, cadre de création (Léax) --- */
-.lead{max-width:62ch;color:var(--lunaire-dim);font-size:1.08rem;margin-bottom:2.8rem}
+.lead{max-width:62ch;color:var(--lunaire-dim);font-size:1.08rem;margin-bottom:1.8rem}
 .lead b{color:var(--lunaire);font-weight:500}
 .fiche .statut{display:inline-flex;align-items:center;gap:.55rem;font-size:.82rem;letter-spacing:.05em;
   color:var(--maree);margin:0 0 1.4rem}
@@ -467,7 +468,7 @@ main{display:block;position:relative;z-index:2}
 .encart p{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.55rem;line-height:1.35;color:var(--lunaire)}
 
 /* --- Page Séries --- */
-.series-intro{max-width:62ch;margin:0 auto 3.6rem;text-align:center}
+.series-intro{max-width:62ch;margin:0 auto 2.2rem;text-align:center}
 .series-intro .head{font-family:"Cormorant Garamond",serif;font-size:clamp(1.5rem,3.4vw,2.2rem);
   color:var(--lunaire);line-height:1.45;margin-bottom:1.1rem}
 .series-intro .head b{font-weight:600}
@@ -477,7 +478,7 @@ main{display:block;position:relative;z-index:2}
 /* Damier : deux colonnes alternées (image / texte). L'image 4:5 porte le nom
    et la signature ; le texte descriptif l'accompagne, centré verticalement. */
 .serie{display:grid;grid-template-columns:1fr 1fr;align-items:center;
-  gap:clamp(1.6rem,4vw,3.6rem);max-width:1000px;margin:0 auto 4.5rem;
+  gap:clamp(1.6rem,4vw,3.6rem);max-width:1000px;margin:0 auto 2.8rem;
   opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
 .serie.in{opacity:1;transform:none}
 .serie.reverse .serie-visual{order:2}
@@ -498,7 +499,7 @@ main{display:block;position:relative;z-index:2}
   color:var(--bronze-br);font-size:.86rem;margin-bottom:.7rem}
 .serie .serie-text p+p{margin-top:0}
 /* Pourquoi je regarde du côté de l'art */
-.essai{max-width:66ch;margin:0 auto 5.5rem;border-left:2px solid var(--bronze);padding-left:clamp(1.4rem,4vw,2.6rem)}
+.essai{max-width:66ch;margin:0 auto 3rem;border-left:2px solid var(--bronze);padding-left:clamp(1.4rem,4vw,2.6rem)}
 .essai h2{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--lunaire);
   font-size:clamp(1.5rem,3.2vw,2.1rem);line-height:1.25;margin-bottom:1.2rem}
 .essai p{color:var(--lunaire-dim);margin-bottom:1rem}
@@ -514,7 +515,7 @@ main{display:block;position:relative;z-index:2}
 .extrait.in .cartes img+img{transition-delay:.25s}
 
 /* --- Page À propos --- */
-.univers-intro{max-width:58ch;margin:0 auto 3.4rem;text-align:center}
+.univers-intro{max-width:58ch;margin:0 auto 2.2rem;text-align:center}
 .univers-intro p{font-family:"Cormorant Garamond",serif;font-size:clamp(1.4rem,3vw,2rem);
   color:var(--lunaire);line-height:1.4}
 .univers-intro b{font-weight:600}
@@ -552,7 +553,7 @@ main{display:block;position:relative;z-index:2}
 
 /* En-tête À propos : photo (sur cette page uniquement), surtitre et H1 */
 .about-head{display:grid;grid-template-columns:minmax(200px,280px) 1fr;gap:clamp(1.8rem,4vw,3.4rem);
-  align-items:center;max-width:900px;margin:0 auto 4rem}
+  align-items:center;max-width:900px;margin:0 auto 2.4rem}
 .about-head .photo{border-radius:8px;overflow:hidden;border:1px solid var(--line);
   box-shadow:0 26px 54px -32px rgba(0,0,0,.85)}
 .about-head .photo img{display:block;width:100%;height:auto}
@@ -563,7 +564,7 @@ main{display:block;position:relative;z-index:2}
 .about-cv{margin-top:1.2rem}
 .about-body{max-width:70ch;margin:0 auto}
 .about-body h2{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--bronze-br);
-  font-size:clamp(1.5rem,3vw,2rem);margin:2.6rem 0 .8rem}
+  font-size:clamp(1.5rem,3vw,2rem);margin:1.9rem 0 .6rem}
 .about-body p{color:var(--lunaire-dim);margin-bottom:1rem}
 .projets-liens{list-style:none;margin:.4rem 0 1.2rem;padding-left:1.2rem;border-left:2px solid var(--bronze)}
 .projets-liens li{color:var(--lunaire-dim);margin:.4rem 0}
@@ -572,7 +573,7 @@ main{display:block;position:relative;z-index:2}
 .projets-liens a:hover{text-decoration-color:var(--bronze-br)}
 
 /* --- Sommaire ancré (pages CV et Univers) : repliable en tête de page, collant en marge sur grand écran --- */
-.sommaire{margin:0 0 2rem;border:1px solid var(--line-soft);border-radius:4px;background:var(--obs-2);padding:.6rem 1.1rem}
+.sommaire{margin:0 0 1.4rem;border:1px solid var(--line-soft);border-radius:4px;background:var(--obs-2);padding:.6rem 1.1rem}
 .sommaire summary{cursor:pointer;font-family:"Cormorant Garamond",serif;letter-spacing:.2em;text-transform:uppercase;
   color:var(--bronze-br);font-size:.9rem;padding:.3rem 0;list-style:none;display:flex;align-items:center;gap:.6rem}
 .sommaire summary::-webkit-details-marker{display:none}
@@ -596,7 +597,7 @@ main{display:block;position:relative;z-index:2}
   .univers-page.avec-sommaire .sec-head,.univers-page.avec-sommaire .univers-intro{grid-column:2}
 }
 /* --- Pages projet (gabarit commun) --- */
-.projet{max-width:70ch;margin:0 auto;padding:5vh 0 2vh}
+.projet{max-width:70ch;margin:0 auto;padding:3vh 0 1.5vh}
 .fil{font-family:"Cormorant Garamond",serif;letter-spacing:.08em;font-size:.95rem;color:var(--lunaire-dim);margin-bottom:1.6rem}
 .fil a{color:var(--bronze-br);text-decoration:none}
 .fil a:hover{text-decoration:underline;text-underline-offset:3px}
@@ -604,12 +605,12 @@ main{display:block;position:relative;z-index:2}
   font-size:clamp(1.9rem,4vw,2.9rem);line-height:1.15;margin-bottom:1.2rem}
 .projet .resume{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--lunaire);
   font-size:clamp(1.2rem,2.4vw,1.5rem);line-height:1.45;margin-bottom:1.4rem}
-.projet .meta{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:.9rem 0;margin-bottom:2.4rem}
+.projet .meta{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:.9rem 0;margin-bottom:1.8rem}
 .projet .meta p{color:var(--lunaire-dim);margin:.25rem 0}
 .projet .lbl-meta{font-family:"Cormorant Garamond",serif;letter-spacing:.18em;text-transform:uppercase;
   color:var(--bronze-br);font-size:.86rem;margin-right:.6rem}
 .projet h2{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--bronze-br);
-  font-size:clamp(1.5rem,3vw,2rem);margin:2.4rem 0 .8rem}
+  font-size:clamp(1.5rem,3vw,2rem);margin:1.8rem 0 .6rem}
 .projet p{color:var(--lunaire-dim);margin-bottom:1rem}
 .projet p b{color:var(--lunaire);font-weight:500}
 .projet a{color:var(--bronze-br);text-decoration:underline;text-underline-offset:3px}
@@ -627,7 +628,7 @@ main{display:block;position:relative;z-index:2}
 .projet .appel{font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--lunaire);font-size:1.2rem;margin-top:1.6rem}
 .projet .back-home{text-decoration:none}
 /* Projet suivant : bloc de fin de page, panneau sobre sous le contenu, avant le retour à l'index */
-.suivant{margin:3rem 0 1.4rem;padding:1.5rem 1.7rem 1.4rem;background:var(--obs-2);border:1px solid var(--line-soft);
+.suivant{margin:2rem 0 1.2rem;padding:1.5rem 1.7rem 1.4rem;background:var(--obs-2);border:1px solid var(--line-soft);
   border-left:2px solid var(--bronze);border-radius:0 4px 4px 0;display:flex;flex-direction:column;gap:.35rem;
   transition:border-color .4s ease,box-shadow .4s ease}
 .suivant:hover{border-color:var(--line);box-shadow:0 18px 40px -26px rgba(0,0,0,.8)}
@@ -646,7 +647,7 @@ main{display:block;position:relative;z-index:2}
 /* --- Page L'Univers LUNTRAE --- */
 /* Le nom : grand logo flottant et figure typographique lutra + luna, puis le texte validé */
 .nom-bloc{display:grid;grid-template-columns:minmax(220px,.9fr) 1.1fr;gap:clamp(1.6rem,5vw,4rem);align-items:center;
-  max-width:1000px;margin:0 auto 4rem;padding:2.4rem 0 3rem;border-bottom:1px solid var(--line)}
+  max-width:1000px;margin:0 auto 2.4rem;padding:1.4rem 0 2rem;border-bottom:1px solid var(--line)}
 .nom-logo img{display:block;width:min(100%,420px);height:auto;margin:0 auto;animation:symFloat 7s ease-in-out infinite;
   filter:drop-shadow(0 0 28px rgba(182,144,95,.18))}
 .nom-txt h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.5rem;color:var(--lunaire);letter-spacing:.02em;margin:1.2rem 0 .6rem}
@@ -667,17 +668,17 @@ main{display:block;position:relative;z-index:2}
 
 .univers-page .temp h2{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.5rem;
   color:var(--lunaire);letter-spacing:.02em;text-transform:none}
-.univers-prose{max-width:70ch;margin:4rem auto 0}
-.univers-prose.pourquoi{margin:0 auto 3.6rem;padding-bottom:2.4rem;border-bottom:1px solid var(--line)}
+.univers-prose{max-width:70ch;margin:2.4rem auto 0}
+.univers-prose.pourquoi{margin:0 auto 2.2rem;padding-bottom:1.6rem;border-bottom:1px solid var(--line)}
 .univers-prose.pourquoi h2{margin-top:0}
 .univers-prose h2,.loutres h2,.credits h2{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--bronze-br);
-  font-size:clamp(1.5rem,3vw,2rem);margin:2.4rem 0 .8rem}
+  font-size:clamp(1.5rem,3vw,2rem);margin:1.8rem 0 .6rem}
 .univers-prose p,.credits p{color:var(--lunaire-dim);margin-bottom:1rem}
-.loutres{margin-top:4rem}
+.loutres{margin-top:2.4rem}
 .loutres-intro{color:var(--lunaire);max-width:none;font-size:1.12rem;margin-bottom:2.6rem}
 /* Quatre loutres : image et texte en alternance */
 .loutre{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center;
-  margin-bottom:4.5rem;padding-top:2.4rem;border-top:1px solid var(--line)}
+  margin-bottom:2.6rem;padding-top:1.8rem;border-top:1px solid var(--line)}
 .loutre.reverse .loutre-visual{order:2}
 .loutre-visual img{display:block;width:100%;height:auto;border-radius:4px;border:1px solid var(--line-soft);
   clip-path:inset(0 0 100% 0);transition:clip-path 1.2s cubic-bezier(.2,.7,.2,1) .1s,transform .8s ease,box-shadow .8s ease}
@@ -702,10 +703,10 @@ main{display:block;position:relative;z-index:2}
 
 /* --- Page CV : même grammaire que le PDF (bandeau, blocs à en-tête, bulle, vague, frise),
    sur le fond obsidienne du site. Le bronze humide ne porte aucun texte ici. --- */
-.cv{max-width:80ch;margin:0 auto;padding:4vh 0 2vh}
+.cv{max-width:80ch;margin:0 auto;padding:2.5vh 0 1.5vh}
 .cv-head{display:grid;grid-template-columns:1.25fr .9fr;gap:clamp(1.4rem,4vw,3rem);align-items:center;
   background:linear-gradient(135deg,var(--obs-2),rgba(22,33,44,.55));border:1px solid var(--line-soft);border-radius:6px;
-  padding:clamp(1.6rem,4vw,2.8rem);margin-bottom:3rem;position:relative;overflow:hidden}
+  padding:clamp(1.6rem,4vw,2.8rem);margin-bottom:2rem;position:relative;overflow:hidden}
 .cv-head::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(60% 80% at 100% 0%,rgba(182,144,95,.12),transparent 60%)}
 .cv-identite{position:relative;z-index:1}
@@ -720,47 +721,64 @@ main{display:block;position:relative;z-index:2}
 .cv-coord{color:var(--lunaire-dim);font-size:.96rem;margin-bottom:1.4rem}
 .cv-coord a{color:var(--bronze-br);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line)}
 .cv-coord a:hover{text-decoration-color:var(--bronze-br)}
-.cv-identite .cta .poids{font-size:.9em;opacity:.85}
 .cv-photo{position:relative;z-index:1;justify-self:end;width:min(100%,300px)}
 .cv-photo img{display:block;width:100%;height:auto;filter:drop-shadow(0 0 32px rgba(182,144,95,.16))}
 /* Sections : titre en capitales espacées suivi d'un filet, comme sur le PDF */
-.cv-sec{margin-bottom:1.8rem}
+.cv-sec{padding:0;margin-bottom:clamp(1.8rem,3.6vh,2.5rem)}
 .cv-sec h2{font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--lunaire);letter-spacing:.22em;text-transform:uppercase;
-  font-size:clamp(1.05rem,2vw,1.25rem);margin:0 0 1.2rem;display:flex;align-items:center;gap:1rem}
+  font-size:clamp(1.05rem,2vw,1.25rem);margin:0 0 1rem;display:flex;align-items:center;gap:1rem}
 .cv-sec h2::after{content:"";flex:1;height:1px;background:var(--line)}
 .cv-sec p,.cv-sec li{color:var(--lunaire-dim)}
 .cv-sec h3{font-family:"Cormorant Garamond",serif;font-weight:500;color:var(--lunaire);font-size:1.35rem;line-height:1.25;margin-bottom:.3rem}
-.cv-sec h3 a{color:var(--lunaire);text-decoration:none;background:linear-gradient(var(--bronze-br),var(--bronze-br)) no-repeat 0 100%/0 1px;transition:background-size .4s ease,color .3s}
-.cv-sec h3 a:hover{color:var(--bronze-br);background-size:100% 1px}
 /* Profil : panneau à rayures verticales très discrètes, texte sur deux colonnes */
 .cv-profil{background:var(--obs-2) repeating-linear-gradient(90deg,transparent 0 64px,rgba(232,236,239,.03) 64px 128px);
   border-left:2px solid var(--bronze);padding:1.6rem 1.8rem;border-radius:0 4px 4px 0}
 .cv-profil p{font-size:1.06rem;margin:0}
 /* Projets : cartes à filet bronze, statut animé */
-.cv-projets{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.cv-projets{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem 1.2rem}
 .cv-projet{background:var(--obs-2);border:1px solid var(--line-soft);border-radius:4px;padding:1.3rem 1.4rem 1.1rem;display:flex;flex-direction:column;
   transition:border-color .4s ease,transform .5s ease,box-shadow .5s ease}
 .cv-projet:hover{border-color:var(--line);transform:translateY(-4px);box-shadow:0 18px 40px -26px rgba(0,0,0,.8)}
-.cv-projet h3{font-size:1.3rem}
-.cv-projet h3 a{color:var(--bronze-br)}
-.cv-projet h3 a:hover{color:var(--lunaire)}
-.cv-role{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.05rem;color:var(--bronze-br);margin-bottom:.7rem}
+.cv-projet h3{font-size:1.3rem;color:var(--bronze-br)}
+.cv-role{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.05rem;color:var(--bronze-br);margin-bottom:.6rem}
 .cv-projet p{font-size:.95rem}
 .cv-projet p+p{margin-top:.4rem}
-.cv-statut{margin-top:auto!important;padding-top:.9rem;font-size:.84rem;letter-spacing:.04em;display:flex;align-items:center;gap:.55rem;border-top:1px solid var(--line-soft)}
+.cv-statut{font-size:.84rem;letter-spacing:.04em;display:flex;align-items:center;gap:.55rem}
 .cv-statut .dot,.fiche .statut .dot{animation:dotPulse 3.4s ease-in-out infinite}
 .cv-frise li:last-child::before{animation:dotPulse 3.4s ease-in-out infinite}
 .cv-statut .dot{width:7px;height:7px;border-radius:50%;background:var(--bronze-br);box-shadow:0 0 0 3px var(--glow);flex:none}
+/* liens d'une fiche projet : site et Instagram, puis invitation à ouvrir la page du projet, calée en bas de fiche */
+.cv-liens{margin:.6rem 0 0!important;font-size:.9rem}
+.cv-lien{margin-top:auto!important;padding-top:.8rem;font-size:.92rem}
+.cv-projet .cv-statut+.cv-lien,.cv-projet .cv-liens+.cv-lien{border-top:1px solid var(--line-soft)}
+.cv-statut{margin-bottom:.9rem}
+.cv-liens{margin-bottom:.9rem!important}
+.cv-liens a,.cv-lien a,.cv-plus a{color:var(--bronze-br);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line)}
+.cv-liens a:hover,.cv-lien a:hover,.cv-plus a:hover{text-decoration-color:var(--bronze-br)}
+.cv-ig{width:1em;height:1em;vertical-align:-.14em;margin-right:.3em;fill:var(--bronze)}
+.cv-plus{margin-top:1.1rem;font-family:"Cormorant Garamond",serif;font-style:italic;font-size:1.1rem}
 /* Compétences : blocs à en-tête sombre, bandeau technique sur trois colonnes */
-.cv-comp{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
-.cv-bloc{background:var(--obs-2);border:1px solid var(--line-soft);border-radius:4px;overflow:hidden}
-.cv-bloc h3{font-size:1.2rem;margin:0;padding:.75rem 1.3rem;background:var(--obs-3);color:var(--bronze-br);border-bottom:1px solid var(--line)}
-.cv-bloc ul{list-style:none;margin:0;padding:1rem 1.3rem 1.1rem}
-.cv-bloc li{font-size:.94rem;padding-left:1rem;position:relative;margin:.25rem 0}
+/* Compétences : mises en valeur sur un panneau crème, seul bloc clair de la page. Sur fond clair le texte est en obsidienne,
+   le bronze humide ne sert qu'aux puces (charte, contrastes sur fond clair). */
+.cv-comp{display:grid;grid-template-columns:1fr 1fr;gap:.9rem 2.2rem;background:var(--creme);border-radius:6px;padding:1.5rem 1.8rem 1.1rem;
+  box-shadow:0 22px 46px -30px rgba(0,0,0,.8)}
+.cv-bloc{min-width:0}
+/* Titre de bloc comme dans le PDF du CV : goutte vert mousse, puis titre posé sur une tache organique.
+   La tache est une image de fond (décor seul), six tracés différents. Obsidienne sur la tache : 12,0:1. */
+.cv-bloc h3{font-size:1.25rem;font-weight:600;margin:0;padding:.3rem 0 .15rem;color:var(--obs);display:flex;align-items:flex-start;gap:.6rem}
+.cv-bloc h3::before{content:"";flex:none;width:.8rem;height:.68rem;margin-top:.48rem;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='238 372 52 44'%3E%3Cpath d='M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z' fill='%2372897D'/%3E%3C/svg%3E") no-repeat center/100% 100%}
+.cv-tache{display:block;padding:.18rem .85rem .22rem .5rem;margin:-.18rem 0 -.22rem -.5rem;background-repeat:no-repeat;background-size:100% 100%}
+.cv-bloc:nth-child(1) .cv-tache{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M7,13 C5,6 16,2 34,5 C58,9 84,1 112,4 C140,7 166,2 186,6 C197,9 199,17 196,24 C198,31 190,38 176,36 C150,33 128,40 100,37 C72,34 44,39 22,37 C9,36 2,31 3,24 C4,19 9,18 7,13 Z' fill='%2372897D' fill-opacity='.25'/%3E%3C/svg%3E")}
+.cv-bloc:nth-child(2) .cv-tache{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M3,18 C2,9 14,4 30,6 C60,10 92,3 120,2 C150,1 172,7 190,5 C198,7 198,15 195,21 C200,28 193,36 180,37 C156,39 136,33 108,36 C80,39 52,35 28,38 C12,40 4,35 5,28 C6,24 4,22 3,18 Z' fill='%2372897D' fill-opacity='.25'/%3E%3C/svg%3E")}
+.cv-bloc:nth-child(3) .cv-tache{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M10,5 C28,1 50,8 78,5 C104,2 132,6 158,3 C176,1 194,4 197,13 C199,20 194,23 196,29 C197,36 184,39 168,36 C140,32 112,38 86,36 C58,34 36,40 16,36 C5,33 2,26 5,19 C2,12 4,7 10,5 Z' fill='%2372897D' fill-opacity='.25'/%3E%3C/svg%3E")}
+.cv-bloc:nth-child(4) .cv-tache{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M5,10 C12,3 30,7 54,4 C82,0 110,6 140,5 C164,4 184,1 194,8 C200,14 195,20 198,27 C197,35 186,38 170,37 C146,36 122,32 96,36 C70,40 42,34 20,37 C8,39 1,32 4,24 C1,17 2,13 5,10 Z' fill='%2372897D' fill-opacity='.25'/%3E%3C/svg%3E")}
+.cv-bloc:nth-child(5) .cv-tache{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M8,7 C22,3 46,2 70,6 C98,10 126,2 152,4 C172,6 190,3 196,11 C199,17 196,22 198,28 C196,37 182,37 166,35 C138,32 114,39 88,38 C60,37 38,33 18,36 C7,38 2,33 3,26 C4,20 1,16 3,12 C4,9 5,8 8,7 Z' fill='%2372897D' fill-opacity='.25'/%3E%3C/svg%3E")}
+.cv-bloc:nth-child(6) .cv-tache{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M4,15 C3,7 18,5 36,3 C64,0 90,7 118,6 C146,5 170,3 188,7 C198,10 199,18 197,25 C196,34 186,39 172,38 C148,36 124,35 98,37 C72,39 46,36 24,38 C10,39 3,34 4,27 C5,22 5,19 4,15 Z' fill='%2372897D' fill-opacity='.25'/%3E%3C/svg%3E")}
+.cv-bloc ul{list-style:none;margin:0;padding:.6rem 0 .7rem}
+.cv-comp .cv-bloc li{font-size:.94rem;padding-left:1rem;position:relative;margin:.22rem 0;color:var(--obs)}
 .cv-bloc li::before{content:"";position:absolute;left:0;top:.65em;width:5px;height:5px;background:var(--bronze);border-radius:50%}
-.cv-bandeau{grid-column:1 / -1}
-.cv-bandeau ul.trois{column-count:3;column-gap:1.6rem}
-.cv-bandeau li{break-inside:avoid}
+/* un outil reste solidaire du point médian qui le suit */
+.cv-insec{white-space:nowrap}
 /* Expérience : poste actuel en panneau mis en avant, stages en deux colonnes */
 .cv-exp{margin-bottom:1.4rem}
 .cv-exp-principale{background:var(--obs-2);border:1px solid var(--line-soft);border-left:2px solid var(--bronze);border-radius:0 4px 4px 0;padding:1.4rem 1.6rem;margin-bottom:1.8rem}
@@ -782,13 +800,9 @@ main{display:block;position:relative;z-index:2}
 .cv-frise .cv-lieu{display:block;font-family:"Spectral",serif;font-style:normal;color:var(--lunaire-dim);font-size:.84rem;margin:0}
 /* Outils, langues, veille, centres d'intérêt, bulle */
 .cv-duo{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem}
-.cv-pastilles{list-style:none;margin:0;display:flex;flex-wrap:wrap;gap:.45rem}
-.cv-pastilles li{font-size:.86rem;letter-spacing:.02em;color:var(--bronze-br);border:1px solid var(--line);border-radius:50px;padding:.3rem .85rem;transition:background .3s,color .3s}
-.cv-pastilles li:hover{background:var(--bronze);color:var(--lunaire)}
-.cv-langues,.cv-liste{list-style:none;margin:0}
-.cv-langues li,.cv-liste li{padding-left:1rem;position:relative;margin:.35rem 0}
-.cv-langues li::before,.cv-liste li::before{content:"";position:absolute;left:0;top:.7em;width:5px;height:5px;background:var(--bronze);border-radius:50%}
-.cv-langues b{color:var(--lunaire);font-weight:500}
+.cv-liste{list-style:none;margin:0}
+.cv-liste li{padding-left:1rem;position:relative;margin:.35rem 0}
+.cv-liste li::before{content:"";position:absolute;left:0;top:.7em;width:5px;height:5px;background:var(--bronze);border-radius:50%}
 /* Flaque de peinture : fond bronze humide, donc texte blanc lunaire en grand corps (au moins 24 px) */
 .cv-flaque{position:relative;padding:3rem 2.8rem 3.2rem;margin:1.2rem 0 0 .4rem;min-height:200px;display:flex;align-items:center}
 .cv-flaque-fond{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 18px 30px rgba(0,0,0,.45))}
@@ -799,14 +813,14 @@ main{display:block;position:relative;z-index:2}
 .cv-flaque-goutte.g3{width:16px;height:16px;left:-34px;bottom:2px}
 @keyframes goutte{0%,70%,100%{transform:translateY(0)}84%{transform:translateY(10px)}}
 @media(max-width:900px){.cv-frise{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:900px){.cv-projets{grid-template-columns:1fr 1fr}.cv-frise{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.cv-frise{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:760px){
   .cv-head{grid-template-columns:1fr}
   .cv-photo{justify-self:center;width:min(100%,240px);order:-1}
   .cv-profil p{column-count:1}
   .cv-projets,.cv-comp,.cv-duo,.cv-stages{grid-template-columns:1fr}
+  .cv-comp{padding:1.2rem 1.2rem .8rem}
   .cv-duo{gap:0}
-  .cv-bandeau ul.trois{column-count:1}
   .cv-frise{grid-template-columns:1fr;gap:1rem;padding-left:1.6rem}
   .cv-frise::before{left:6px;right:auto;top:0;bottom:0;width:1px;height:auto}
   .cv-frise li{padding-top:0;padding-left:.4rem}
@@ -815,7 +829,7 @@ main{display:block;position:relative;z-index:2}
 }
 
 .portrait{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(1.8rem,4vw,3.4rem);
-  align-items:center;max-width:980px;margin:5vh auto 0;
+  align-items:center;max-width:980px;margin:3vh auto 0;
   opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
 .portrait.in{opacity:1;transform:none}
 
