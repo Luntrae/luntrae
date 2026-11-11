@@ -20,7 +20,7 @@ Seize pages publiques et une page d'erreur, toutes indexables sauf la 404.
 |---|---|---|
 | `/` | `index.html` | Accueil : hero sur l'ambiance nocturne, présentation, quatre piliers de l'approche, réflexion sur l'attention, trois portes vers les projets, les séries et la liste des projets. Porte la fiche `Person` complète. |
 | `/a-propos/` | `a-propos/index.html` | La créatrice : bloc d'ouverture, parcours, façon de travailler, projets reliés, ce qui l'inspire, ce qui l'intéresse aujourd'hui. Photo en tête, bouton vers le CV. |
-| `/cv/` | `cv/index.html` | CV en ligne, version complète du PDF et dans le même ordre : profil, expérience, veille et centres d'intérêt, approche créative, compétences (outils et langues compris), projets, formation en frise. Sommaire ancré, téléchargement du PDF. |
+| `/cv/` | `cv/index.html` | CV en ligne, version développée du PDF : profil, expérience, compétences sur panneau crème (outils et langues compris), formation en frise, veille et centres d'intérêt, approche créative, puis les projets en fiches courtes qui renvoient vers leurs pages. Sommaire ancré, téléchargement du résumé PDF. |
 | `/univers/` | `univers/index.html` | L'Univers LUNTRAE : pourquoi il existe, le nom (lutra et luna), la loutre, la lune, l'eau, les couleurs, la position sur les outils IA, quatre espèces de loutre en planches naturalistes, crédits. Sommaire ancré. |
 | `/projets/` | `projets/index.html` | Index des sept projets, fiches courtes avec statut, encart sur l'apprentissage du code. |
 | `/projets/projet-confidentiel/` | `projets/projet-confidentiel/index.html` | Projet numérique d'engagement éthique en conception : organisation, quatre arbitrages, livrables, suite. Rien de son contenu n'est dévoilé. |

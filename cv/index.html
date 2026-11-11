@@ -137,7 +137,7 @@
           <p class="cv-sous-titre">Pilotage · Développement · Mobilisation des publics</p>
           <p class="cv-coord">Rochefort (17) · <a href="mailto:luntrae@proton.me">luntrae@proton.me</a> · <a href="https://www.linkedin.com/in/camille-stn" target="_blank" rel="noopener noreferrer">linkedin.com/in/camille-stn</a> · <a href="/">luntrae.fr</a></p>
           <!-- Téléchargement du CV, suivi par main.js (événement cv-telechargement, ventilé par page) -->
-          <a class="cta" href="/assets/cv/CV_Camille_Sauton.pdf" download>Télécharger le CV en PDF <span class="poids" aria-hidden="true">· PDF, 195 Ko</span></a>
+          <a class="cta" href="/assets/cv/CV_Camille_Sauton.pdf" download>Télécharger le résumé PDF</a>
         </div>
         <div class="cv-photo">
           <img src="/assets/img/camille_croquis-bronze.webp" width="640" height="827"
@@ -150,15 +150,15 @@
         <ol>
           <li><a href="#profil">Profil</a></li>
           <li><a href="#experience">Expérience</a></li>
+          <li><a href="#competences">Compétences</a></li>
+          <li><a href="#formation">Formation</a></li>
           <li><a href="#veille-et-centres-d-interet">Veille et centres d'intérêt</a></li>
           <li><a href="#approche-creative">Approche créative</a></li>
-          <li><a href="#competences">Compétences</a></li>
           <li><a href="#projets">Projets</a></li>
-          <li><a href="#formation">Formation</a></li>
         </ol>
       </details>
 
-      <!-- Même ordre de sections que le PDF : profil, expérience, veille et approche créative, compétences, projets, formation -->
+      <!-- Ordre propre à la page : profil, expérience, compétences, formation, veille et approche créative, projets en conclusion -->
       <div class="page-corps">
       <section class="cv-sec" id="profil">
         <h2>Profil</h2>
@@ -205,38 +205,8 @@
         </div>
       </section>
 
-      <div class="cv-duo cv-duo-fin">
-        <section class="cv-sec" id="veille-et-centres-d-interet">
-          <h2>Veille et centres d'intérêt</h2>
-          <ul class="cv-liste">
-            <li>Transition écologique et vivant : alimentation, agriculture, économie locale</li>
-            <li>IA et esprit critique : usages de l'IA dans la conception de services numériques</li>
-            <li>Curiosité transversale : sciences humaines, du vivant et exactes. Comprendre un environnement large m'aide à concevoir juste.</li>
-            <li>Art contemporain engagé</li>
-            <li>Écriture longue : roman en cours, construction d'univers</li>
-            <li>Jeux PC de gestion et de stratégie</li>
-            <li>Membre d'un groupe d'échanges pluridisciplinaire sur les usages numériques et l'IA</li>
-            <li>Tendances UX</li>
-          </ul>
-        </section>
-        <section class="cv-sec cv-sec-flaque" id="approche-creative">
-          <h2>Approche créative</h2>
-          <!-- Flaque de peinture bronze renversée du pot, avec la goutte tombée du pinceau (décor SVG) -->
-          <div class="cv-flaque">
-            <svg class="cv-flaque-fond" viewBox="0 0 440 240" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-              <path fill="#8A6A4A" d="M54,86 C30,52 74,18 138,22 C186,25 214,10 268,14 C330,19 392,8 416,46 C438,80 402,112 410,146 C418,184 372,214 318,212 C262,210 236,232 178,226 C118,220 52,236 30,190 C10,152 74,120 54,86 Z"/>
-              <path fill="#9a7a58" opacity=".55" d="M96,58 C140,40 190,46 236,38 C288,30 340,44 366,66 C380,78 360,90 330,86 C270,80 214,96 150,92 C116,90 82,72 96,58 Z"/>
-            </svg>
-            <svg class="cv-flaque-goutte g1" viewBox="0 0 40 60" aria-hidden="true" focusable="false"><path fill="#b6905f" d="M20,2 C26,20 38,30 38,42 A18,18 0 0 1 2,42 C2,30 14,20 20,2 Z"/></svg>
-            <svg class="cv-flaque-goutte g2" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="14" fill="#8A6A4A"/></svg>
-            <svg class="cv-flaque-goutte g3" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="8" fill="#b6905f"/></svg>
-            <p>Je m'intéresse aux moyens créatifs de faire passer un message par l'émotion et l'expérience, plutôt que par le discours direct.</p>
-          </div>
-        </section>
-      </div>
-
-      <!-- Compétences : six blocs, comme dans le PDF. Titre précédé d'une goutte verte et posé sur une tache organique
-           (décor en image de fond CSS). Les quatre lignes en plus du PDF n'existent que sur cette page. -->
+      <!-- Compétences : six blocs sur un panneau crème, comme les blocs clairs du PDF. Titre précédé d'une goutte verte
+           et posé sur une tache organique (décor en image de fond CSS). Quatre lignes n'existent que sur cette page. -->
       <section class="cv-sec" id="competences">
         <h2>Compétences</h2>
         <div class="cv-comp">
@@ -279,52 +249,6 @@
         </div>
       </section>
 
-      <!-- Projets : les liens sont portés par les titres, statut repris de l'index -->
-      <section class="cv-sec" id="projets">
-        <h2>Projets</h2>
-        <div class="cv-projets">
-          <article class="cv-projet">
-            <h3><a href="/projets/projet-confidentiel/">Projet confidentiel</a></h3>
-            <p class="cv-role">Conception produit et pilotage, en cours</p>
-            <p>Projet numérique d'engagement éthique, en conception. Stratégie globale, étude de marché, questionnaire utilisateurs, cahier des charges fonctionnel, rétroplanning, pilotage documentaire (référentiel de 21 ressources, journal de décisions). Mené seule, en projet personnel avec la rigueur d'un projet professionnel. Écrivez-moi, je vous en dirai plus.</p>
-            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> En conception</p>
-          </article>
-          <article class="cv-projet">
-            <h3><a href="/projets/le-gentle/">Le Gentle</a></h3>
-            <p class="cv-role">Montage de projet entrepreneurial, non lancé</p>
-            <p>Conception d'un tiers-lieu calme à vocation solidaire, du concept au dossier chiffré. Arbitrage central : diversifier les sources de revenus, parce qu'un lieu qui ne vit que d'une chose est à la merci d'une mauvaise saison. Étude de marché, stratégie, modèle économique, forme juridique comparée, modélisation financière sur trois ans.</p>
-            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> Dossier complet</p>
-          </article>
-          <article class="cv-projet">
-            <h3><a href="/projets/methode-repositionnement/">Méthode de repositionnement professionnel</a></h3>
-            <p class="cv-role">Outil à visée sociale</p>
-            <p>Un travail que j'ai d'abord fait pour moi, puis transformé en parcours guidé de onze étapes, dans un ordre qui compte. Testé en conditions réelles sur trois accompagnements, et repris là où les gens bloquaient.</p>
-            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> 3 parcours accompagnés en conditions réelles</p>
-          </article>
-          <article class="cv-projet">
-            <h3><a href="/projets/kintara-ceramics/">Kintara Ceramics</a></h3>
-            <p class="cv-role">Direction stratégique de marque, pro bono</p>
-            <p>Une créatrice sait ce qu'elle fabrique, pas toujours comment le dire. Travail sur la lisibilité de l'offre : positionnement, architecture de gamme, nommage des collections, stratégie éditoriale et cahier des charges d'une refonte e-commerce. Dossier de dix-huit pages.</p>
-            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> Concept abouti, pas encore déployé</p>
-          </article>
-          <article class="cv-projet">
-            <h3><a href="/projets/geneapop/">Geneapop</a></h3>
-            <p class="cv-role">Conception produit et développement, en solo</p>
-            <p>Application web qui transforme des données familiales dispersées en un arbre vivant, interactif et cartographié. Née d'un besoin réel : cent onglets ouverts et rien de lisible. Conçue, spécifiée et développée seule, du modèle de données à l'interface. Orchestrateur de 4 600 lignes refondu en neuf modules.</p>
-            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> En développement avancé</p>
-          </article>
-          <article class="cv-projet">
-            <h3><a href="/projets/luntrae/">Écosystème LUNTRAE</a></h3>
-            <p class="cv-role">Conception, déploiement et éditorial</p>
-            <p>Un site créé de A à Z : nom de domaine et DNS, HTTPS, polices auto-hébergées, mesure d'audience sans cookie ni donnée personnelle. Identité de marque, charte et contenus compris. Prolongation de l'univers sur Instagram.</p>
-            <!-- Lien Instagram suivi par main.js (événement clic-instagram, ventilé par page) -->
-            <p class="cv-liens"><a href="/">luntrae.fr</a> · <a href="https://www.instagram.com/luntrae/" target="_blank" rel="noopener noreferrer"><svg class="cv-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M7,2 h10 a5,5 0 0 1 5,5 v10 a5,5 0 0 1 -5,5 h-10 a5,5 0 0 1 -5,-5 v-10 a5,5 0 0 1 5,-5 z M7,4 a3,3 0 0 0 -3,3 v10 a3,3 0 0 0 3,3 h10 a3,3 0 0 0 3,-3 v-10 a3,3 0 0 0 -3,-3 z M12,7 a5,5 0 1 0 0,10 a5,5 0 1 0 0,-10 z M12,9 a3,3 0 1 1 0,6 a3,3 0 1 1 0,-6 z M17.5,5.3 a1.2,1.2 0 1 0 0,2.4 a1.2,1.2 0 1 0 0,-2.4 z"/></svg>@luntrae</a></p>
-            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> En ligne depuis juin 2026</p>
-          </article>
-        </div>
-        <p class="cv-plus">Plus de projets et d'idées à découvrir sur <a href="/projets/">la page Projets</a></p>
-      </section>
-
       <!-- Formation : frise chronologique sur une ligne bronze -->
       <section class="cv-sec" id="formation">
         <h2>Formation</h2>
@@ -337,6 +261,82 @@
           <li><span class="cv-dates">2024</span><b>Gestion des impayés</b><span class="cv-lieu">Formation continue, Ligue pour la Protection des Oiseaux</span></li>
           <li><span class="cv-dates">Depuis mai 2026</span><b>Formation autodidacte</b><span class="cv-lieu">Développement et code</span></li>
         </ol>
+      </section>
+
+      <div class="cv-duo cv-duo-fin">
+        <section class="cv-sec" id="veille-et-centres-d-interet">
+          <h2>Veille et centres d'intérêt</h2>
+          <ul class="cv-liste">
+            <li>Transition écologique et vivant : alimentation, agriculture, économie locale</li>
+            <li>IA et esprit critique : usages de l'IA dans la conception de services numériques</li>
+            <li>Curiosité transversale : sciences humaines, du vivant et exactes. Comprendre un environnement large m'aide à concevoir juste.</li>
+            <li>Art contemporain engagé</li>
+            <li>Écriture longue : roman en cours, construction d'univers</li>
+            <li>Jeux PC de gestion et de stratégie</li>
+            <li>Membre d'un groupe d'échanges pluridisciplinaire sur les usages numériques et l'IA</li>
+            <li>Tendances UX</li>
+          </ul>
+        </section>
+        <section class="cv-sec cv-sec-flaque" id="approche-creative">
+          <h2>Approche créative</h2>
+          <!-- Flaque de peinture bronze renversée du pot, avec la goutte tombée du pinceau (décor SVG) -->
+          <div class="cv-flaque">
+            <svg class="cv-flaque-fond" viewBox="0 0 440 240" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path fill="#8A6A4A" d="M54,86 C30,52 74,18 138,22 C186,25 214,10 268,14 C330,19 392,8 416,46 C438,80 402,112 410,146 C418,184 372,214 318,212 C262,210 236,232 178,226 C118,220 52,236 30,190 C10,152 74,120 54,86 Z"/>
+              <path fill="#9a7a58" opacity=".55" d="M96,58 C140,40 190,46 236,38 C288,30 340,44 366,66 C380,78 360,90 330,86 C270,80 214,96 150,92 C116,90 82,72 96,58 Z"/>
+            </svg>
+            <svg class="cv-flaque-goutte g1" viewBox="0 0 40 60" aria-hidden="true" focusable="false"><path fill="#b6905f" d="M20,2 C26,20 38,30 38,42 A18,18 0 0 1 2,42 C2,30 14,20 20,2 Z"/></svg>
+            <svg class="cv-flaque-goutte g2" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="14" fill="#8A6A4A"/></svg>
+            <svg class="cv-flaque-goutte g3" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="8" fill="#b6905f"/></svg>
+            <p>Je m'intéresse aux moyens créatifs de faire passer un message par l'émotion et l'expérience, plutôt que par le discours direct.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Projets, en conclusion : fiches courtes (nom, rôle, statut), le détail est sur la page de chaque projet -->
+      <section class="cv-sec" id="projets">
+        <h2>Projets</h2>
+        <div class="cv-projets">
+          <article class="cv-projet">
+            <h3>Projet confidentiel</h3>
+            <p class="cv-role">Conception produit et pilotage, en cours</p>
+            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> En conception</p>
+            <p class="cv-lien"><a href="/projets/projet-confidentiel/">Plus d'info sur Projet confidentiel en cliquant ici</a></p>
+          </article>
+          <article class="cv-projet">
+            <h3>Le Gentle</h3>
+            <p class="cv-role">Montage de projet entrepreneurial, non lancé</p>
+            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> Dossier complet</p>
+            <p class="cv-lien"><a href="/projets/le-gentle/">Plus d'info sur Le Gentle en cliquant ici</a></p>
+          </article>
+          <article class="cv-projet">
+            <h3>Méthode de repositionnement professionnel</h3>
+            <p class="cv-role">Outil à visée sociale</p>
+            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> 3 parcours accompagnés en conditions réelles</p>
+            <p class="cv-lien"><a href="/projets/methode-repositionnement/">Plus d'info sur Méthode de repositionnement professionnel en cliquant ici</a></p>
+          </article>
+          <article class="cv-projet">
+            <h3>Kintara Ceramics</h3>
+            <p class="cv-role">Direction stratégique de marque, pro bono</p>
+            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> Concept abouti, pas encore déployé</p>
+            <p class="cv-lien"><a href="/projets/kintara-ceramics/">Plus d'info sur Kintara Ceramics en cliquant ici</a></p>
+          </article>
+          <article class="cv-projet">
+            <h3>Geneapop</h3>
+            <p class="cv-role">Conception produit et développement, en solo</p>
+            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> En développement avancé</p>
+            <p class="cv-lien"><a href="/projets/geneapop/">Plus d'info sur Geneapop en cliquant ici</a></p>
+          </article>
+          <article class="cv-projet">
+            <h3>Écosystème LUNTRAE</h3>
+            <p class="cv-role">Conception, déploiement et éditorial</p>
+            <p class="cv-statut"><span class="dot" aria-hidden="true"></span> En ligne depuis juin 2026</p>
+            <!-- Lien Instagram suivi par main.js (événement clic-instagram, ventilé par page) -->
+            <p class="cv-liens"><a href="/">luntrae.fr</a> · <a href="https://www.instagram.com/luntrae/" target="_blank" rel="noopener noreferrer"><svg class="cv-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M7,2 h10 a5,5 0 0 1 5,5 v10 a5,5 0 0 1 -5,5 h-10 a5,5 0 0 1 -5,-5 v-10 a5,5 0 0 1 5,-5 z M7,4 a3,3 0 0 0 -3,3 v10 a3,3 0 0 0 3,3 h10 a3,3 0 0 0 3,-3 v-10 a3,3 0 0 0 -3,-3 z M12,7 a5,5 0 1 0 0,10 a5,5 0 1 0 0,-10 z M12,9 a3,3 0 1 1 0,6 a3,3 0 1 1 0,-6 z M17.5,5.3 a1.2,1.2 0 1 0 0,2.4 a1.2,1.2 0 1 0 0,-2.4 z"/></svg>@luntrae</a></p>
+            <p class="cv-lien"><a href="/projets/luntrae/">Plus d'info sur Écosystème LUNTRAE en cliquant ici</a></p>
+          </article>
+        </div>
+        <p class="cv-plus">Plus de projets et d'idées à découvrir sur <a href="/projets/">la page Projets</a></p>
       </section>
       </div>
 
