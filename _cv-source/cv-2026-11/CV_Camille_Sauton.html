@@ -29,6 +29,9 @@ section.page{width:210mm;height:296.9mm;box-sizing:border-box;background:#FFFFFF
 a{color:#101820;text-decoration:none}
 h1,h2,h3,p,ul{margin:0}
 .pad{padding-left:16mm;padding-right:16mm}
+/* Chaque bloc de premier niveau est positionné : WeasyPrint peint les éléments positionnés après le reste,
+   dans l'ordre du document. Sans cela, les textes positionnés (en-tête, profil, encart) sortent en fin de flux. */
+.pad,.bas{position:relative}
 .sec{display:flex;align-items:baseline;width:89mm}
 h2.st{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:11.5pt;letter-spacing:0.08em;white-space:nowrap;margin-right:4mm}
 .filet{flex:1;height:1px;background:#8A6A4A;align-self:flex-end;margin-bottom:1.3mm}
@@ -53,10 +56,15 @@ ul.sk li{background:radial-gradient(circle at 0.9mm 0.72em,#8A6A4A 0,#8A6A4A 0.5
 .comp{display:grid;grid-template-columns:repeat(3,1fr);column-gap:5mm;row-gap:3.6mm;align-items:start}
 h3.ck{font-size:9.4pt;line-height:12.6pt;display:flex;align-items:flex-start;margin-bottom:0.3mm}
 h3.ck svg.gt{width:2.8mm;height:2.4mm;flex:none;margin-right:1.8mm;margin-top:1.1mm}
-/* tache derrière le titre : décor seul, le texte reste dans le flux du bloc */
-.tt{position:relative;display:block}
-.tt svg.tache{position:absolute;left:-1.4mm;top:-1mm;width:calc(100% + 4mm);height:calc(100% + 1.8mm);display:block}
-.tx{position:relative}
+/* tache derrière le titre : image de fond en SVG, donc aucun élément positionné. Le texte du titre reste dans le flux,
+   juste avant sa liste, y compris dans l'ordre brut du flux PDF. Six tracés différents. */
+.tt{display:block;padding:1mm 2.6mm 0.8mm 1.4mm;margin:-1mm -2.6mm -0.8mm -1.4mm;background-repeat:no-repeat;background-size:100% 100%}
+.t1{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M7,13 C5,6 16,2 34,5 C58,9 84,1 112,4 C140,7 166,2 186,6 C197,9 199,17 196,24 C198,31 190,38 176,36 C150,33 128,40 100,37 C72,34 44,39 22,37 C9,36 2,31 3,24 C4,19 9,18 7,13 Z' fill='%23DCE2DF'/%3E%3C/svg%3E")}
+.t2{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M3,18 C2,9 14,4 30,6 C60,10 92,3 120,2 C150,1 172,7 190,5 C198,7 198,15 195,21 C200,28 193,36 180,37 C156,39 136,33 108,36 C80,39 52,35 28,38 C12,40 4,35 5,28 C6,24 4,22 3,18 Z' fill='%23DCE2DF'/%3E%3C/svg%3E")}
+.t3{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M10,5 C28,1 50,8 78,5 C104,2 132,6 158,3 C176,1 194,4 197,13 C199,20 194,23 196,29 C197,36 184,39 168,36 C140,32 112,38 86,36 C58,34 36,40 16,36 C5,33 2,26 5,19 C2,12 4,7 10,5 Z' fill='%23DCE2DF'/%3E%3C/svg%3E")}
+.t4{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M5,10 C12,3 30,7 54,4 C82,0 110,6 140,5 C164,4 184,1 194,8 C200,14 195,20 198,27 C197,35 186,38 170,37 C146,36 122,32 96,36 C70,40 42,34 20,37 C8,39 1,32 4,24 C1,17 2,13 5,10 Z' fill='%23DCE2DF'/%3E%3C/svg%3E")}
+.t5{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M8,7 C22,3 46,2 70,6 C98,10 126,2 152,4 C172,6 190,3 196,11 C199,17 196,22 198,28 C196,37 182,37 166,35 C138,32 114,39 88,38 C60,37 38,33 18,36 C7,38 2,33 3,26 C4,20 1,16 3,12 C4,9 5,8 8,7 Z' fill='%23DCE2DF'/%3E%3C/svg%3E")}
+.t6{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M4,15 C3,7 18,5 36,3 C64,0 90,7 118,6 C146,5 170,3 188,7 C198,10 199,18 197,25 C196,34 186,39 172,38 C148,36 124,35 98,37 C72,39 46,36 24,38 C10,39 3,34 4,27 C5,22 5,19 4,15 Z' fill='%23DCE2DF'/%3E%3C/svg%3E")}
 /* formation */
 .fcol{position:relative;box-sizing:border-box;height:100%;padding:16.5mm 8mm 0 11mm;display:flex;flex-direction:column}
 .frise{position:relative;flex:1;display:flex;flex-direction:column;justify-content:space-between;margin-bottom:2mm}
@@ -182,7 +190,7 @@ h3.ck svg.gt{width:2.8mm;height:2.4mm;flex:none;margin-right:1.8mm;margin-top:1.
     <div class="sec"><h2 class="st">COMPÉTENCES</h2><div class="filet"></div></div>
     <div class="comp" style="margin-top:3.4mm">
       <div>
-        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt"><svg class="tache" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M7,13 C5,6 16,2 34,5 C58,9 84,1 112,4 C140,7 166,2 186,6 C197,9 199,17 196,24 C198,31 190,38 176,36 C150,33 128,40 100,37 C72,34 44,39 22,37 C9,36 2,31 3,24 C4,19 9,18 7,13 Z" fill="#DCE2DF"></path></svg><span class="tx">Mobilisation et engagement <br>des publics</span></span></h3>
+        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt t1">Mobilisation et engagement <br>des publics</span></h3>
         <ul class="sk">
           <li>Relation multicanale avec les donateurs, adhérents et abonnés</li>
           <li>Accompagnement des publics éloignés du numérique</li>
@@ -193,7 +201,7 @@ h3.ck svg.gt{width:2.8mm;height:2.4mm;flex:none;margin-right:1.8mm;margin-top:1.
         </ul>
       </div>
       <div>
-        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt"><svg class="tache" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M3,18 C2,9 14,4 30,6 C60,10 92,3 120,2 C150,1 172,7 190,5 C198,7 198,15 195,21 C200,28 193,36 180,37 C156,39 136,33 108,36 C80,39 52,35 28,38 C12,40 4,35 5,28 C6,24 4,22 3,18 Z" fill="#DCE2DF"></path></svg><span class="tx">Gestion de projet et pilotage</span></span></h3>
+        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt t2">Gestion de projet et pilotage</span></h3>
         <ul class="sk">
           <li>Pilotage de projet de A à Z</li>
           <li>Feuille de route et rétroplanning</li>
@@ -206,7 +214,7 @@ h3.ck svg.gt{width:2.8mm;height:2.4mm;flex:none;margin-right:1.8mm;margin-top:1.
         </ul>
       </div>
       <div>
-        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt"><svg class="tache" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M10,5 C28,1 50,8 78,5 C104,2 132,6 158,3 C176,1 194,4 197,13 C199,20 194,23 196,29 C197,36 184,39 168,36 C140,32 112,38 86,36 C58,34 36,40 16,36 C5,33 2,26 5,19 C2,12 4,7 10,5 Z" fill="#DCE2DF"></path></svg><span class="tx">Stratégie, études et récits</span></span></h3>
+        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt t3">Stratégie, études et récits</span></h3>
         <ul class="sk">
           <li>Étude de marché et analyse d'environnement</li>
           <li>Conception de questionnaires et analyse d'audience</li>
@@ -220,7 +228,7 @@ h3.ck svg.gt{width:2.8mm;height:2.4mm;flex:none;margin-right:1.8mm;margin-top:1.
         </ul>
       </div>
       <div>
-        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt"><svg class="tache" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M5,10 C12,3 30,7 54,4 C82,0 110,6 140,5 C164,4 184,1 194,8 C200,14 195,20 198,27 C197,35 186,38 170,37 C146,36 122,32 96,36 C70,40 42,34 20,37 C8,39 1,32 4,24 C1,17 2,13 5,10 Z" fill="#DCE2DF"></path></svg><span class="tx">Conception et usages</span></span></h3>
+        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt t4">Conception et usages</span></h3>
         <ul class="sk">
           <li>Vision usager</li>
           <li>Audit de l'existant</li>
@@ -232,7 +240,7 @@ h3.ck svg.gt{width:2.8mm;height:2.4mm;flex:none;margin-right:1.8mm;margin-top:1.
         </ul>
       </div>
       <div>
-        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt"><svg class="tache" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M8,7 C22,3 46,2 70,6 C98,10 126,2 152,4 C172,6 190,3 196,11 C199,17 196,22 198,28 C196,37 182,37 166,35 C138,32 114,39 88,38 C60,37 38,33 18,36 C7,38 2,33 3,26 C4,20 1,16 3,12 C4,9 5,8 8,7 Z" fill="#DCE2DF"></path></svg><span class="tx">Numérique</span></span></h3>
+        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt t5">Numérique</span></h3>
         <ul class="sk">
           <li>HTML, CSS, JavaScript</li>
           <li>Git et GitHub</li>
@@ -243,7 +251,7 @@ h3.ck svg.gt{width:2.8mm;height:2.4mm;flex:none;margin-right:1.8mm;margin-top:1.
         </ul>
       </div>
       <div>
-        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt"><svg class="tache" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4,15 C3,7 18,5 36,3 C64,0 90,7 118,6 C146,5 170,3 188,7 C198,10 199,18 197,25 C196,34 186,39 172,38 C148,36 124,35 98,37 C72,39 46,36 24,38 C10,39 3,34 4,27 C5,22 5,19 4,15 Z" fill="#DCE2DF"></path></svg><span class="tx">Outils et langues</span></span></h3>
+        <h3 class="ck"><svg class="gt" viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg><span class="tt t6">Outils et langues</span></h3>
         <ul class="sk">
           <li><strong style="font-weight:500">Outils :</strong> <span class="nb">SAGE ·</span> <span class="nb">CRM associatif ·</span> <span class="nb">Microsoft 365 et Excel ·</span> <span class="nb">Brevo ·</span> <span class="nb">HubSpot ·</span> <span class="nb">Git et GitHub ·</span> <span class="nb">GoatCounter ·</span> <span class="nb">CapCut ·</span> <span class="nb">WeasyPrint ·</span> <span class="nb">Claude ·</span> <span class="nb">ChatGPT</span></li>
           <li>Français, langue maternelle</li>
@@ -254,7 +262,7 @@ h3.ck svg.gt{width:2.8mm;height:2.4mm;flex:none;margin-right:1.8mm;margin-top:1.
     </div>
   </div>
 
-  <div style="display:grid;grid-template-columns:122mm 1fr;column-gap:6mm;padding:3.6mm 0 0 16mm">
+  <div class="bas" style="display:grid;grid-template-columns:122mm 1fr;column-gap:6mm;padding:3.6mm 0 0 16mm">
     <div>
       <div class="sec"><h2 class="st">PROJETS</h2><div class="filet"></div></div>
       <div class="cartes" style="margin-top:3mm">
