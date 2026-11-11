@@ -4,6 +4,10 @@ Le PDF téléchargeable `assets/cv/CV_Camille_Sauton_cheffe_de_projet_numerique.
 
 Ce dossier commence par un tiret bas : GitHub Pages ne le publie pas.
 
+## Dossier `cv-2026-11/`, CV « Cheffe de projets à impact »
+
+Nouvelle source du CV téléchargeable, au gabarit du 11 novembre 2026, écrite directement en HTML pour WeasyPrint. Elle remplacera la planche de `planche/` à la mise en ligne du nouveau CV. Fabrication, contrôles et règles de mise en page : voir `cv-2026-11/LISEZMOI.md`.
+
 ## Dossier `planche/`, chaîne en service
 
 - `planche.dc.html` : la planche « PDF » telle qu'exportée de Claude Design (archive « CV Camille Sauton.zip », artboard `CV Camille Sauton - PDF.dc.html`). Le texte du CV est là, et seulement là.

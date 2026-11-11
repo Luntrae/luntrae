@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Camille Sauton · CV</title>
+<meta name="author" content="Camille Sauton">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+  CV général « Cheffe de projets à impact », gabarit du 11 novembre 2026.
+  Fabrication, depuis le dossier qui contient ressources/ :
+    C:\msys64\mingw64\bin\weasyprint.exe CV_Camille_Sauton.html CV_Camille_Sauton.pdf
+  Ordre de lecture (pdftotext, lecteurs de CV automatisés) : lire LISEZMOI.md avant de toucher à la mise en page.
+-->
+<style>
+@font-face{font-family:"Cormorant Garamond";font-weight:400;font-style:normal;src:url("ressources/polices/cormorant-garamond-400.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-weight:500;font-style:normal;src:url("ressources/polices/cormorant-garamond-500.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-weight:600;font-style:normal;src:url("ressources/polices/cormorant-garamond-600.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-weight:400;font-style:italic;src:url("ressources/polices/cormorant-garamond-400-italic.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-weight:500;font-style:italic;src:url("ressources/polices/cormorant-garamond-500-italic.woff2") format("woff2")}
+@font-face{font-family:"Cormorant Titre";font-weight:600;font-style:normal;src:url("ressources/polices/cormorant-garamond-600-titre.woff2") format("woff2")}
+@font-face{font-family:"Spectral";font-weight:300;font-style:normal;src:url("ressources/polices/spectral-300.woff2") format("woff2")}
+@font-face{font-family:"Spectral";font-weight:400;font-style:normal;src:url("ressources/polices/spectral-400.woff2") format("woff2")}
+@font-face{font-family:"Spectral";font-weight:500;font-style:normal;src:url("ressources/polices/spectral-500.woff2") format("woff2")}
+@font-face{font-family:"Spectral";font-weight:400;font-style:italic;src:url("ressources/polices/spectral-400-italic.woff2") format("woff2")}
+/*FIN-POLICES*/
+@page{size:A4;margin:0;background:#FFFFFF}
+html,body{background:#FFFFFF;margin:0}
+section.page{width:210mm;height:296.9mm;box-sizing:border-box;background:#FFFFFF;position:relative;overflow:hidden;font-family:Spectral,Lora,serif;font-weight:400;color:#101820;font-size:9pt;line-height:1.4}
+a{color:#101820;text-decoration:none}
+h1,h2,h3,p,ul{margin:0}
+.pad{padding-left:16mm;padding-right:16mm}
+.sec{display:flex;align-items:baseline;width:89mm}
+h2.st{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:11.5pt;letter-spacing:0.08em;white-space:nowrap;margin-right:4mm}
+.filet{flex:1;height:1px;background:#8A6A4A;align-self:flex-end;margin-bottom:1.3mm}
+/* Titres de bloc : police de titrage au cadratin réduit, 9 pt nominal = 11 pt à l'oeil, 9.4 pt nominal = 11.5 pt.
+   Le corps nominal reste celui du texte courant : titre et contenu forment un seul bloc à l'extraction du texte. */
+h3{font-family:'Cormorant Titre','Cormorant Garamond',serif;font-weight:600;font-size:9pt;line-height:12.6pt}
+.it{font-style:italic}
+.nb{white-space:nowrap}
+ul.sk{list-style:none;padding:0;font-size:9pt;line-height:11.4pt}
+ul.sk li{background:radial-gradient(circle at 0.9mm 0.72em,#8A6A4A 0,#8A6A4A 0.5mm,rgba(0,0,0,0) 0.5mm);padding-left:3.2mm;break-inside:avoid}
+/* expériences antérieures : une cellule = un bloc de texte */
+.xp{display:grid;grid-template-columns:1fr 1fr;column-gap:9mm;row-gap:2.6mm;align-items:start}
+.xp p{line-height:12.2pt}
+/* cartes projet : une carte = un bloc de texte (interlignes réguliers, aucun écart supérieur à 1.5 pt) */
+.cartes{display:grid;grid-template-columns:repeat(3,1fr);column-gap:4mm;row-gap:3mm}
+.card{background:#F5EEDD;padding:2.6mm 3.4mm 2.6mm}
+.card p{line-height:11.7pt}
+.card p.d{margin-top:0.4mm}
+.card p.l{margin-top:0.5mm;font-size:8.6pt}
+/* compétences */
+.comp{display:grid;grid-template-columns:repeat(2,1fr);column-gap:5mm;row-gap:3.6mm;align-items:start}
+h3.ck{font-size:9.4pt;line-height:12.6pt;display:flex;align-items:flex-start;margin-bottom:0.3mm}
+h3.ck svg{width:2.8mm;height:2.4mm;flex:none;margin-right:1.8mm;margin-top:1.1mm}
+/* formation */
+.fe{position:relative;padding-left:6.5mm;margin-bottom:3.2mm;line-height:11.4pt}
+.fd{font-family:'Cormorant Titre','Cormorant Garamond',serif;font-weight:600;font-size:9pt;line-height:12pt;color:#b6905f;display:block}
+.dot{width:2.4mm;height:2.4mm;border-radius:50%;background:#8A6A4A;position:absolute;left:0;top:1mm;display:block}
+.ft{position:absolute;right:8mm;bottom:5mm;display:flex;justify-content:flex-end;font-size:8pt;letter-spacing:0.01em}
+.ft span+span{margin-left:3.5mm}
+</style>
+</head>
+<body>
+
+<section class="page">
+  <div style="position:relative;background:#16212c;height:56mm;overflow:hidden">
+    <img src="ressources/portrait.jpg" alt="Portrait de Camille Sauton" style="position:absolute;right:-2mm;top:-9mm;height:88mm">
+    <div style="position:absolute;left:0;top:0;width:100%;height:100%;background:radial-gradient(circle at 86% 4%, rgba(138,106,74,0.18), rgba(138,106,74,0) 56%)"></div>
+    <div style="position:absolute;left:16mm;top:9mm;right:82mm;display:flex;align-items:center">
+      <img src="ressources/embleme-web.png" alt="Emblème LUNTRAE" style="width:25mm;height:25mm;flex:none;margin-right:7mm">
+      <div>
+        <h1 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22pt;letter-spacing:0.08em;color:#E8ECEF;line-height:1.18;display:flex;flex-direction:column"><span>CAMILLE </span><span>SAUTON</span></h1>
+        <div style="display:flex;align-items:center;margin-top:2.5mm">
+          <div style="width:9mm;height:1px;background:#8A6A4A;margin-right:4mm"></div>
+          <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13.5pt;color:#b6905f;white-space:nowrap">Cheffe de projets à impact</div>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;left:16mm;bottom:6mm;right:82mm">
+      <div style="font-size:9pt;color:#c4ccd1;letter-spacing:0.03em;margin-bottom:1.4mm">Pilotage · Développement · Mobilisation des publics</div>
+      <div style="font-size:8.6pt;color:#c4ccd1">Rochefort (17) · luntrae@proton.me · linkedin.com/in/camille-stn · luntrae.fr</div>
+    </div>
+  </div>
+
+  <div class="pad" style="padding-top:4mm">
+    <div class="sec"><h2 class="st">PROFIL</h2><div class="filet"></div></div>
+    <div style="position:relative;margin-top:2.5mm">
+      <svg viewBox="0 0 1780 460" preserveAspectRatio="none" style="position:absolute;left:0;top:0;width:100%;height:100%;display:block" aria-hidden="true">
+        <path d="M40,70 C60,20 150,14 300,18 C600,26 900,6 1200,14 C1420,20 1600,8 1700,24 C1760,34 1776,90 1770,180 C1764,260 1780,340 1756,400 C1736,446 1640,452 1500,446 C1200,434 900,456 600,448 C400,442 200,458 90,440 C20,428 8,360 14,280 C20,200 6,140 40,70 Z" fill="#F5EEDD"></path>
+      </svg>
+      <p style="position:relative;padding:4.4mm 8mm 4.8mm;font-size:9.5pt;line-height:1.45;text-align:left">En 2018, j'ai intégré une association nationale de protection de la nature. Au quotidien, j'ai appris ce qui fait agir et soutenir, et ce qui freine la mobilisation. C'est de là que vient ma façon de concevoir, avec l'autre œil formé en stratégie et marketing. Depuis cette année, je m'exprime via LUNTRAE, mon univers de création : j'y pilote des projets de A à Z, je m'appuie sur les données avant de décider, et je vais jusqu'à coder les outils numériques quand il le faut. Grâce à mes expériences variées, je suis celle qui parle à chaque public dans sa langue, et qui fait tenir tout le monde ensemble. Je souhaite mettre mes compétences au service de causes d'intérêt général, le vivant en priorité.</p>
+    </div>
+  </div>
+
+  <div class="pad" style="padding-top:4.2mm">
+    <div class="sec"><h2 class="st">EXPÉRIENCE</h2><div class="filet"></div></div>
+    <div style="margin-top:3mm;background:#D5DCD8">
+      <div style="background:#16212c;padding:2mm 3.5mm 2.3mm">
+        <h3 style="color:#b6905f;font-size:9.4pt;line-height:13.8pt">Chargée des relations sympathisants · depuis 2018</h3>
+        <div class="it" style="color:#c4ccd1">Ligue pour la Protection des Oiseaux, Rochefort · CDI</div>
+      </div>
+      <ul class="sk" style="line-height:12.2pt;padding:2.6mm 3.5mm 3mm;column-count:2;column-gap:7mm">
+        <li>Contact direct des donateurs, adhérents et abonnés : téléphone, e-mail, courrier.</li>
+        <li>Accompagnement des usagers sur les outils numériques, y compris les publics éloignés du digital.</li>
+        <li>Conduite du changement lors d'une fusion de services ; formation des équipes et amélioration des process.</li>
+        <li>Force de proposition sur l'évolution des outils : remontées d'améliorations sur le CRM et l'espace compte.</li>
+        <li>Suivi et mise à jour des tableaux de bord de la collecte.</li>
+        <li>Fiabilisation et intégration des données dans le CRM ; dons et prélèvements via SAGE, clôture mensuelle.</li>
+      </ul>
+    </div>
+    <div class="xp" style="margin-top:3.5mm">
+      <div>
+        <h3>Communication et événementiel · 2017 · stage</h3>
+        <p class="it">Le Trèfle, tiers-lieu, Boulogne-Billancourt</p>
+        <p>Communication interne et externe, relation entrepreneurs et partenaires, supports visuels, événements dont la soirée d'inauguration, en coordination avec les élus locaux.</p>
+      </div>
+      <div>
+        <h3>Assistante marketing et communication · 2016 · stage international</h3>
+        <p class="it">Tridamia, Lima, Pérou</p>
+        <p>Marketing et communication d'événements pour entrepreneurs, en environnement multiculturel. Photographie, montage vidéo, design, création web.</p>
+      </div>
+      <div>
+        <h3>Communication et catalogue local · 2015 · stage</h3>
+        <p class="it">ACAL, association, Latresne</p>
+        <p>Structuration et lisibilité des données d'un catalogue de commerçants.</p>
+      </div>
+      <div>
+        <h3>Assistante commerciale · 2012 à 2013</h3>
+        <p class="it">Aelix Immobilier et La Bourse de l'Immobilier, Talence</p>
+        <p>Prospection, analyse des besoins, relation client et gestion documentaire.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pad" style="padding-top:4.2mm">
+    <div class="sec"><h2 class="st">VEILLE ET CENTRES D'INTÉRÊT</h2><div class="filet"></div></div>
+    <div style="margin-top:3mm;display:grid;grid-template-columns:1fr 66mm;column-gap:5mm;align-items:center">
+      <ul class="sk" style="line-height:11.7pt">
+        <li>Transition écologique et vivant : alimentation, agriculture, économie locale</li>
+        <li>IA et esprit critique : usages de l'IA dans la conception de services numériques</li>
+        <li>Curiosité transversale : sciences humaines, du vivant et exactes. Comprendre un environnement large m'aide à concevoir juste.</li>
+        <li>Art contemporain engagé</li>
+        <li>Écriture longue : roman en cours, construction d'univers</li>
+        <li>Jeux PC de gestion et de stratégie</li>
+        <li>Membre d'un groupe d'échanges pluridisciplinaire sur les usages numériques et l'IA</li>
+        <li>Tendances UX</li>
+      </ul>
+      <div style="position:relative;height:40mm">
+        <svg viewBox="0 0 700 420" preserveAspectRatio="none" style="position:absolute;left:0;top:0;width:100%;height:100%;display:block" aria-hidden="true">
+          <path d="M30,216 C12,152 52,86 100,72 C112,40 104,14 146,8 C190,2 208,44 250,38 C302,30 320,6 372,12 C424,18 428,56 468,60 C520,66 558,32 602,58 C650,88 672,138 656,186 C646,214 682,238 668,272 C654,308 600,300 578,326 C552,356 500,338 462,352 C414,370 386,404 336,392 C292,382 288,346 244,344 C196,342 160,372 122,350 C80,326 96,286 66,270 C38,254 36,240 30,216 Z" fill="#16212c"></path>
+          <path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path>
+          <path d="M306,392 C314,390 322,395 323,402 C324,409 318,415 310,415 C302,415 296,410 296,403 C296,397 300,393 306,392 Z" fill="#72897D"></path>
+        </svg>
+        <div style="position:relative;padding:8.5mm 10mm 0 10.5mm">
+          <h2 style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:10.5pt;letter-spacing:0.08em;color:#b6905f">Approche créative</h2>
+          <p style="margin-top:1.6mm;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:9.5pt;line-height:1.28;color:#E8ECEF">Je m'intéresse aux moyens créatifs de faire passer un message par l'émotion et l'expérience, plutôt que par le discours direct.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ft"><span>LUNTRAE · Camille Sauton · 2026</span><span>1 / 2</span></div>
+</section>
+
+<section class="page">
+  <div class="pad" style="background:#16212c;padding-top:2.4mm;padding-bottom:2.4mm;display:flex;justify-content:space-between;align-items:baseline">
+    <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:11.5pt;letter-spacing:0.08em;color:#E8ECEF;white-space:nowrap">CAMILLE SAUTON</span>
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:10.5pt;color:#b6905f;white-space:nowrap">Cheffe de projets à impact · luntrae.fr</span>
+  </div>
+
+  <div class="pad" style="padding-top:4mm">
+    <div class="sec"><h2 class="st">PROJETS</h2><div class="filet"></div></div>
+    <div class="cartes" style="margin-top:3mm">
+      <div class="card">
+        <h3>Projet confidentiel</h3>
+        <p class="it">Conception produit et pilotage, en cours</p>
+        <p class="d">Projet numérique d'engagement éthique, en conception. Analyse d'environnement, étude de marché, cahier des charges et feuille de route.</p>
+        <p class="it l"><a href="https://luntrae.fr/projets/projet-confidentiel">luntrae.fr/projets/projet-confidentiel</a></p>
+      </div>
+      <div class="card">
+        <h3>Le Gentle</h3>
+        <p class="it">Montage de projet entrepreneurial, non lancé</p>
+        <p class="d">Conception d'un tiers-lieu calme à vocation solidaire, du concept au dossier chiffré. Étude de marché, modèle économique, modélisation financière sur trois ans.</p>
+        <p class="it l"><a href="https://luntrae.fr/projets/le-gentle">luntrae.fr/projets/le-gentle</a></p>
+      </div>
+      <div class="card">
+        <h3>Méthode de repositionnement professionnel</h3>
+        <p class="it">Outil à visée sociale</p>
+        <p class="d">Un travail fait d'abord pour moi, puis transformé en parcours guidé de onze étapes. Testé sur trois accompagnements.</p>
+        <p class="it l"><a href="https://luntrae.fr/projets/methode-repositionnement">luntrae.fr/projets/<br>methode-repositionnement</a></p>
+      </div>
+      <div class="card">
+        <h3>Kintara Ceramics</h3>
+        <p class="it">Direction stratégique de marque, bénévolat</p>
+        <p class="d">Travail sur la lisibilité de l'offre : positionnement, architecture de gamme, nommage des collections, stratégie éditoriale et cahier des charges d'une refonte e-commerce.</p>
+        <p class="it l"><a href="https://luntrae.fr/projets/kintara-ceramics">luntrae.fr/projets/kintara-ceramics</a></p>
+      </div>
+      <div class="card">
+        <h3>Geneapop</h3>
+        <p class="it">Conception produit et développement, en solo</p>
+        <p class="d">Application web qui transforme des données familiales dispersées en un arbre vivant, interactif et cartographié. Conçue, spécifiée et développée seule.</p>
+        <p class="it l"><a href="https://luntrae.fr/projets/geneapop">luntrae.fr/projets/geneapop</a></p>
+      </div>
+      <div class="card">
+        <h3>Écosystème LUNTRAE</h3>
+        <p class="it">Conception, déploiement et éditorial</p>
+        <p class="d">Un site créé de A à Z, pas assemblé : code écrit à la main, domaine et DNS, HTTPS, polices auto-hébergées, mesure d'audience sans cookie. Identité et contenus compris.</p>
+        <p class="it l"><a href="https://luntrae.fr">luntrae.fr</a></p>
+      </div>
+    </div>
+    <p class="it" style="margin-top:2mm">Plus de projets et d'idées à découvrir sur <a href="https://luntrae.fr/projets">luntrae.fr/projets</a></p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:122mm 1fr;column-gap:6mm;padding:3.6mm 0 0 16mm">
+    <div>
+      <div class="sec"><h2 class="st">COMPÉTENCES</h2><div class="filet"></div></div>
+      <div class="comp" style="margin-top:3mm">
+        <div>
+          <h3 class="ck"><svg viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg>Mobilisation et engagement des publics</h3>
+          <ul class="sk">
+            <li>Relation multicanale avec les donateurs, adhérents et abonnés</li>
+            <li>Accompagnement des publics éloignés du numérique</li>
+            <li>Collecte de fonds et engagement associatif</li>
+            <li>E-mailing et campagnes</li>
+            <li>Animation d'événements et de communautés</li>
+            <li>Suivi de la collecte et des dons</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="ck"><svg viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg>Gestion de projet et pilotage</h3>
+          <ul class="sk">
+            <li>Pilotage de projet de A à Z</li>
+            <li>Feuille de route et rétroplanning</li>
+            <li>Indicateurs de suivi et tableaux de bord</li>
+            <li>Documentation et journal de décisions</li>
+            <li>Coordination de prestataires, de partenaires et de parties prenantes</li>
+            <li>Arbitrage périmètre, délai, qualité</li>
+            <li>Conduite du changement et formation</li>
+            <li>Vulgarisation et pédagogie</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="ck"><svg viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg>Stratégie, études et récits</h3>
+          <ul class="sk">
+            <li>Étude de marché et analyse d'environnement</li>
+            <li>Conception de questionnaires et analyse d'audience</li>
+            <li>Positionnement et architecture d'offre</li>
+            <li>Business plan, budgets et projections financières</li>
+            <li>Nommage et identité de marque</li>
+            <li>Stratégie éditoriale multicanale</li>
+            <li>Mise en œuvre opérationnelle des plans d'action</li>
+            <li>Production de contenus et supports</li>
+            <li>Direction artistique</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="ck"><svg viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg>Conception et usages</h3>
+          <ul class="sk">
+            <li>Vision usager</li>
+            <li>Audit de l'existant</li>
+            <li>Cadrage fonctionnel</li>
+            <li>Personas et parcours utilisateur</li>
+            <li>Cahier des charges fonctionnel</li>
+            <li>Backlog et priorisation</li>
+            <li>Recette et itérations</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="ck"><svg viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg>Numérique</h3>
+          <ul class="sk">
+            <li>HTML, CSS, JavaScript</li>
+            <li>Git et GitHub</li>
+            <li>Déploiement web (DNS, HTTPS)</li>
+            <li>Automatisation et intégration d'API</li>
+            <li>Référencement naturel et accessibilité</li>
+            <li>IA générative : conception, structuration, orchestration</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="ck"><svg viewBox="238 372 52 44" aria-hidden="true"><path d="M258,374 C272,372 286,380 288,392 C290,404 280,414 266,414 C252,414 240,406 240,394 C240,384 247,376 258,374 Z" fill="#72897D"></path></svg>Outils et langues</h3>
+          <p style="line-height:11.4pt;padding-left:3.2mm"><strong style="font-weight:500">Outils :</strong> <span class="nb">SAGE ·</span> <span class="nb">CRM associatif ·</span> <span class="nb">Microsoft 365 et Excel ·</span> <span class="nb">Brevo ·</span> <span class="nb">HubSpot ·</span> <span class="nb">Git et GitHub ·</span> <span class="nb">GoatCounter ·</span> <span class="nb">CapCut ·</span> <span class="nb">WeasyPrint ·</span> <span class="nb">Claude ·</span> <span class="nb">ChatGPT</span></p>
+          <p style="line-height:11.4pt;margin-top:0.5mm;padding-left:3.2mm"><strong style="font-weight:500">Langues :</strong> <span class="nb">Français, langue maternelle ·</span> <span class="nb">Espagnol, intermédiaire avancé ·</span> <span class="nb">Anglais, intermédiaire avancé</span></p>
+        </div>
+      </div>
+    </div>
+    <div style="position:relative;color:#c4ccd1;font-size:9pt">
+      <svg viewBox="0 0 690 2060" preserveAspectRatio="none" style="position:absolute;left:-3mm;top:-9mm;width:69mm;height:206mm;display:block" aria-hidden="true">
+        <path d="M690,0 C630,16 590,48 530,90 C460,140 360,128 280,176 C210,220 134,246 106,330 C84,400 126,500 100,610 C80,700 114,810 88,920 C68,1010 96,1120 74,1230 C58,1320 78,1420 56,1520 C40,1600 46,1700 26,1790 C12,1860 14,1960 4,2060 L690,2060 Z" fill="#16212c"></path>
+        <path d="M428,44 C442,42 456,50 458,62 C460,74 450,84 436,84 C422,84 410,76 410,64 C410,54 417,46 428,44 Z" fill="#72897D"></path>
+        <path d="M376,98 C384,96 392,101 393,108 C394,115 388,121 380,121 C372,121 366,116 366,109 C366,103 370,99 376,98 Z" fill="#72897D"></path>
+      </svg>
+      <div style="position:relative;padding:16.5mm 8mm 0 11mm">
+        <h2 class="st" style="color:#E8ECEF;margin:0 0 4.5mm 6.5mm">FORMATION</h2>
+        <div style="position:relative">
+          <div style="position:absolute;left:1mm;top:2mm;bottom:12mm;width:0.4mm;background:#8A6A4A"></div>
+          <p class="fe"><span class="dot"></span><span class="fd">2010-2011</span> Licence LLCE Espagnol · Université Bordeaux Montaigne</p>
+          <p class="fe"><span class="dot"></span><span class="fd">2011-2013</span> BTS Négociation et Relation Client · Lycée Victor Louis, Talence</p>
+          <p class="fe"><span class="dot"></span><span class="fd">2014-2015</span> Licence Marketing Communication · ISEG (Institut Supérieur Européen de Gestion), option espagnol</p>
+          <p class="fe" style="color:#E8ECEF"><span class="dot" style="left:-0.5mm;top:0.5mm;width:3.4mm;height:3.4mm;background:#b6905f"></span><span class="fd" style="color:#E8ECEF">2015-2017</span> Manager du développement marketing et commercial, Digital Manager · ISEG · Bac+5, titre certifié niveau I, 2017</p>
+          <p class="fe"><span class="dot"></span><span class="fd">2024</span> Gestion des impayés · Ligue pour la Protection des Oiseaux</p>
+          <p class="fe"><span class="dot"></span><span class="fd">Depuis mai 2026</span> Formation autodidacte · Développement et code</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img src="ressources/embleme-web.png" alt="Emblème LUNTRAE" style="position:absolute;right:9mm;bottom:11mm;width:11mm;height:11mm">
+
+  <div class="ft" style="color:#c4ccd1"><span>LUNTRAE · Camille Sauton · 2026</span><span>2 / 2</span></div>
+</section>
+</body>
+</html>
