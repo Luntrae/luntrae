@@ -6,8 +6,8 @@ Mantra : Des systèmes pour des futurs plus doux.
 
 ## Principes
 
-- Aucun cookie, aucun formulaire, aucune collecte de données personnelles. La mesure d'audience passe par GoatCounter, sans cookie ni identifiant.
-- Polices auto-hébergées (Cormorant Garamond et Spectral, sous-ensembles latin), aucune requête vers un service tiers hormis le script d'audience.
+- Aucun cookie et aucune collecte de données personnelles par le site lui-même. La mesure d'audience passe par GoatCounter, sans cookie ni identifiant. Un seul formulaire : Le Q, questionnaire anonyme géré par Tally et intégré à la page `/le-q/`.
+- Polices auto-hébergées (Cormorant Garamond et Spectral, sous-ensembles latin), aucune requête vers un service tiers hormis le script d'audience et, sur la seule page `/le-q/`, le script et le cadre du formulaire Tally.
 - Fond obsidienne `#101820`, bronze pour les accents, blanc lunaire pour le texte. La référence est la charte d'identité V4, tenue hors dépôt.
 - Aucun tiret cadratin ni demi-cadratin dans les fichiers, aucun caractère invisible. Un H1 par page, aucun niveau de titre sauté.
 - Fins de ligne en LF partout (`.gitattributes`).
@@ -18,7 +18,7 @@ Seize pages publiques et une page d'erreur, toutes indexables sauf la 404.
 
 | URL | Fichier | Contenu |
 |---|---|---|
-| `/` | `index.html` | Accueil : hero sur l'ambiance nocturne, présentation, quatre piliers de l'approche, réflexion sur l'attention, trois portes vers les projets, les séries et la liste des projets. Porte la fiche `Person` complète. |
+| `/` | `index.html` | Accueil : bandeau « À la une » en tête de page, hero sur l'ambiance nocturne, présentation, quatre piliers de l'approche, réflexion sur l'attention, trois portes vers les projets, les séries et la liste des projets. Porte la fiche `Person` complète. |
 | `/a-propos/` | `a-propos/index.html` | La créatrice : bloc d'ouverture, parcours, façon de travailler, projets reliés, ce qui l'inspire, ce qui l'intéresse aujourd'hui. Photo en tête, bouton vers le CV. |
 | `/cv/` | `cv/index.html` | CV en ligne, version développée du PDF : profil, expérience, compétences sur panneau crème (outils et langues compris), formation en frise, veille et centres d'intérêt, approche créative, puis les projets en fiches courtes qui renvoient vers leurs pages. Sommaire ancré, téléchargement du résumé PDF. |
 | `/univers/` | `univers/index.html` | L'Univers LUNTRAE : pourquoi il existe, le nom (lutra et luna), la loutre, la lune, l'eau, les couleurs, la position sur les outils IA, quatre espèces de loutre en planches naturalistes, crédits. Sommaire ancré. |
@@ -32,8 +32,10 @@ Seize pages publiques et une page d'erreur, toutes indexables sauf la 404.
 | `/projets/leax/` | `projets/leax/index.html` | Léax, roman en cours et construction d'un univers mythologique. |
 | `/series/` | `series/index.html` | Séries éditoriales : pourquoi regarder du côté de l'art, L'Observatoire (lancée) et L'Atelier (à venir), extrait du premier épisode. |
 | `/contact/` | `contact/index.html` | Page Contact : ce qui intéresse Camille, comment la joindre (une adresse, pas de formulaire), ce qu'on peut consulter avant. |
+| `/le-q/` | `le-q/index.html` | Le Q, le questionnaire de LUNTRAE : bannière (image du gabarit et texte en HTML), puis formulaire Tally intégré. Seule page qui charge le script de Tally. |
+| `/liens/` | `liens/index.html` | Page de liens pour la bio Instagram, pensée d'abord pour le mobile, sans la navigation du site : trois terriers (accueil, projets, Le Q) et la loutre animée. Absente du plan du site. |
 | `/mentions-legales.html` | `mentions-legales.html` | Mentions légales : éditrice, hébergeur, nom de domaine, propriété intellectuelle, données personnelles. |
-| `/confidentialite.html` | `confidentialite.html` | Confidentialité : mesure d'audience sans cookie, e-mail, droits. |
+| `/confidentialite.html` | `confidentialite.html` | Confidentialité : mesure d'audience sans cookie, hébergeur, réponses au Q, e-mail, droits, date de mise à jour. |
 | 404 | `404.html` | Page introuvable, en `noindex`, avec des chemins de sortie vers les projets, À propos et Contact. |
 
 Chaque page projet se termine par un bloc « Projet suivant » qui boucle sur les sept dans l'ordre de l'index, puis par le retour à l'index. Le bloc contact de pied de page est présent sur les treize pages de contenu.
@@ -44,8 +46,10 @@ Chaque page projet se termine par un bloc « Projet suivant » qui boucle sur le
 assets/css/styles.css      feuille de styles unique
 assets/js/main.js          interactions : révélation au défilement, ciel étoilé, menu, sommaires,
                            fil d'eau, mesure des clics (délégation, sans attribut en ligne)
+assets/js/liens.js         animation de la loutre sur la page de liens (les liens fonctionnent sans lui)
 assets/fonts/              Cormorant Garamond 400, 500, 600, italiques 400 et 500 ; Spectral 300, 400, 500, italique 400
 assets/img/                images du site en WebP, favicon, image Open Graph
+assets/img/le-q/           bannière du Q : gabarit sans texte en 1584 et 900 px, recadrage mobile
 assets/img/loutres/        quatre planches naturalistes en 1400 et 700 px
 assets/img/series/         visuels des séries et cartes du premier épisode
 assets/cv/                 PDF du CV téléchargeable
@@ -58,6 +62,12 @@ sitemap.xml, robots.txt, site.webmanifest, CNAME
 Les dossiers commençant par un tiret bas ne sont pas publiés par GitHub Pages. Les fichiers sources lourds (PNG d'origine, export complet de Claude Design) restent sur le disque et sont ignorés par git.
 
 Le PDF du CV, `assets/cv/CV_Camille_Sauton.pdf`, est produit par WeasyPrint depuis `_cv-source/cv-2026-11/CV_Camille_Sauton.html`, avec les polices du site embarquées, afin de s'afficher sur mobile et de se lire dans le bon ordre par les lecteurs de CV automatisés ; la notice est dans `_cv-source/cv-2026-11/LISEZMOI.md`.
+
+## À la une et Le Q
+
+Le bandeau « À la une » de l'accueil et la bannière de la page Le Q partagent le même gabarit (`.une` dans la feuille de styles) : une image sans texte et un texte en HTML posé dans sa zone libre, qui passe sous l'image sur écran étroit. Pour changer d'actualité sur l'accueil, il suffit de remplacer l'image, le texte et le lien du bloc `À LA UNE` de `index.html`.
+
+Le formulaire est intégré avec le code « Standard » de Tally. Le champ caché `source` vaut `site` par défaut ; un paramètre `?source=…` dans l'adresse de la page est transmis par le script de Tally et l'emporte (vérifié le 22 novembre 2026 : avec `?source=instagram`, Tally enregistre `instagram`).
 
 ## Mesure d'audience
 
