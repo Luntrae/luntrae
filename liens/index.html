@@ -30,6 +30,7 @@
 
 <!-- Polices auto-hébergées (via @font-face dans styles.css) -->
 <link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-500.woff2">
+<link rel="preload" as="image" href="/assets/img/LUNTRAE_logo-complet_bronze.webp" type="image/webp">
 <link rel="preload" as="image" href="/assets/img/loutre-terrier.webp" type="image/webp">
 
 <!-- Styles -->
@@ -41,19 +42,22 @@
      Chaque lien est un terrier. Ce sont de vrais liens : sans script, ou si l'animation échoue, le clic mène
      directement à la destination. La loutre est la silhouette de l'emblème, purement décorative. -->
 <main class="liens" id="top">
-  <h1>LUNTRAE</h1>
+  <h1>
+    <img src="/assets/img/LUNTRAE_logo-complet_bronze.webp" alt="LUNTRAE" width="480" height="488" fetchpriority="high">
+    <img class="reflet" src="/assets/img/LUNTRAE_logo-complet_bronze.webp" alt="" aria-hidden="true" width="480" height="488">
+  </h1>
   <ul class="terriers">
+    <li><a class="terrier" href="/le-q/">
+      <span class="trou" aria-hidden="true"><span class="bouche"></span><span class="guet"><img src="/assets/img/loutre-terrier.webp" alt="" width="286" height="196"></span></span>
+      <span class="nom">Le Q</span>
+    </a></li>
     <li><a class="terrier" href="/">
       <span class="trou" aria-hidden="true"><span class="bouche"></span><span class="guet"><img src="/assets/img/loutre-terrier.webp" alt="" width="286" height="196"></span></span>
-      <span class="nom">Accueil</span>
+      <span class="nom">Site luntrae.fr</span>
     </a></li>
     <li><a class="terrier" href="/projets/">
       <span class="trou" aria-hidden="true"><span class="bouche"></span><span class="guet"><img src="/assets/img/loutre-terrier.webp" alt="" width="286" height="196"></span></span>
       <span class="nom">Projets</span>
-    </a></li>
-    <li><a class="terrier" href="/le-q/">
-      <span class="trou" aria-hidden="true"><span class="bouche"></span><span class="guet"><img src="/assets/img/loutre-terrier.webp" alt="" width="286" height="196"></span></span>
-      <span class="nom">Le Q</span>
     </a></li>
   </ul>
 </main>

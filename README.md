@@ -32,8 +32,8 @@ Seize pages publiques et une page d'erreur, toutes indexables sauf la 404.
 | `/projets/leax/` | `projets/leax/index.html` | Léax, roman en cours et construction d'un univers mythologique. |
 | `/series/` | `series/index.html` | Séries éditoriales : pourquoi regarder du côté de l'art, L'Observatoire (lancée) et L'Atelier (à venir), extrait du premier épisode. |
 | `/contact/` | `contact/index.html` | Page Contact : ce qui intéresse Camille, comment la joindre (une adresse, pas de formulaire), ce qu'on peut consulter avant. |
-| `/le-q/` | `le-q/index.html` | Le Q, le questionnaire de LUNTRAE : bannière (image du gabarit et texte en HTML), puis formulaire Tally intégré. Seule page qui charge le script de Tally. |
-| `/liens/` | `liens/index.html` | Page de liens pour la bio Instagram, pensée d'abord pour le mobile, sans la navigation du site : trois terriers (accueil, projets, Le Q) et la loutre animée. Absente du plan du site. |
+| `/le-q/` | `le-q/index.html` | Le Q, le questionnaire de LUNTRAE : bannière (image du gabarit et texte en HTML), puis formulaire Tally intégré, dont la couverture est rognée par la feuille de styles pour ne pas doubler la bannière. Seule page qui charge le script de Tally. |
+| `/liens/` | `liens/index.html` | Page de liens pour la bio Instagram, pensée d'abord pour le mobile, sans la navigation du site : le logo complet et son reflet, puis trois terriers (Le Q, le site, les projets) et la loutre animée. Absente du plan du site. |
 | `/mentions-legales.html` | `mentions-legales.html` | Mentions légales : éditrice, hébergeur, nom de domaine, propriété intellectuelle, données personnelles. |
 | `/confidentialite.html` | `confidentialite.html` | Confidentialité : mesure d'audience sans cookie, hébergeur, réponses au Q, e-mail, droits, date de mise à jour. |
 | 404 | `404.html` | Page introuvable, en `noindex`, avec des chemins de sortie vers les projets, À propos et Contact. |
