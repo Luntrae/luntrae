@@ -891,6 +891,88 @@ main{display:block;position:relative;z-index:2}
 @media(max-width:520px){}
 
 /* --- Préférence « mouvement réduit » ---------------------------------- */
+/* --- À LA UNE : bandeau d'actualité de l'accueil et bannière de la page Le Q ---------------
+   L'image est une balise image (le logo qu'elle porte a du sens) et le texte est du vrai texte, posé dans la zone
+   libre du gabarit, entre le logo à gauche et l'emblème à droite. Pour changer d'actualité sur l'accueil :
+   remplacer l'image, le texte et le lien dans le bloc « À LA UNE » de index.html, rien d'autre. */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.une{position:relative;width:min(1100px,100% - 8vw);margin:1.1rem auto 0;border-radius:6px;overflow:hidden;
+  border:1px solid var(--line-soft);background:var(--obs-2)}
+.wrap .une{width:100%}
+.une picture{display:block;position:relative}
+.une img{display:block;width:100%;height:auto}
+.une-texte{position:absolute;left:41%;right:18.5%;top:0;bottom:0;display:flex;flex-direction:column;
+  justify-content:center;align-items:flex-start;gap:clamp(.5rem,1.1vw,1rem)}
+.une-texte p{font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--lunaire);margin:0;
+  font-size:clamp(1rem,1.95vw,1.55rem);line-height:1.34;letter-spacing:.005em}
+.une-texte .cta{font-size:clamp(.95rem,1.35vw,1.08rem);padding:.55rem 1.4rem}
+.une-texte .cta:focus-visible{outline:2px solid var(--lunaire);outline-offset:3px}
+@media(max-width:760px){
+  /* écran étroit : l'image, recadrée sur le logo, se fond dans le panneau ; le texte passe dessous */
+  .une picture::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30%;
+    background:linear-gradient(180deg,rgba(22,33,44,0),var(--obs-2))}
+  .une-texte{position:static;padding:.6rem 1.3rem 1.4rem;gap:1rem}
+  .une-texte p{font-size:1.2rem}
+  .une-texte .cta{font-size:1.05rem;padding:.7rem 1.6rem}
+}
+
+/* --- PAGE LE Q : bannière puis formulaire intégré ------------------------------------------ */
+.page-q{padding:3vh 0 1.5vh}
+.page-q .une{margin-top:0}
+.q-formulaire{margin:1.8rem auto 0;max-width:1100px}
+.q-formulaire iframe{display:block;border:0}
+
+/* --- PAGE LIENS : trois terriers et une loutre ---------------------------------------------
+   Chaque lien est un terrier. La loutre (silhouette de l'emblème, décor seul) sort d'un terrier, regarde à droite
+   et à gauche, puis replonge. Sans script, l'animation de repos tourne seule en CSS. Avec le script, la liste
+   reçoit la classe « pilote » et les classes dehors, gauche, plonge et replonge commandent la loutre. */
+.liens-page{min-height:100vh;display:flex;flex-direction:column}
+.liens-page footer{margin-top:0}
+.liens{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:2.2rem 1.2rem 1.8rem;text-align:center}
+.liens h1{font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--bronze-br);
+  font-size:clamp(1.8rem,7.5vw,2.5rem);letter-spacing:.34em;text-indent:.34em;margin:0 0 1.4rem}
+.terriers{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;align-items:center;gap:.9rem}
+.terrier{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--lunaire);
+  padding:.3rem 1.6rem .7rem;border-radius:12px;-webkit-tap-highlight-color:transparent}
+.terrier:focus-visible{outline:2px solid var(--bronze-br);outline-offset:3px}
+.trou{position:relative;display:block;width:9.6rem;height:6.4rem}
+.bouche{position:absolute;left:5%;right:5%;bottom:0;height:2.1rem;border-radius:50%;
+  background:#0b1117;border:1px solid var(--line);box-shadow:inset 0 7px 12px rgba(0,0,0,.65);
+  transition:border-color .3s}                       /* obsidienne profonde : le creux */
+.guet{position:absolute;left:0;right:0;top:0;bottom:1.05rem;
+  clip-path:inset(-140% -40% 0 -40%)}                /* coupe la loutre au niveau du terrier, pas au-dessus */
+.guet img{position:absolute;left:50%;bottom:0;width:6.6rem;height:auto;margin-left:-3.3rem;
+  transform:translateY(104%);transform-origin:50% 100%;transition:transform .45s cubic-bezier(.3,.8,.3,1)}
+.nom{font-family:"Cormorant Garamond",serif;font-size:1.15rem;letter-spacing:.22em;text-indent:.22em;
+  text-transform:uppercase;margin-top:.55rem;transition:color .3s}
+.terrier:hover .nom,.terrier:focus-visible .nom{color:var(--bronze-br)}
+.terrier:hover .bouche,.terrier:focus-visible .bouche{border-color:var(--bronze-br)}
+/* repos sans script : un terrier après l'autre, sur un cycle de quinze secondes */
+@keyframes guette{0%,78%,100%{transform:translateY(104%)}82%,86%{transform:translateY(6%)}
+  87%,91%{transform:translateY(6%) scaleX(-1)}92%,95%{transform:translateY(6%)}}
+.terriers:not(.pilote) .guet img{animation:guette 15s ease-in-out infinite}
+.terriers:not(.pilote) li:nth-child(1) .guet img{animation-delay:-8s}
+.terriers:not(.pilote) li:nth-child(2) .guet img{animation-delay:-3s}
+.terriers:not(.pilote) li:nth-child(3) .guet img{animation-delay:-13s}
+/* avec le script */
+.terrier.dehors .guet img{transform:translateY(6%)}
+.terrier.dehors.gauche .guet img{transform:translateY(6%) scaleX(-1)}
+@keyframes plonge{0%{transform:translateY(-78%) rotate(-10deg);opacity:0}22%{opacity:1}
+  45%{transform:translateY(-24%) rotate(4deg);opacity:1}100%{transform:translateY(108%) rotate(16deg);opacity:1}}
+@keyframes replonge{0%{transform:translateY(6%)}30%{transform:translateY(-10%) rotate(6deg)}
+  100%{transform:translateY(108%) rotate(16deg)}}
+.terrier.plonge .guet img{animation:plonge .62s cubic-bezier(.5,0,.8,.4) forwards}
+.terrier.replonge .guet img{animation:replonge .62s cubic-bezier(.5,0,.8,.4) forwards}
+@media(min-width:760px){
+  .terriers{flex-direction:row;align-items:flex-end;gap:2.6rem}
+  .liens h1{margin-bottom:2.2rem}
+}
+@media(prefers-reduced-motion:reduce){
+  /* rien ne bouge : la loutre reste simplement visible dans le terrier du milieu */
+  .terriers li:nth-child(2) .guet img{transform:translateY(6%)}
+}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *{animation:none!important;transition:none!important}
