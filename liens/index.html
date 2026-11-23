@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>LUNTRAE</title>
+<!-- [TEXTE À FOURNIR PAR CAMILLE] : description de la page (environ 155 caractères), à poser ici en meta description
+     puis à reprendre en og:description et twitter:description. -->
+<meta name="author" content="Camille Sauton">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#101820">
+<link rel="canonical" href="https://luntrae.fr/liens/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="LUNTRAE">
+<meta property="og:title" content="LUNTRAE">
+<meta property="og:url" content="https://luntrae.fr/liens/">
+<meta property="og:image" content="https://luntrae.fr/assets/img/og-luntrae.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Une loutre stylisée en trait bronze, inscrite dans un cercle sous la lune, au-dessus de son reflet dans l'eau.">
+<link rel="icon" type="image/png" sizes="64x64" href="/assets/img/favicon-64.png">
+<link rel="apple-touch-icon" href="/assets/img/icon-192.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/cormorant-garamond-500.woff2">
+<link rel="preload" as="image" href="/assets/img/liens/fond-maitre.webp" type="image/webp" media="(min-width: 760px) and (min-aspect-ratio: 6/5)">
+<link rel="preload" as="image" href="/assets/img/liens/fond-maitre-mobile.webp" type="image/webp" media="not all and (min-width: 760px) and (min-aspect-ratio: 6/5)">
+<link rel="preload" as="image" href="/assets/img/liens/badge-le-q.webp" type="image/webp">
+<link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="stylesheet" href="/assets/css/liens.css">
+</head>
+<body class="liens-page">
+<main class="liens" id="top">
+  <header class="brandbar">
+    <h1 class="signature">
+      <img src="/assets/img/LUNTRAE_logo-complet_bronze.webp" alt="LUNTRAE" width="480" height="488" fetchpriority="high">
+    </h1>
+  </header>
+
+  <!-- Un seul décor, fixe : le fond maître. Chaque « vue » est une fenêtre sur ce décor, dans le même repère
+       (1672 x 941). Sur grand écran les trois vues se superposent et montrent la scène entière ; sur écran
+       étroit chacune cadre sa zone. Les loutres sont des calques indépendants, posés aux coordonnées du décor.
+       Les trois destinations sont de vrais liens : sans script, la page est complète et les liens fonctionnent. -->
+  <section class="scene" aria-label="Trois destinations LUNTRAE au bord d'un bassin nocturne">
+    <nav class="vues" aria-label="Liens principaux">
+
+      <div class="vue vue--q">
+        <div class="plan" aria-hidden="true">
+          <picture class="plan__fond">
+            <source media="(min-width: 760px) and (min-aspect-ratio: 6/5)" srcset="/assets/img/liens/fond-maitre.webp">
+            <img src="/assets/img/liens/fond-maitre-mobile.webp" alt="" width="1672" height="941" fetchpriority="high">
+          </picture>
+          <span class="acteur acteur--q-duo" data-acteur="Q_DUO">
+            <img src="/assets/img/liens/otters/q-duo/q-duo-idle.webp" alt="" width="605" height="288">
+          </span>
+        </div>
+        <a class="destination destination--q" href="/le-q/" data-destination="q" aria-label="Le Q">
+          <span class="destination__zone" aria-hidden="true"></span>
+          <span class="destination__badge">
+            <img src="/assets/img/liens/badge-le-q.webp" alt="" width="560" height="452">
+            <span class="destination__arrow" aria-hidden="true">↗</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="vue vue--site">
+        <div class="plan" aria-hidden="true">
+          <picture class="plan__fond">
+            <source media="(min-width: 760px) and (min-aspect-ratio: 6/5)" srcset="/assets/img/liens/fond-maitre.webp">
+            <img src="/assets/img/liens/fond-maitre-mobile.webp" alt="" width="1672" height="941">
+          </picture>
+          <!-- Le relief de la grotte : la loutre disparaît derrière le rocher sombre du seuil. -->
+          <span class="plan__relief">
+            <span class="acteur acteur--site" data-acteur="SITE_SWIMMER">
+              <span class="acteur__eau"><img src="/assets/img/liens/otters/site-swimmer/site-swimmer-idle.webp" alt="" width="640" height="223"></span>
+            </span>
+          </span>
+        </div>
+        <a class="destination destination--site" href="/" data-destination="site">
+          <span class="destination__zone" aria-hidden="true"></span>
+          <span class="destination__zone destination__zone--grotte" aria-hidden="true"></span>
+          <span class="destination__label destination__label--grotte"><span class="destination__mot">Site</span> <span class="destination__nom">LUNTRAE.fr</span><span class="destination__arrow" aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+
+      <div class="vue vue--projets">
+        <div class="plan" aria-hidden="true">
+          <picture class="plan__fond">
+            <source media="(min-width: 760px) and (min-aspect-ratio: 6/5)" srcset="/assets/img/liens/fond-maitre.webp">
+            <img src="/assets/img/liens/fond-maitre-mobile.webp" alt="" width="1672" height="941">
+          </picture>
+          <span class="acteur acteur--projets" data-acteur="PROJECTS_OTTER">
+            <img src="/assets/img/liens/otters/projects/projects-otter-idle.webp" alt="" width="523" height="301">
+          </span>
+        </div>
+        <a class="destination destination--projets" href="/projets/" data-destination="projets">
+          <span class="destination__zone" aria-hidden="true"></span>
+          <span class="destination__label"><span>Projets</span><span class="destination__arrow" aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+
+    </nav>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fm">Des systèmes pour des futurs plus doux.</div>
+    <small>LUNTRAE · Camille Sauton · Mis à jour en novembre 2026</small>
+    <div class="legal"><a href="/mentions-legales.html">Mentions légales</a> · <a href="/confidentialite.html">Confidentialité</a></div>
+  </div>
+</footer>
+<script src="/assets/js/liens.js"></script>
+<!-- Mesure d'audience sans cookie (GoatCounter, données hébergées en UE), cf. Confidentialité. -->
+<script data-goatcounter="https://luntrae.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
