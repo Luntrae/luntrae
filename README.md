@@ -33,7 +33,6 @@ Seize pages publiques et une page d'erreur, toutes indexables sauf la 404.
 | `/series/` | `series/index.html` | Séries éditoriales : pourquoi regarder du côté de l'art, L'Observatoire (lancée) et L'Atelier (à venir), extrait du premier épisode. |
 | `/contact/` | `contact/index.html` | Page Contact : ce qui intéresse Camille, comment la joindre (une adresse, pas de formulaire), ce qu'on peut consulter avant. |
 | `/le-q/` | `le-q/index.html` | Le Q, le questionnaire de LUNTRAE : bannière (image du gabarit et texte en HTML), puis formulaire Tally intégré, dont la couverture est rognée par la feuille de styles pour ne pas doubler la bannière. Seule page qui charge le script de Tally. |
-| `/liens/` | `liens/index.html` | Page de liens pour la bio Instagram, pensée d'abord pour le mobile, sans la navigation du site : le logo complet et son reflet, puis trois terriers (Le Q, le site, les projets) et la loutre animée. Absente du plan du site. |
 | `/mentions-legales.html` | `mentions-legales.html` | Mentions légales : éditrice, hébergeur, nom de domaine, propriété intellectuelle, données personnelles. |
 | `/confidentialite.html` | `confidentialite.html` | Confidentialité : mesure d'audience sans cookie, hébergeur, réponses au Q, e-mail, droits, date de mise à jour. |
 | 404 | `404.html` | Page introuvable, en `noindex`, avec des chemins de sortie vers les projets, À propos et Contact. |
@@ -46,7 +45,6 @@ Chaque page projet se termine par un bloc « Projet suivant » qui boucle sur le
 assets/css/styles.css      feuille de styles unique
 assets/js/main.js          interactions : révélation au défilement, ciel étoilé, menu, sommaires,
                            fil d'eau, mesure des clics (délégation, sans attribut en ligne)
-assets/js/liens.js         animation de la loutre sur la page de liens (les liens fonctionnent sans lui)
 assets/fonts/              Cormorant Garamond 400, 500, 600, italiques 400 et 500 ; Spectral 300, 400, 500, italique 400
 assets/img/                images du site en WebP, favicon, image Open Graph
 assets/img/le-q/           bannière du Q : gabarit sans texte en 1584 et 900 px, recadrage mobile
