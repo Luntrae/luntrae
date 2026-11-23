@@ -1,0 +1,440 @@
+/* Page liens LUNTRAE (/liens/). Feuille chargée par cette seule page, après styles.css, dont viennent les variables,
+   les polices, le fond et le pied de page. */
+:root {
+  --liens-obs: #101820;
+  --liens-deep: #0b1117;
+  --liens-bronze: #8A6A4A;
+  --liens-bronze-light: #b6905f;
+  --liens-moon: #E8ECEF;
+}
+
+html, body { min-height: 100%; }
+.liens-page::before, .liens-page::after { z-index: 0; }
+.liens-page {
+  height: 100vh;
+  height: 100svh;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  background: var(--liens-deep);
+}
+.liens {
+  position: relative;
+  z-index: 1;
+  isolation: isolate;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+  text-align: center;
+  background: var(--liens-obs);
+}
+
+/* Le logo officiel, tel quel : aucune ombre, aucun filtre, mise à l'échelle uniforme uniquement. */
+.brandbar {
+  position: relative;
+  z-index: 4;
+  flex: 0 0 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(182,144,95,.24);
+  background:
+    radial-gradient(ellipse at 50% 110%, rgba(138,106,74,.14), transparent 55%),
+    linear-gradient(180deg, #101820, #0b1117);
+}
+.signature { width: 57px; height: 58px; margin: 0; line-height: 0; }
+.signature img { display: block; width: 100%; height: 100%; object-fit: contain; }
+
+/* --- LA SCÈNE ---------------------------------------------------------------------------------------------
+   Repère unique : celui du fond maître, 1672 x 941. La variable --u vaut « un pixel du décor », en longueur
+   d'écran. Tout ce qui appartient au décor (fond, loutres, remous, masques) se place en multiples de --u :
+   les calques gardent ainsi exactement le même facteur d'échelle, quelle que soit la taille de l'écran.
+   --ox et --oy donnent le décalage du décor dans sa vue.
+   Par défaut (écran étroit ou plus haut que large) : trois vues empilées, chacune cadrée sur sa zone par
+   --cx, --cy (centre du cadrage) et --fl, --fh (largeur et hauteur de décor à garder visibles). */
+.scene {
+  position: relative;
+  isolation: isolate;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--liens-deep);
+}
+.vues {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+.vue {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  container-type: size;
+  --u: max(min(calc(100cqw / var(--fl)), calc(100cqh / var(--fh))), calc(100cqw / 1672), calc(100cqh / 941));
+  --ox: clamp(calc(100cqw - 1672 * var(--u)), calc(50cqw - var(--cx) * var(--u)), 0px);
+  --oy: clamp(calc(100cqh - 941 * var(--u)), calc(50cqh - var(--cy) * var(--u)), 0px);
+}
+.vue + .vue { border-top: 1px solid rgba(182,144,95,.25); }
+.vue--q       { --cx: 321;  --cy: 414; --fl: 540; --fh: 262; }
+.vue--site    { --cx: 905;  --cy: 536; --fl: 430; --fh: 302; }
+.vue--projets { --cx: 1409; --cy: 511; --fl: 500; --fh: 266; }
+
+.plan {
+  position: absolute;
+  left: var(--ox);
+  top: var(--oy);
+  width: calc(1672 * var(--u));
+  height: calc(941 * var(--u));
+  pointer-events: none;
+}
+.plan__fond { position: absolute; inset: 0; display: block; }
+.plan__fond img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+
+/* Les loutres : un point d'ancrage (--x, --y, dans le repère du décor) et une image posée autour de lui
+   (--cl, --ch : taille du canevas ; --ax, --ay : ancrage dans le canevas). Valeurs du manifeste des assets.
+   Le script ne fait que modifier --dx, --dy (déplacement), --k, --kx, --ky (échelle), --r (rotation)
+   et --opacite, et changer l'image montrée ; sans script, tout reste à la pose de repos. */
+.acteur {
+  position: absolute;
+  z-index: 2;
+  left: calc(var(--x) * var(--u));
+  top: calc(var(--y) * var(--u));
+  width: 0;
+  height: 0;
+  opacity: var(--opacite, 1);
+  transform-origin: calc(var(--pvx, 0) * var(--u)) calc(var(--pvy, 0) * var(--u));
+  transform:
+    translate(calc(var(--dx, 0) * var(--u)), calc(var(--dy, 0) * var(--u)))
+    rotate(calc(var(--r, 0) * 1deg))
+    scale(calc(var(--k, 1) * var(--kx, 1)), calc(var(--k, 1) * var(--ky, 1)));
+}
+.acteur img {
+  position: absolute;
+  display: block;
+  max-width: none;
+  left: calc(-1 * var(--ax) * var(--u));
+  top: calc(-1 * var(--ay) * var(--u));
+  width: calc(var(--cl) * var(--u));
+  height: calc(var(--ch) * var(--u));
+}
+/* Nageuses : le cadre de l'image, à la taille du canevas. */
+.acteur__eau {
+  position: absolute;
+  overflow: hidden;
+  left: calc(-1 * var(--ax) * var(--u));
+  top: calc(-1 * var(--ay) * var(--u));
+  width: calc(var(--cl) * var(--u));
+  height: calc(var(--ch) * var(--u));
+}
+.acteur__eau img { left: 0; top: 0; }
+/* Pendant un fondu entre deux poses, le script glisse l'image précédente sous la nouvelle. */
+.acteur img[hidden] { display: none; }
+.acteur--q-duo      { --x: 370;  --y: 466; --cl: 605; --ch: 288; --ax: 350; --ay: 154; z-index: 3; }
+.acteur--site       { --x: 906;  --y: 638; --cl: 640; --ch: 223; --ax: 346; --ay: 141; }
+.acteur--projets    { --x: 1560; --y: 590; --cl: 523; --ch: 301; --ax: 411; --ay: 253; }
+
+/* Le relief de la grotte : tout ce qui passe à droite du bord du rocher sombre, au-dessus de l'eau, est caché. */
+.plan__relief {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  -webkit-clip-path: polygon(0 0, 62.8% 0, 62.8% 46.76%, 60.53% 49.73%, 59.45% 53.45%, 58.91% 58.02%, 100% 58.02%, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 62.8% 0, 62.8% 46.76%, 60.53% 49.73%, 59.45% 53.45%, 58.91% 58.02%, 100% 58.02%, 100% 100%, 0 100%);
+}
+
+/* Remous : un anneau posé à plat sur l'eau, là où passe la loutre, qui s'élargit et s'efface. Rien d'autre
+   ne bouge dans le bassin. */
+.remous {
+  position: absolute;
+  z-index: 1;
+  width: calc(var(--taille, 90) * var(--u));
+  height: calc(var(--taille, 90) * .2 * var(--u));
+  margin: calc(var(--taille, 90) * -.1 * var(--u)) 0 0 calc(var(--taille, 90) * -.5 * var(--u));
+  border: 1px solid rgba(232,236,239,.42);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+  animation: remous 2s cubic-bezier(.2,.6,.3,1) forwards;
+}
+.remous::after {
+  content: "";
+  position: absolute;
+  inset: 18% 14%;
+  border: 1px solid rgba(182,144,95,.4);
+  border-radius: 50%;
+}
+@keyframes remous {
+  0%   { opacity: 0;   transform: scale(.45); }
+  18%  { opacity: .62; }
+  100% { opacity: 0;   transform: scale(1.7); }
+}
+
+/* --- LES TROIS LIENS -------------------------------------------------------------------------------------- */
+.destination {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: block;
+  color: var(--liens-moon);
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+.destination__zone { display: none; }
+.destination__badge,
+.destination__label {
+  position: absolute;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), filter .35s ease, background .3s ease, border-color .3s ease, color .3s ease, box-shadow .3s ease;
+}
+.destination__badge {
+  left: 3.5%;
+  top: 5%;
+  width: clamp(88px, 27cqw, 128px);
+  line-height: 0;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,.55));
+}
+.destination__badge img { display: block; width: 100%; height: auto; }
+.destination__arrow {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(182,144,95,.82);
+  border-radius: 50%;
+  color: var(--liens-bronze-light);
+  font: 500 13px/1 "Spectral", serif;
+  background: rgba(11,17,23,.88);
+  box-shadow: 0 2px 12px rgba(0,0,0,.25);
+  transition: color .25s ease, background .25s ease, transform .35s ease;
+}
+.destination__badge .destination__arrow { position: absolute; right: 0; bottom: 3%; }
+.destination__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 7px 8px 7px 14px;
+  border: 1px solid rgba(182,144,95,.82);
+  border-radius: 999px;
+  color: var(--liens-moon);
+  background: rgba(11,17,23,.83);
+  box-shadow: 0 7px 26px rgba(0,0,0,.42), inset 0 0 0 1px rgba(232,236,239,.04);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(.98rem, 4.2cqw, 1.24rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.destination--projets .destination__label { left: 3%; top: 6%; }
+
+/* Site LUNTRAE.fr : le libellé tient dans l'ouverture lumineuse de la grotte, à sa place dans le décor. */
+.destination__label--grotte {
+  left: calc(var(--ox) + 902 * var(--u));
+  top: calc(var(--oy) + 452 * var(--u));
+  display: grid;
+  justify-items: center;
+  gap: .3em;
+  min-height: 0;
+  padding: .7em 1.5em .75em;
+  border: 0;
+  border-radius: 50%;
+  background: radial-gradient(ellipse closest-side, rgba(11,17,23,.8) 0%, rgba(11,17,23,.62) 55%, rgba(11,17,23,0) 100%);
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  font-size: clamp(15px, calc(24 * var(--u)), 27px);
+  letter-spacing: .14em;
+  text-shadow: 0 1px 2px rgba(5,10,15,.95), 0 0 12px rgba(5,10,15,.85);
+  transform: translate(-50%, -50%);
+}
+.destination__mot {
+  display: flex;
+  align-items: center;
+  gap: .7em;
+  font-size: .62em;
+  letter-spacing: .34em;
+  text-indent: .34em;
+}
+.destination__mot::before,
+.destination__mot::after { content: ""; width: 2.1em; height: 1px; background: rgba(182,144,95,.85); }
+.destination__label--grotte .destination__arrow { margin-top: .15em; }
+
+.destination:hover .destination__badge,
+.destination:focus-visible .destination__badge { transform: translateY(-2px) scale(1.02); }
+.destination--projets:hover .destination__label,
+.destination--projets:focus-visible .destination__label { transform: translateY(-3px); }
+.destination--site:hover .destination__label,
+.destination--site:focus-visible .destination__label { transform: translate(-50%, calc(-50% - 3px)); }
+.destination:hover .destination__label,
+.destination:focus-visible .destination__label,
+.destination.is-leaving .destination__label { color: #fff; }
+.destination--projets:hover .destination__label,
+.destination--projets:focus-visible .destination__label,
+.destination--projets.is-leaving .destination__label {
+  border-color: var(--liens-bronze-light);
+  background: rgba(11,17,23,.94);
+  box-shadow: 0 10px 32px rgba(0,0,0,.54), 0 0 19px rgba(182,144,95,.16);
+}
+.destination:hover .destination__arrow,
+.destination:focus-visible .destination__arrow,
+.destination.is-leaving .destination__arrow {
+  color: var(--liens-deep);
+  background: var(--liens-bronze-light);
+}
+/* Focus clavier : contour clair, sur la vue entière quand elle est le lien, sur le libellé sinon. */
+.destination:focus-visible { outline: 2px solid var(--liens-moon); outline-offset: -5px; }
+
+.liens-page footer {
+  position: relative;
+  z-index: 4;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: .22rem .35rem .27rem;
+  border-top: 1px solid rgba(182,144,95,.2);
+  background: linear-gradient(180deg, rgba(11,17,23,.97), #0b1117);
+  line-height: 1.12;
+  text-align: center;
+}
+.liens-page footer .wrap { padding: 0 .2rem; }
+.liens-page footer .fm { margin: 0 0 .1rem; font-size: .76rem; line-height: 1.1; }
+.liens-page footer small { display: block; font-size: .51rem; line-height: 1.15; letter-spacing: .045em; }
+.liens-page footer .legal { margin: .1rem 0 0; font-size: .56rem; line-height: 1.1; }
+.liens-page footer .legal a { font-size: .56rem; }
+
+@media (max-height: 700px) {
+  .brandbar { flex-basis: 55px; height: 55px; }
+  .signature { width: 50px; height: 51px; }
+  .destination__label { min-height: 38px; }
+}
+
+/* --- GRAND ÉCRAN : la scène entière --------------------------------------------------------------------------
+   Les trois vues se superposent et partagent le même cadrage. Le décor couvre la scène ; si l'écran est
+   trop étroit pour montrer les quatre loutres, il n'est plus agrandi et deux fines bandes sombres apparaissent
+   en haut et en bas plutôt que de couper un personnage. Sur écran très large, il n'est jamais rogné de plus
+   de 241 px de décor en hauteur. */
+@media (min-width: 760px) and (min-aspect-ratio: 6/5) {
+  .brandbar { flex-basis: 104px; height: 104px; }
+  .signature { width: 91px; height: 92px; }
+  .vues { display: block; }
+  .vue {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    --u: min(max(calc(100cqw / 1672), min(calc(100cqh / 941), calc(100cqw / 1640))), calc(100cqh / 700));
+    --d: calc(100cqh - 941 * var(--u));
+    --ox: calc((100cqw - 1672 * var(--u)) / 2);
+    --oy: clamp(min(var(--d), calc(var(--d) / 2)), calc(50cqh - 420 * var(--u)), max(0px, calc(var(--d) / 2)));
+  }
+  .vue + .vue { border-top: 0; }
+  .vue + .vue .plan__fond { display: none; }
+
+  .destination { pointer-events: none; }
+  .destination__badge,
+  .destination__label,
+  .destination__zone { pointer-events: auto; }
+  /* La zone sensible couvre aussi les loutres de la destination : les survoler joue la scène, cliquer ouvre le lien. */
+  .destination__zone { display: block; position: absolute; }
+  .destination--q .destination__zone {
+    left: calc(var(--ox) + 55 * var(--u)); top: calc(var(--oy) + 300 * var(--u));
+    width: calc(535 * var(--u)); height: calc(240 * var(--u));
+  }
+  .destination--site .destination__zone {
+    left: calc(var(--ox) + 712 * var(--u)); top: calc(var(--oy) + 545 * var(--u));
+    width: calc(245 * var(--u)); height: calc(108 * var(--u));
+  }
+  .destination--site .destination__zone--grotte {
+    left: calc(var(--ox) + 790 * var(--u)); top: calc(var(--oy) + 372 * var(--u));
+    width: calc(225 * var(--u)); height: calc(173 * var(--u));
+  }
+  .destination--projets .destination__zone {
+    left: calc(var(--ox) + 1250 * var(--u)); top: calc(var(--oy) + 365 * var(--u));
+    width: calc(410 * var(--u)); height: calc(245 * var(--u));
+  }
+
+  /* Le Q : badge en haut à gauche, juste au-dessus des deux loutres. */
+  .destination__badge {
+    left: calc(var(--ox) + 196 * var(--u));
+    top: max(10px, calc(var(--oy) + 84 * var(--u)));
+    width: max(104px, calc(250 * var(--u)));
+    transform: rotate(-1.5deg);
+    filter: drop-shadow(0 10px 24px rgba(0,0,0,.55));
+  }
+  .destination__badge .destination__arrow { right: 4%; bottom: 7%; width: 30px; height: 30px; flex-basis: 30px; font-size: 15px; }
+  .destination:hover .destination__badge,
+  .destination:focus-visible .destination__badge { transform: translateY(-5px) rotate(-1.5deg) scale(1.025); }
+
+  /* Projets : sous la scène de la loutre, sur la face du rocher. */
+  .destination__label { min-height: 50px; padding: 9px 13px 10px 22px; gap: 14px; font-size: clamp(1.15rem, calc(27 * var(--u)), 1.7rem); letter-spacing: .105em; }
+  .destination__label .destination__arrow { width: 27px; height: 27px; flex-basis: 27px; font-size: 15px; }
+  .destination--projets .destination__label {
+    left: calc(var(--ox) + 1408 * var(--u));
+    top: calc(var(--oy) + 668 * var(--u));
+    transform: translate(-50%, -50%);
+  }
+  .destination--projets:hover .destination__label,
+  .destination--projets:focus-visible .destination__label { transform: translate(-50%, calc(-50% - 4px)); }
+  .destination__label--grotte { min-height: 0; padding: .7em 1.5em .75em; gap: .3em; font-size: clamp(15px, calc(24 * var(--u)), 27px); letter-spacing: .14em; }
+  .destination--site:hover .destination__label,
+  .destination--site:focus-visible .destination__label { transform: translate(-50%, calc(-50% - 4px)); }
+
+  .destination:focus-visible { outline: none; }
+  .destination:focus-visible .destination__label,
+  .destination:focus-visible .destination__badge { outline: 2px solid var(--liens-moon); outline-offset: 5px; }
+  .destination:focus-visible .destination__badge { border-radius: 50%; }
+
+  .liens-page footer { padding: .28rem .5rem .36rem; }
+  .liens-page footer .fm { font-size: .82rem; }
+  .liens-page footer small { font-size: .56rem; }
+  .liens-page footer .legal, .liens-page footer .legal a { font-size: .6rem; }
+}
+@media (min-width: 760px) and (min-aspect-ratio: 6/5) and (max-height: 560px) {
+  .brandbar { flex-basis: 62px; height: 62px; }
+  .signature { width: 57px; height: 58px; }
+}
+
+/* Navigateurs sans unités de conteneur : cadrage approché sur la largeur de l'écran, page complète. */
+@supports not (width: 1cqw) {
+  .vue { --u: calc(100vw / var(--fl)); --ox: calc(50vw - var(--cx) * var(--u)); --oy: 0px; }
+  .plan { top: calc(50% - var(--cy) * var(--u)); }
+  .destination__badge { width: 104px; }
+  .destination__label { font-size: 1.1rem; }
+  .destination__label--grotte { top: calc(50% + (452 - var(--cy)) * var(--u)); }
+  @media (min-width: 760px) and (min-aspect-ratio: 6/5) {
+    .vue { --u: calc(100vw / 1672); --ox: 0px; --oy: 0px; }
+    .plan { top: 0; }
+    .destination__label--grotte { top: calc(452 * var(--u)); }
+    .destination__badge { width: calc(250 * var(--u)); }
+  }
+}
+
+/* Animations réduites : poses de repos, aucun trajet, aucun remous, aucune transition. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+  .remous { display: none !important; }
+  .acteur { transform: none !important; opacity: 1 !important; }
+}

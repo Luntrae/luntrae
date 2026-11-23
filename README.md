@@ -14,7 +14,7 @@ Mantra : Des systèmes pour des futurs plus doux.
 
 ## Arborescence des pages
 
-Seize pages publiques et une page d'erreur, toutes indexables sauf la 404.
+Dix-sept pages publiques et une page d'erreur, toutes indexables sauf la 404. La page de liens est absente du plan du site : elle sert de point d'entrée depuis la bio Instagram.
 
 | URL | Fichier | Contenu |
 |---|---|---|
@@ -34,6 +34,7 @@ Seize pages publiques et une page d'erreur, toutes indexables sauf la 404.
 | `/contact/` | `contact/index.html` | Page Contact : ce qui intéresse Camille, comment la joindre (une adresse, pas de formulaire), ce qu'on peut consulter avant. |
 | `/mentions-legales.html` | `mentions-legales.html` | Mentions légales : éditrice, hébergeur, nom de domaine, propriété intellectuelle, données personnelles. |
 | `/confidentialite.html` | `confidentialite.html` | Confidentialité : mesure d'audience sans cookie, e-mail, droits. |
+| `/liens/` | `liens/index.html` | Page de liens pour la bio Instagram : le logo, puis une scène nocturne au bord d'un bassin où trois scènes de loutres portent trois liens (Le Q, le site, les projets). Pas de menu, pied de page réduit. Détails plus bas. |
 | 404 | `404.html` | Page introuvable, en `noindex`, avec des chemins de sortie vers les projets, À propos et Contact. |
 
 Chaque page projet se termine par un bloc « Projet suivant » qui boucle sur les sept dans l'ordre de l'index, puis par le retour à l'index. Le bloc contact de pied de page est présent sur les treize pages de contenu.
@@ -41,13 +42,17 @@ Chaque page projet se termine par un bloc « Projet suivant » qui boucle sur le
 ## Fichiers
 
 ```
-assets/css/styles.css      feuille de styles unique
+assets/css/styles.css      feuille de styles du site
+assets/css/liens.css       styles de la page de liens, chargés par elle seule, après styles.css
 assets/js/main.js          interactions : révélation au défilement, ciel étoilé, menu, sommaires,
                            fil d'eau, mesure des clics (délégation, sans attribut en ligne)
+assets/js/liens.js         scènes animées de la page de liens
 assets/fonts/              Cormorant Garamond 400, 500, 600, italiques 400 et 500 ; Spectral 300, 400, 500, italique 400
 assets/img/                images du site en WebP, favicon, image Open Graph
 assets/img/loutres/        quatre planches naturalistes en 1400 et 700 px
 assets/img/series/         visuels des séries et cartes du premier épisode
+assets/img/liens/          page de liens : décor (deux poids), badge Le Q, et les suites d'images des loutres
+                           dans otters/ (q-duo, site-swimmer, projects)
 assets/cv/                 PDF du CV téléchargeable
 _cv-source/                source HTML du CV (cv-2026-11), scripts de contrôle, anciennes chaînes
                            de fabrication, notices (non publié)
@@ -58,6 +63,17 @@ sitemap.xml, robots.txt, site.webmanifest, CNAME
 Les dossiers commençant par un tiret bas ne sont pas publiés par GitHub Pages. Les fichiers sources lourds (PNG d'origine, export complet de Claude Design) restent sur le disque et sont ignorés par git.
 
 Le PDF du CV, `assets/cv/CV_Camille_Sauton.pdf`, est produit par WeasyPrint depuis `_cv-source/cv-2026-11/CV_Camille_Sauton.html`, avec les polices du site embarquées, afin de s'afficher sur mobile et de se lire dans le bon ordre par les lecteurs de CV automatisés ; la notice est dans `_cv-source/cv-2026-11/LISEZMOI.md`.
+
+## Page de liens
+
+`/liens/` est une page à part : elle n'a ni le menu ni le pied de page complet du site, et ses styles sont dans `assets/css/liens.css`.
+
+- Le décor est une image fixe (`fond-maitre.webp` sur grand écran, `fond-maitre-mobile.webp`, plus léger, sur écran étroit). Tout se place dans son repère, 1672 x 941 : sur grand écran la scène entière, sur écran étroit trois vues empilées, chacune cadrée sur sa zone.
+- Les trois liens sont de vrais liens : sans script, ou en animations réduites, la page est complète et immobile.
+- Chaque scène est une suite d'images WebP jouée par `assets/js/liens.js`, à quinze images par seconde : la loutre du bassin émerge au chargement ; au survol ou au focus d'un lien, sa scène se joue ; sans survol, les trois scènes se jouent tour à tour quelques fois, puis la page reste immobile.
+- Les suites d'images pèsent 5 Mo en tout. Elles sont chargées après l'affichage de la page, celles du bassin d'abord ; tant qu'une suite n'est pas arrivée, sa loutre garde sa pose de repos.
+- Le premier lien mène à `/le-q/`. Quand Le Q fermera, c'est ce lien, son badge (`badge-le-q.webp`) et la scène des deux loutres qu'il faudra revoir ; les deux autres scènes n'en dépendent pas.
+- La description de la page (balise meta) reste à écrire : un commentaire le signale dans `liens/index.html`.
 
 ## Mesure d'audience
 
