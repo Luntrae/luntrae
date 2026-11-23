@@ -153,6 +153,22 @@
 
 <main id="top">
 
+  <!-- À LA UNE : bandeau d'actualité, fixe (aucun défilement, aucune rotation), au-dessus du reste de l'accueil.
+       Pour changer d'actualité, remplacer ici l'image, le texte et le lien : la mise en page suit toute seule.
+       Sur écran étroit, l'image est recadrée sur le logo et le texte passe dessous. -->
+  <aside class="une" aria-label="À la une">
+    <picture>
+      <source media="(max-width:760px)" srcset="/assets/img/le-q/banniere-le-q_mobile_776.webp" width="776" height="396">
+      <img src="/assets/img/le-q/banniere-le-q_1584.webp"
+           srcset="/assets/img/le-q/banniere-le-q_900.webp 900w, /assets/img/le-q/banniere-le-q_1584.webp 1584w"
+           sizes="(max-width:1180px) 92vw, 1100px" width="1584" height="396" alt="Le Q, le questionnaire de LUNTRAE" decoding="async">
+    </picture>
+    <div class="une-texte">
+      <p>Le Q est ouvert ! Quelques questions qu'aucune étude ne réunit, comme un date. Et un projet prend forme…</p>
+      <a class="cta" href="/le-q/">Je commence Le Q</a>
+    </div>
+  </aside>
+
   <!-- HERO sur ambiance nocturne (la loutre dans le cercle, sous la lune, EST le logo central).
        Composition en trois zones : accroche à gauche, logo de l'image au centre, domaines + actions à droite.
        Le voile obsidienne s'efface vers le centre pour dégager le logo.

@@ -891,6 +891,40 @@ main{display:block;position:relative;z-index:2}
 @media(max-width:520px){}
 
 /* --- Préférence « mouvement réduit » ---------------------------------- */
+/* --- À LA UNE : bandeau d'actualité de l'accueil et bannière de la page Le Q ---------------
+   L'image est une balise image (le logo qu'elle porte a du sens) et le texte est du vrai texte, posé dans la zone
+   libre du gabarit, entre le logo à gauche et l'emblème à droite. Pour changer d'actualité sur l'accueil :
+   remplacer l'image, le texte et le lien dans le bloc « À LA UNE » de index.html, rien d'autre. */
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.une{position:relative;width:min(1100px,100% - 8vw);margin:1.1rem auto 0;border-radius:6px;overflow:hidden;
+  border:1px solid var(--line-soft);background:var(--obs-2)}
+.wrap .une{width:100%}
+.une picture{display:block;position:relative}
+.une img{display:block;width:100%;height:auto}
+.une-texte{position:absolute;left:41%;right:18.5%;top:0;bottom:0;display:flex;flex-direction:column;
+  justify-content:center;align-items:flex-start;gap:clamp(.5rem,1.1vw,1rem)}
+.une-texte p{font-family:"Cormorant Garamond",serif;font-weight:600;color:var(--lunaire);margin:0;
+  font-size:clamp(1rem,1.95vw,1.55rem);line-height:1.34;letter-spacing:.005em}
+.une-texte .cta{font-size:clamp(.95rem,1.35vw,1.08rem);padding:.55rem 1.4rem}
+.une-texte .cta:focus-visible{outline:2px solid var(--lunaire);outline-offset:3px}
+@media(max-width:760px){
+  /* écran étroit : l'image, recadrée sur le logo, se fond dans le panneau ; le texte passe dessous */
+  .une picture::after{content:"";position:absolute;left:0;right:0;bottom:0;height:30%;
+    background:linear-gradient(180deg,rgba(22,33,44,0),var(--obs-2))}
+  .une-texte{position:static;padding:.6rem 1.3rem 1.4rem;gap:1rem}
+  .une-texte p{font-size:1.2rem}
+  .une-texte .cta{font-size:1.05rem;padding:.7rem 1.6rem}
+}
+
+/* --- PAGE LE Q : bannière puis formulaire intégré ------------------------------------------ */
+.page-q{padding:3vh 0 1.5vh}
+.page-q .une{margin-top:0}
+.q-formulaire{margin:1.8rem auto 0;max-width:1100px;overflow:hidden}
+/* La couverture du formulaire Tally (200 px de haut sur toutes ses pages, barre de progression comprise) ferait
+   doublon avec la bannière de la page : le cadre est remonté d'autant et sa partie haute rognée. Si la couverture
+   est retirée ou change de hauteur dans Tally, remettre cette marge à zéro ou à la nouvelle hauteur. */
+.q-formulaire iframe{display:block;border:0;margin-top:-200px}
+
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *{animation:none!important;transition:none!important}
