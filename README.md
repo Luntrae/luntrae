@@ -78,10 +78,12 @@ Le formulaire est intégré avec le code « Standard » de Tally. Le champ cach�
 
 - Le décor est une image fixe (`fond-maitre.webp` sur grand écran, `fond-maitre-mobile.webp`, plus léger, sur écran étroit). Tout se place dans son repère, 1672 x 941 : sur grand écran la scène entière, sur écran étroit trois vues empilées, chacune cadrée sur sa zone.
 - Les trois liens sont de vrais liens : sans script, ou en animations réduites, la page est complète et immobile.
-- Chaque scène est une suite d'images WebP jouée par `assets/js/liens.js`, à quinze images par seconde : la loutre du bassin émerge au chargement ; au survol ou au focus d'un lien, sa scène se joue ; sans survol, les trois scènes se jouent tour à tour quelques fois, puis la page reste immobile.
-- Les suites d'images pèsent 5 Mo en tout. Elles sont chargées après l'affichage de la page, celles du bassin d'abord ; tant qu'une suite n'est pas arrivée, sa loutre garde sa pose de repos.
+- Chaque scène est une suite d'images WebP jouée par `assets/js/liens.js`, à quinze images par seconde.
+- Avec une souris : la loutre du bassin émerge au chargement ; au survol ou au focus d'un lien, sa scène se joue ; sans survol, les trois scènes se jouent tour à tour, trois fois au plus, puis la page reste immobile.
+- Sur écran tactile : les trois scènes partent seules, Le Q d'abord, le site 2 secondes après, les projets 2 secondes après le site ; puis 6 secondes de pause et l'enchaînement reprend, trois boucles au plus. Toucher une scène ouvre son lien à tout moment.
+- Les suites d'images pèsent 5 Mo en tout. Elles sont chargées après l'affichage de la page : avec une souris, celles du bassin d'abord ; sur écran tactile, dans l'ordre des scènes, une loutre après l'autre. Tant qu'une suite n'est pas arrivée, sa loutre garde sa pose de repos.
 - Le premier lien mène à `/le-q/`. Quand Le Q fermera, c'est ce lien, son badge (`badge-le-q.webp`) et la scène des deux loutres qu'il faudra revoir ; les deux autres scènes n'en dépendent pas.
-- La description de la page (balise meta) reste à écrire : un commentaire le signale dans `liens/index.html`.
+- Partage : la page a son titre (« Petit coin des liens · LUNTRAE »), sa description et sa vignette, `assets/img/petit-coin-des-liens-partage.jpg`. Cette vignette reste en JPG, sans métadonnées : certains réseaux n'affichent pas le WebP en aperçu.
 
 ## Mesure d'audience
 
