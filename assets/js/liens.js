@@ -126,6 +126,16 @@
     saut: (f) => (f < 1 ? 0 : 1)
   };
 
+  /* Écran tactile, première boucle : la loutre du bassin émerge, marque un temps d'une seconde, puis nage. */
+  {
+    const temps = EMERGE * CADENCE + 150 + 1000;
+    const trajet = SCENES.trajet.pistes[0];
+    const decaler = (liste, cle) => liste.map((e) => Object.assign({}, e, { [cle]: e[cle] + temps }));
+    SCENES.arrivee = { pistes: [{ acteur: 'SITE_SWIMMER',
+      cles: emergence(0).cles.concat(decaler(trajet.cles, 't')),
+      images: emergence(0).images.concat(decaler(trajet.images, 'de')) }] };
+  }
+
   // Chaque clé hérite des valeurs de la précédente : on n'écrit dans une scène que ce qui change.
   Object.keys(SCENES).forEach((nom) => {
     const sc = SCENES[nom];
@@ -166,11 +176,11 @@
 
   /* Images des séries : chargées dans l'ordre et décodées avant d'être montrées, pour qu'aucune ne clignote.
      La loutre est prête dès que ses premières images sont là ; une image manquante est simplement sautée. */
-  const chargerImages = (a) => {
-    if (a.etat !== 'a-charger') return;
+  const chargerImages = (a, fin) => {
+    if (a.etat !== 'a-charger') { if (fin && a.etat === 'aucune') fin(); return; }
     a.etat = 'en-cours';
     a.images = {};
-    let recues = 0, total = 0;
+    let recues = 0, total = 0, traitees = 0;
     const numeros = (serie) => { const d = a.def.series[serie]; return Array.isArray(d) ? d : Array.from({ length: d }, (x, i) => i + 1); };
     Object.keys(a.def.series).forEach((serie) => { total += numeros(serie).length; });
     const seuil = Math.min(total, a.def.pretes || total);
@@ -184,7 +194,7 @@
           a.images[nom] = im;
           recues += 1;
           if (recues >= seuil && a.etat === 'en-cours') a.etat = 'pretes';
-        }).catch(() => {});
+        }).catch(() => {}).then(() => { traitees += 1; if (traitees === total && fin) fin(); });
       });
     });
   };
@@ -342,9 +352,9 @@
   };
 
   /* --- Le rythme de la page ------------------------------------------------------------------------------
-     Au chargement, tout est calme. Après un court délai, la loutre du bassin émerge une fois. Ensuite, une
-     ronde discrète joue chaque scène tour à tour, avec de longues pauses, un nombre limité de fois : sur
-     écran tactile, où il n'y a pas de survol, c'est elle qui fait vivre les trois scènes. */
+     Avec une souris : au chargement, tout est calme ; la loutre du bassin émerge une fois, puis une ronde discrète
+     joue chaque scène tour à tour, trois fois au plus. Le survol ou le focus d'un lien joue sa scène.
+     Sur écran tactile, sans survol : les trois scènes partent seules, dans l'ordre des liens (voir plus bas). */
   let minuterieRonde = null;
   let tourRonde = 0;
   let introFaite = false;
@@ -352,8 +362,7 @@
 
   const programmerRonde = (delai) => {
     window.clearTimeout(minuterieRonde);
-    const maximum = sansSurvol.matches ? 6 : 3;
-    if (mouvementReduit.matches || partance || tourRonde >= maximum) return;
+    if (sansSurvol.matches || mouvementReduit.matches || partance || tourRonde >= 3) return;
     minuterieRonde = window.setTimeout(() => {
       if (document.hidden || partance) return;
       if (lectures.size) { programmerRonde(4000); return; }
@@ -372,9 +381,74 @@
     if (jouer('emergence', () => programmerRonde(5200))) introFaite = true;
   };
 
+  /* --- Écran tactile : l'enchaînement ---------------------------------------------------------------------
+     Le Q part en premier, le site 2 secondes après, les projets 2 secondes après le site. Chaque scène attend que
+     ses premières images soient arrivées (6 secondes au plus). Quand les trois sont finies, 6 secondes de pause,
+     puis l'enchaînement reprend : trois boucles au plus, après quoi la page reste immobile. */
+  const DECALAGE = 2000;
+  const PAUSE_BOUCLE = 6000;
+  const BOUCLES = 3;
+  const ATTENTE_IMAGES = 6000;
+  let tourEnchainement = 0;
+  let boucleEnCours = false;
+  let minuteries = [];
+  const plusTard = (action, delai) => { minuteries.push(window.setTimeout(action, delai)); };
+  const annulerEnchainement = () => { minuteries.forEach((m) => window.clearTimeout(m)); minuteries = []; };
+
+  const quandPrete = (a, action, depuis) => {
+    const debut = depuis || Date.now();
+    if (!a || a.etat === 'pretes' || a.etat === 'aucune' || Date.now() - debut > ATTENTE_IMAGES) { action(); return; }
+    plusTard(() => quandPrete(a, action, debut), 150);
+  };
+
+  const enchainer = () => {
+    if (mouvementReduit.matches || partance || document.hidden || boucleEnCours || tourEnchainement >= BOUCLES) return;
+    tourEnchainement += 1;
+    boucleEnCours = true;
+    let restantes = 3;
+    const finie = () => {
+      restantes -= 1;
+      if (restantes > 0) return;
+      boucleEnCours = false;
+      plusTard(enchainer, PAUSE_BOUCLE);
+    };
+    const lancer = (nom) => { if (!jouer(nom, finie)) finie(); };
+    quandPrete(acteurs.Q_DUO, () => {
+      lancer('rencontre');
+      plusTard(() => quandPrete(acteurs.SITE_SWIMMER, () => {
+        lancer(introFaite ? 'trajet' : 'arrivee');
+        introFaite = true;
+        plusTard(() => quandPrete(acteurs.PROJECTS_OTTER, () => lancer('pierre')), DECALAGE);
+      }), DECALAGE);
+    });
+  };
+
+  // Une boucle interrompue (onglet masqué, retour arrière) est rejouée en entier.
+  const reprendreEnchainement = (delai) => {
+    annulerEnchainement();
+    if (boucleEnCours) { boucleEnCours = false; tourEnchainement -= 1; }
+    plusTard(enchainer, delai);
+  };
+
   const preparer = () => {
     if (mouvementReduit.matches) { toutArreter(); return; }
     const site = acteurs.SITE_SWIMMER;
+    if (sansSurvol.matches) {
+      // Écran tactile : les images arrivent dans l'ordre des scènes, une loutre après l'autre.
+      const ordre = [acteurs.Q_DUO, site, acteurs.PROJECTS_OTTER].filter(Boolean);
+      let rang = -1;
+      const charger = (i) => {
+        if (i <= rang || i >= ordre.length) return;
+        rang = i;
+        chargerImages(ordre[i], () => charger(i + 1));
+        window.setTimeout(() => charger(i + 1), 8000); // une connexion qui cale ne bloque pas la suite
+      };
+      charger(0);
+      // Avant sa première émergence, la loutre du bassin est sous la surface.
+      if (site) appliquer(site, Object.assign({}, DEFAUT, { opacite: 0 }));
+      plusTard(enchainer, 500);
+      return;
+    }
     if (site) chargerImages(site);
     window.setTimeout(() => { Object.keys(acteurs).forEach((id) => chargerImages(acteurs[id])); }, site ? 1500 : 0);
     if (site && !introFaite) {
@@ -405,6 +479,7 @@
       if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
       if (partance) { e.preventDefault(); return; }
       if (mouvementReduit.matches) return;
+      annulerEnchainement();
       // Un bref accusé de réception, puis la destination : 220 ms, quoi qu'il arrive.
       e.preventDefault();
       partance = true;
@@ -417,11 +492,13 @@
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       window.clearTimeout(minuterieRonde);
+      annulerEnchainement();
       const introEnCours = lectures.has('emergence');
       toutArreter();
       if (introEnCours) introFaite = true;
     } else if (!partance) {
-      if (!introFaite) lancerIntro(0);
+      if (sansSurvol.matches) reprendreEnchainement(1000);
+      else if (!introFaite) lancerIntro(0);
       else programmerRonde(4000);
     }
   });
@@ -432,7 +509,8 @@
     partance = false;
     liens.forEach((lien) => lien.classList.remove('is-leaving'));
     toutArreter();
-    programmerRonde(5000);
+    if (sansSurvol.matches) reprendreEnchainement(1500);
+    else programmerRonde(5000);
   });
 
   const surChangement = () => { if (mouvementReduit.matches) { window.clearTimeout(minuterieRonde); toutArreter(); } };
