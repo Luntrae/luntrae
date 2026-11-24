@@ -124,26 +124,15 @@
   </div>
 </header>
 
-<main id="top">
+<main id="top" tabindex="-1">
   <div class="wrap">
 
     <article class="page-q">
       <nav class="fil" aria-label="Fil d'Ariane"><a href="/">Accueil</a> · <span>Le Q</span></nav>
 
-      <!-- Bannière de la page : le gabarit sans texte en image, la phrase en vrai texte dans la zone libre.
-           Sur écran étroit, l'image est recadrée sur le logo et le texte passe dessous. -->
-      <header class="une">
-        <h1 class="sr-only">Le Q, le questionnaire de LUNTRAE</h1>
-        <picture>
-          <source media="(max-width:760px)" srcset="/assets/img/le-q/banniere-le-q_mobile_776.webp" width="776" height="396">
-          <img src="/assets/img/le-q/banniere-le-q_1584.webp"
-               srcset="/assets/img/le-q/banniere-le-q_900.webp 900w, /assets/img/le-q/banniere-le-q_1584.webp 1584w"
-               sizes="(max-width:1180px) 92vw, 1100px" width="1584" height="396" alt="" fetchpriority="high" decoding="async">
-        </picture>
-        <div class="une-texte">
-          <p>Je pose des questions qu'aucune étude ne réunit jamais. Accepte le date, et un projet prend forme.</p>
-        </div>
-      </header>
+      <!-- Titre de la page, pour les lecteurs d'écran et les moteurs de recherche : la couverture du formulaire
+           tient lieu de bannière. -->
+      <h1 class="sr-only">Le Q, le questionnaire de LUNTRAE</h1>
 
       <!-- Formulaire Tally, intégration « Standard ». Le champ caché « source » vaut « site » depuis cette page. -->
       <div class="q-formulaire">

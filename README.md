@@ -32,7 +32,7 @@ Dix-huit pages publiques et une page d'erreur, toutes indexables sauf la 404. La
 | `/projets/leax/` | `projets/leax/index.html` | Léax, roman en cours et construction d'un univers mythologique. |
 | `/series/` | `series/index.html` | Séries éditoriales : pourquoi regarder du côté de l'art, L'Observatoire (lancée) et L'Atelier (à venir), extrait du premier épisode. |
 | `/contact/` | `contact/index.html` | Page Contact : ce qui intéresse Camille, comment la joindre (une adresse, pas de formulaire), ce qu'on peut consulter avant. |
-| `/le-q/` | `le-q/index.html` | Le Q, le questionnaire de LUNTRAE : bannière (image du gabarit et texte en HTML), puis formulaire Tally intégré, dont la couverture est rognée par la feuille de styles pour ne pas doubler la bannière. Seule page qui charge le script de Tally. |
+| `/le-q/` | `le-q/index.html` | Le Q, le questionnaire de LUNTRAE : formulaire Tally intégré, avec sa couverture et sa barre de progression. Le titre de la page est présent pour les lecteurs d'écran et les moteurs de recherche, masqué à l'écran. |
 | `/mentions-legales.html` | `mentions-legales.html` | Mentions légales : éditrice, hébergeur, nom de domaine, propriété intellectuelle, données personnelles. |
 | `/confidentialite.html` | `confidentialite.html` | Confidentialité : mesure d'audience sans cookie, hébergeur, réponses au Q, e-mail, droits, date de mise à jour. |
 | `/liens/` | `liens/index.html` | Page de liens pour la bio Instagram : le logo, puis une scène nocturne au bord d'un bassin où trois scènes de loutres portent trois liens (Le Q, le site, les projets). Pas de menu, pied de page réduit. Détails plus bas. |
@@ -50,7 +50,7 @@ assets/js/main.js          interactions : révélation au défilement, ciel éto
 assets/js/liens.js         scènes animées de la page de liens
 assets/fonts/              Cormorant Garamond 400, 500, 600, italiques 400 et 500 ; Spectral 300, 400, 500, italique 400
 assets/img/                images du site en WebP, favicon, image Open Graph
-assets/img/le-q/           bannière du Q : gabarit sans texte en 1584 et 900 px, recadrage mobile
+assets/img/le-q/           gabarit du bandeau « À la une » de l'accueil : sans texte, en 1584 et 900 px, recadrage mobile
 assets/img/loutres/        quatre planches naturalistes en 1400 et 700 px
 assets/img/series/         visuels des séries et cartes du premier épisode
 assets/img/liens/          page de liens : décor (deux poids), badge Le Q, et les suites d'images des loutres
@@ -68,7 +68,7 @@ Le PDF du CV, `assets/cv/CV_Camille_Sauton.pdf`, est produit par WeasyPrint depu
 
 ## À la une et Le Q
 
-Le bandeau « À la une » de l'accueil et la bannière de la page Le Q partagent le même gabarit (`.une` dans la feuille de styles) : une image sans texte et un texte en HTML posé dans sa zone libre, qui passe sous l'image sur écran étroit. Pour changer d'actualité sur l'accueil, il suffit de remplacer l'image, le texte et le lien du bloc `À LA UNE` de `index.html`.
+Le bandeau « À la une » de l'accueil suit un gabarit (`.une` dans la feuille de styles) : une image sans texte et un texte en HTML posé dans sa zone libre, qui passe sous l'image sur écran étroit. La page Le Q n'a plus de bannière du site : la couverture du formulaire en tient lieu.
 
 Le formulaire est intégré avec le code « Standard » de Tally. Le champ caché `source` vaut `site` par défaut ; un paramètre `?source=…` dans l'adresse de la page est transmis par le script de Tally et l'emporte (vérifié le 22 novembre 2026 : avec `?source=instagram`, Tally enregistre `instagram`).
 

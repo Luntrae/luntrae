@@ -79,6 +79,8 @@ body::after{
   padding:.7rem 1.2rem;border-radius:4px;font-family:"Cormorant Garamond",serif;letter-spacing:.06em;
 }
 .skip-link:focus{left:1rem;top:1rem}
+/* le lien « Aller au contenu » déplace le focus sur le contenu principal, qui n'a pas besoin de contour */
+main:focus{outline:none}
 
 /* --- Barre de progression de lecture (fine ligne bronze en haut) ------ */
 .scroll-progress{
@@ -919,11 +921,8 @@ main{display:block;position:relative;z-index:2}
 /* --- PAGE LE Q : bannière puis formulaire intégré ------------------------------------------ */
 .page-q{padding:3vh 0 1.5vh}
 .page-q .une{margin-top:0}
-.q-formulaire{margin:1.8rem auto 0;max-width:1100px;overflow:hidden}
-/* La couverture du formulaire Tally (200 px de haut sur toutes ses pages, barre de progression comprise) ferait
-   doublon avec la bannière de la page : le cadre est remonté d'autant et sa partie haute rognée. Si la couverture
-   est retirée ou change de hauteur dans Tally, remettre cette marge à zéro ou à la nouvelle hauteur. */
-.q-formulaire iframe{display:block;border:0;margin-top:-200px}
+.q-formulaire{margin:.4rem auto 0;max-width:1100px}
+.q-formulaire iframe{display:block;border:0}
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
