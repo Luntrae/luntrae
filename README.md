@@ -83,6 +83,7 @@ Le formulaire est intégré avec le code « Standard » de Tally. Le champ cach�
 - Sur écran tactile : les trois scènes partent seules, Le Q d'abord, le site 2 secondes après, les projets 2 secondes après le site ; puis 6 secondes de pause et l'enchaînement reprend, trois boucles au plus. Toucher une scène ouvre son lien à tout moment.
 - Les suites d'images pèsent 5 Mo en tout. Elles sont chargées après l'affichage de la page : avec une souris, celles du bassin d'abord ; sur écran tactile, dans l'ordre des scènes, une loutre après l'autre. Tant qu'une suite n'est pas arrivée, sa loutre garde sa pose de repos.
 - Le premier lien mène à `/le-q/`. Quand Le Q fermera, c'est ce lien, son badge (`badge-le-q.webp`) et la scène des deux loutres qu'il faudra revoir ; les deux autres scènes n'en dépendent pas.
+- Partage de la page du Q : sa vignette est `assets/img/le-q-partage.jpg`, le badge du Q sur fond obsidienne, en JPG sans métadonnées elle aussi.
 - Partage : la page a son titre (« Petit coin des liens · LUNTRAE »), sa description et sa vignette, `assets/img/petit-coin-des-liens-partage.jpg`. Cette vignette reste en JPG, sans métadonnées : certains réseaux n'affichent pas le WebP en aperçu.
 
 ## Mesure d'audience
