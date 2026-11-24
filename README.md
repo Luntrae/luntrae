@@ -31,7 +31,7 @@ Dix-huit pages publiques et une page d'erreur, toutes indexables sauf la 404. La
 | `/projets/methode-repositionnement/` | `projets/methode-repositionnement/index.html` | Méthode de repositionnement professionnel en onze étapes, testée sur trois parcours, témoignage de sa circulation. |
 | `/projets/leax/` | `projets/leax/index.html` | Léax, roman en cours et construction d'un univers mythologique. |
 | `/series/` | `series/index.html` | Séries éditoriales : pourquoi regarder du côté de l'art, L'Observatoire (lancée) et L'Atelier (à venir), extrait du premier épisode. |
-| `/contact/` | `contact/index.html` | Page Contact : ce qui intéresse Camille, comment la joindre (une adresse, pas de formulaire), ce qu'on peut consulter avant. |
+| `/contact/` | `contact/index.html` | Page Contact : ce qui intéresse Camille, comment la joindre (une adresse ; le seul formulaire du site est Le Q, vers lequel la page renvoie), ce qu'on peut consulter avant. |
 | `/le-q/` | `le-q/index.html` | Le Q, le questionnaire de LUNTRAE : bannière (image du gabarit et texte en HTML), puis formulaire Tally intégré, dont la couverture est rognée par la feuille de styles pour ne pas doubler la bannière. Seule page qui charge le script de Tally. |
 | `/mentions-legales.html` | `mentions-legales.html` | Mentions légales : éditrice, hébergeur, nom de domaine, propriété intellectuelle, données personnelles. |
 | `/confidentialite.html` | `confidentialite.html` | Confidentialité : mesure d'audience sans cookie, hébergeur, réponses au Q, e-mail, droits, date de mise à jour. |
