@@ -893,6 +893,12 @@ main{display:block;position:relative;z-index:2}
 @media(max-width:520px){}
 
 /* --- Préférence « mouvement réduit » ---------------------------------- */
+/* Illustration cliquable dans une page projet : pleine largeur de la colonne, sans cadre. */
+.projet-visuel{display:block;margin:1.3rem 0 1.5rem;border-radius:6px;overflow:hidden}
+.projet-visuel img{display:block;width:100%;height:auto;transition:transform .6s ease}
+.projet-visuel:hover img{transform:scale(1.015)}
+.projet-visuel:focus-visible{outline:2px solid var(--lunaire);outline-offset:4px}
+
 /* --- À LA UNE : bandeau d'actualité de l'accueil et bannière de la page Le Q ---------------
    L'image est une balise image (le logo qu'elle porte a du sens) et le texte est du vrai texte, posé dans la zone
    libre du gabarit, entre le logo à gauche et l'emblème à droite. Pour changer d'actualité sur l'accueil :

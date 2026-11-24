@@ -31,7 +31,7 @@ Dix-huit pages publiques et une page d'erreur, toutes indexables sauf la 404. La
 | `/projets/methode-repositionnement/` | `projets/methode-repositionnement/index.html` | Méthode de repositionnement professionnel en onze étapes, testée sur trois parcours, témoignage de sa circulation. |
 | `/projets/leax/` | `projets/leax/index.html` | Léax, roman en cours et construction d'un univers mythologique. |
 | `/series/` | `series/index.html` | Séries éditoriales : pourquoi regarder du côté de l'art, L'Observatoire (lancée) et L'Atelier (à venir), extrait du premier épisode. |
-| `/contact/` | `contact/index.html` | Page Contact : ce qui intéresse Camille, comment la joindre (une adresse, pas de formulaire), ce qu'on peut consulter avant. |
+| `/contact/` | `contact/index.html` | Page Contact : ce qui intéresse Camille, comment la joindre (une adresse ; le seul formulaire du site est Le Q, vers lequel la page renvoie), ce qu'on peut consulter avant. |
 | `/le-q/` | `le-q/index.html` | Le Q, le questionnaire de LUNTRAE : formulaire Tally intégré, avec sa couverture et sa barre de progression. Le titre de la page est présent pour les lecteurs d'écran et les moteurs de recherche, masqué à l'écran. |
 | `/mentions-legales.html` | `mentions-legales.html` | Mentions légales : éditrice, hébergeur, nom de domaine, propriété intellectuelle, données personnelles. |
 | `/confidentialite.html` | `confidentialite.html` | Confidentialité : mesure d'audience sans cookie, hébergeur, réponses au Q, e-mail, droits, date de mise à jour. |
@@ -72,6 +72,8 @@ Le bandeau « À la une » de l'accueil suit un gabarit (`.une` dans la feuille 
 
 Le formulaire est intégré avec le code « Standard » de Tally. Le champ caché `source` vaut `site` par défaut ; un paramètre `?source=…` dans l'adresse de la page est transmis par le script de Tally et l'emporte (vérifié le 22 novembre 2026 : avec `?source=instagram`, Tally enregistre `instagram`).
 
+Partage de la page du Q : sa vignette est `assets/img/le-q-partage.jpg`, le badge du Q sur fond obsidienne, en JPG sans métadonnées comme celle de la page de liens.
+
 ## Page de liens
 
 `/liens/` est une page à part : elle n'a ni le menu ni le pied de page complet du site, et ses styles sont dans `assets/css/liens.css`.
@@ -83,7 +85,6 @@ Le formulaire est intégré avec le code « Standard » de Tally. Le champ cach�
 - Sur écran tactile : les trois scènes partent seules, Le Q d'abord, le site 2 secondes après, les projets 2 secondes après le site ; puis 6 secondes de pause et l'enchaînement reprend, trois boucles au plus. Toucher une scène ouvre son lien à tout moment.
 - Les suites d'images pèsent 5 Mo en tout. Elles sont chargées après l'affichage de la page : avec une souris, celles du bassin d'abord ; sur écran tactile, dans l'ordre des scènes, une loutre après l'autre. Tant qu'une suite n'est pas arrivée, sa loutre garde sa pose de repos.
 - Le premier lien mène à `/le-q/`. Quand Le Q fermera, c'est ce lien, son badge (`badge-le-q.webp`) et la scène des deux loutres qu'il faudra revoir ; les deux autres scènes n'en dépendent pas.
-- Partage de la page du Q : sa vignette est `assets/img/le-q-partage.jpg`, le badge du Q sur fond obsidienne, en JPG sans métadonnées elle aussi.
 - Partage : la page a son titre (« Petit coin des liens · LUNTRAE »), sa description et sa vignette, `assets/img/petit-coin-des-liens-partage.jpg`. Cette vignette reste en JPG, sans métadonnées : certains réseaux n'affichent pas le WebP en aperçu.
 
 ## Mesure d'audience
